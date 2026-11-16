@@ -639,7 +639,9 @@
         "amazon": "Amazon",
         "amazonCategory": "Einkäufe",
         "spotify": "Spotify",
+        "spotifyCategory": "Abo",
         "netflix": "Netflix",
+        "netflixCategory": "Unterhaltung",
         "salaryDeposit": "Gehaltseingang",
         "salaryDepositSub": "Monatliche Gehaltszahlung",
         "salaryDepositCompleted": "Abgeschlossen"

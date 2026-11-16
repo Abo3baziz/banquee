@@ -1,4 +1,5 @@
 import * as stylex from '@stylexjs/stylex'
+import { AppCta } from '../../components/landing/app-cta'
 import { Cashflow } from '../../components/landing/cashflow'
 import { FeatureHighlights } from '../../components/landing/feature-highlights'
 import { Hero } from '../../components/landing/hero'
@@ -27,6 +28,7 @@ export default function Home() {
       <Tools />
       <Manifesto />
       <Testimonials />
+      <AppCta />
     </main>
   )
 }

@@ -639,7 +639,9 @@
         "amazon": "أمازون (Amazon)",
         "amazonCategory": "تسوق",
         "spotify": "سبوتيفاي (Spotify)",
+        "spotifyCategory": "اشتراك",
         "netflix": "نتفليكس (Netflix)",
+        "netflixCategory": "ترفيه",
         "salaryDeposit": "إيداع الراتب",
         "salaryDepositSub": "الراتب الشهري",
         "salaryDepositCompleted": "مكتمل"
