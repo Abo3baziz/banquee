@@ -5,6 +5,7 @@ import { Hero } from '../../components/landing/hero'
 import { Manifesto } from '../../components/landing/manifesto'
 import { Plans } from '../../components/landing/plans'
 import { SendReceive } from '../../components/landing/send-receive'
+import { Testimonials } from '../../components/landing/testimonials'
 import { Tools } from '../../components/landing/tools'
 import { colors } from '../../styles/tokens.stylex'
 
@@ -25,6 +26,7 @@ export default function Home() {
       <SendReceive />
       <Tools />
       <Manifesto />
+      <Testimonials />
     </main>
   )
 }

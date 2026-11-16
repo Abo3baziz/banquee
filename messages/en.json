@@ -253,26 +253,31 @@
       "title": "What our customers say",
       "items": {
         "sarah": {
+          "title": "Banking that makes life easier",
           "quote": "Managing my finances has become much easier with this app. I can send money, track expenses, and organize my savings without switching between different platforms. Everything feels simple, fast, and reliable.",
           "author": "Sarah Mitchell",
           "role": "Small Business Owner"
         },
         "guy": {
+          "title": "Everything feels effortless",
           "quote": "The experience has been great so far. I especially love how easy it is to manage transactions and keep track of my account activity. The instant notifications make sure I never miss an important update.",
           "author": "Guy Hawkins",
           "role": "President of Sales"
         },
         "jenny": {
+          "title": "A simpler way to manage money",
           "quote": "I've always struggled with keeping my savings organized, but this app makes everything easier. I can set goals, separate my money, and follow my progress without any complications. It's exactly what I needed.",
           "author": "Jenny Wilson",
           "role": "Nursing Assistant"
         },
         "cody": {
+          "title": "Finally, banking without limits",
           "quote": "Online payments have become much more convenient. Virtual cards give me extra flexibility when shopping, while the transaction history helps me stay on top of my spending. A really useful banking experience.",
           "author": "Cody Fisher",
           "role": "Medical Assistant"
         },
         "darlene": {
+          "title": "Money management made simple",
           "quote": "What makes this app stand out is its simplicity. The interface is clean, everything is easy to find, and transferring money takes only a few seconds. I can handle most of my banking without leaving home.",
           "author": "Darlene Robertson",
           "role": "Dog Trainer"
