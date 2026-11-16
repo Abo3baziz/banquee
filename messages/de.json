@@ -140,9 +140,12 @@
       "subtitle": "Hergestellt aus 100 % recyceltem Meeresplastik und präzisionsgefertigtem Edelstahl. Bestellen Sie Ihre Karte mit weltweitem 2-Tage-Expressversand.",
       "popularBadge": "Beliebteste Wahl",
       "steelBadge": "Edelstahl",
+      "flipCard": "Karte {{tier}} umdrehen, um die CVC anzuzeigen",
+      "cardFinePrint": "Unterschrift erforderlich • Nur gültig mit Unterschrift. Kundenservice: +1 (800) 555-BANQ",
       "tiers": {
         "standard": {
           "name": "Standard",
+          "cardLabel": "Standard Kostenlos",
           "price": "0 $",
           "billing": "/ Monat",
           "description": "Perfekt für alltägliche Ausgaben, inländische Überweisungen und persönliche Budgetplanung.",
@@ -154,6 +157,7 @@
         },
         "gold": {
           "name": "Gold",
+          "cardLabel": "Gold-Privileg",
           "price": "7,99 $",
           "billing": "/ Monat",
           "description": "Maßgeschneidert für Vielreisende mit gebührenfreiem Währungstausch und höheren Abhebelimits.",
@@ -165,6 +169,7 @@
         },
         "premium": {
           "name": "Premium",
+          "cardLabel": "Premium Elite",
           "price": "14,99 $",
           "billing": "/ Monat",
           "description": "Die exklusive Metallkarte aus 18g Edelstahl mit Concierge-Service, VIP-Reisevorteilen und Höchstlimits.",

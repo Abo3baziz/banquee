@@ -34,10 +34,11 @@ The shared pieces are in place:
 - ✅ Footer with localized columns, legal links, and copyright
 - ✅ Landing hero with layered card mockups and a flip interaction
 - ✅ Feature highlights strip and cashflow analytics section
+- ✅ Card plans with flippable 3D mockups and capability previews
 - ✅ Styled 404 for unknown locale routes
 - ✅ App icon and favicon
 
-The landing hero is in place. The remaining landing sections are next.
+The landing hero, highlights, analytics, and card plans are in place. The remaining landing sections are next.
 
 ## 🛠️ Stack
 

@@ -140,9 +140,12 @@
       "subtitle": "Fabricadas con plástico 100% reciclado recogido del océano y acero inoxidable de máxima precisión. Pide la tuya con envío global prioritario en 2 días.",
       "popularBadge": "Más popular",
       "steelBadge": "Acero",
+      "flipCard": "Gira la tarjeta {{tier}} para ver el CVV",
+      "cardFinePrint": "Firma autorizada • No válida sin firma. Atención al cliente: +1 (800) 555-BANQ",
       "tiers": {
         "standard": {
           "name": "Estándar (Standard)",
+          "cardLabel": "Standard Gratis",
           "price": "$0",
           "billing": "/ mes",
           "description": "Ideal para gastos cotidianos, transferencias bancarias nacionales y presupuestos personales.",
@@ -154,6 +157,7 @@
         },
         "gold": {
           "name": "Oro (Gold)",
+          "cardLabel": "Privilegio Gold",
           "price": "$7.99",
           "billing": "/ mes",
           "description": "Diseñada para viajeros habituales, con cambio de divisas sin recargos y mayores límites de retirada.",
@@ -165,6 +169,7 @@
         },
         "premium": {
           "name": "Premium",
+          "cardLabel": "Premium Elite",
           "price": "$14.99",
           "billing": "/ mes",
           "description": "La tarjeta de acero de lujo definitiva con conserjería privada, ventajas VIP y límites máximos.",

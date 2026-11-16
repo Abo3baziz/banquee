@@ -2,6 +2,7 @@ import * as stylex from '@stylexjs/stylex'
 import { Cashflow } from '../../components/landing/cashflow'
 import { FeatureHighlights } from '../../components/landing/feature-highlights'
 import { Hero } from '../../components/landing/hero'
+import { Plans } from '../../components/landing/plans'
 import { colors } from '../../styles/tokens.stylex'
 
 const styles = stylex.create({
@@ -17,6 +18,7 @@ export default function Home() {
       <Hero />
       <FeatureHighlights />
       <Cashflow />
+      <Plans />
     </main>
   )
 }

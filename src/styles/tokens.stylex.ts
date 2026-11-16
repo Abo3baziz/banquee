@@ -19,6 +19,7 @@ export const colors = stylex.defineVars({
   outlineVariant: '#bdc9c5',
   divider: '#d9d9d9',
   secondary: '#5f5d63',
+  secondaryContainer: '#e2dee5',
   tertiary: '#924939',
   error: '#ba1a1a',
   errorContainer: '#ffdad6',
