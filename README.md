@@ -38,6 +38,7 @@ The shared pieces are in place:
 - ✅ Send & receive section with a phone transaction preview
 - ✅ Tools and integrations section using the project logo assets
 - ✅ Manifesto section with editorial imagery and regulated-bank callout
+- ✅ Customer testimonials grid with localized quotes
 - ✅ Styled 404 for unknown locale routes
 - ✅ App icon and favicon
 

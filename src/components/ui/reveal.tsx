@@ -1,22 +1,30 @@
 'use client'
 
-import type { ReactNode } from 'react'
+import type { CSSProperties, ReactNode } from 'react'
 import { motion, useReducedMotion } from 'motion/react'
 
 type RevealProps = {
   children: ReactNode
+  className?: string
   delay?: number
+  style?: CSSProperties
 }
 
-export function Reveal({ children, delay = 0 }: RevealProps) {
+export function Reveal({ children, className, delay = 0, style }: RevealProps) {
   const shouldReduceMotion = useReducedMotion()
 
   if (shouldReduceMotion) {
-    return <>{children}</>
+    return (
+      <div className={className} style={style}>
+        {children}
+      </div>
+    )
   }
 
   return (
     <motion.div
+      className={className}
+      style={style}
       initial={{ opacity: 0, y: 24 }}
       whileInView={{ opacity: 1, y: 0 }}
       viewport={{ once: true, amount: 0.2 }}

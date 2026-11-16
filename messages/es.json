@@ -253,26 +253,31 @@
       "title": "Lo que dicen nuestros clientes",
       "items": {
         "sarah": {
+          "title": "Banca que te facilita la vida",
           "quote": "Gestionar mis finanzas se ha vuelto mucho más sencillo con esta aplicación. Puedo enviar dinero, controlar gastos y organizar mis ahorros sin alternar entre distintas plataformas. Todo se siente claro, rápido y fiable.",
           "author": "Sarah Mitchell",
           "role": "Propietaria de pequeña empresa"
         },
         "guy": {
+          "title": "Todo resulta sencillo",
           "quote": "La experiencia bancaria es inmejorable. Me encanta lo fácil que es gestionar las transacciones y seguir al detalle la actividad de la cuenta. Las notificaciones al instante garantizan que no me pierda ningún movimiento.",
           "author": "Guy Hawkins",
           "role": "Director de Ventas"
         },
         "jenny": {
+          "title": "Una forma más sencilla de gestionar tu dinero",
           "quote": "Siempre me había costado mantener mis ahorros bien organizados, pero esta aplicación lo hace facilísimo. Puedo fijar metas, separar mi dinero y seguir mi progreso sin complicaciones. Es justo lo que necesitaba.",
           "author": "Jenny Wilson",
           "role": "Asistente de enfermería"
         },
         "cody": {
+          "title": "Por fin, banca sin límites",
           "quote": "Los pagos online son mucho más cómodos y seguros. Las tarjetas virtuales me ofrecen tranquilidad al comprar por internet, y el historial de transacciones me ayuda a no perder de vista mi presupuesto.",
           "author": "Cody Fisher",
           "role": "Asistente médico"
         },
         "darlene": {
+          "title": "Gestión del dinero simplificada",
           "quote": "Lo que hace destacar a esta app es su simplicidad. La interfaz es limpia, todo se encuentra rápido y transferir dinero lleva apenas unos segundos. Resuelvo casi todas mis gestiones bancarias sin salir de casa.",
           "author": "Darlene Robertson",
           "role": "Entrenadora canina"

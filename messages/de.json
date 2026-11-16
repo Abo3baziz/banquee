@@ -253,26 +253,31 @@
       "title": "Was unsere Kunden über uns sagen",
       "items": {
         "sarah": {
+          "title": "Banking, das das Leben leichter macht",
           "quote": "Das Verwalten meiner Finanzen ist mit dieser App so viel einfacher geworden. Ich kann Geld überweisen, Ausgaben verfolgen und Ersparnisse strukturieren, ohne zwischen verschiedenen Plattformen zu wechseln. Alles fühlt sich einfach, schnell und zuverlässig an.",
           "author": "Sarah Mitchell",
           "role": "Inhaberin eines Kleinunternehmens"
         },
         "guy": {
+          "title": "Alles fühlt sich mühelos an",
           "quote": "Das Banking-Erlebnis ist schlichtweg erstklassig. Besonders schätze ich die intuitive Transaktionsübersicht und die lückenlose Echtzeitkontrolle meines Kontos. Dank Sofort-Benachrichtigungen verpasse ich keine Buchung.",
           "author": "Guy Hawkins",
           "role": "Vertriebsleiter"
         },
         "jenny": {
+          "title": "Geldverwaltung, ganz einfach",
           "quote": "Früher fiel es mir schwer, meine Ersparnisse konsequent zu ordnen, aber diese App macht es kinderleicht. Ich setze mir Sparziele, teile mein Geld auf und verfolge den Fortschritt ganz ohne Stress.",
           "author": "Jenny Wilson",
           "role": "Pflegefachkraft"
         },
         "cody": {
+          "title": "Endlich Banking ohne Grenzen",
           "quote": "Online-Zahlungen sind ungemein komfortabler und sicherer geworden. Die Einweg-Virtuellkarten geben mir beim Online-Shopping ein beruhigendes Gefühl, während der Ausgabenverlauf volle Übersicht bietet.",
           "author": "Cody Fisher",
           "role": "Medizinischer Assistent"
         },
         "darlene": {
+          "title": "Finanzen einfach im Griff",
           "quote": "Was diese App auszeichnet, ist ihre Klarheit. Die Oberfläche ist aufgeräumt, alle Funktionen sind leicht zu finden und Geldüberweisungen dauern nur Sekunden. Fast alle Bankgeschäfte erledige ich bequem von unterwegs.",
           "author": "Darlene Robertson",
           "role": "Hundetrainerin"
