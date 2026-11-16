@@ -33,6 +33,7 @@ The shared pieces are in place:
 - ✅ Responsive site header with a Radix language switcher, Lucide icons, and a slide-in mobile menu
 - ✅ Footer with localized columns, legal links, and copyright
 - ✅ Landing hero with layered card mockups and a flip interaction
+- ✅ Feature highlights strip and cashflow analytics section
 - ✅ Styled 404 for unknown locale routes
 - ✅ App icon and favicon
 
