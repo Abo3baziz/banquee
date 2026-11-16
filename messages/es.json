@@ -214,22 +214,25 @@
     "tools": {
       "eyebrow": "Herramientas e integraciones",
       "title": "Integración perfecta y fluida.",
-      "description": "Disfruta de pagos sencillos y total flexibilidad financiera con soporte para las principales redes de pago internacionales y criptomonedas consolidadas.",
+      "description": "Disfruta de pagos sencillos y total flexibilidad financiera con soporte para las principales redes de pago internacionales, criptomonedas consolidadas y las herramientas que ya utilizas.",
       "groupPaymentNetworks": "Redes de pago globales",
-      "groupDigitalCurrencies": "Monedas digitales",
+      "groupIntegrations": "Integraciones",
       "networks": {
         "visa": "Visa",
         "mastercard": "Mastercard",
-        "amex": "American Express",
-        "discover": "Discover"
+        "paypal": "PayPal",
+        "applePay": "Apple Pay",
+        "googlePay": "Google Pay",
+        "amazonPay": "Amazon Pay"
+      },
+      "integrations": {
+        "shopify": "Shopify",
+        "webflow": "Webflow",
+        "zapier": "Zapier"
       },
       "crypto": {
         "bitcoin": "Bitcoin",
-        "bitcoinSymbol": "BTC",
-        "ethereum": "Ethereum",
-        "ethereumSymbol": "ETH",
-        "usdCoin": "USD Coin",
-        "usdCoinSymbol": "USDC"
+        "bitcoinSymbol": "BTC"
       },
       "pillSecure": "Integración cifrada y altamente segura",
       "pillApi": "Interfaz basada en API flexible",

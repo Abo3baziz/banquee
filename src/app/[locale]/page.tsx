@@ -4,6 +4,7 @@ import { FeatureHighlights } from '../../components/landing/feature-highlights'
 import { Hero } from '../../components/landing/hero'
 import { Plans } from '../../components/landing/plans'
 import { SendReceive } from '../../components/landing/send-receive'
+import { Tools } from '../../components/landing/tools'
 import { colors } from '../../styles/tokens.stylex'
 
 const styles = stylex.create({
@@ -21,6 +22,7 @@ export default function Home() {
       <Cashflow />
       <Plans />
       <SendReceive />
+      <Tools />
     </main>
   )
 }

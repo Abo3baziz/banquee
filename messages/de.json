@@ -214,22 +214,25 @@
     "tools": {
       "eyebrow": "Integrationen & Schnittstellen",
       "title": "Nahtlose Verknüpfung.",
-      "description": "Erleben Sie reibungslose Zahlungen und höchste finanzielle Flexibilität dank Unterstützung renommierter Zahlungsnetzwerke und etablierter digitaler Währungen.",
+      "description": "Erleben Sie reibungslose Zahlungen und höchste finanzielle Flexibilität dank Unterstützung renommierter Zahlungsnetzwerke, etablierter digitaler Währungen und der Tools, die Sie bereits nutzen.",
       "groupPaymentNetworks": "Zahlungsnetzwerke",
-      "groupDigitalCurrencies": "Digitale Währungen",
+      "groupIntegrations": "Integrationen",
       "networks": {
         "visa": "Visa",
         "mastercard": "Mastercard",
-        "amex": "American Express",
-        "discover": "Discover"
+        "paypal": "PayPal",
+        "applePay": "Apple Pay",
+        "googlePay": "Google Pay",
+        "amazonPay": "Amazon Pay"
+      },
+      "integrations": {
+        "shopify": "Shopify",
+        "webflow": "Webflow",
+        "zapier": "Zapier"
       },
       "crypto": {
         "bitcoin": "Bitcoin",
-        "bitcoinSymbol": "BTC",
-        "ethereum": "Ethereum",
-        "ethereumSymbol": "ETH",
-        "usdCoin": "USD Coin",
-        "usdCoinSymbol": "USDC"
+        "bitcoinSymbol": "BTC"
       },
       "pillSecure": "Vollständig verschlüsselte Integration",
       "pillApi": "Leistungsstarke API-Schnittstelle",
