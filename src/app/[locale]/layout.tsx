@@ -4,7 +4,9 @@ import { notFound } from 'next/navigation'
 import { hasLocale, NextIntlClientProvider } from 'next-intl'
 import './globals.css'
 import * as stylex from '@stylexjs/stylex'
+import { SiteFooter } from '../../components/layout/site-footer'
 import { SiteHeader } from '../../components/layout/site-header'
+import { colors } from '../../styles/tokens.stylex'
 import { routing } from '@/i18n/routing'
 
 const dmSans = DM_Sans({
@@ -28,6 +30,7 @@ export function generateStaticParams() {
 
 const styles = stylex.create({
   body: {
+    backgroundColor: colors.surface,
     display: 'flex',
     flexDirection: 'column',
     minHeight: '100%',
@@ -60,6 +63,7 @@ export default async function RootLayout({
         <NextIntlClientProvider>
           <SiteHeader />
           <div {...stylex.props(styles.content)}>{children}</div>
+          <SiteFooter />
         </NextIntlClientProvider>
       </body>
     </html>
