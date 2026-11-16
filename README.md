@@ -32,10 +32,11 @@ The shared pieces are in place:
 - ✅ Four locales: English, German, Spanish, and Arabic (RTL)
 - ✅ Site header with a Radix language switcher and Lucide icons
 - ✅ Footer with localized columns, legal links, and copyright
+- ✅ Landing hero with layered card mockups and a flip interaction
 - ✅ Styled 404 for unknown locale routes
 - ✅ App icon and favicon
 
-The landing page is next. The home route currently renders the shared shell with an empty canvas, so the header and footer can be developed and tested in isolation.
+The landing hero is in place. The remaining landing sections are next.
 
 ## 🛠️ Stack
 
@@ -113,6 +114,7 @@ Headings use **DM Sans**; UI text uses **Inter**. Spacing follows an 8px rhythm,
 src/
   app/[locale]/          # locale layout, home, 404, catch-all
   components/layout/     # header, footer, language switcher
+  components/landing/    # hero
   components/ui/         # shared UI pieces
   styles/tokens.stylex.ts
 i18n/                    # routing, request config, navigation helpers
