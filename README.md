@@ -40,6 +40,7 @@ The shared pieces are in place:
 - ✅ Manifesto section with editorial imagery and regulated-bank callout
 - ✅ Customer testimonials grid with localized quotes
 - ✅ App download CTA with a banking dashboard mockup
+- ✅ Landing blog preview with localized article cards
 - ✅ Styled 404 for unknown locale routes
 - ✅ App icon and favicon
 
