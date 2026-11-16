@@ -657,10 +657,17 @@
       "btnSend": "Betrag sofort überweisen",
       "notificationReceived": "Geldeingang",
       "notificationDetail": "Sarah Johnson hat Ihnen 250,00 $ gesendet",
+      "notificationReceivedWhen": "Gerade eben",
       "notificationSuccessful": "Überweisung erfolgreich",
       "notificationSuccessDetail": "Überweisung über 120,00 $ reibungslos ausgeführt.",
+      "notificationSuccessfulWhen": "Vor 2 Min.",
+      "paymentReminder": "Zahlungserinnerung",
+      "paymentReminderDetail": "Monatliches Spotify-Abo fällig (11,99 $).",
+      "paymentReminderWhen": "Morgen",
       "securityAlert": "Sicherheitsmeldung",
-      "securityAlertDetail": "Konto auf iPhone 16 Pro bestätigt."
+      "securityAlertDetail": "Konto auf iPhone 16 Pro bestätigt.",
+      "securityAlertWhen": "10:14 Uhr",
+      "transactionTime": "Heute, 14:28"
     },
     "transactionDetails": {
       "title": "Transaktionsdetails",

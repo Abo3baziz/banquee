@@ -657,10 +657,17 @@
       "btnSend": "Enviar fondos de inmediato",
       "notificationReceived": "Dinero recibido",
       "notificationDetail": "Sarah Johnson te ha enviado $250.00",
+      "notificationReceivedWhen": "Ahora mismo",
       "notificationSuccessful": "Transferencia realizada con éxito",
       "notificationSuccessDetail": "La transferencia de $120.00 se ha completado sin problemas.",
+      "notificationSuccessfulWhen": "Hace 2 min",
+      "paymentReminder": "Recordatorio de pago",
+      "paymentReminderDetail": "Suscripción mensual de Spotify pendiente ($11.99).",
+      "paymentReminderWhen": "Mañana",
       "securityAlert": "Alerta de seguridad",
-      "securityAlertDetail": "Cuenta confirmada en iPhone 16 Pro."
+      "securityAlertDetail": "Cuenta confirmada en iPhone 16 Pro.",
+      "securityAlertWhen": "10:14",
+      "transactionTime": "Hoy, 14:28"
     },
     "transactionDetails": {
       "title": "Detalles de la transacción",
