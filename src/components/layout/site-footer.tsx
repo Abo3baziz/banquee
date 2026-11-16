@@ -61,7 +61,7 @@ const styles = stylex.create({
     alignItems: 'center',
     color: colors.primary,
     display: 'flex',
-    fontFamily: fonts.heading,
+    fontFamily: fonts.latinHeading,
     fontSize: '1.25rem',
     fontWeight: 700,
     letterSpacing: '-0.025em',

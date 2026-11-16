@@ -108,7 +108,7 @@ The visual language is light, calm, and a little editorial:
 | Ink         | `#1A1C1C` | Headings                         |
 | Muted ink   | `#3E4946` | Body and secondary text          |
 
-Headings use **DM Sans**; UI text uses **Inter**. Spacing follows an 8px rhythm, and the shared shell is capped at 80rem. Tokens live in [src/styles/tokens.stylex.ts](src/styles/tokens.stylex.ts).
+English headings use **DM Sans** and UI text uses **Inter**. Arabic pages use **Cairo** for headings and **Tajawal** for body copy. Spacing follows an 8px rhythm, and the shared shell is capped at 80rem. Tokens live in [src/styles/tokens.stylex.ts](src/styles/tokens.stylex.ts).
 
 ## 🗂️ Project layout
 

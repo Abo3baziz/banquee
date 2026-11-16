@@ -1,3 +1,16 @@
+:root {
+  --font-heading-stack: var(--font-dm-sans), 'DM Sans', sans-serif;
+  --font-body-stack: var(--font-inter), 'Inter', Arial, Helvetica, sans-serif;
+}
+
+html[lang='ar'] {
+  --font-heading-stack:
+    var(--font-cairo), var(--font-dm-sans), 'DM Sans', sans-serif;
+  --font-body-stack:
+    var(--font-tajawal), var(--font-inter), 'Inter', Arial, Helvetica,
+    sans-serif;
+}
+
 @layer resets {
   *,
   *::before,
@@ -19,7 +32,7 @@
 
   body {
     min-height: 100%;
-    font-family: var(--font-inter), Inter, Arial, Helvetica, sans-serif;
+    font-family: var(--font-body-stack);
   }
 }
 
