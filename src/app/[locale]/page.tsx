@@ -2,6 +2,7 @@ import * as stylex from '@stylexjs/stylex'
 import { Cashflow } from '../../components/landing/cashflow'
 import { FeatureHighlights } from '../../components/landing/feature-highlights'
 import { Hero } from '../../components/landing/hero'
+import { Manifesto } from '../../components/landing/manifesto'
 import { Plans } from '../../components/landing/plans'
 import { SendReceive } from '../../components/landing/send-receive'
 import { Tools } from '../../components/landing/tools'
@@ -23,6 +24,7 @@ export default function Home() {
       <Plans />
       <SendReceive />
       <Tools />
+      <Manifesto />
     </main>
   )
 }
