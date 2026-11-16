@@ -1,0 +1,714 @@
+{
+  "common": {
+    "brandName": "banquee.",
+    "brandNameAlt": "Banko",
+    "openAccount": "Open Account",
+    "login": "Login",
+    "getStarted": "Get Started",
+    "readArticle": "Read Article",
+    "viewAll": "View All",
+    "readFaqs": "Read FAQs",
+    "completed": "Completed",
+    "download": "Download",
+    "year": "Year",
+    "month": "Month",
+    "all": "All",
+    "more": "More",
+    "send": "Send",
+    "receive": "Receive",
+    "topUp": "Top up",
+    "request": "Request",
+    "selectLanguage": "Select Language"
+  },
+  "nav": {
+    "features": "Features",
+    "compare": "Compare",
+    "support": "Support",
+    "blog": "Blog"
+  },
+  "footer": {
+    "brandTagline": "Modern banking architecture engineered for seamless transactions, total transparency, and effortless financial growth.",
+    "colAboutTitle": "About",
+    "colBlogTitle": "Blog",
+    "colWebflowTitle": "Webflow",
+    "colSocialTitle": "Social Media",
+    "links": {
+      "features": "Features",
+      "aboutUs": "About Us",
+      "pricing": "Pricing",
+      "support": "Support",
+      "careers": "Careers",
+      "press": "Press & Media",
+      "security": "Security",
+      "products": "Products",
+      "editorial": "Editorial",
+      "fintechGuides": "Fintech Guides",
+      "technology": "Technology",
+      "productUpdates": "Product Updates",
+      "crypto": "Crypto",
+      "marketInsights": "Market Insights",
+      "founderStories": "Founder Stories",
+      "styleGuide": "Style Guide",
+      "licensing": "Licensing",
+      "changelog": "Changelog",
+      "allTemplates": "All Templates",
+      "instructions": "Instructions",
+      "twitter": "Twitter / X",
+      "linkedIn": "LinkedIn",
+      "instagram": "Instagram",
+      "youTube": "YouTube",
+      "facebook": "Facebook",
+      "communityHub": "Community Hub"
+    },
+    "copyright": "© {{year}} banquee. All rights reserved. Built for modern financial clarity.",
+    "pawelCredit": "© Made by Pawel Gola - Powered by Webflow",
+    "legal": {
+      "impressum": "Impressum",
+      "datenschutz": "Datenschutz",
+      "privacyPolicy": "Privacy Policy",
+      "termsOfService": "Terms of Service",
+      "securityCompliance": "Security & Compliance",
+      "terms": "Terms"
+    }
+  },
+  "landing": {
+    "hero": {
+      "badge": "Next-Gen Neobanking",
+      "headline": "Banking starts here.",
+      "subheadline": "A modern banking app with smart cards, instant transactions, automated savings accounts, and 100% mobile management engineered for digital living.",
+      "ctaPrimary": "Open Account",
+      "ctaSecondary": "Compare Cards",
+      "stats": {
+        "activeAccountsValue": "2.4M+",
+        "activeAccountsLabel": "Active Accounts",
+        "fxMarkupValue": "0.00%",
+        "fxMarkupLabel": "FX Markup Fee",
+        "appStoreRatingValue": "4.9/5",
+        "appStoreRatingLabel": "App Store Rating"
+      },
+      "pills": {
+        "instantTransfers": "Instant transfers",
+        "instantTransfersSub": "Sub-second execution",
+        "savingAccounts": "Saving accounts",
+        "savingAccountsSub": "Up to 4.2% APY return",
+        "worldwidePay": "Worldwide pay",
+        "worldwidePaySub": "150+ currencies at real rate",
+        "mobileBanking": "100% Mobile",
+        "mobileBankingSub": "Total card control anywhere"
+      }
+    },
+    "cashflow": {
+      "eyebrow": "Cashflow Velocity",
+      "title": "Earnings vs Expenses",
+      "periodYear": "Year 2025",
+      "periodMonth": "Month",
+      "totalInflowLabel": "Total Inflow",
+      "totalInflowValue": "$85,222.00",
+      "totalInflowBadge": "+24.8% vs last period",
+      "totalOutflowLabel": "Total Outflow",
+      "totalOutflowValue": "-$52,150.50",
+      "totalOutflowBadge": "-3.1% below budget",
+      "chartLegend": {
+        "earnings": "Earnings ($85,222,000)",
+        "expenses": "Expenses ($52,150,50)"
+      },
+      "featureTag": "Intelligent Analytics",
+      "featureTitle": "Keep your money organized effortlessly.",
+      "featureDescription": "Banquee automatically tags, breaks down, and predicts your cashflow trajectory. Receive smart push nudges before recurring bills hit, and monitor your monthly burn at a single glance.",
+      "bullet1Title": "Predictive recurring bill tracker",
+      "bullet1Desc": "Never get surprised by automated subscriptions and utility dues.",
+      "bullet2Title": "Smart multi-category budgeting",
+      "bullet2Desc": "Dynamic envelopes that calibrate to your monthly spend limits."
+    },
+    "plans": {
+      "eyebrow": "Physical & Virtual",
+      "title": "A card for every lifestyle.",
+      "subtitle": "Crafted from 100% recycled ocean-bound plastic and precision stainless steel. Order yours with 2-day priority global shipping.",
+      "popularBadge": "Most Popular",
+      "steelBadge": "Steel",
+      "tiers": {
+        "standard": {
+          "name": "Standard",
+          "price": "$0",
+          "billing": "/ month",
+          "description": "Perfect for daily spending, local debit transfers, and personal budgeting.",
+          "feature1": "Free virtual & physical debit card",
+          "feature2": "0% fees on domestic payments",
+          "feature3": "2 free ATM withdrawals / mo",
+          "feature4Disabled": "Travel insurance & lounge access",
+          "cta": "Get Standard"
+        },
+        "gold": {
+          "name": "Gold",
+          "price": "$7.99",
+          "billing": "/ month",
+          "description": "Tailored for frequent travelers, zero-markup exchanges, and higher limits.",
+          "feature1": "All Standard features included",
+          "feature2": "Unlimited global FX at interbank rates",
+          "feature3": "1.0% cashback on all card spend",
+          "feature4": "Basic travel delayed flight cover",
+          "cta": "Get Gold"
+        },
+        "premium": {
+          "name": "Premium",
+          "price": "$14.99",
+          "billing": "/ month",
+          "description": "The ultimate luxury steel card with concierge, VIP travel, and max limits.",
+          "feature1": "Heavyweight 18g steel metal card",
+          "feature2": "Airport lounge access (LoungeKey)",
+          "feature3": "Comprehensive global medical insurance",
+          "feature4": "2.5% cashback on dining & travel",
+          "cta": "Get Premium"
+        }
+      },
+      "featureCards": {
+        "smartVaults": {
+          "title": "Smart Vaults",
+          "description": "Automate recurring deposits and round-ups toward your dream milestones."
+        },
+        "security": {
+          "title": "Military-grade Security",
+          "description": "Instant card freeze, dynamic CVV, and biometric login to protect every cent.",
+          "toggleCardFreeze": "Card Freeze",
+          "toggleSingleUse": "Single-Use Virtual Card",
+          "toggleLocation": "Location Security"
+        },
+        "globalExchange": {
+          "title": "Global Exchange",
+          "description": "Hold and swap 30+ fiat currencies at real interbank exchange rates."
+        }
+      }
+    },
+    "sendReceive": {
+      "eyebrow": "Instant Transfers",
+      "title": "Send & Receive Money Instantly.",
+      "description": "Transfer money effortlessly with fast, secure payments. Send funds to friends, family, or other accounts whenever you need with real-time settlement and total peace of mind.",
+      "feature1Title": "Instant Transfers",
+      "feature1Desc": "Send money in sub-seconds with zero lag, locally and internationally.",
+      "feature2Title": "Secure Payments",
+      "feature2Desc": "End-to-end encryption, biometric approval, and fraud protection on every transaction.",
+      "feature3Title": "Transfer History",
+      "feature3Desc": "Real-time ledger, instant receipts, and automated categorization for all incoming and outgoing funds.",
+      "ctaStart": "Start Sending Funds",
+      "ctaLearn": "Learn about Transfers"
+    },
+    "tools": {
+      "eyebrow": "Tools",
+      "title": "Seamless Integration.",
+      "description": "Enjoy seamless payments and financial flexibility with support for trusted payment networks and digital currencies.",
+      "groupPaymentNetworks": "Payment Networks",
+      "groupDigitalCurrencies": "Digital Currencies",
+      "networks": {
+        "visa": "Visa",
+        "mastercard": "Mastercard",
+        "amex": "American Express",
+        "discover": "Discover"
+      },
+      "crypto": {
+        "bitcoin": "Bitcoin",
+        "bitcoinSymbol": "BTC",
+        "ethereum": "Ethereum",
+        "ethereumSymbol": "ETH",
+        "usdCoin": "USD Coin",
+        "usdCoinSymbol": "USDC"
+      },
+      "pillSecure": "Secure and encrypted integration",
+      "pillApi": "Fully API interface",
+      "pillWorldwide": "Payments worldwide"
+    },
+    "manifesto": {
+      "eyebrow": "Effortless Life",
+      "title": "Designed for how the modern world works.",
+      "paragraph1": "Say goodbye to branch queues, physical paper forms, hidden quarterly maintenance charges, and confusing foreign transaction conversions.",
+      "paragraph2": "From freelance contractors to high-velocity founders, Banquee equips you with instantaneous financial transparency on whatever screen you choose.",
+      "badgeRegulated": "Regulated Bank",
+      "badgeRegulatedSub": "Your deposits are FDIC & European Banking Authority protected up to $250,000.",
+      "cta": "Read Our Manifesto"
+    },
+    "testimonials": {
+      "eyebrow": "Testimonials",
+      "title": "What our customers say",
+      "items": {
+        "sarah": {
+          "quote": "Managing my finances has become much easier with this app. I can send money, track expenses, and organize my savings without switching between different platforms. Everything feels simple, fast, and reliable.",
+          "author": "Sarah Mitchell",
+          "role": "Small Business Owner"
+        },
+        "guy": {
+          "quote": "The experience has been great so far. I especially love how easy it is to manage transactions and keep track of my account activity. The instant notifications make sure I never miss an important update.",
+          "author": "Guy Hawkins",
+          "role": "President of Sales"
+        },
+        "jenny": {
+          "quote": "I've always struggled with keeping my savings organized, but this app makes everything easier. I can set goals, separate my money, and follow my progress without any complications. It's exactly what I needed.",
+          "author": "Jenny Wilson",
+          "role": "Nursing Assistant"
+        },
+        "cody": {
+          "quote": "Online payments have become much more convenient. Virtual cards give me extra flexibility when shopping, while the transaction history helps me stay on top of my spending. A really useful banking experience.",
+          "author": "Cody Fisher",
+          "role": "Medical Assistant"
+        },
+        "darlene": {
+          "quote": "What makes this app stand out is its simplicity. The interface is clean, everything is easy to find, and transferring money takes only a few seconds. I can handle most of my banking without leaving home.",
+          "author": "Darlene Robertson",
+          "role": "Dog Trainer"
+        }
+      }
+    },
+    "appCta": {
+      "headline": "One app. One banking.",
+      "description": "Instant transactions, saving accounts, payments worldwide, 100% mobile banking.",
+      "featureInstant": "Instant transactions",
+      "featureSavings": "Saving accounts",
+      "featureWorldwide": "Payments worldwide",
+      "featureMobile": "100% mobile banking",
+      "appStore": "Download on the App Store",
+      "googlePlay": "Get it on Google Play"
+    },
+    "blogSection": {
+      "eyebrow": "Blog",
+      "title": "Blog.",
+      "ctaAll": "All Articles"
+    }
+  },
+  "featuresPage": {
+    "hero": {
+      "badge": "Features",
+      "headline": "All in one card.",
+      "description": "Enjoy smarter banking with simple tools designed to make managing your money easier, faster, and more secure.",
+      "ctaOpen": "Open Account",
+      "ctaCompare": "Compare Cards",
+      "stats": {
+        "ratingVal": "4.9/5",
+        "ratingLbl": "App Store Rating",
+        "usersVal": "2.4M+",
+        "usersLbl": "Active Global Cards",
+        "settlementVal": "0.0s",
+        "settlementLbl": "Instant Settlement"
+      }
+    },
+    "featureSendReceive": {
+      "eyebrow": "Transactions",
+      "title": "Send & receive money instantly",
+      "description": "Send and receive money instantly with secure transfers and a seamless banking experience. Manage payments, track activity, and stay in control of every transaction.",
+      "items": {
+        "transfersTitle": "Instant Transfers",
+        "transfersDesc": "Real-time domestic and international transfers completed in seconds with zero delay.",
+        "paymentsTitle": "Secure Payments",
+        "paymentsDesc": "End-to-end encrypted protocols backed by real-time biometric and fraud prevention.",
+        "historyTitle": "Transfer History",
+        "historyDesc": "Categorized timeline receipts, searchable metadata, and exportable statements anytime."
+      }
+    },
+    "featureManageCards": {
+      "eyebrow": "Cards",
+      "title": "Manage your cards",
+      "description": "Manage all your cards in one place with complete control over your payments. Create virtual cards, monitor activity, and enjoy secure payments wherever you go.",
+      "items": {
+        "virtualTitle": "Virtual Cards",
+        "virtualDesc": "Spin up instant disposable cards for subscriptions or private online checkout security.",
+        "spendingTitle": "Spending Control",
+        "spendingDesc": "Set category thresholds, freeze lost cards with one tap, and customize dynamic limits.",
+        "paymentsTitle": "Secure Payments",
+        "paymentsDesc": "Protected by real-time geolocation alerts, tokenization, and zero-liability coverage."
+      }
+    },
+    "featureControlMoney": {
+      "eyebrow": "Advanced Statistics",
+      "title": "Keep control over your money",
+      "description": "Track your spending and understand your financial habits with detailed insights. Monitor expenses, view clear reports, and make smarter financial decisions.",
+      "items": {
+        "insightsTitle": "Spending Insights",
+        "insightsDesc": "Automated categorization spots spending spikes and flags recurring cost optimizations.",
+        "monthlyTitle": "Monthly Reports",
+        "monthlyDesc": "Beautiful interactive breakdown charts summarizing cash flow changes month over month.",
+        "expenseTitle": "Expense Tracking",
+        "expenseDesc": "Pin budgets to individual tags and receive proactive pacing alerts before overspending."
+      }
+    },
+    "featureOrganizeSavings": {
+      "eyebrow": "Saving Accounts",
+      "title": "Organize your savings",
+      "description": "Keep your money organized with dedicated savings accounts. Set goals, track progress, and build better saving habits.",
+      "items": {
+        "goalsTitle": "Savings Goals",
+        "goalsDesc": "Separate vacation funds, emergency reserves, and major purchases into zero-fee sub-vaults.",
+        "progressTitle": "Progress Tracking",
+        "progressDesc": "Watch targets advance in real time with auto-contributions and clear completion dates.",
+        "smartPlanningTitle": "Smart Planning",
+        "smartPlanningDesc": "Spare change spare-save algorithms effortlessly funnel cents into high-yield accounts."
+      }
+    }
+  },
+  "compareCards": {
+    "eyebrow": "Compare Cards",
+    "title": "Find the right card for you.",
+    "subtitle": "Compare Banko plans and find the features that best fit your everyday banking needs.",
+    "plans": {
+      "premium": {
+        "name": "Premium",
+        "price": "$10",
+        "billing": "/ month",
+        "description": "Get the ultimate banking experience with unlimited virtual cards and premium analytics.",
+        "cta": "Get started"
+      },
+      "gold": {
+        "name": "Gold",
+        "price": "$7.99",
+        "billing": "/ month",
+        "description": "Tailored for frequent travelers, zero markup exchanges, and elevated withdrawal limits.",
+        "cta": "Get started"
+      },
+      "plat": {
+        "name": "Plat",
+        "price": "$14.99",
+        "billing": "/ month",
+        "description": "The executive tier with bespoke concierge access, highest coverage, and global perks.",
+        "cta": "Get started"
+      }
+    },
+    "table": {
+      "headers": {
+        "features": "Features",
+        "basic": "Basic",
+        "popular": "Popular",
+        "premium": "Premium",
+        "gold": "Gold",
+        "plat": "Plat"
+      },
+      "categories": {
+        "creditCard": "Credit Card",
+        "bankAccount": "Bank Account",
+        "extraFeatures": "Extra Features"
+      },
+      "rows": {
+        "physicalCard": "Physical Card",
+        "virtualCard": "Virtual Card",
+        "contactlessPayments": "Contactless Payments",
+        "mobilePayments": "Mobile Payments",
+        "freePaymentsWorldwide": "Free Payments Worldwide",
+        "freeAtmWithdrawals": "Free ATM Withdrawals",
+        "mobileBanking": "Mobile Banking",
+        "savingAccounts": "Saving Accounts",
+        "advancedStatistics": "Advanced Statistics",
+        "premiumPartnerOffers": "Premium Partner Offers"
+      },
+      "values": {
+        "optional": "Optional",
+        "upTo2": "Up to 2",
+        "unlimited": "Unlimited",
+        "included": "Diam in arcu cursus euismod"
+      }
+    },
+    "securityCta": {
+      "eyebrow": "Security First",
+      "heading": "Questions about switching your card?",
+      "description": "Upgrade or downgrade anytime directly from the banquee mobile app. No hidden penalties, cancel whenever you want.",
+      "ctaFaq": "Read FAQs",
+      "ctaOpen": "Open Account"
+    }
+  },
+  "support": {
+    "hero": {
+      "eyebrow": "Support",
+      "title": "How can we help you?",
+      "description": "Find answers to common questions about your Banko account, cards, and personal details."
+    },
+    "categories": {
+      "cards": "Cards",
+      "account": "Account",
+      "personalDetails": "Personal Details"
+    },
+    "faqs": {
+      "cards": {
+        "q1": "How to setup my card?",
+        "a1": "Once you receive your physical card, open the Banko app, go to Cards, select your new card, and follow the activation instructions. Make sure your card details are correct before completing the process.",
+        "q2": "How do I create a virtual card?",
+        "a2": "Open the Cards section in your Banko app and select Create Virtual Card. Follow the instructions to generate your card. Once created, you can view its details and use it for online payments.",
+        "q3": "How to order an extra card?",
+        "a3": "Go to the Cards section and check the available card options. Select the additional card you want and follow the ordering instructions. Contact our support team if you need assistance.",
+        "q4": "My card will expire soon. What to do?",
+        "a4": "You should arrange a replacement before your current card expires. Check the Cards section for replacement options and follow the instructions. If you haven't received your replacement, contact our support team.",
+        "q5": "How do I freeze my card?",
+        "a5": "Open the Banko app, navigate to Cards, select the card you want to freeze, and choose the Freeze Card option. This temporarily prevents the card from being used. You can manage its status from the same section."
+      },
+      "account": {
+        "q1": "How do I verify my account?",
+        "a1": "Go to your account settings and select Verify Account. Follow the instructions to submit the required identification documents. Make sure your information is accurate and your documents are clearly visible.",
+        "q2": "How to upgrade my account?",
+        "a2": "Visit the Account or Plans section in your Banko app to explore available plans. Select your preferred plan and follow the instructions to complete the upgrade.",
+        "q3": "Can I have multiple accounts?",
+        "a3": "Available account options depend on the services offered by your Banko plan. Check your account settings for available options or contact our support team for further information.",
+        "q4": "How do I cancel my account?",
+        "a4": "If you want to stop using your Banko account, contact our support team to request account cancellation. They can guide you through the required steps and explain anything you need to complete beforehand."
+      },
+      "personalDetails": {
+        "q1": "How do I change my account address?",
+        "a1": "Open your profile settings and navigate to Personal Details. Select your address information, update the required fields, and save your changes. You may be asked to provide supporting documentation.",
+        "q2": "How to close my account?",
+        "a2": "To permanently close your Banko account, contact our support team. Before requesting closure, make sure you review your remaining balance and any pending transactions. Our team will guide you through the process.",
+        "q3": "Where do I find my tax ID?",
+        "a3": "Check your Personal Details or Account Documents section for your registered tax information. If your tax ID isn't displayed, contact our support team for assistance.",
+        "q4": "How can I download my bank documents?",
+        "a4": "Open your Banko app and navigate to Documents or Statements. Select the document you need and choose Download to save it to your device."
+      }
+    },
+    "contact": {
+      "eyebrow": "Help & Support",
+      "heading": "Need help?",
+      "headingAlt": "Still have questions?",
+      "description": "We are here to help.",
+      "hotlineTitle": "Support Hotline",
+      "phone": "+49 176 123 456",
+      "hotlineSub": "Average response time < 5 mins • 24/7 Available",
+      "emailTitle": "Support Email",
+      "email": "help@banko.com",
+      "emailSub": "Get dedicated assistance within 2 hours",
+      "chatTitle": "Chat with us",
+      "chatDescription": "Live chat with our banking advisors",
+      "chatButton": "Start conversation",
+      "badges": {
+        "encrypted": "End-to-End Encrypted",
+        "regulated": "Regulated European Institution",
+        "nominalStatus": "Real-Time Support Status: Nominal"
+      }
+    }
+  },
+  "blog": {
+    "hero": {
+      "eyebrow": "Banko Blog",
+      "title": "Insights for smarter banking.",
+      "description": "Explore practical tips, product updates, and insights to help you make better financial decisions."
+    },
+    "filters": {
+      "allArticles": "All Articles",
+      "product": "Product",
+      "technology": "Technology"
+    },
+    "tags": {
+      "product": "Product",
+      "technology": "Technology"
+    },
+    "articles": {
+      "startup": {
+        "title": "How To Start Using Banko For Your Startup",
+        "description": "Starting a business comes with plenty of financial decisions. Discover how Banko helps you manage payments, organize your finances, and keep your startup's money moving without unnecessary complications.",
+        "readMore": "Read Article"
+      },
+      "secrets": {
+        "title": "10 Things Nobody Told You About Banko",
+        "description": "There's more to Banko than sending and receiving money. Explore useful features, smart tools, and convenient ways to manage your everyday banking experience that you might not know about.",
+        "readMore": "Read Article"
+      },
+      "savingHabits": {
+        "title": "7 Ways To Improve You Saving Habits",
+        "description": "Building better saving habits doesn't have to be complicated. Discover seven practical ways to organize your money, set realistic savings goals, track your progress, and make more confident financial decisions.",
+        "readMore": "Read Article"
+      }
+    },
+    "articleDetail": {
+      "breadcrumbHome": "Home",
+      "breadcrumbBlog": "Blog",
+      "tocTitle": "In This Article",
+      "toc": {
+        "sec1": "Separate Your Business and Personal Finances",
+        "sec2": "Keep Your Payments Organized",
+        "sec3": "Understand Your Cash Flow",
+        "sec4": "Build Better Financial Habits",
+        "sec5": "Choose Tools That Grow With Your Business"
+      },
+      "content": {
+        "introHeading": "Introduction",
+        "introP1": "Starting a business is exciting, but managing its finances can quickly become complicated. Between incoming payments, daily expenses, and planning for future growth, keeping everything organized is essential.",
+        "introP2": "Having a clear view of your business finances helps you make better decisions and spend more time focusing on what matters: building your business.",
+        "introP3": "Banko helps simplify everyday financial management by bringing payment management and financial organization into one experience.",
+        "sec1Title": "01. Separate Your Business and Personal Finances",
+        "sec1P1": "One of the first steps when starting a business is keeping personal and business finances separate.",
+        "sec1P2": "Mixing the two makes it harder to understand how your business is performing and where your money is going.",
+        "sec1StartBy": "Start by:",
+        "sec1Bullet1": "Keeping business income separate from personal income.",
+        "sec1Bullet2": "Recording business-related expenses.",
+        "sec1Bullet3": "Tracking payments and outstanding obligations.",
+        "sec1Bullet4": "Reviewing your financial activity regularly.",
+        "sec1Outro": "A clear separation makes financial organization easier as your business grows.",
+        "sec2Title": "02. Keep Your Payments Organized",
+        "sec2P1": "Payments are part of almost every business operation. You might receive money from customers, pay suppliers, or handle recurring business expenses.",
+        "sec2P2": "Without a consistent process, it becomes easy to lose track of transactions.",
+        "sec2Routine": "Build a simple payment routine:",
+        "sec2Bullet1": "Keep records of incoming and outgoing payments.",
+        "sec2Bullet2": "Review transactions regularly.",
+        "sec2Bullet3": "Organize payment information so it is easy to find.",
+        "sec2Bullet4": "Make sure important payments are not overlooked.",
+        "sec2Outro": "Banko helps you manage payments and keep your everyday financial activity organized.",
+        "sec3Title": "03. Understand Your Cash Flow",
+        "sec3P1": "Revenue alone does not tell you everything about your business's financial health.",
+        "sec3P2": "You also need to understand when money comes in, when expenses are due, and how much money remains available.",
+        "sec3PayAttention": "Pay attention to:",
+        "sec3Bullet1": "Expected incoming payments.",
+        "sec3Bullet2": "Regular operating expenses.",
+        "sec3Bullet3": "Upcoming financial commitments.",
+        "sec3Bullet4": "Available funds for everyday operations.",
+        "sec3Outro": "Reviewing these numbers regularly helps you avoid unnecessary surprises and plan ahead.",
+        "sec4Title": "04. Build Better Financial Habits",
+        "sec4P1": "Good financial management does not require complicated processes.",
+        "sec4Habits": "A few consistent habits can make a significant difference:",
+        "sec4Bullet1": "Review your business finances every week.",
+        "sec4Bullet2": "Keep payment records organized.",
+        "sec4Bullet3": "Check expenses before making new commitments.",
+        "sec4Bullet4": "Set aside money for upcoming obligations.",
+        "sec4Bullet5": "Review your financial goals every month.",
+        "sec4Outro": "The important thing is consistency. Small habits make financial decisions easier over time.",
+        "sec5Title": "05. Choose Tools That Grow With Your Business",
+        "sec5P1": "Your financial needs will change as your startup develops.",
+        "sec5P2": "What works when you are working alone might not be enough when you start handling more customers, payments, and expenses.",
+        "sec5P3": "Choose financial tools that make everyday tasks easier rather than adding unnecessary complexity.",
+        "sec5Outro": "Banko is designed to help you manage payments and organize your finances, giving you a simpler way to handle everyday banking as you focus on growing your startup.",
+        "conclusionTitle": "Conclusion",
+        "conclusionP1": "Starting a business means making hundreds of decisions, and managing money is one of the most important.",
+        "conclusionP2": "Keep your finances organized, understand your cash flow, build consistent financial habits, and choose tools that simplify your daily operations.",
+        "conclusionP3": "You do not need a complicated financial system to get started. You need a clear process and the right tools to support it.",
+        "conclusionP4": "Banko helps keep your everyday banking simpler, so you can focus on what comes next for your business."
+      },
+      "sidebarCta": {
+        "title": "Ready to simplify?",
+        "description": "Open a free Banko business account in under 5 minutes.",
+        "button": "Get Started"
+      },
+      "share": {
+        "title": "Share this article",
+        "subtitle": "Spread the knowledge with your founder network.",
+        "copyLink": "Copy Link",
+        "linkCopied": "Link copied to clipboard!",
+        "facebook": "Facebook",
+        "linkedIn": "LinkedIn",
+        "x": "X"
+      },
+      "related": {
+        "eyebrow": "More Insights",
+        "title": "You May Also Like",
+        "exploreAll": "Explore all articles"
+      }
+    }
+  },
+  "mockups": {
+    "dashboard": {
+      "greeting": "Welcome back",
+      "userGreeting": "Good morning, John",
+      "userName": "John Doe",
+      "currentBalance": "Current balance",
+      "totalBalance": "Total Balance",
+      "balanceValue": "$24,580.00",
+      "balanceValueAlt": "$4,658.50",
+      "monthTrend": "+12.4% this month",
+      "monthTrendAlt": "+14.2% this month",
+      "recentTransactions": "Recent Transactions",
+      "activity": "Recent Activity",
+      "viewAll": "View All",
+      "transactions": {
+        "appleStore": "Apple Store",
+        "appleCategory": "Gadgets",
+        "amazon": "Amazon",
+        "amazonCategory": "Shopping",
+        "spotify": "Spotify",
+        "netflix": "Netflix",
+        "salaryDeposit": "Salary Deposit",
+        "salaryDepositSub": "Monthly Payroll",
+        "salaryDepositCompleted": "Completed"
+      },
+      "tabs": {
+        "home": "Home",
+        "cards": "Cards",
+        "payments": "Payments",
+        "statistics": "Statistics",
+        "profile": "Profile",
+        "savings": "Savings",
+        "account": "Account"
+      }
+    },
+    "transfer": {
+      "title": "Send & Receive",
+      "frequentRecipients": "Frequent Recipients",
+      "viewAll": "View All",
+      "transferAmount": "Transfer Amount",
+      "amountValue": "$450.00",
+      "feeFree": "No FX Fee",
+      "recipientName": "Sarah Johnson",
+      "accountEnding": "•••• 2841",
+      "btnSend": "Send Funds Instantly",
+      "notificationReceived": "Money Received",
+      "notificationDetail": "Sarah Johnson sent you $250.00",
+      "notificationSuccessful": "Transfer Successful",
+      "notificationSuccessDetail": "$120.00 transfer completed smoothly.",
+      "securityAlert": "Security Alert",
+      "securityAlertDetail": "Account verified on iPhone 16 Pro."
+    },
+    "transactionDetails": {
+      "title": "Transaction Details",
+      "paymentStatus": "PAYMENT STATUS",
+      "amount": "-$249.00",
+      "merchant": "Apple Store",
+      "merchantSub": "Electronics & Gadgets",
+      "dateLabel": "Date",
+      "dateValue": "12 November 2026",
+      "paymentMethodLabel": "Payment Method",
+      "paymentMethodValue": "Banko Premium (•••• 8291)",
+      "categoryLabel": "Category",
+      "categoryValue": "Electronics & Gadgets",
+      "transactionIdLabel": "Transaction ID",
+      "transactionIdValue": "BK-829104",
+      "btnDownloadReceipt": "Download Receipt",
+      "btnReportIssue": "Report an issue"
+    },
+    "cardsManagement": {
+      "title": "Cards Management",
+      "myCards": "My Cards",
+      "cardHolderLabel": "Card Holder",
+      "cardHolderName": "John Doe",
+      "expiresLabel": "Expires",
+      "expiryDate": "09/28",
+      "toggleCardFreeze": "Card Freeze",
+      "toggleOnlinePayments": "Single-Use Virtual Card",
+      "toggleLocation": "Location Security"
+    },
+    "statistics": {
+      "title": "Statistics",
+      "periodMonth": "Month",
+      "periodYear": "Year",
+      "incomeLabel": "Income",
+      "incomeValue": "+$8,250",
+      "outflowLabel": "Outflow",
+      "outflowValue": "-$3,410",
+      "cashFlow": "Cash Flow",
+      "inLabel": "In",
+      "outLabel": "Out",
+      "categories": "Categories",
+      "top4": "Top 4",
+      "shoppingCategory": "Shopping (38%)",
+      "shoppingAmount": "$1,295.80",
+      "foodDiningCategory": "Food & Dining (24%)",
+      "foodDiningAmount": "$818.40",
+      "subscriptionsCategory": "Subscriptions & Utilities (18%)",
+      "subscriptionsAmount": "$613.80",
+      "spendInsightBadge": "You spent 8% less than last month"
+    },
+    "savings": {
+      "title": "Savings Vaults",
+      "totalSavedLabel": "Total Saved",
+      "totalSavedValue": "$14,850.00",
+      "apyNotice": "(+ $51.98 accrued interest this cycle)",
+      "apyBadge": "4.2% APY",
+      "goalJapan": "Japan Trip",
+      "goalJapanAmount": "$3,600",
+      "goalJapanTarget": "Goal: $4,000",
+      "goalMacBook": "New MacBook Pro",
+      "goalMacBookAmount": "$2,100",
+      "goalMacBookTarget": "Goal: $2,400",
+      "goalEmergency": "Emergency Fund",
+      "goalEmergencyAmount": "$8,150",
+      "goalEmergencyTarget": "Goal: $9,000",
+      "autoSaveLabel": "Auto-Save round-ups",
+      "btnCreateGoal": "+ Create New Goal"
+    }
+  }
+}

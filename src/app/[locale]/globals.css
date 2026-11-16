@@ -1,0 +1,30 @@
+@layer resets {
+  *,
+  *::before,
+  *::after {
+    box-sizing: border-box;
+  }
+
+  html,
+  body {
+    margin: 0;
+    padding: 0;
+  }
+
+  html {
+    height: 100%;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+
+  body {
+    min-height: 100%;
+    font-family: var(--font-inter), Inter, Arial, Helvetica, sans-serif;
+  }
+}
+
+/**
+ * Replaced at build time by @stylexjs/postcss-plugin.
+ * Keep this directive in a single global stylesheet.
+ */
+@stylex;

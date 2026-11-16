@@ -1,0 +1,714 @@
+{
+  "common": {
+    "brandName": "banquee.",
+    "brandNameAlt": "Banko",
+    "openAccount": "Konto eröffnen",
+    "login": "Anmelden",
+    "getStarted": "Jetzt starten",
+    "readArticle": "Artikel lesen",
+    "viewAll": "Alle anzeigen",
+    "readFaqs": "FAQs lesen",
+    "completed": "Abgeschlossen",
+    "download": "Herunterladen",
+    "year": "Jahr",
+    "month": "Monat",
+    "all": "Alle",
+    "more": "Mehr",
+    "send": "Senden",
+    "receive": "Empfangen",
+    "topUp": "Aufladen",
+    "request": "Anfordern",
+    "selectLanguage": "Sprache auswählen"
+  },
+  "nav": {
+    "features": "Funktionen",
+    "compare": "Vergleichen",
+    "support": "Hilfe & Support",
+    "blog": "Blog"
+  },
+  "footer": {
+    "brandTagline": "Moderne Banking-Architektur für nahtlose Transaktionen, maximale Transparenz und mühelosen Vermögensaufbau.",
+    "colAboutTitle": "Über uns",
+    "colBlogTitle": "Blog",
+    "colWebflowTitle": "Webflow",
+    "colSocialTitle": "Social Media",
+    "links": {
+      "features": "Funktionen",
+      "aboutUs": "Über uns",
+      "pricing": "Preise & Tarife",
+      "support": "Hilfe & Support",
+      "careers": "Karriere",
+      "press": "Presse & Medien",
+      "security": "Sicherheit",
+      "products": "Produkte",
+      "editorial": "Redaktion",
+      "fintechGuides": "Fintech-Ratgeber",
+      "technology": "Technologie",
+      "productUpdates": "Produktneuheiten",
+      "crypto": "Krypto",
+      "marketInsights": "Marktanalysen",
+      "founderStories": "Gründergeschichten",
+      "styleGuide": "Styleguide",
+      "licensing": "Lizenzen",
+      "changelog": "Änderungsprotokoll",
+      "allTemplates": "Alle Vorlagen",
+      "instructions": "Anleitungen",
+      "twitter": "Twitter / X",
+      "linkedIn": "LinkedIn",
+      "instagram": "Instagram",
+      "youTube": "YouTube",
+      "facebook": "Facebook",
+      "communityHub": "Community-Hub"
+    },
+    "copyright": "© {{year}} banquee. Alle Rechte vorbehalten. Entwickelt für moderne finanzielle Klarheit.",
+    "pawelCredit": "© Erstellt von Pawel Gola - Powered by Webflow",
+    "legal": {
+      "impressum": "Impressum",
+      "datenschutz": "Datenschutz",
+      "privacyPolicy": "Datenschutzerklärung",
+      "termsOfService": "Nutzungsbedingungen",
+      "securityCompliance": "Sicherheit & Compliance",
+      "terms": "AGB"
+    }
+  },
+  "landing": {
+    "hero": {
+      "badge": "Neobanking der nächsten Generation",
+      "headline": "Modernes Banking beginnt hier.",
+      "subheadline": "Eine innovative Banking-App mit smarten Karten, Echtzeit-Überweisungen, automatisierten Sparkonten und 100% mobiler Verwaltung für einen digitalen Alltag.",
+      "ctaPrimary": "Konto eröffnen",
+      "ctaSecondary": "Karten vergleichen",
+      "stats": {
+        "activeAccountsValue": "2,4 Mio.+",
+        "activeAccountsLabel": "Aktive Konten",
+        "fxMarkupValue": "0,00 %",
+        "fxMarkupLabel": "Fremdwährungsgebühr",
+        "appStoreRatingValue": "4,9/5",
+        "appStoreRatingLabel": "Bewertung im App Store"
+      },
+      "pills": {
+        "instantTransfers": "Echtzeit-Überweisungen",
+        "instantTransfersSub": "Ausführung in Sekundenbruchteilen",
+        "savingAccounts": "Sparkonten",
+        "savingAccountsSub": "Bis zu 4,2 % p.a. Zinsen",
+        "worldwidePay": "Weltweit bezahlen",
+        "worldwidePaySub": "150+ Währungen zum echten Wechselkurs",
+        "mobileBanking": "100 % Mobil",
+        "mobileBankingSub": "Vollständige Kartenkontrolle überall"
+      }
+    },
+    "cashflow": {
+      "eyebrow": "Cashflow-Dynamik",
+      "title": "Einnahmen vs. Ausgaben",
+      "periodYear": "Jahr 2025",
+      "periodMonth": "Monat",
+      "totalInflowLabel": "Gesamteinnahmen",
+      "totalInflowValue": "85.222,00 $",
+      "totalInflowBadge": "+24,8 % ggü. Vorperiode",
+      "totalOutflowLabel": "Gesamtausgaben",
+      "totalOutflowValue": "-52.150,50 $",
+      "totalOutflowBadge": "-3,1 % unter Budget",
+      "chartLegend": {
+        "earnings": "Einnahmen (85.222,00 $)",
+        "expenses": "Ausgaben (52.150,50 $)"
+      },
+      "featureTag": "Intelligente Analysen",
+      "featureTitle": "Behalten Sie Ihre Finanzen mühelos im Griff.",
+      "featureDescription": "Banquee kategorisiert, analysiert und prognostiziert Ihre Cashflow-Entwicklung vollautomatisch. Erhalten Sie rechtzeitige Benachrichtigungen vor wiederkehrenden Abbuchungen und behalten Sie Ihre monatlichen Ausgaben stets im Blick.",
+      "bullet1Title": "Vorausschauender Abo- und Rechnungs-Tracker",
+      "bullet1Desc": "Keine bösen Überraschungen mehr durch automatische Abbuchungen oder Nebenkosten.",
+      "bullet2Title": "Smarte Budgetierung nach Kategorien",
+      "bullet2Desc": "Dynamische Spartöpfe, die sich automatisch an Ihre monatlichen Ausgabenlimits anpassen."
+    },
+    "plans": {
+      "eyebrow": "Physisch & Virtuell",
+      "title": "Eine Karte für jeden Lebensstil.",
+      "subtitle": "Hergestellt aus 100 % recyceltem Meeresplastik und präzisionsgefertigtem Edelstahl. Bestellen Sie Ihre Karte mit weltweitem 2-Tage-Expressversand.",
+      "popularBadge": "Beliebteste Wahl",
+      "steelBadge": "Edelstahl",
+      "tiers": {
+        "standard": {
+          "name": "Standard",
+          "price": "0 $",
+          "billing": "/ Monat",
+          "description": "Perfekt für alltägliche Ausgaben, inländische Überweisungen und persönliche Budgetplanung.",
+          "feature1": "Kostenlose physische & virtuelle Debitkarte",
+          "feature2": "0 % Gebühren auf Zahlungen im Inland",
+          "feature3": "2 kostenlose Bargeldabhebungen / Monat",
+          "feature4Disabled": "Reiseversicherung & Flughafen-Lounge-Zugang",
+          "cta": "Standard wählen"
+        },
+        "gold": {
+          "name": "Gold",
+          "price": "7,99 $",
+          "billing": "/ Monat",
+          "description": "Maßgeschneidert für Vielreisende mit gebührenfreiem Währungstausch und höheren Abhebelimits.",
+          "feature1": "Alle Vorteile von Standard enthalten",
+          "feature2": "Unbegrenzter Devisenwechsel zu Interbankenkursen",
+          "feature3": "1,0 % Cashback auf alle Kartenzahlungen",
+          "feature4": "Basis-Reiseversicherung bei Flugverspätungen",
+          "cta": "Gold wählen"
+        },
+        "premium": {
+          "name": "Premium",
+          "price": "14,99 $",
+          "billing": "/ Monat",
+          "description": "Die exklusive Metallkarte aus 18g Edelstahl mit Concierge-Service, VIP-Reisevorteilen und Höchstlimits.",
+          "feature1": "Hochwertige 18g Edelstahl-Metallkarte",
+          "feature2": "Weltweiter Zugang zu Flughafen-Lounges (LoungeKey)",
+          "feature3": "Umfassende weltweite Auslandskrankenversicherung",
+          "feature4": "2,5 % Cashback auf Restaurants & Reisen",
+          "cta": "Premium wählen"
+        }
+      },
+      "featureCards": {
+        "smartVaults": {
+          "title": "Smarte Sparkonten (Vaults)",
+          "description": "Automatisieren Sie wiederkehrende Sparpläne und Rundungsbeträge für Ihre persönlichen Traumziele."
+        },
+        "security": {
+          "title": "Sicherheit auf Militärniveau",
+          "description": "Sofortiges Sperren per Fingertipp, dynamischer CVV-Code und biometrischer Schutz für jeden Cent.",
+          "toggleCardFreeze": "Karte sperren",
+          "toggleSingleUse": "Einweg-Virtuellkarte",
+          "toggleLocation": "Standortbasierte Sicherheit"
+        },
+        "globalExchange": {
+          "title": "Globaler Währungstausch",
+          "description": "Halten und tauschen Sie über 30 Währungen direkt zum echten Interbanken-Wechselkurs."
+        }
+      }
+    },
+    "sendReceive": {
+      "eyebrow": "Echtzeit-Überweisungen",
+      "title": "Geld in Sekundenschnelle senden & empfangen.",
+      "description": "Überweisen Sie Geld mühelos mit schnellen und absolut sicheren Zahlungen. Senden Sie jederzeit Beträge an Freunde, Familie oder Konten mit sofortiger Wertstellung und vollkommener Gelassenheit.",
+      "feature1Title": "Sofortüberweisungen",
+      "feature1Desc": "Geldtransfer in Sekundenbruchteilen ohne Wartezeiten, sowohl im Inland als auch weltweit.",
+      "feature2Title": "Maximale Zahlungssicherheit",
+      "feature2Desc": "Ende-zu-Ende-Verschlüsselung, biometrische Bestätigung und lückenloser Betrugsschutz bei jeder Transaktion.",
+      "feature3Title": "Transparente Transaktionshistorie",
+      "feature3Desc": "Echtzeit-Kontoauszug, sofortige digitale Belege und automatische Kategorisierung aller Ein- und Ausgänge.",
+      "ctaStart": "Jetzt Geld senden",
+      "ctaLearn": "Mehr über Überweisungen erfahren"
+    },
+    "tools": {
+      "eyebrow": "Integrationen & Schnittstellen",
+      "title": "Nahtlose Verknüpfung.",
+      "description": "Erleben Sie reibungslose Zahlungen und höchste finanzielle Flexibilität dank Unterstützung renommierter Zahlungsnetzwerke und etablierter digitaler Währungen.",
+      "groupPaymentNetworks": "Zahlungsnetzwerke",
+      "groupDigitalCurrencies": "Digitale Währungen",
+      "networks": {
+        "visa": "Visa",
+        "mastercard": "Mastercard",
+        "amex": "American Express",
+        "discover": "Discover"
+      },
+      "crypto": {
+        "bitcoin": "Bitcoin",
+        "bitcoinSymbol": "BTC",
+        "ethereum": "Ethereum",
+        "ethereumSymbol": "ETH",
+        "usdCoin": "USD Coin",
+        "usdCoinSymbol": "USDC"
+      },
+      "pillSecure": "Vollständig verschlüsselte Integration",
+      "pillApi": "Leistungsstarke API-Schnittstelle",
+      "pillWorldwide": "Weltweite Akzeptanz"
+    },
+    "manifesto": {
+      "eyebrow": "Mühelos leben",
+      "title": "Entwickelt für die moderne Arbeits- und Finanzwelt.",
+      "paragraph1": "Verabschieden Sie sich von Warteschlangen in Filialen, Papierformularen, versteckten Kontoführungsgebühren und undurchsichtigen Wechselkursaufschlägen.",
+      "paragraph2": "Von Freelancern bis hin zu wachstumsstarken Unternehmensgründern: Banquee sorgt auf jedem Bildschirm für sofortige finanzielle Klarheit.",
+      "badgeRegulated": "Regulierte europäische Bank",
+      "badgeRegulatedSub": "Ihre Einlagen sind über die Europäische Bankenaufsicht und Einlagensicherungsfonds bis zu 250.000 $ geschützt.",
+      "cta": "Unser Manifest lesen"
+    },
+    "testimonials": {
+      "eyebrow": "Kundenstimmen",
+      "title": "Was unsere Kunden über uns sagen",
+      "items": {
+        "sarah": {
+          "quote": "Das Verwalten meiner Finanzen ist mit dieser App so viel einfacher geworden. Ich kann Geld überweisen, Ausgaben verfolgen und Ersparnisse strukturieren, ohne zwischen verschiedenen Plattformen zu wechseln. Alles fühlt sich einfach, schnell und zuverlässig an.",
+          "author": "Sarah Mitchell",
+          "role": "Inhaberin eines Kleinunternehmens"
+        },
+        "guy": {
+          "quote": "Das Banking-Erlebnis ist schlichtweg erstklassig. Besonders schätze ich die intuitive Transaktionsübersicht und die lückenlose Echtzeitkontrolle meines Kontos. Dank Sofort-Benachrichtigungen verpasse ich keine Buchung.",
+          "author": "Guy Hawkins",
+          "role": "Vertriebsleiter"
+        },
+        "jenny": {
+          "quote": "Früher fiel es mir schwer, meine Ersparnisse konsequent zu ordnen, aber diese App macht es kinderleicht. Ich setze mir Sparziele, teile mein Geld auf und verfolge den Fortschritt ganz ohne Stress.",
+          "author": "Jenny Wilson",
+          "role": "Pflegefachkraft"
+        },
+        "cody": {
+          "quote": "Online-Zahlungen sind ungemein komfortabler und sicherer geworden. Die Einweg-Virtuellkarten geben mir beim Online-Shopping ein beruhigendes Gefühl, während der Ausgabenverlauf volle Übersicht bietet.",
+          "author": "Cody Fisher",
+          "role": "Medizinischer Assistent"
+        },
+        "darlene": {
+          "quote": "Was diese App auszeichnet, ist ihre Klarheit. Die Oberfläche ist aufgeräumt, alle Funktionen sind leicht zu finden und Geldüberweisungen dauern nur Sekunden. Fast alle Bankgeschäfte erledige ich bequem von unterwegs.",
+          "author": "Darlene Robertson",
+          "role": "Hundetrainerin"
+        }
+      }
+    },
+    "appCta": {
+      "headline": "Eine App. Ein Banking.",
+      "description": "Echtzeit-Transaktionen, Sparkonten, weltweites Bezahlen und 100 % mobiles Banking.",
+      "featureInstant": "Sofortüberweisungen",
+      "featureSavings": "Sparkonten mit Top-Zinsen",
+      "featureWorldwide": "Weltweite Zahlungen",
+      "featureMobile": "100 % mobiles Banking",
+      "appStore": "Laden im App Store",
+      "googlePlay": "Jetzt bei Google Play"
+    },
+    "blogSection": {
+      "eyebrow": "Blog",
+      "title": "Blog.",
+      "ctaAll": "Alle Artikel"
+    }
+  },
+  "featuresPage": {
+    "hero": {
+      "badge": "Funktionen",
+      "headline": "Alles vereint in einer Karte.",
+      "description": "Erleben Sie intelligenteres Banking mit unkomplizierten Werkzeugen, die Ihr Finanzmanagement schneller, einfacher und sicherer machen.",
+      "ctaOpen": "Konto eröffnen",
+      "ctaCompare": "Karten vergleichen",
+      "stats": {
+        "ratingVal": "4,9/5",
+        "ratingLbl": "Bewertung im App Store",
+        "usersVal": "2,4 Mio.+",
+        "usersLbl": "Aktive Karten weltweit",
+        "settlementVal": "0,0 s",
+        "settlementLbl": "Echtzeit-Wertstellung"
+      }
+    },
+    "featureSendReceive": {
+      "eyebrow": "Transaktionen",
+      "title": "Geld in Sekunden senden & empfangen",
+      "description": "Senden und empfangen Sie Geld im Handumdrehen mit geschützten Überweisungen und einem nahtlosen Banking-Erlebnis. Steuern Sie Zahlungen, verfolgen Sie Umsätze und behalten Sie stets die volle Kontrolle.",
+      "items": {
+        "transfersTitle": "Sofortüberweisungen",
+        "transfersDesc": "In- und ausländische Echtzeit-Überweisungen in Sekunden ohne Verzögerung abgeschlossen.",
+        "paymentsTitle": "Hochsichere Zahlungen",
+        "paymentsDesc": "Ende-zu-Ende verschlüsselte Protokolle, gesichert durch biometrische Freigabe und proaktive Betrugsprävention.",
+        "historyTitle": "Strukturierte Überweisungshistorie",
+        "historyDesc": "Übersichtliche Buchungsdetails, durchsuchbare Zahlungsdaten und jederzeit exportierbare Kontoauszüge."
+      }
+    },
+    "featureManageCards": {
+      "eyebrow": "Karten",
+      "title": "Verwalten Sie Ihre Karten",
+      "description": "Steuern Sie alle Ihre Zahlungskarten zentral an einem Ort. Erstellen Sie virtuelle Karten, überwachen Sie Aktivitäten und zahlen Sie sicher an jedem Ort der Welt.",
+      "items": {
+        "virtualTitle": "Virtuelle Sofortkarten",
+        "virtualDesc": "Erstellen Sie temporäre Einmalkarten für Abonnements oder maximale Sicherheit beim Online-Kauf.",
+        "spendingTitle": "Ausgabenkontrolle",
+        "spendingDesc": "Legen Sie Kategorielimits fest, sperren Sie verlorene Karten mit einem Klick und passen Sie Limits dynamisch an.",
+        "paymentsTitle": "Sichere Zahlungen",
+        "paymentsDesc": "Geschützt durch standortbasierte Echtzeit-Warnungen, Tokenisierung und Null-Haftungs-Garantie bei Betrug."
+      }
+    },
+    "featureControlMoney": {
+      "eyebrow": "Erweiterte Statistiken",
+      "title": "Behalten Sie die volle Kontrolle über Ihr Geld",
+      "description": "Verfolgen Sie Ihre Ausgaben und verstehen Sie Ihre Gewohnheiten durch präzise Einblicke. Überwachen Sie Budgets, prüfen Sie anschauliche Reports und treffen Sie klügere finanzielle Entscheidungen.",
+      "items": {
+        "insightsTitle": "Ausgaben-Analysen",
+        "insightsDesc": "Automatische Kategorisierung erkennt Ausgabenspitzen und zeigt Optimierungspotenziale bei Fixkosten auf.",
+        "monthlyTitle": "Monatliche Finanzberichte",
+        "monthlyDesc": "Interaktive Diagramme fassen Ihre Einnahmen- und Ausgabenveränderungen von Monat zu Monat übersichtlich zusammen.",
+        "expenseTitle": "Budget-Tracking",
+        "expenseDesc": "Verknüpfen Sie Budgets mit Kategorien und erhalten Sie rechtzeitige Warnungen vor Budgetüberschreitungen."
+      }
+    },
+    "featureOrganizeSavings": {
+      "eyebrow": "Sparkonten",
+      "title": "Strukturieren Sie Ihre Ersparnisse mühelos",
+      "description": "Halten Sie Ihr Vermögen auf zweckgebundenen Sparkonten geordnet. Setzen Sie Ziele, messen Sie Fortschritte und etablieren Sie nachhaltige Spargewohnheiten.",
+      "items": {
+        "goalsTitle": "Sparziele",
+        "goalsDesc": "Trennen Sie Urlaubskasse, Notgroschen und größere Anschaffungen in gebührenfreien Unterkonten.",
+        "progressTitle": "Fortschrittskontrolle",
+        "progressDesc": "Beobachten Sie Ihr Sparziel in Echtzeit mit automatischen Daueraufträgen und prognostizierten Zieldaten.",
+        "smartPlanningTitle": "Smarte Sparfunktionen",
+        "smartPlanningDesc": "Intelligente Aufrundungsregeln leiten Kleingeldbeträge beim Bezahlen automatisch auf verzinsliche Sparkonten weiter."
+      }
+    }
+  },
+  "compareCards": {
+    "eyebrow": "Karten vergleichen",
+    "title": "Finden Sie die passende Karte für Ihre Bedürfnisse.",
+    "subtitle": "Vergleichen Sie die Tarife von Banko und wählen Sie die Leistungen, die perfekt zu Ihren täglichen Finanzen passen.",
+    "plans": {
+      "premium": {
+        "name": "Premium",
+        "price": "10 $",
+        "billing": "/ Monat",
+        "description": "Das umfassende Banking-Erlebnis mit unbegrenzten virtuellen Karten und exklusiven Premium-Analysen.",
+        "cta": "Jetzt starten"
+      },
+      "gold": {
+        "name": "Gold",
+        "price": "7,99 $",
+        "billing": "/ Monat",
+        "description": "Ideal für Vielreisende: Währungsumtausch ohne Aufschläge und spürbar höhere Bargeldabhebelimits.",
+        "cta": "Jetzt starten"
+      },
+      "plat": {
+        "name": "Platin (Plat)",
+        "price": "14,99 $",
+        "billing": "/ Monat",
+        "description": "Das Executive-Niveau mit persönlichem Concierge, maximaler Versicherungsabdeckung und weltweiten Privilegien.",
+        "cta": "Jetzt starten"
+      }
+    },
+    "table": {
+      "headers": {
+        "features": "Funktionen",
+        "basic": "Basic",
+        "popular": "Beliebt",
+        "premium": "Premium",
+        "gold": "Gold",
+        "plat": "Platin"
+      },
+      "categories": {
+        "creditCard": "Kreditkarte",
+        "bankAccount": "Bankkonto",
+        "extraFeatures": "Zusatzleistungen"
+      },
+      "rows": {
+        "physicalCard": "Physische Karte",
+        "virtualCard": "Virtuelle Karte",
+        "contactlessPayments": "Kontaktloses Bezahlen",
+        "mobilePayments": "Mobiles Bezahlen (Apple/Google Pay)",
+        "freePaymentsWorldwide": "Kostenlose weltweite Zahlungen",
+        "freeAtmWithdrawals": "Kostenfreie Bargeldabhebungen",
+        "mobileBanking": "Mobiles Banking per App",
+        "savingAccounts": "Verzinsliche Sparkonten",
+        "advancedStatistics": "Erweiterte Finanzstatistiken",
+        "premiumPartnerOffers": "Exklusive Partnerangebote"
+      },
+      "values": {
+        "optional": "Optional",
+        "upTo2": "Bis zu 2",
+        "unlimited": "Unbegrenzt",
+        "included": "Im Tarif enthalten"
+      }
+    },
+    "securityCta": {
+      "eyebrow": "Sicherheit an erster Stelle",
+      "heading": "Haben Sie Fragen zum Kartenwechsel oder Upgrade?",
+      "description": "Wechseln oder upgraden Sie Ihren Tarif jederzeit direkt in der banquee Mobile App. Keine versteckten Gebühren, flexibel monatlich kündbar.",
+      "ctaFaq": "FAQs lesen",
+      "ctaOpen": "Konto eröffnen"
+    }
+  },
+  "support": {
+    "hero": {
+      "eyebrow": "Hilfe & Support",
+      "title": "Wie können wir Ihnen heute helfen?",
+      "description": "Finden Sie Antworten auf häufige Fragen rund um Ihr Banko-Konto, Ihre Zahlungskarten und Ihre persönlichen Angaben."
+    },
+    "categories": {
+      "cards": "Karten",
+      "account": "Bankkonto",
+      "personalDetails": "Persönliche Daten"
+    },
+    "faqs": {
+      "cards": {
+        "q1": "Wie aktiviere und richte ich meine neue Karte ein?",
+        "a1": "Sobald Sie Ihre physische Karte per Post erhalten haben, öffnen Sie die Banko App, navigieren zu Karten, wählen die neue Karte aus und folgen den Aktivierungsschritten. Prüfen Sie die Kartendaten vor Bestätigung.",
+        "q2": "Wie erstelle ich eine virtuelle Karte?",
+        "a2": "Gehen Sie in der Banko App auf Karten und wählen Sie «Virtuelle Karte erstellen». Folgen Sie den kurzen Schritten auf dem Bildschirm. Die Kartendetails stehen Ihnen sofort für geschützte Online-Käufe zur Verfügung.",
+        "q3": "Wie kann ich eine Zusatzkarte bestellen?",
+        "a3": "Öffnen Sie den Bereich Karten und prüfen Sie die verfügbaren Optionen. Wählen Sie die gewünschte Zusatzkarte aus und bestätigen Sie die Bestellung. Unser Support-Team hilft bei Fragen gerne weiter.",
+        "q4": "Meine Karte läuft bald ab. Was muss ich tun?",
+        "a4": "Eine Ersatzkarte sollte rechtzeitig vor Ablauf Ihrer aktuellen Karte veranlasst werden. Überprüfen Sie in der App den Status oder kontaktieren Sie unseren Kundenservice, falls Ihre Karte noch nicht eingetroffen ist.",
+        "q5": "Wie kann ich meine Karte vorübergehend sperren?",
+        "a5": "Öffnen Sie die Banko App, gehen Sie zu Karten, wählen Sie die betreffende Karte aus und tippen Sie auf «Karte sperren». Dies unterbindet temporär alle Transaktionen und kann im selben Menü jederzeit wieder aufgehoben werden."
+      },
+      "account": {
+        "q1": "Wie verifiziere ich mein Konto?",
+        "a1": "Öffnen Sie die Kontoeinstellungen und wählen Sie «Konto verifizieren». Folgen Sie den Anweisungen zum sicheren Hochladen Ihrer Identifikationsdokumente. Achten Sie auf gute Lesbarkeit und korrekte Daten.",
+        "q2": "Wie kann ich ein Tarif-Upgrade durchführen?",
+        "a2": "Besuchen Sie den Menüpunkt Konto oder Tarife in der Banko App. Wählen Sie das gewünschte Modell aus und bestätigen Sie das Upgrade in wenigen Klicks.",
+        "q3": "Kann ich mehrere Unterkonten führen?",
+        "a3": "Die Verfügbarkeit mehrerer Konten richtet sich nach dem Leistungsumfang Ihres gewählten Banko-Tarifs. Prüfen Sie Ihre Kontoeinstellungen oder kontaktieren Sie unser Beratungsteam.",
+        "q4": "Wie kündige ich mein Banko-Konto?",
+        "a4": "Wenn Sie Ihr Konto schließen möchten, kontaktieren Sie bitte unseren Support. Unsere Mitarbeiter begleiten Sie durch die erforderlichen Schritte und informieren über eventuell offene Buchungen."
+      },
+      "personalDetails": {
+        "q1": "Wie aktualisiere ich meine hinterlegte Wohnadresse?",
+        "a1": "Öffnen Sie Ihre Profileinstellungen und wählen Sie «Persönliche Daten». Ändern Sie Ihre Adressdaten und speichern Sie die Aktualisierung. Unter Umständen ist ein aktueller Nachweis (z. B. Meldebescheinigung) erforderlich.",
+        "q2": "Wie kann ich mein Konto endgültig auflösen?",
+        "a2": "Für die dauerhafte Kontoschließung wenden Sie sich bitte an unser Kundenteam. Bitte überprüfen Sie vorab Ihr verbleibendes Guthaben und stellen Sie sicher, dass keine Transaktionen mehr ausstehen.",
+        "q3": "Wo finde ich meine Steueridentifikationsnummer (Steuer-ID)?",
+        "a3": "Prüfen Sie den Bereich Persönliche Daten oder Ihre hinterlegten Steuerunterlagen in der App. Falls die Angabe fehlt, unterstützt Sie unser Kundenservice gern beim Eintragen.",
+        "q4": "Wie kann ich Bankdokumente und Auszüge herunterladen?",
+        "a4": "Navigieren Sie in der Banko App zu «Dokumente» oder «Kontoauszüge». Wählen Sie den gewünschten Zeitraum aus und tippen Sie auf «Herunterladen», um die PDF direkt auf Ihrem Endgerät zu sichern."
+      }
+    },
+    "contact": {
+      "eyebrow": "Hilfe & Kundenservice",
+      "heading": "Benötigen Sie Unterstützung?",
+      "headingAlt": "Haben Sie noch Fragen?",
+      "description": "Unser Team ist rund um die Uhr für Sie da.",
+      "hotlineTitle": "Telefonische Hotline",
+      "phone": "+49 176 123 456",
+      "hotlineSub": "Durchschnittliche Wartezeit < 5 Min. • 24/7 erreichbar",
+      "emailTitle": "E-Mail-Kundenservice",
+      "email": "help@banko.com",
+      "emailSub": "Verbindliche Antwort innerhalb von 2 Stunden",
+      "chatTitle": "Live-Chat starten",
+      "chatDescription": "Direkter Chat mit unseren zertifizierten Bankberatern",
+      "chatButton": "Gespräch beginnen",
+      "badges": {
+        "encrypted": "Ende-zu-Ende verschlüsselt",
+        "regulated": "Reguliertes europäisches Finanzinstitut",
+        "nominalStatus": "Echtzeit-Supportstatus: Voll betriebsbereit"
+      }
+    }
+  },
+  "blog": {
+    "hero": {
+      "eyebrow": "Banko Blog",
+      "title": "Impulse für modernes, intelligenteres Banking.",
+      "description": "Entdecken Sie praxisnahe Tipps, Produkt-Updates und Finanzanalysen für fundierte finanzielle Entscheidungen."
+    },
+    "filters": {
+      "allArticles": "Alle Artikel",
+      "product": "Produkt",
+      "technology": "Technologie"
+    },
+    "tags": {
+      "product": "Produkt",
+      "technology": "Technologie"
+    },
+    "articles": {
+      "startup": {
+        "title": "So starten Sie mit Banko für Ihr Startup",
+        "description": "Eine Unternehmensgründung bringt zahlreiche finanzielle Weichenstellungen mit sich. Erfahren Sie, wie Banko Sie bei Zahlungen, Buchhaltung und liquiden Mitteln ohne bürokratischen Ballast unterstützt.",
+        "readMore": "Artikel lesen"
+      },
+      "secrets": {
+        "title": "10 Dinge, die Ihnen niemand über Banko verraten hat",
+        "description": "Banko bietet weit mehr als gewöhnliche Überweisungen. Entdecken Sie clevere Funktionen, Automatisierungen und nützliche Kniffe, die Ihren Finanzalltag spürbar erleichtern.",
+        "readMore": "Artikel lesen"
+      },
+      "savingHabits": {
+        "title": "7 effektive Methoden für bessere Spargewohnheiten",
+        "description": "Erfolgreicher Vermögensaufbau muss nicht kompliziert sein. Entdecken Sie sieben praxiserprobte Wege, um Ihr Geld zu strukturieren, Sparziele einzuhalten und Finanzentscheidungen souverän zu treffen.",
+        "readMore": "Artikel lesen"
+      }
+    },
+    "articleDetail": {
+      "breadcrumbHome": "Startseite",
+      "breadcrumbBlog": "Blog",
+      "tocTitle": "In diesem Artikel",
+      "toc": {
+        "sec1": "Trennen Sie private und geschäftliche Finanzen",
+        "sec2": "Bringen Sie Struktur in Ihren Zahlungsverkehr",
+        "sec3": "Verstehen und steuern Sie Ihren Cashflow",
+        "sec4": "Etablieren Sie nachhaltige Finanzroutinen",
+        "sec5": "Wählen Sie skalierbare Tools für Ihr Wachstum"
+      },
+      "content": {
+        "introHeading": "Einleitung",
+        "introP1": "Ein Unternehmen aufzubauen ist ein aufregendes Vorhaben, doch die Verwaltung der Finanzen kann schnell komplex und unübersichtlich werden. Zwischen Zahlungseingängen, operativen Kosten und Zukunftsplanung ist disziplinierte Ordnung unerlässlich.",
+        "introP2": "Eine glasklare Übersicht über die Finanzen Ihres Unternehmens versetzt Sie in die Lage, klügere Entscheidungen zu treffen und sich auf den eigentlichen Kern zu konzentrieren: das Wachstum Ihres Geschäfts.",
+        "introP3": "Banko vereinfacht Ihren Geschäftsalltag, indem Zahlungsabwicklung und Finanzorganisation in einer einzigen, intuitiven Anwendung gebündelt werden.",
+        "sec1Title": "01. Trennen Sie private und geschäftliche Finanzen",
+        "sec1P1": "Einer der elementarsten ersten Schritte bei jeder Existenzgründung ist die strikte Trennung von privaten und unternehmerischen Geldern.",
+        "sec1P2": "Vermischen sich beide Bereiche, wird es nahezu unmöglich, die tatsächliche Rentabilität des Geschäfts zu beurteilen und Mittelflüsse präzise nachzuvollziehen.",
+        "sec1StartBy": "Beginnen Sie mit:",
+        "sec1Bullet1": "Konsequenter Trennung von Geschäftseinnahmen und privatem Einkommen.",
+        "sec1Bullet2": "Lückenloser Erfassung aller betriebsbezogenen Ausgaben und Belege.",
+        "sec1Bullet3": "Regelmäßiger Überwachung offener Forderungen und fälliger Verbindlichkeiten.",
+        "sec1Bullet4": "Systematischer Prüfung Ihrer monatlichen Finanzberichte.",
+        "sec1Outro": "Eine saubere Trennung erleichtert Buchführung und Steuererklärung mit zunehmender Unternehmensgröße erheblich.",
+        "sec2Title": "02. Bringen Sie Struktur in Ihren Zahlungsverkehr",
+        "sec2P1": "Transaktionen bilden das Herzstück fast jeder betrieblichen Tätigkeit: Sie empfangen Kundengelder, begleichen Lieferantenrechnungen und tragen laufende Betriebskosten.",
+        "sec2P2": "Ohne definierte und wiederkehrende Routinen gehen wichtige Details im Tagesgeschäft schnell verloren.",
+        "sec2Routine": "Etablieren Sie eine verlässliche Zahlungsroutine:",
+        "sec2Bullet1": "Führen Sie genaue Nachweise über alle eingehenden und ausgehenden Zahlungen.",
+        "sec2Bullet2": "Prüfen Sie Transaktionen in festen zeitlichen Abständen.",
+        "sec2Bullet3": "Organisieren Sie Rechnungsbelege so, dass sie jederzeit auffindbar sind.",
+        "sec2Bullet4": "Verhindern Sie Zahlungsverzug bei geschäftskritischen Fristen.",
+        "sec2Outro": "Banko hilft Ihnen, Transaktionen effizient zu steuern und Ihre tägliche Finanzdisziplin mühelos aufrechtzuerhalten.",
+        "sec3Title": "03. Verstehen und steuern Sie Ihren Cashflow",
+        "sec3P1": "Der reine Umsatz sagt noch nicht alles über die tatsächliche finanzielle Stabilität eines Unternehmens aus.",
+        "sec3P2": "Entscheidend ist das präzise Wissen darüber, wann Gelder tatsächlich eingehen, wann Zahlungen fällig sind und wie viel liquide Mittel für das Tagesgeschäft verfügbar bleiben.",
+        "sec3PayAttention": "Achten Sie insbesondere auf:",
+        "sec3Bullet1": "Erwartete Zahlungseingänge und deren Zeithorizont.",
+        "sec3Bullet2": "Regelmäßige Fixkosten und laufende Betriebsausgaben.",
+        "sec3Bullet3": "Künftige finanzielle Verpflichtungen und Steuerrücklagen.",
+        "sec3Bullet4": "Freie Liquidität zur Abdeckung operativer Erfordernisse.",
+        "sec3Outro": "Der regelmäßige Blick auf diese Kennzahlen bewahrt vor Liquiditätsengpässen und schafft strategische Planungssicherheit.",
+        "sec4Title": "04. Etablieren Sie nachhaltige Finanzroutinen",
+        "sec4P1": "Erfolgreiches Finanzmanagement setzt keine hochkomplexen Systeme voraus.",
+        "sec4Habits": "Bereits wenige disziplinierte Gewohnheiten machen einen spürbaren Unterschied:",
+        "sec4Bullet1": "Prüfen Sie Ihre Unternehmensfinanzen einmal wöchentlich fest im Kalender.",
+        "sec4Bullet2": "Halten Sie Buchungsbelege stets geordnet und griffbereit.",
+        "sec4Bullet3": "Kontrollieren Sie Ihr Budget vor dem Eingehen neuer Verbindlichkeiten.",
+        "sec4Bullet4": "Bilden Sie automatisch Rücklagen für anstehende Steuerlasten.",
+        "sec4Bullet5": "Gleichen Sie monatliche Soll- und Ist-Werte gewissenhaft ab.",
+        "sec4Outro": "Kontinuität ist der entscheidende Faktor. Kleine feste Abläufe erleichtern strategische Entscheidungen auf lange Sicht.",
+        "sec5Title": "05. Wählen Sie skalierbare Tools für Ihr Wachstum",
+        "sec5P1": "Mit der Weiterentwicklung Ihres Startups wandeln sich auch Ihre bankseitigen Anforderungen.",
+        "sec5P2": "Was als Soloselbstständiger genügte, stößt an Grenzen, sobald wachsende Kundenzahlen, Mitarbeiter und Lieferanten hinzukommen.",
+        "sec5P3": "Entscheiden Sie sich für Finanzwerkzeuge, die manuelle Routinearbeit minimieren, anstatt bürokratische Hürden aufzubauen.",
+        "sec5Outro": "Banko wurde konzipiert, um Zahlungsverkehr und Finanzorganisation so reibungslos wie möglich zu gestalten – damit Sie den Kopf frei haben für das Wesentliche: Ihr Startup.",
+        "conclusionTitle": "Fazit",
+        "conclusionP1": "Die Führung eines Unternehmens erfordert täglich hunderte Entscheidungen – der vorausschauende Umgang mit Finanzen gehört zu den wichtigsten.",
+        "conclusionP2": "Schaffen Sie klare Strukturen, behalten Sie Ihren Cashflow im Blick, pflegen Sie solide Finanzroutinen und setzen Sie auf moderne digitale Helfer.",
+        "conclusionP3": "Sie benötigen kein unübersichtliches Buchhaltungskonstrukt, um durchzustarten: Ein transparenter Prozess und die passenden Banking-Tools genügen.",
+        "conclusionP4": "Banko hält Ihre Finanzen klar und unkompliziert, damit Sie sich voll auf Ihre nächsten Meilensteine konzentrieren können."
+      },
+      "sidebarCta": {
+        "title": "Bereit für müheloses Banking?",
+        "description": "Eröffnen Sie ein kostenloses Banko Geschäftskonto in unter 5 Minuten.",
+        "button": "Jetzt starten"
+      },
+      "share": {
+        "title": "Artikel weiterempfehlen",
+        "subtitle": "Teilen Sie wertvolles Wissen mit Ihrem Gründer- und Unternehmernetzwerk.",
+        "copyLink": "Link kopieren",
+        "linkCopied": "Link erfolgreich kopiert!",
+        "facebook": "Facebook",
+        "linkedIn": "LinkedIn",
+        "x": "X"
+      },
+      "related": {
+        "eyebrow": "Weitere Analysen",
+        "title": "Das könnte Sie auch interessieren",
+        "exploreAll": "Alle Artikel entdecken"
+      }
+    }
+  },
+  "mockups": {
+    "dashboard": {
+      "greeting": "Willkommen zurück",
+      "userGreeting": "Guten Morgen, John",
+      "userName": "John Doe",
+      "currentBalance": "Aktueller Kontostand",
+      "totalBalance": "Gesamtsaldo",
+      "balanceValue": "24.580,00 $",
+      "balanceValueAlt": "4.658,50 $",
+      "monthTrend": "+12,4 % diesen Monat",
+      "monthTrendAlt": "+14,2 % diesen Monat",
+      "recentTransactions": "Letzte Transaktionen",
+      "activity": "Kontoaktivität",
+      "viewAll": "Alle anzeigen",
+      "transactions": {
+        "appleStore": "Apple Store",
+        "appleCategory": "Elektronik & Gadgets",
+        "amazon": "Amazon",
+        "amazonCategory": "Einkäufe",
+        "spotify": "Spotify",
+        "netflix": "Netflix",
+        "salaryDeposit": "Gehaltseingang",
+        "salaryDepositSub": "Monatliche Gehaltszahlung",
+        "salaryDepositCompleted": "Abgeschlossen"
+      },
+      "tabs": {
+        "home": "Home",
+        "cards": "Karten",
+        "payments": "Zahlungen",
+        "statistics": "Statistiken",
+        "profile": "Profil",
+        "savings": "Sparen",
+        "account": "Konto"
+      }
+    },
+    "transfer": {
+      "title": "Senden & Empfangen",
+      "frequentRecipients": "Häufige Empfänger",
+      "viewAll": "Alle anzeigen",
+      "transferAmount": "Überweisungsbetrag",
+      "amountValue": "450,00 $",
+      "feeFree": "Ohne Wechselgebühr",
+      "recipientName": "Sarah Johnson",
+      "accountEnding": "•••• 2841",
+      "btnSend": "Betrag sofort überweisen",
+      "notificationReceived": "Geldeingang",
+      "notificationDetail": "Sarah Johnson hat Ihnen 250,00 $ gesendet",
+      "notificationSuccessful": "Überweisung erfolgreich",
+      "notificationSuccessDetail": "Überweisung über 120,00 $ reibungslos ausgeführt.",
+      "securityAlert": "Sicherheitsmeldung",
+      "securityAlertDetail": "Konto auf iPhone 16 Pro bestätigt."
+    },
+    "transactionDetails": {
+      "title": "Transaktionsdetails",
+      "paymentStatus": "ZAHLUNGSSTATUS",
+      "amount": "-249,00 $",
+      "merchant": "Apple Store",
+      "merchantSub": "Elektronik & Gadgets",
+      "dateLabel": "Datum",
+      "dateValue": "12. November 2026",
+      "paymentMethodLabel": "Zahlungsmethode",
+      "paymentMethodValue": "Banko Premium Karte (•••• 8291)",
+      "categoryLabel": "Kategorie",
+      "categoryValue": "Elektronik & Gadgets",
+      "transactionIdLabel": "Transaktions-ID",
+      "transactionIdValue": "BK-829104",
+      "btnDownloadReceipt": "Beleg herunterladen",
+      "btnReportIssue": "Problem melden"
+    },
+    "cardsManagement": {
+      "title": "Kartenverwaltung",
+      "myCards": "Meine Karten",
+      "cardHolderLabel": "Karteninhaber",
+      "cardHolderName": "John Doe",
+      "expiresLabel": "Gültig bis",
+      "expiryDate": "09/28",
+      "toggleCardFreeze": "Karte sperren",
+      "toggleOnlinePayments": "Einweg-Virtuellkarte",
+      "toggleLocation": "Standortbasierte Sicherheit"
+    },
+    "statistics": {
+      "title": "Statistiken",
+      "periodMonth": "Monat",
+      "periodYear": "Jahr",
+      "incomeLabel": "Einnahmen",
+      "incomeValue": "+8.250 $",
+      "outflowLabel": "Ausgaben",
+      "outflowValue": "-3.410 $",
+      "cashFlow": "Cashflow",
+      "inLabel": "Ein",
+      "outLabel": "Aus",
+      "categories": "Kategorien",
+      "top4": "Top 4",
+      "shoppingCategory": "Shopping (38 %)",
+      "shoppingAmount": "1.295,80 $",
+      "foodDiningCategory": "Gastronomie & Verpflegung (24 %)",
+      "foodDiningAmount": "818,40 $",
+      "subscriptionsCategory": "Abos & Nebenkosten (18 %)",
+      "subscriptionsAmount": "613,80 $",
+      "spendInsightBadge": "Sie haben 8 % weniger ausgegeben als im Vormonat"
+    },
+    "savings": {
+      "title": "Sparkonten (Vaults)",
+      "totalSavedLabel": "Gesamtersparnis",
+      "totalSavedValue": "14.850,00 $",
+      "apyNotice": "(+ 51,98 $ aufgelaufene Zinsen in dieser Periode)",
+      "apyBadge": "4,2 % p.a. Zinsen",
+      "goalJapan": "Japan-Reise",
+      "goalJapanAmount": "3.600 $",
+      "goalJapanTarget": "Ziel: 4.000 $",
+      "goalMacBook": "Neues MacBook Pro",
+      "goalMacBookAmount": "2.100 $",
+      "goalMacBookTarget": "Ziel: 2.400 $",
+      "goalEmergency": "Notfallfonds",
+      "goalEmergencyAmount": "8.150 $",
+      "goalEmergencyTarget": "Ziel: 9.000 $",
+      "autoSaveLabel": "Automatisches Aufrunden beim Bezahlen",
+      "btnCreateGoal": "+ Neues Sparziel erstellen"
+    }
+  }
+}
