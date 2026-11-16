@@ -71,6 +71,12 @@
       "terms": "AGB"
     }
   },
+  "notFound": {
+    "title": "Hoppla! Seite nicht gefunden.",
+    "description": "Die gesuchte Seite existiert nicht oder wurde möglicherweise verschoben.",
+    "backHome": "Zurück zur Startseite",
+    "back": "Zurück"
+  },
   "landing": {
     "hero": {
       "badge": "Neobanking der nächsten Generation",

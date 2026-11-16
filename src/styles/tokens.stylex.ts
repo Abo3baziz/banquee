@@ -2,6 +2,7 @@ import * as stylex from '@stylexjs/stylex'
 
 export const colors = stylex.defineVars({
   primary: '#006b5c',
+  primaryHover: '#005145',
   primaryContainer: '#5bb5a2',
   onPrimary: '#ffffff',
   onPrimaryContainer: '#004439',

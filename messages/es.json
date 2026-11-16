@@ -71,6 +71,12 @@
       "terms": "Términos y condiciones"
     }
   },
+  "notFound": {
+    "title": "¡Vaya! Página no encontrada.",
+    "description": "La página que buscas no existe o puede que se haya movido.",
+    "backHome": "Volver al inicio",
+    "back": "Volver"
+  },
   "landing": {
     "hero": {
       "badge": "Neobanca de nueva generación",
