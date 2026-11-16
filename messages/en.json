@@ -140,9 +140,12 @@
       "subtitle": "Crafted from 100% recycled ocean-bound plastic and precision stainless steel. Order yours with 2-day priority global shipping.",
       "popularBadge": "Most Popular",
       "steelBadge": "Steel",
+      "flipCard": "Flip the {{tier}} card to see the CVV",
+      "cardFinePrint": "Authorized signature • Not valid unless signed. Customer service: +1 (800) 555-BANQ",
       "tiers": {
         "standard": {
           "name": "Standard",
+          "cardLabel": "Standard Free",
           "price": "$0",
           "billing": "/ month",
           "description": "Perfect for daily spending, local debit transfers, and personal budgeting.",
@@ -154,6 +157,7 @@
         },
         "gold": {
           "name": "Gold",
+          "cardLabel": "Gold Privilege",
           "price": "$7.99",
           "billing": "/ month",
           "description": "Tailored for frequent travelers, zero-markup exchanges, and higher limits.",
@@ -165,6 +169,7 @@
         },
         "premium": {
           "name": "Premium",
+          "cardLabel": "Premium Elite",
           "price": "$14.99",
           "billing": "/ month",
           "description": "The ultimate luxury steel card with concierge, VIP travel, and max limits.",
