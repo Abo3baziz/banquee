@@ -35,6 +35,7 @@ The shared pieces are in place:
 - ✅ Landing hero with layered card mockups and a flip interaction
 - ✅ Feature highlights strip and cashflow analytics section
 - ✅ Card plans with flippable 3D mockups and capability previews
+- ✅ Send & receive section with a phone transaction preview
 - ✅ Styled 404 for unknown locale routes
 - ✅ App icon and favicon
 

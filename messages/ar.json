@@ -657,10 +657,17 @@
       "btnSend": "إرسال الأموال فوراً",
       "notificationReceived": "تم استلام أموال",
       "notificationDetail": "أرسلت لك سارة جونسون $250.00",
+      "notificationReceivedWhen": "الآن",
       "notificationSuccessful": "تم التحويل بنجاح",
       "notificationSuccessDetail": "اكتمل تحويل $120.00 بسلاسة.",
+      "notificationSuccessfulWhen": "منذ دقيقتين",
+      "paymentReminder": "تذكير بالدفع",
+      "paymentReminderDetail": "اشتراك Spotify الشهري مستحق ($11.99).",
+      "paymentReminderWhen": "غداً",
       "securityAlert": "تنبيه أمان",
-      "securityAlertDetail": "تم تأكيد الحساب على هاتف iPhone 16 Pro."
+      "securityAlertDetail": "تم تأكيد الحساب على هاتف iPhone 16 Pro.",
+      "securityAlertWhen": "10:14 ص",
+      "transactionTime": "اليوم، 14:28"
     },
     "transactionDetails": {
       "title": "تفاصيل المعاملة",
