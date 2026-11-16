@@ -24,7 +24,10 @@
     "features": "Funktionen",
     "compare": "Vergleichen",
     "support": "Hilfe & Support",
-    "blog": "Blog"
+    "blog": "Blog",
+    "menu": "Menü",
+    "openMenu": "Menü öffnen",
+    "closeMenu": "Menü schließen"
   },
   "footer": {
     "brandTagline": "Moderne Banking-Architektur für nahtlose Transaktionen, maximale Transparenz und mühelosen Vermögensaufbau.",
