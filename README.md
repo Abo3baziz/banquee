@@ -39,6 +39,7 @@ The shared pieces are in place:
 - ✅ Tools and integrations section using the project logo assets
 - ✅ Manifesto section with editorial imagery and regulated-bank callout
 - ✅ Customer testimonials grid with localized quotes
+- ✅ App download CTA with a banking dashboard mockup
 - ✅ Styled 404 for unknown locale routes
 - ✅ App icon and favicon
 
