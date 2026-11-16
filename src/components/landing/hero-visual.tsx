@@ -252,7 +252,7 @@ const styles = stylex.create({
   },
   brand: {
     color: colors.primary,
-    fontFamily: fonts.heading,
+    fontFamily: fonts.latinHeading,
     fontSize: '1.125rem',
     fontWeight: 700,
     lineHeight: '1.5rem',
@@ -431,7 +431,7 @@ const styles = stylex.create({
   },
   premiumBrand: {
     color: colors.surfaceLight,
-    fontFamily: fonts.heading,
+    fontFamily: fonts.latinHeading,
     fontSize: '1.125rem',
     fontWeight: 700,
     lineHeight: '1.5rem',
@@ -511,7 +511,7 @@ const styles = stylex.create({
   },
   visa: {
     color: 'rgba(255, 255, 255, 0.9)',
-    fontFamily: fonts.heading,
+    fontFamily: fonts.latinHeading,
     fontSize: '1.125rem',
     fontStyle: 'italic',
     fontWeight: 900,
@@ -622,7 +622,7 @@ const styles = stylex.create({
   },
   backBrand: {
     color: colors.surfaceLight,
-    fontFamily: fonts.heading,
+    fontFamily: fonts.latinHeading,
     fontSize: '0.8125rem',
     fontWeight: 700,
     lineHeight: '1.125rem',
@@ -636,7 +636,7 @@ const styles = stylex.create({
   },
   backVisa: {
     color: 'rgba(255, 255, 255, 0.8)',
-    fontFamily: fonts.heading,
+    fontFamily: fonts.latinHeading,
     fontSize: '0.8125rem',
     fontStyle: 'italic',
     fontWeight: 900,

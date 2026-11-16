@@ -124,7 +124,7 @@ const styles = stylex.create({
   },
   frontStandard: {
     borderColor: 'rgba(217, 217, 217, 0.4)',
-    backgroundColor: colors.surfaceLight,
+    backgroundColor: '#eceef0',
     color: colors.onSurface,
   },
   frontGold: {
@@ -167,7 +167,7 @@ const styles = stylex.create({
     zIndex: 1,
   },
   brand: {
-    fontFamily: fonts.heading,
+    fontFamily: fonts.latinHeading,
     fontSize: '1.125rem',
     fontWeight: 700,
     lineHeight: '1.5rem',
@@ -330,7 +330,7 @@ const styles = stylex.create({
     width: '1rem',
   },
   visa: {
-    fontFamily: fonts.heading,
+    fontFamily: fonts.latinHeading,
     fontSize: '1rem',
     fontStyle: 'italic',
     fontWeight: 900,
@@ -502,7 +502,7 @@ const styles = stylex.create({
     borderTopColor: 'rgba(255, 255, 255, 0.1)',
   },
   backBrand: {
-    fontFamily: fonts.heading,
+    fontFamily: fonts.latinHeading,
     fontSize: '0.8125rem',
     fontWeight: 700,
     lineHeight: '1.125rem',

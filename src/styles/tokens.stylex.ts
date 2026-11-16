@@ -50,7 +50,8 @@ export const radii = stylex.defineVars({
 })
 
 export const fonts = stylex.defineVars({
-  heading: 'var(--font-dm-sans), "DM Sans", sans-serif',
-  body: 'var(--font-inter), "Inter", sans-serif',
+  heading: 'var(--font-heading-stack)',
+  body: 'var(--font-body-stack)',
+  latinHeading: 'var(--font-dm-sans), "DM Sans", sans-serif',
   mono: 'ui-monospace, SFMono-Regular, Menlo, monospace',
 })

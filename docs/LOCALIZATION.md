@@ -211,6 +211,10 @@ Use logical CSS properties:
 | `left` | `inset-inline-start` |
 | `right` | `inset-inline-end` |
 
+### Arabic Typography
+
+Arabic pages use Cairo for headings (600–700) and Tajawal for body text (400–500, with 700 for strong emphasis). The fonts are loaded through `next/font` and applied by the `--font-heading-stack` and `--font-body-stack` variables when the document language is Arabic. Latin locales keep DM Sans and Inter.
+
 Additional requirements:
 
 - Use logical properties in StyleX styles.

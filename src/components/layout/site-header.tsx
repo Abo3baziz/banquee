@@ -101,7 +101,7 @@ const styles = stylex.create({
     color: colors.primary,
     display: 'flex',
     flexShrink: 0,
-    fontFamily: fonts.heading,
+    fontFamily: fonts.latinHeading,
     fontSize: '1.25rem',
     fontWeight: 700,
     letterSpacing: '-0.025em',
