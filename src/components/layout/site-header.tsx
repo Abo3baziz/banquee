@@ -1,7 +1,6 @@
 'use client'
 
 import * as stylex from '@stylexjs/stylex'
-import { User } from 'lucide-react'
 import { useLocale, useTranslations } from 'next-intl'
 import { Direction } from 'radix-ui'
 import { Link, usePathname } from '../../../i18n/navigation'
@@ -176,20 +175,6 @@ const styles = stylex.create({
     transitionProperty: 'background-color, color, box-shadow, transform',
     whiteSpace: 'nowrap',
   },
-  avatar: {
-    borderRadius: radii.full,
-    alignItems: 'center',
-    backgroundColor: colors.primary,
-    color: colors.onPrimary,
-    display: {
-      default: 'none',
-      '@media (min-width: 40rem)': 'flex',
-    },
-    flexShrink: 0,
-    justifyContent: 'center',
-    height: 32,
-    width: 32,
-  },
 })
 
 export function SiteHeader() {
@@ -256,9 +241,6 @@ export function SiteHeader() {
             >
               {tCommon('openAccount')}
             </Link>
-            <div {...stylex.props(styles.avatar)} aria-hidden="true">
-              <User aria-hidden="true" size={18} />
-            </div>
           </div>
         </div>
       </header>
