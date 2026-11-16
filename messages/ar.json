@@ -214,22 +214,25 @@
     "tools": {
       "eyebrow": "الأدوات والتكامل",
       "title": "تكامل تقني فائق السلاسة.",
-      "description": "تمتع بحرية مالية ومدفوعات سلسة مع دعم لأشهر شبكات الدفع العالمية الرائدة وأحدث العملات الرقمية الموثوقة.",
+      "description": "تمتع بحرية مالية ومدفوعات سلسة مع دعم لأشهر شبكات الدفع العالمية الرائدة والعملات الرقمية الموثوقة والأدوات التي تستخدمها بالفعل.",
       "groupPaymentNetworks": "شبكات الدفع العالمية",
-      "groupDigitalCurrencies": "العملات الرقمية",
+      "groupIntegrations": "التكاملات",
       "networks": {
         "visa": "فيزا (Visa)",
         "mastercard": "ماستركارد (Mastercard)",
-        "amex": "أمريكان إكسبريس (Amex)",
-        "discover": "ديسكفر (Discover)"
+        "paypal": "باي بال (PayPal)",
+        "applePay": "آبل باي (Apple Pay)",
+        "googlePay": "جوجل باي (Google Pay)",
+        "amazonPay": "أمازون باي (Amazon Pay)"
+      },
+      "integrations": {
+        "shopify": "شوبيفاي (Shopify)",
+        "webflow": "ويب فلو (Webflow)",
+        "zapier": "زابير (Zapier)"
       },
       "crypto": {
         "bitcoin": "بيتكوين",
-        "bitcoinSymbol": "BTC",
-        "ethereum": "إيثيريوم",
-        "ethereumSymbol": "ETH",
-        "usdCoin": "يو إس دي كوين",
-        "usdCoinSymbol": "USDC"
+        "bitcoinSymbol": "BTC"
       },
       "pillSecure": "تكامل مشفر ومؤمن بالكامل",
       "pillApi": "واجهة برمجة تطبيقات (API) مرنة",
