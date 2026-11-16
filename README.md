@@ -37,6 +37,7 @@ The shared pieces are in place:
 - ✅ Card plans with flippable 3D mockups and capability previews
 - ✅ Send & receive section with a phone transaction preview
 - ✅ Tools and integrations section using the project logo assets
+- ✅ Manifesto section with editorial imagery and regulated-bank callout
 - ✅ Styled 404 for unknown locale routes
 - ✅ App icon and favicon
 
