@@ -84,6 +84,11 @@
       "subheadline": "Una aplicación bancaria moderna con tarjetas inteligentes, transferencias instantáneas, cuentas de ahorro automatizadas y gestión 100% móvil diseñada para el estilo de vida digital.",
       "ctaPrimary": "Abrir cuenta",
       "ctaSecondary": "Comparar tarjetas",
+      "flipHint": "Girar para ver el CVV",
+      "flipCard": "Girar la tarjeta premium para ver el CVV",
+      "cvvLabel": "CVV / CVC",
+      "justNow": "Ahora mismo",
+      "purchase": "Compra",
       "stats": {
         "activeAccountsValue": "+2.4M",
         "activeAccountsLabel": "Cuentas activas",

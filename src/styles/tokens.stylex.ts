@@ -19,6 +19,13 @@ export const colors = stylex.defineVars({
   outlineVariant: '#bdc9c5',
   divider: '#d9d9d9',
   secondary: '#5f5d63',
+  error: '#ba1a1a',
+  surfaceVariant: '#e2e2e2',
+  onSecondaryFixed: '#1c1b20',
+  onSecondaryContainer: '#646268',
+  primaryFixed: '#99f3de',
+  tertiaryFixedDim: '#ffb4a4',
+  tintBlue: '#dfebf1',
 })
 
 export const spacing = stylex.defineVars({

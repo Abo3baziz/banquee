@@ -1,4 +1,5 @@
 import * as stylex from '@stylexjs/stylex'
+import { Hero } from '../../components/landing/hero'
 import { colors } from '../../styles/tokens.stylex'
 
 const styles = stylex.create({
@@ -9,5 +10,9 @@ const styles = stylex.create({
 })
 
 export default function Home() {
-  return <main {...stylex.props(styles.main)} />
+  return (
+    <main {...stylex.props(styles.main)}>
+      <Hero />
+    </main>
+  )
 }

@@ -84,6 +84,11 @@
       "subheadline": "تطبيق مصرفي حديث مزود ببطاقات ذكية، تحويلات فورية، حسابات توفير مؤتمتة، وإدارة مالية 100% عبر الهاتف صُممت لأسلوب الحياة الرقمي.",
       "ctaPrimary": "فتح حساب",
       "ctaSecondary": "مقارنة البطاقات",
+      "flipHint": "اقلب لعرض CVV",
+      "flipCard": "اقلب البطاقة المميزة لعرض رمز الأمان",
+      "cvvLabel": "CVV / CVC",
+      "justNow": "الآن",
+      "purchase": "شراء",
       "stats": {
         "activeAccountsValue": "+2.4 مليون",
         "activeAccountsLabel": "حساب نشط",

@@ -84,6 +84,11 @@
       "subheadline": "A modern banking app with smart cards, instant transactions, automated savings accounts, and 100% mobile management engineered for digital living.",
       "ctaPrimary": "Open Account",
       "ctaSecondary": "Compare Cards",
+      "flipHint": "Flip for CVV",
+      "flipCard": "Flip premium card to see the CVV",
+      "cvvLabel": "CVV / CVC",
+      "justNow": "Just now",
+      "purchase": "Purchase",
       "stats": {
         "activeAccountsValue": "2.4M+",
         "activeAccountsLabel": "Active Accounts",

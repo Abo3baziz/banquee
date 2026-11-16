@@ -84,6 +84,11 @@
       "subheadline": "Eine innovative Banking-App mit smarten Karten, Echtzeit-Überweisungen, automatisierten Sparkonten und 100% mobiler Verwaltung für einen digitalen Alltag.",
       "ctaPrimary": "Konto eröffnen",
       "ctaSecondary": "Karten vergleichen",
+      "flipHint": "Für CVV umdrehen",
+      "flipCard": "Premiumkarte umdrehen, um die CVC anzuzeigen",
+      "cvvLabel": "CVC / CVV",
+      "justNow": "Gerade eben",
+      "purchase": "Einkauf",
       "stats": {
         "activeAccountsValue": "2,4 Mio.+",
         "activeAccountsLabel": "Aktive Konten",
