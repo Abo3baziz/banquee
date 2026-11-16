@@ -24,7 +24,10 @@
     "features": "Features",
     "compare": "Compare",
     "support": "Support",
-    "blog": "Blog"
+    "blog": "Blog",
+    "menu": "Menu",
+    "openMenu": "Open menu",
+    "closeMenu": "Close menu"
   },
   "footer": {
     "brandTagline": "Modern banking architecture engineered for seamless transactions, total transparency, and effortless financial growth.",

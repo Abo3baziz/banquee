@@ -24,7 +24,10 @@
     "features": "Características",
     "compare": "Comparar",
     "support": "Soporte",
-    "blog": "Blog"
+    "blog": "Blog",
+    "menu": "Menú",
+    "openMenu": "Abrir menú",
+    "closeMenu": "Cerrar menú"
   },
   "footer": {
     "brandTagline": "Arquitectura bancaria moderna diseñada para transacciones fluidas, total transparencia y crecimiento financiero sin esfuerzo.",
