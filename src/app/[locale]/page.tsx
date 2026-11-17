@@ -5,6 +5,7 @@ import { Cashflow } from '../../components/landing/cashflow'
 import { FeatureHighlights } from '../../components/landing/feature-highlights'
 import { Hero } from '../../components/landing/hero'
 import { Manifesto } from '../../components/landing/manifesto'
+import { NeedHelpSection } from '../../components/landing/need-help'
 import { Plans } from '../../components/landing/plans'
 import { SendReceive } from '../../components/landing/send-receive'
 import { Testimonials } from '../../components/landing/testimonials'
@@ -31,6 +32,7 @@ export default function Home() {
       <Testimonials />
       <AppCta />
       <BlogSection />
+      <NeedHelpSection />
     </main>
   )
 }
