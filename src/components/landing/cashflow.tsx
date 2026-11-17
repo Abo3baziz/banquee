@@ -348,7 +348,7 @@ const styles = stylex.create({
   bulletTitle: {
     margin: 0,
     color: colors.onSurface,
-    fontFamily: fonts.body,
+    fontFamily: fonts.heading,
     fontSize: '1rem',
     fontWeight: 600,
     lineHeight: '1.5rem',

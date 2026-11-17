@@ -90,7 +90,7 @@ const styles = stylex.create({
     color: colors.onSurface,
     fontFamily: fonts.heading,
     fontSize: '1.125rem',
-    fontWeight: 500,
+    fontWeight: 600,
     lineHeight: '1.5rem',
     marginBottom: spacing.xs,
   },

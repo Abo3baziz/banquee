@@ -1,14 +1,17 @@
 :root {
-  --font-heading-stack: var(--font-dm-sans), 'DM Sans', sans-serif;
-  --font-body-stack: var(--font-inter), 'Inter', Arial, Helvetica, sans-serif;
+  --font-heading-stack:
+    var(--font-sora), 'Sora', var(--font-cairo), 'Cairo', sans-serif;
+  --font-body-stack:
+    var(--font-inter), 'Inter', var(--font-tajawal), 'Tajawal', Arial,
+    Helvetica, sans-serif;
 }
 
 html[lang='ar'] {
   --font-heading-stack:
-    var(--font-cairo), var(--font-dm-sans), 'DM Sans', sans-serif;
+    var(--font-cairo), 'Cairo', var(--font-sora), 'Sora', sans-serif;
   --font-body-stack:
-    var(--font-tajawal), var(--font-inter), 'Inter', Arial, Helvetica,
-    sans-serif;
+    var(--font-tajawal), 'Tajawal', var(--font-inter), 'Inter', Arial,
+    Helvetica, sans-serif;
 }
 
 @layer resets {
