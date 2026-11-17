@@ -302,6 +302,10 @@
     }
   },
   "featuresPage": {
+    "meta": {
+      "title": "Funktionen - Banquee",
+      "description": "Entdecken Sie die Funktionen, die Banking mit Banquee einfacher machen: Sofortüberweisungen, Kartenkontrolle, Ausgabenanalysen und Sparziele."
+    },
     "hero": {
       "badge": "Funktionen",
       "headline": "Alles vereint in einer Karte.",
@@ -315,6 +319,15 @@
         "usersLbl": "Aktive Karten weltweit",
         "settlementVal": "0,0 s",
         "settlementLbl": "Echtzeit-Wertstellung"
+      },
+      "visual": {
+        "debit": "Debit",
+        "monthlyOutflow": "Monatliche Ausgaben",
+        "outflowValue": "3.410 $",
+        "savingsProgress": "75 %",
+        "savingsSaved": "1.420 $ gespart",
+        "savingsTarget": "von 2.000 $",
+        "transferDetail": "+250,00 $ • Sofortüberweisung"
       }
     },
     "featureSendReceive": {

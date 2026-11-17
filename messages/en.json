@@ -302,6 +302,10 @@
     }
   },
   "featuresPage": {
+    "meta": {
+      "title": "Features - Banquee",
+      "description": "Discover the tools that make Banquee banking simpler: instant transfers, card controls, spending insights and savings goals."
+    },
     "hero": {
       "badge": "Features",
       "headline": "All in one card.",
@@ -315,6 +319,15 @@
         "usersLbl": "Active Global Cards",
         "settlementVal": "0.0s",
         "settlementLbl": "Instant Settlement"
+      },
+      "visual": {
+        "debit": "Debit",
+        "monthlyOutflow": "Monthly Outflow",
+        "outflowValue": "$3,410",
+        "savingsProgress": "75%",
+        "savingsSaved": "$1,420 saved",
+        "savingsTarget": "of $2,000",
+        "transferDetail": "+$250.00 • Instant transfer"
       }
     },
     "featureSendReceive": {
