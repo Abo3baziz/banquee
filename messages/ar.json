@@ -302,6 +302,10 @@
     }
   },
   "featuresPage": {
+    "meta": {
+      "title": "المميزات - Banquee",
+      "description": "اكتشف الأدوات التي تجعل مصرفية Banquee أبسط: تحويلات فورية، وتحكم في البطاقات، وتحليلات للإنفاق، وأهدافاً للادخار."
+    },
     "hero": {
       "badge": "المميزات",
       "headline": "كل ما تحتاجه في بطاقة واحدة.",
@@ -315,6 +319,15 @@
         "usersLbl": "بطاقة عالمية نشطة",
         "settlementVal": "0.0 ثانية",
         "settlementLbl": "تسوية مالية لحظية"
+      },
+      "visual": {
+        "debit": "خصم",
+        "monthlyOutflow": "الإنفاق الشهري",
+        "outflowValue": "$3,410",
+        "savingsProgress": "75%",
+        "savingsSaved": "تم توفير $1,420",
+        "savingsTarget": "من $2,000",
+        "transferDetail": "+$250.00 • تحويل فوري"
       }
     },
     "featureSendReceive": {

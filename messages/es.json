@@ -302,6 +302,10 @@
     }
   },
   "featuresPage": {
+    "meta": {
+      "title": "Funciones - Banquee",
+      "description": "Descubre las herramientas que hacen que la banca de Banquee sea más sencilla: transferencias instantáneas, control de tarjetas, análisis de gastos y metas de ahorro."
+    },
     "hero": {
       "badge": "Características",
       "headline": "Todo en una sola tarjeta.",
@@ -315,6 +319,15 @@
         "usersLbl": "Tarjetas globales activas",
         "settlementVal": "0.0s",
         "settlementLbl": "Liquidación inmediata"
+      },
+      "visual": {
+        "debit": "Débito",
+        "monthlyOutflow": "Gastos mensuales",
+        "outflowValue": "$3,410",
+        "savingsProgress": "75%",
+        "savingsSaved": "$1,420 ahorrados",
+        "savingsTarget": "de $2,000",
+        "transferDetail": "+$250.00 • Transferencia instantánea"
       }
     },
     "featureSendReceive": {
