@@ -7,6 +7,7 @@ import { useLocale, useTranslations } from 'next-intl'
 import { Dialog, Direction } from 'radix-ui'
 import { Link, usePathname } from '../../../i18n/navigation'
 import { colors, fonts, radii, spacing } from '../../styles/tokens.stylex'
+import { Cta } from '../ui/cta'
 import { LanguageOptions, LanguageSwitcher } from './language-switcher'
 
 const NAV_ITEMS = [
@@ -175,40 +176,11 @@ const styles = stylex.create({
     transitionProperty: 'color',
     whiteSpace: 'nowrap',
   },
-  cta: {
-    borderRadius: radii.md,
-    paddingBlock: spacing.sm,
-    paddingInline: {
-      default: spacing.md,
-      '@media (min-width: 40rem)': spacing.lg,
-    },
-    alignItems: 'center',
-    backgroundColor: {
-      default: colors.primaryContainer,
-      ':hover': colors.primary,
-    },
-    boxShadow: '0 1px 4px rgba(0, 0, 0, 0.06)',
-    color: {
-      default: colors.onPrimaryContainer,
-      ':hover': colors.onPrimary,
-    },
+  ctaDesktop: {
     display: {
       default: 'none',
       '@media (min-width: 64rem)': 'inline-flex',
     },
-    fontFamily: fonts.body,
-    fontSize: '0.875rem',
-    fontWeight: 500,
-    justifyContent: 'center',
-    lineHeight: '1.25rem',
-    textDecorationLine: 'none',
-    transform: {
-      default: null,
-      ':active': 'scale(0.95)',
-    },
-    transitionDuration: '150ms',
-    transitionProperty: 'background-color, color, box-shadow, transform',
-    whiteSpace: 'nowrap',
   },
   menuButton: {
     padding: 0,
@@ -379,12 +351,6 @@ const styles = stylex.create({
     justifyContent: 'center',
     width: '100%',
   },
-  panelCta: {
-    paddingBlock: '0.75rem',
-    display: 'inline-flex',
-    fontSize: '0.9375rem',
-    width: '100%',
-  },
   visuallyHidden: {
     margin: -1,
     padding: 0,
@@ -471,12 +437,14 @@ export function SiteHeader() {
             >
               {tCommon('login')}
             </Link>
-            <Link
+            <Cta
               href="/open-account"
-              {...stylex.props(styles.cta, styles.focusRing)}
+              variant="primary"
+              size="nav"
+              xstyle={styles.ctaDesktop}
             >
               {tCommon('openAccount')}
-            </Link>
+            </Cta>
             <Dialog.Root open={menuOpen} onOpenChange={setMenuOpen}>
               <Dialog.Trigger asChild>
                 <button
@@ -563,17 +531,15 @@ export function SiteHeader() {
                     >
                       {tCommon('login')}
                     </Link>
-                    <Link
+                    <Cta
                       href="/open-account"
                       onClick={closeMenu}
-                      {...stylex.props(
-                        styles.cta,
-                        styles.panelCta,
-                        styles.focusRing,
-                      )}
+                      variant="primary"
+                      size="panel"
+                      fullWidth
                     >
                       {tCommon('openAccount')}
-                    </Link>
+                    </Cta>
                   </div>
                 </Dialog.Content>
               </Dialog.Portal>

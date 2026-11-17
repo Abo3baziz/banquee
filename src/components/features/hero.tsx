@@ -2,8 +2,8 @@ import { Fragment } from 'react'
 import * as stylex from '@stylexjs/stylex'
 import { ArrowLeft, ArrowRight } from 'lucide-react'
 import { getLocale, getTranslations } from 'next-intl/server'
-import { Link } from '../../../i18n/navigation'
 import { colors, fonts, radii, spacing } from '../../styles/tokens.stylex'
+import { Cta } from '../ui/cta'
 import { FeaturesHeroVisual } from './hero-visual'
 
 const rise = stylex.keyframes({
@@ -23,24 +23,6 @@ const pulse = stylex.keyframes({
 })
 
 const styles = stylex.create({
-  focusRing: {
-    outlineColor: {
-      default: null,
-      ':focus-visible': colors.primary,
-    },
-    outlineOffset: {
-      default: null,
-      ':focus-visible': 2,
-    },
-    outlineStyle: {
-      default: 'none',
-      ':focus-visible': 'solid',
-    },
-    outlineWidth: {
-      default: null,
-      ':focus-visible': 2,
-    },
-  },
   section: {
     overflow: 'hidden',
     paddingBlock: '2rem',
@@ -176,65 +158,6 @@ const styles = stylex.create({
     display: 'flex',
     flexWrap: 'wrap',
   },
-  primaryCta: {
-    borderRadius: radii.lg,
-    gap: spacing.xs,
-    paddingBlock: '0.875rem',
-    paddingInline: '1.75rem',
-    alignItems: 'center',
-    backgroundColor: {
-      default: colors.primaryContainer,
-      ':hover': colors.primary,
-    },
-    boxShadow: {
-      default: '0 1px 2px rgba(0, 0, 0, 0.05)',
-      ':hover': '0 6px 16px rgba(0, 0, 0, 0.12)',
-    },
-    color: {
-      default: colors.onPrimaryContainer,
-      ':hover': colors.onPrimary,
-    },
-    display: 'inline-flex',
-    fontFamily: fonts.body,
-    fontSize: '0.875rem',
-    fontWeight: 600,
-    lineHeight: '1.25rem',
-    textDecorationLine: 'none',
-    transform: {
-      default: null,
-      ':hover': 'translateY(-2px)',
-      ':active': 'scale(0.95)',
-    },
-    transitionDuration: '200ms',
-    transitionProperty: 'background-color, color, box-shadow, transform',
-  },
-  secondaryCta: {
-    borderRadius: radii.lg,
-    paddingBlock: '0.875rem',
-    paddingInline: '1.75rem',
-    alignItems: 'center',
-    backgroundColor: {
-      default: colors.surfaceContainerLowest,
-      ':hover': colors.surfaceContainer,
-    },
-    boxShadow: '0 1px 2px rgba(0, 0, 0, 0.05)',
-    color: colors.onSurface,
-    display: 'inline-flex',
-    fontFamily: fonts.body,
-    fontSize: '0.875rem',
-    fontWeight: 600,
-    lineHeight: '1.25rem',
-    textDecorationLine: 'none',
-    transform: {
-      default: null,
-      ':active': 'scale(0.95)',
-    },
-    transitionDuration: '200ms',
-    transitionProperty: 'background-color, transform',
-  },
-  ctaIcon: {
-    flexShrink: 0,
-  },
   metrics: {
     gap: {
       default: '1.25rem',
@@ -325,23 +248,17 @@ export async function FeaturesHero() {
             <div
               {...stylex.props(styles.actions, styles.riseItem, styles.delay3)}
             >
-              <Link
+              <Cta
                 href="/open-account"
-                {...stylex.props(styles.primaryCta, styles.focusRing)}
+                variant="primary"
+                size="xl"
+                trailingIcon={<Arrow aria-hidden="true" size={18} />}
               >
-                <span>{t('hero.ctaOpen')}</span>
-                <Arrow
-                  aria-hidden="true"
-                  size={18}
-                  {...stylex.props(styles.ctaIcon)}
-                />
-              </Link>
-              <Link
-                href="/compare"
-                {...stylex.props(styles.secondaryCta, styles.focusRing)}
-              >
-                <span>{t('hero.ctaCompare')}</span>
-              </Link>
+                {t('hero.ctaOpen')}
+              </Cta>
+              <Cta href="/compare" variant="tertiary" size="xl">
+                {t('hero.ctaCompare')}
+              </Cta>
             </div>
 
             <div
