@@ -14,7 +14,7 @@ import {
   Zap,
 } from 'lucide-react'
 import type { LucideIcon } from 'lucide-react'
-import { getTranslations } from 'next-intl/server'
+import { getLocale, getTranslations } from 'next-intl/server'
 import { colors, fonts, radii, spacing } from '../../styles/tokens.stylex'
 import { Reveal } from '../ui/reveal'
 
@@ -29,12 +29,14 @@ type FeatureRowProps = {
   title: string
   description: string
   items: FeatureItem[]
+  enterFrom: 'left' | 'right'
   reversed?: boolean
   background: 'white' | 'surface'
 }
 
 const styles = stylex.create({
   section: {
+    overflow: 'hidden',
     width: '100%',
   },
   white: {
@@ -211,6 +213,7 @@ function FeatureRow({
   title,
   description,
   items,
+  enterFrom,
   reversed = false,
   background,
 }: FeatureRowProps) {
@@ -236,12 +239,18 @@ function FeatureRow({
               </div>
               <h2 {...stylex.props(styles.headline)}>{title}</h2>
               <p {...stylex.props(styles.description)}>{description}</p>
-              <div {...stylex.props(styles.items)}>
-                {items.map((item) => {
-                  const Icon = item.icon
+            </Reveal>
+            <div {...stylex.props(styles.items)}>
+              {items.map((item, index) => {
+                const Icon = item.icon
 
-                  return (
-                    <div key={item.title} {...stylex.props(styles.item)}>
+                return (
+                  <Reveal
+                    key={item.title}
+                    direction={enterFrom}
+                    delay={index * 0.08}
+                  >
+                    <div {...stylex.props(styles.item)}>
                       <span {...stylex.props(styles.itemIcon)}>
                         <Icon aria-hidden="true" size={22} />
                       </span>
@@ -254,10 +263,10 @@ function FeatureRow({
                         </p>
                       </div>
                     </div>
-                  )
-                })}
-              </div>
-            </Reveal>
+                  </Reveal>
+                )
+              })}
+            </div>
           </div>
 
           <div
@@ -277,13 +286,26 @@ function FeatureRow({
 }
 
 export async function FeaturesSections() {
-  const t = await getTranslations('featuresPage')
+  const [t, locale] = await Promise.all([
+    getTranslations('featuresPage'),
+    getLocale(),
+  ])
+
+  const isRtl = locale === 'ar'
+  const enterFrom = (reversed: boolean): 'left' | 'right' => {
+    if (reversed) {
+      return isRtl ? 'left' : 'right'
+    }
+
+    return isRtl ? 'right' : 'left'
+  }
 
   const rows: FeatureRowProps[] = [
     {
       eyebrow: t('featureSendReceive.eyebrow'),
       title: t('featureSendReceive.title'),
       description: t('featureSendReceive.description'),
+      enterFrom: enterFrom(false),
       background: 'white',
       items: [
         {
@@ -307,6 +329,7 @@ export async function FeaturesSections() {
       eyebrow: t('featureManageCards.eyebrow'),
       title: t('featureManageCards.title'),
       description: t('featureManageCards.description'),
+      enterFrom: enterFrom(true),
       background: 'surface',
       reversed: true,
       items: [
@@ -331,6 +354,7 @@ export async function FeaturesSections() {
       eyebrow: t('featureControlMoney.eyebrow'),
       title: t('featureControlMoney.title'),
       description: t('featureControlMoney.description'),
+      enterFrom: enterFrom(false),
       background: 'white',
       items: [
         {
@@ -354,6 +378,7 @@ export async function FeaturesSections() {
       eyebrow: t('featureOrganizeSavings.eyebrow'),
       title: t('featureOrganizeSavings.title'),
       description: t('featureOrganizeSavings.description'),
+      enterFrom: enterFrom(true),
       background: 'surface',
       reversed: true,
       items: [
