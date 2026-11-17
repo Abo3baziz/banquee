@@ -299,6 +299,42 @@
       "eyebrow": "Blog",
       "title": "Blog.",
       "ctaAll": "Todos los artículos"
+    },
+    "needHelp": {
+      "eyebrow": "Ayuda y soporte",
+      "title": "¿Necesitas ayuda?",
+      "items": {
+        "account": {
+          "question": "¿Cómo abro una cuenta en Banko?",
+          "answer": "Abrir una cuenta es rápido y sencillo. Descarga la app de Banko, regístrate con tus datos personales, verifica tu identidad y sigue los pasos para activar tu cuenta."
+        },
+        "card": {
+          "question": "¿Cómo pido una tarjeta nueva?",
+          "answer": "Puedes pedir una tarjeta nueva directamente desde la app de Banko. Entra en la sección Tarjetas, elige el tipo de tarjeta que prefieras y sigue las instrucciones para completar el pedido."
+        },
+        "limits": {
+          "question": "¿Cómo cambio los límites de mi cuenta?",
+          "answer": "Puedes gestionar los límites de tu cuenta desde los ajustes de la app. Abre la sección Límites, selecciona el límite que quieras modificar y ajústalo según tus necesidades."
+        },
+        "premium": {
+          "question": "¿Cómo funciona Banko Premium?",
+          "answer": "Banko Premium te da acceso a funciones bancarias adicionales y ventajas exclusivas. Elige un plan de suscripción, completa el pago y disfruta de una experiencia bancaria mejorada."
+        },
+        "multiple": {
+          "question": "¿Puedo tener dos cuentas de Banko?",
+          "answer": "Cada usuario puede tener una cuenta personal de Banko. No obstante, puedes crear varias cuentas de ahorro dentro de tu perfil para organizar tu dinero y gestionar distintos objetivos financieros."
+        }
+      },
+      "support": {
+        "title": "Contacta con soporte",
+        "description": "Nuestro equipo de soporte está disponible las 24 horas para resolver tus dudas sobre la cuenta, las tarjetas y los pagos. Contáctanos por teléfono o correo y te responderemos en pocos minutos.",
+        "hotlineLabel": "Línea directa de atención",
+        "hotlineValue": "+49 176 123 456",
+        "emailLabel": "Correo de soporte",
+        "emailValue": "help@banquee.com",
+        "responseTime": "Tiempo medio de respuesta: < 5 min",
+        "availability": "Disponible 24/7"
+      }
     }
   },
   "featuresPage": {
