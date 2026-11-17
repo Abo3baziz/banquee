@@ -2,10 +2,12 @@ import type { Metadata } from 'next'
 import { Cairo, Inter, Sora, Tajawal } from 'next/font/google'
 import { notFound } from 'next/navigation'
 import { hasLocale, NextIntlClientProvider } from 'next-intl'
+import { getTranslations } from 'next-intl/server'
 import './globals.css'
 import * as stylex from '@stylexjs/stylex'
 import { SiteFooter } from '../../components/layout/site-footer'
 import { SiteHeader } from '../../components/layout/site-header'
+import { BackToTop } from '../../components/ui/back-to-top'
 import { colors } from '../../styles/tokens.stylex'
 import { routing } from '@/i18n/routing'
 
@@ -71,6 +73,8 @@ export default async function RootLayout({
     notFound()
   }
 
+  const t = await getTranslations('common')
+
   return (
     <html
       lang={locale}
@@ -87,6 +91,7 @@ export default async function RootLayout({
           <SiteHeader />
           <div {...stylex.props(styles.content)}>{children}</div>
           <SiteFooter />
+          <BackToTop label={t('backToTop')} />
         </NextIntlClientProvider>
       </body>
     </html>

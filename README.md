@@ -32,6 +32,7 @@ The shared pieces are in place:
 - ✅ Four locales: English, German, Spanish, and Arabic (RTL)
 - ✅ Responsive site header with a Radix language switcher, Lucide icons, and a slide-in mobile menu
 - ✅ Footer with localized columns, legal links, and copyright
+- ✅ Floating back-to-top button with reduced-motion support
 - ✅ Landing hero with layered card mockups and a flip interaction
 - ✅ Feature highlights strip and cashflow analytics section
 - ✅ Card plans with flippable 3D mockups and capability previews

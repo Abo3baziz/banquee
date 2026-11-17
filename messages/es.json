@@ -18,7 +18,8 @@
     "receive": "Recibir",
     "topUp": "Recargar",
     "request": "Solicitar",
-    "selectLanguage": "Seleccionar idioma"
+    "selectLanguage": "Seleccionar idioma",
+    "backToTop": "Volver arriba"
   },
   "nav": {
     "features": "Características",

@@ -18,7 +18,8 @@
     "receive": "استلام",
     "topUp": "شحن الرصيد",
     "request": "طلب",
-    "selectLanguage": "اختر اللغة"
+    "selectLanguage": "اختر اللغة",
+    "backToTop": "العودة إلى الأعلى"
   },
   "nav": {
     "features": "المميزات",
