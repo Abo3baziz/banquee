@@ -1,3 +1,4 @@
+import type { ReactNode } from 'react'
 import * as stylex from '@stylexjs/stylex'
 import {
   Brain,
@@ -15,6 +16,7 @@ import {
 } from 'lucide-react'
 import type { LucideIcon } from 'lucide-react'
 import { getLocale, getTranslations } from 'next-intl/server'
+import { BankingDemo } from '../banking-demo/banking-demo'
 import { colors, fonts, radii, spacing } from '../../styles/tokens.stylex'
 import { Reveal } from '../ui/reveal'
 
@@ -32,6 +34,7 @@ type FeatureRowProps = {
   enterFrom: 'left' | 'right'
   reversed?: boolean
   background: 'white' | 'surface'
+  visual?: ReactNode
 }
 
 const styles = stylex.create({
@@ -105,6 +108,9 @@ const styles = stylex.create({
       default: 0,
       '@media (min-width: 64rem)': '36.25rem',
     },
+    width: '100%',
+  },
+  visualFill: {
     width: '100%',
   },
   badge: {
@@ -216,6 +222,7 @@ function FeatureRow({
   enterFrom,
   reversed = false,
   background,
+  visual,
 }: FeatureRowProps) {
   return (
     <section
@@ -275,8 +282,13 @@ function FeatureRow({
               reversed && styles.visualColumnReversed,
             )}
           >
-            <Reveal delay={0.1}>
-              <div aria-hidden="true" {...stylex.props(styles.visualSlot)} />
+            <Reveal
+              delay={0.1}
+              className={stylex.props(styles.visualFill).className}
+            >
+              {visual ?? (
+                <div aria-hidden="true" {...stylex.props(styles.visualSlot)} />
+              )}
             </Reveal>
           </div>
         </div>
@@ -307,6 +319,7 @@ export async function FeaturesSections() {
       description: t('featureSendReceive.description'),
       enterFrom: enterFrom(false),
       background: 'white',
+      visual: <BankingDemo />,
       items: [
         {
           title: t('featureSendReceive.items.transfersTitle'),
