@@ -18,7 +18,8 @@
     "receive": "Empfangen",
     "topUp": "Aufladen",
     "request": "Anfordern",
-    "selectLanguage": "Sprache auswählen"
+    "selectLanguage": "Sprache auswählen",
+    "backToTop": "Nach oben"
   },
   "nav": {
     "features": "Funktionen",
