@@ -4,6 +4,7 @@ import { ArrowLeft, ArrowRight } from 'lucide-react'
 import { getLocale, getTranslations } from 'next-intl/server'
 import { Link } from '../../../i18n/navigation'
 import { colors, fonts, radii, spacing } from '../../styles/tokens.stylex'
+import { Cta } from '../ui/cta'
 import { Reveal } from '../ui/reveal'
 
 const ARTICLES = [
@@ -118,38 +119,6 @@ const styles = stylex.create({
   },
   titleDot: {
     color: colors.primaryContainer,
-  },
-  cta: {
-    borderColor: 'rgba(217, 217, 217, 0.4)',
-    borderRadius: radii.md,
-    borderStyle: 'solid',
-    borderWidth: 1,
-    gap: spacing.xs,
-    paddingBlock: '0.625rem',
-    paddingInline: spacing.lg,
-    alignItems: 'center',
-    backgroundColor: {
-      default: colors.surfaceLight,
-      ':hover': colors.surfaceContainer,
-    },
-    boxShadow: '0 1px 2px rgba(0, 0, 0, 0.04)',
-    color: colors.onSurface,
-    display: 'inline-flex',
-    fontFamily: fonts.body,
-    fontSize: '0.875rem',
-    fontWeight: 600,
-    lineHeight: '1.25rem',
-    textDecorationLine: 'none',
-    transform: {
-      default: null,
-      ':active': 'scale(0.95)',
-    },
-    transitionDuration: '150ms',
-    transitionProperty: 'background-color, transform',
-    width: 'fit-content',
-  },
-  ctaIcon: {
-    flexShrink: 0,
   },
   grid: {
     gap: spacing.lg,
@@ -295,14 +264,14 @@ export async function BlogSection() {
               ) : null}
             </h2>
           </div>
-          <Link href="/blog" {...stylex.props(styles.cta, styles.focusRing)}>
+          <Cta
+            href="/blog"
+            variant="outline"
+            size="sm"
+            trailingIcon={<Arrow aria-hidden="true" size={18} />}
+          >
             {t('blogSection.ctaAll')}
-            <Arrow
-              aria-hidden="true"
-              size={18}
-              {...stylex.props(styles.ctaIcon)}
-            />
-          </Link>
+          </Cta>
         </div>
       </Reveal>
 

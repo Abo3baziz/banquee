@@ -4,8 +4,8 @@ import { useState } from 'react'
 import * as stylex from '@stylexjs/stylex'
 import { CircleCheck, CircleMinus, Cpu, Nfc, RefreshCw } from 'lucide-react'
 import { useTranslations } from 'next-intl'
-import { Link } from '../../../i18n/navigation'
 import { colors, fonts, radii, spacing } from '../../styles/tokens.stylex'
+import { Cta } from '../ui/cta'
 
 type Tier = 'standard' | 'gold' | 'premium'
 
@@ -606,44 +606,6 @@ const styles = stylex.create({
     flexShrink: 0,
     marginTop: 1,
   },
-  cta: {
-    borderRadius: radii.md,
-    paddingBlock: '0.625rem',
-    paddingInline: spacing.md,
-    alignItems: 'center',
-    display: 'inline-flex',
-    fontFamily: fonts.body,
-    fontSize: '0.875rem',
-    fontWeight: 600,
-    justifyContent: 'center',
-    lineHeight: '1.25rem',
-    textDecorationLine: 'none',
-    transform: {
-      default: null,
-      ':active': 'scale(0.97)',
-    },
-    transitionDuration: '150ms',
-    transitionProperty: 'background-color, color, transform',
-    width: '100%',
-  },
-  ctaSecondary: {
-    backgroundColor: {
-      default: colors.surfaceContainer,
-      ':hover': colors.surfaceContainerHigh,
-    },
-    color: colors.onSurface,
-  },
-  ctaPrimary: {
-    backgroundColor: {
-      default: colors.primaryContainer,
-      ':hover': colors.primary,
-    },
-    boxShadow: '0 1px 4px rgba(0, 0, 0, 0.06)',
-    color: {
-      default: colors.onPrimaryContainer,
-      ':hover': colors.onPrimary,
-    },
-  },
 })
 
 export function PlanCard({ tier, popular = false }: PlanCardProps) {
@@ -919,16 +881,14 @@ export function PlanCard({ tier, popular = false }: PlanCardProps) {
             </li>
           )}
         </ul>
-        <Link
+        <Cta
           href="/open-account"
-          {...stylex.props(
-            styles.cta,
-            isGold ? styles.ctaPrimary : styles.ctaSecondary,
-            styles.focusRing,
-          )}
+          variant={isGold ? 'primary' : 'secondary'}
+          size="sm"
+          fullWidth
         >
           {t(`plans.tiers.${tier}.cta`)}
-        </Link>
+        </Cta>
       </div>
     </article>
   )

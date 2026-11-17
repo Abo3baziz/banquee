@@ -7,8 +7,8 @@ import {
   Zap,
 } from 'lucide-react'
 import { getLocale, getTranslations } from 'next-intl/server'
-import { Link } from '../../../i18n/navigation'
 import { colors, fonts, radii, spacing } from '../../styles/tokens.stylex'
+import { Cta } from '../ui/cta'
 import { Reveal } from '../ui/reveal'
 import { SendReceiveVisual } from './send-receive-visual'
 
@@ -18,24 +18,6 @@ const pulse = stylex.keyframes({
 })
 
 const styles = stylex.create({
-  focusRing: {
-    outlineColor: {
-      default: null,
-      ':focus-visible': colors.primary,
-    },
-    outlineOffset: {
-      default: null,
-      ':focus-visible': 2,
-    },
-    outlineStyle: {
-      default: 'none',
-      ':focus-visible': 'solid',
-    },
-    outlineWidth: {
-      default: null,
-      ':focus-visible': 2,
-    },
-  },
   section: {
     overflow: 'hidden',
     backgroundColor: 'rgba(243, 243, 243, 0.6)',
@@ -191,58 +173,6 @@ const styles = stylex.create({
     display: 'flex',
     flexWrap: 'wrap',
   },
-  primaryCta: {
-    borderRadius: radii.md,
-    gap: spacing.xs,
-    paddingBlock: '0.75rem',
-    paddingInline: spacing.xl,
-    alignItems: 'center',
-    backgroundColor: {
-      default: colors.primaryContainer,
-      ':hover': colors.primary,
-    },
-    boxShadow: {
-      default: '0 1px 2px rgba(0, 0, 0, 0.05)',
-      ':hover': '0 6px 16px rgba(0, 0, 0, 0.12)',
-    },
-    color: {
-      default: colors.onPrimaryContainer,
-      ':hover': colors.onPrimary,
-    },
-    display: 'inline-flex',
-    fontFamily: fonts.body,
-    fontSize: '0.875rem',
-    fontWeight: 600,
-    lineHeight: '1.25rem',
-    textDecorationLine: 'none',
-    transform: {
-      default: null,
-      ':hover': 'translateY(-2px)',
-      ':active': 'scale(0.95)',
-    },
-    transitionDuration: '200ms',
-    transitionProperty: 'background-color, color, box-shadow, transform',
-  },
-  ctaIcon: {
-    flexShrink: 0,
-  },
-  secondaryCta: {
-    borderRadius: radii.md,
-    paddingBlock: '0.75rem',
-    paddingInline: spacing.md,
-    color: {
-      default: colors.onSurfaceVariant,
-      ':hover': colors.onSurface,
-    },
-    display: 'inline-flex',
-    fontFamily: fonts.body,
-    fontSize: '0.875rem',
-    fontWeight: 500,
-    lineHeight: '1.25rem',
-    textDecorationLine: 'none',
-    transitionDuration: '150ms',
-    transitionProperty: 'color',
-  },
 })
 
 export async function SendReceive() {
@@ -318,23 +248,17 @@ export async function SendReceive() {
                 })}
               </div>
               <div {...stylex.props(styles.actions)}>
-                <Link
+                <Cta
                   href="/open-account"
-                  {...stylex.props(styles.primaryCta, styles.focusRing)}
+                  variant="primary"
+                  size="md"
+                  trailingIcon={<Arrow aria-hidden="true" size={18} />}
                 >
-                  <span>{t('sendReceive.ctaStart')}</span>
-                  <Arrow
-                    aria-hidden="true"
-                    size={18}
-                    {...stylex.props(styles.ctaIcon)}
-                  />
-                </Link>
-                <Link
-                  href="/features"
-                  {...stylex.props(styles.secondaryCta, styles.focusRing)}
-                >
+                  {t('sendReceive.ctaStart')}
+                </Cta>
+                <Cta href="/features" variant="ghost" size="md">
                   {t('sendReceive.ctaLearn')}
-                </Link>
+                </Cta>
               </div>
             </Reveal>
           </div>

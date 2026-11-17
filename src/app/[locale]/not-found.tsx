@@ -2,28 +2,10 @@ import * as stylex from '@stylexjs/stylex'
 import { Home } from 'lucide-react'
 import { getTranslations } from 'next-intl/server'
 import { BackButton } from '../../components/ui/back-button'
-import { Link } from '../../../i18n/navigation'
-import { colors, fonts, radii, spacing } from '../../styles/tokens.stylex'
+import { Cta } from '../../components/ui/cta'
+import { colors, fonts, spacing } from '../../styles/tokens.stylex'
 
 const styles = stylex.create({
-  focusRing: {
-    outlineColor: {
-      default: null,
-      ':focus-visible': colors.primary,
-    },
-    outlineOffset: {
-      default: null,
-      ':focus-visible': 2,
-    },
-    outlineStyle: {
-      default: 'none',
-      ':focus-visible': 'solid',
-    },
-    outlineWidth: {
-      default: null,
-      ':focus-visible': 2,
-    },
-  },
   main: {
     paddingBlock: spacing.xl,
     paddingInline: spacing.margin,
@@ -98,32 +80,6 @@ const styles = stylex.create({
     flexWrap: 'wrap',
     justifyContent: 'center',
   },
-  primaryButton: {
-    borderRadius: radii.lg,
-    gap: spacing.xs,
-    paddingBlock: '0.75rem',
-    paddingInline: spacing.xl,
-    alignItems: 'center',
-    backgroundColor: {
-      default: colors.primary,
-      ':hover': colors.primaryHover,
-    },
-    boxShadow: '0 1px 2px rgba(0, 0, 0, 0.05)',
-    color: colors.onPrimary,
-    display: 'inline-flex',
-    fontFamily: fonts.body,
-    fontSize: '0.875rem',
-    fontWeight: 500,
-    justifyContent: 'center',
-    lineHeight: '1.25rem',
-    textDecorationLine: 'none',
-    transform: {
-      default: null,
-      ':hover': 'translateY(-2px)',
-    },
-    transitionDuration: '200ms',
-    transitionProperty: 'background-color, box-shadow, transform',
-  },
 })
 
 export default async function NotFound() {
@@ -140,13 +96,14 @@ export default async function NotFound() {
         <h1 {...stylex.props(styles.title)}>{t('title')}</h1>
         <p {...stylex.props(styles.description)}>{t('description')}</p>
         <div {...stylex.props(styles.actions)}>
-          <Link
+          <Cta
             href="/"
-            {...stylex.props(styles.primaryButton, styles.focusRing)}
+            variant="solid"
+            size="md"
+            trailingIcon={<Home aria-hidden="true" size={18} />}
           >
-            <span>{t('backHome')}</span>
-            <Home aria-hidden="true" size={18} />
-          </Link>
+            {t('backHome')}
+          </Cta>
           <BackButton label={t('back')} />
         </div>
       </div>

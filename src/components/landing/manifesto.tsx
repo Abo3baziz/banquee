@@ -2,29 +2,11 @@ import * as stylex from '@stylexjs/stylex'
 import Image from 'next/image'
 import { BadgeCheck } from 'lucide-react'
 import { getTranslations } from 'next-intl/server'
-import { Link } from '../../../i18n/navigation'
 import { colors, fonts, radii, spacing } from '../../styles/tokens.stylex'
+import { Cta } from '../ui/cta'
 import { Reveal } from '../ui/reveal'
 
 const styles = stylex.create({
-  focusRing: {
-    outlineColor: {
-      default: null,
-      ':focus-visible': colors.primary,
-    },
-    outlineOffset: {
-      default: null,
-      ':focus-visible': 2,
-    },
-    outlineStyle: {
-      default: 'none',
-      ':focus-visible': 'solid',
-    },
-    outlineWidth: {
-      default: null,
-      ':focus-visible': 2,
-    },
-  },
   section: {
     marginInline: 'auto',
     paddingBlock: spacing.xl,
@@ -168,33 +150,6 @@ const styles = stylex.create({
     display: 'flex',
     flexWrap: 'wrap',
   },
-  cta: {
-    borderRadius: radii.md,
-    paddingBlock: '0.75rem',
-    paddingInline: spacing.xl,
-    alignItems: 'center',
-    backgroundColor: {
-      default: colors.onSurface,
-      ':hover': '#2f3131',
-    },
-    boxShadow: {
-      default: '0 1px 2px rgba(0, 0, 0, 0.05)',
-      ':hover': '0 6px 16px rgba(0, 0, 0, 0.12)',
-    },
-    color: colors.surfaceLight,
-    display: 'inline-flex',
-    fontFamily: fonts.body,
-    fontSize: '0.875rem',
-    fontWeight: 600,
-    lineHeight: '1.25rem',
-    textDecorationLine: 'none',
-    transform: {
-      default: null,
-      ':active': 'scale(0.95)',
-    },
-    transitionDuration: '200ms',
-    transitionProperty: 'background-color, box-shadow, transform',
-  },
 })
 
 export async function Manifesto() {
@@ -245,12 +200,9 @@ export async function Manifesto() {
               {t('manifesto.paragraph2')}
             </p>
             <div {...stylex.props(styles.actions)}>
-              <Link
-                href="/about"
-                {...stylex.props(styles.cta, styles.focusRing)}
-              >
+              <Cta href="/about" variant="inverse" size="md">
                 {t('manifesto.cta')}
-              </Link>
+              </Cta>
             </div>
           </Reveal>
         </div>
