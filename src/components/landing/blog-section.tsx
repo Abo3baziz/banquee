@@ -236,6 +236,7 @@ const styles = stylex.create({
   },
   headingReset: {
     margin: 0,
+    fontFamily: fonts.heading,
   },
   cardTitle: {
     margin: 0,

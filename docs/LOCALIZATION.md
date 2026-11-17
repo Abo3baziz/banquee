@@ -213,7 +213,7 @@ Use logical CSS properties:
 
 ### Arabic Typography
 
-Arabic pages use Cairo for headings (600–700) and Tajawal for body text (400–500, with 700 for strong emphasis). The fonts are loaded through `next/font` and applied by the `--font-heading-stack` and `--font-body-stack` variables when the document language is Arabic. Latin locales keep DM Sans and Inter.
+Arabic pages use Cairo for headings (600–700) and Tajawal for body text (400–500, with 700 for strong emphasis). The fonts are loaded through `next/font` and applied by the `--font-heading-stack` and `--font-body-stack` variables when the document language is Arabic. Latin locales use Sora for headings and Inter for body text. Each stack lists the other language's fonts as fallbacks, so Arabic words inside Latin text and Latin words inside Arabic text keep a matching typeface.
 
 Additional requirements:
 

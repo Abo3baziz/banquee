@@ -1,5 +1,5 @@
 import type { Metadata } from 'next'
-import { Cairo, DM_Sans, Inter, Tajawal } from 'next/font/google'
+import { Cairo, Inter, Sora, Tajawal } from 'next/font/google'
 import { notFound } from 'next/navigation'
 import { hasLocale, NextIntlClientProvider } from 'next-intl'
 import './globals.css'
@@ -9,14 +9,16 @@ import { SiteHeader } from '../../components/layout/site-header'
 import { colors } from '../../styles/tokens.stylex'
 import { routing } from '@/i18n/routing'
 
-const dmSans = DM_Sans({
-  variable: '--font-dm-sans',
+const sora = Sora({
+  variable: '--font-sora',
   subsets: ['latin'],
+  display: 'swap',
 })
 
 const inter = Inter({
   variable: '--font-inter',
   subsets: ['latin'],
+  display: 'swap',
 })
 
 const cairo = Cairo({
@@ -74,13 +76,11 @@ export default async function RootLayout({
       lang={locale}
       dir={locale === 'ar' ? 'rtl' : 'ltr'}
       className={[
-        dmSans.variable,
+        sora.variable,
         inter.variable,
-        locale === 'ar' ? cairo.variable : '',
-        locale === 'ar' ? tajawal.variable : '',
-      ]
-        .filter(Boolean)
-        .join(' ')}
+        cairo.variable,
+        tajawal.variable,
+      ].join(' ')}
     >
       <body {...stylex.props(styles.body)}>
         <NextIntlClientProvider>
