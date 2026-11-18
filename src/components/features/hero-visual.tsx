@@ -1,6 +1,7 @@
 import * as stylex from '@stylexjs/stylex'
-import { Banknote, Laptop, Nfc, ShoppingBag, TrendingUp } from 'lucide-react'
+import { Banknote, Laptop, ShoppingBag, TrendingUp } from 'lucide-react'
 import { getTranslations } from 'next-intl/server'
+import { BankCard } from '../banking-card'
 import { colors, fonts, radii, spacing } from '../../styles/tokens.stylex'
 
 const fadeIn = stylex.keyframes({
@@ -105,171 +106,14 @@ const styles = stylex.create({
     zIndex: 20,
     top: 210,
   },
-  card: {
-    padding: '1.75rem',
-    borderRadius: 16,
-    overflow: 'hidden',
-    backgroundImage: 'linear-gradient(135deg, #1e2024, #111215 55%, #0a0b0d)',
-    boxShadow: {
-      default: '0 25px 50px -12px rgba(0, 0, 0, 0.35)',
-      ':hover': '0 32px 64px -16px rgba(0, 0, 0, 0.42)',
-    },
-    color: colors.surfaceLight,
-    direction: 'ltr',
-    display: 'flex',
-    flexDirection: 'column',
-    justifyContent: 'space-between',
-    position: 'relative',
+  cardFrame: {
     transform: {
       default: 'rotate(-3deg)',
       ':hover': 'rotate(0deg)',
     },
     transitionDuration: '250ms',
-    transitionProperty: 'transform, box-shadow',
-    height: 260,
+    transitionProperty: 'transform',
     width: 410,
-  },
-  sheen: {
-    inset: 0,
-    borderRadius: 'inherit',
-    backgroundImage:
-      'linear-gradient(45deg, rgba(255, 255, 255, 0.1), rgba(255, 255, 255, 0) 50%, rgba(91, 181, 162, 0.2))',
-    mixBlendMode: 'overlay',
-    pointerEvents: 'none',
-    position: 'absolute',
-  },
-  cardHeader: {
-    alignItems: 'center',
-    display: 'flex',
-    justifyContent: 'space-between',
-    position: 'relative',
-    zIndex: 1,
-  },
-  brand: {
-    gap: '0.375rem',
-    alignItems: 'center',
-    color: colors.surfaceLight,
-    display: 'flex',
-    fontFamily: fonts.heading,
-    fontSize: '1.25rem',
-    fontWeight: 700,
-    letterSpacing: '-0.025em',
-    lineHeight: '1.6875rem',
-  },
-  brandDot: {
-    borderRadius: radii.full,
-    backgroundColor: colors.primaryContainer,
-    height: 8,
-    width: 8,
-  },
-  cardHeaderEnd: {
-    gap: spacing.sm,
-    alignItems: 'center',
-    display: 'flex',
-  },
-  contactless: {
-    color: 'rgba(255, 255, 255, 0.7)',
-  },
-  debit: {
-    borderRadius: 4,
-    paddingBlock: 2,
-    paddingInline: 8,
-    backgroundColor: 'rgba(255, 255, 255, 0.1)',
-    color: 'rgba(255, 255, 255, 0.9)',
-    fontFamily: fonts.body,
-    fontSize: '0.625rem',
-    fontWeight: 700,
-    letterSpacing: '0.05em',
-    lineHeight: '0.875rem',
-    textTransform: 'uppercase',
-  },
-  cardMiddle: {
-    alignItems: 'center',
-    display: 'flex',
-    flexGrow: 1,
-    position: 'relative',
-    zIndex: 1,
-  },
-  chip: {
-    borderRadius: 6,
-    overflow: 'hidden',
-    alignItems: 'center',
-    backgroundImage: 'linear-gradient(135deg, #e2b774, #fce4b8 50%, #c99c54)',
-    boxShadow: 'inset 0 0 1px rgba(0, 0, 0, 0.4)',
-    display: 'flex',
-    justifyContent: 'center',
-    position: 'relative',
-    height: 36,
-    width: 48,
-  },
-  chipLine: {
-    backgroundColor: 'rgba(0, 0, 0, 0.3)',
-    position: 'absolute',
-  },
-  chipLineTop: {
-    height: 1,
-    top: '0.75rem',
-    width: '100%',
-  },
-  chipLineBottom: {
-    bottom: '0.75rem',
-    height: 1,
-    width: '100%',
-  },
-  chipLineStart: {
-    insetInlineStart: '1rem',
-    height: '100%',
-    width: 1,
-  },
-  chipLineEnd: {
-    insetInlineEnd: '1rem',
-    height: '100%',
-    width: 1,
-  },
-  cardFooter: {
-    position: 'relative',
-    zIndex: 1,
-  },
-  number: {
-    color: 'rgba(255, 255, 255, 0.9)',
-    fontFamily: fonts.mono,
-    fontSize: '0.875rem',
-    fontWeight: 500,
-    letterSpacing: '0.25em',
-    lineHeight: '1.25rem',
-    marginBottom: '0.625rem',
-  },
-  metaRow: {
-    gap: spacing.lg,
-    alignItems: 'flex-end',
-    display: 'flex',
-  },
-  metaLabel: {
-    color: 'rgba(255, 255, 255, 0.5)',
-    fontFamily: fonts.body,
-    fontSize: '0.5625rem',
-    fontWeight: 500,
-    letterSpacing: '0.05em',
-    lineHeight: '0.875rem',
-    textTransform: 'uppercase',
-  },
-  metaValue: {
-    color: colors.surfaceLight,
-    fontFamily: fonts.body,
-    fontSize: '0.875rem',
-    fontWeight: 600,
-    letterSpacing: '0.025em',
-    lineHeight: '1.25rem',
-  },
-  visa: {
-    color: 'rgba(255, 255, 255, 0.95)',
-    fontFamily: fonts.heading,
-    fontSize: '1.5rem',
-    fontStyle: 'italic',
-    fontWeight: 700,
-    letterSpacing: '-0.05em',
-    lineHeight: '1.75rem',
-    marginInlineStart: 'auto',
   },
   floatCard: {
     padding: spacing.md,
@@ -583,58 +427,17 @@ export async function FeaturesHeroVisual() {
         <div {...stylex.props(styles.aura)} />
 
         <div {...stylex.props(styles.mainSlot, styles.riseItem, styles.delay2)}>
-          <div {...stylex.props(styles.card)}>
-            <div {...stylex.props(styles.sheen)} />
-            <div {...stylex.props(styles.cardHeader)}>
-              <span {...stylex.props(styles.brand)}>
-                banquee
-                <span {...stylex.props(styles.brandDot)} />
-              </span>
-              <div {...stylex.props(styles.cardHeaderEnd)}>
-                <Nfc
-                  aria-hidden="true"
-                  size={20}
-                  {...stylex.props(styles.contactless)}
-                />
-                <span {...stylex.props(styles.debit)}>
-                  {t('hero.visual.debit')}
-                </span>
-              </div>
-            </div>
-            <div {...stylex.props(styles.cardMiddle)}>
-              <div {...stylex.props(styles.chip)}>
-                <span {...stylex.props(styles.chipLine, styles.chipLineTop)} />
-                <span
-                  {...stylex.props(styles.chipLine, styles.chipLineBottom)}
-                />
-                <span
-                  {...stylex.props(styles.chipLine, styles.chipLineStart)}
-                />
-                <span {...stylex.props(styles.chipLine, styles.chipLineEnd)} />
-              </div>
-            </div>
-            <div {...stylex.props(styles.cardFooter)}>
-              <div {...stylex.props(styles.number)}>•••• •••• •••• 4289</div>
-              <div {...stylex.props(styles.metaRow)}>
-                <div>
-                  <div {...stylex.props(styles.metaLabel)}>
-                    {tm('cardsManagement.cardHolderLabel')}
-                  </div>
-                  <div {...stylex.props(styles.metaValue)}>
-                    {tm('cardsManagement.cardHolderName')}
-                  </div>
-                </div>
-                <div>
-                  <div {...stylex.props(styles.metaLabel)}>
-                    {tm('cardsManagement.expiresLabel')}
-                  </div>
-                  <div {...stylex.props(styles.metaValue)}>
-                    {tm('cardsManagement.expiryDate')}
-                  </div>
-                </div>
-                <span {...stylex.props(styles.visa)}>VISA</span>
-              </div>
-            </div>
+          <div {...stylex.props(styles.cardFrame)}>
+            <BankCard
+              tier="premium"
+              network="visa"
+              label={t('hero.visual.debit')}
+              lastFour="4289"
+              cardholderName={tm('cardsManagement.cardHolderName')}
+              cardholderLabel={tm('cardsManagement.cardHolderLabel')}
+              expiryDate={tm('cardsManagement.expiryDate')}
+              expiryLabel={tm('cardsManagement.expiresLabel')}
+            />
           </div>
         </div>
 
