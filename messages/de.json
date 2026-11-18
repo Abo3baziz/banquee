@@ -420,69 +420,74 @@
     }
   },
   "compareCards": {
-    "eyebrow": "Karten vergleichen",
-    "title": "Finden Sie die passende Karte für Ihre Bedürfnisse.",
-    "subtitle": "Vergleichen Sie die Tarife von Banko und wählen Sie die Leistungen, die perfekt zu Ihren täglichen Finanzen passen.",
-    "plans": {
-      "premium": {
-        "name": "Premium",
-        "price": "10 $",
-        "billing": "/ Monat",
-        "description": "Das umfassende Banking-Erlebnis mit unbegrenzten virtuellen Karten und exklusiven Premium-Analysen.",
-        "cta": "Jetzt starten"
-      },
-      "gold": {
-        "name": "Gold",
-        "price": "7,99 $",
-        "billing": "/ Monat",
-        "description": "Ideal für Vielreisende: Währungsumtausch ohne Aufschläge und spürbar höhere Bargeldabhebelimits.",
-        "cta": "Jetzt starten"
-      },
-      "plat": {
-        "name": "Platin (Plat)",
-        "price": "14,99 $",
-        "billing": "/ Monat",
-        "description": "Das Executive-Niveau mit persönlichem Concierge, maximaler Versicherungsabdeckung und weltweiten Privilegien.",
-        "cta": "Jetzt starten"
-      }
+    "meta": {
+      "title": "Karten vergleichen - Banquee",
+      "description": "Vergleichen Sie Ihre Banquee-Karten nebeneinander: Kartentypen, Kartenstufen, Ausgabenlimits und die Funktionen, die jede Karte bietet."
+    },
+    "hero": {
+      "badge": "Karten vergleichen",
+      "title": "Finden Sie die passende Karte für sich.",
+      "subtitle": "Vergleichen Sie Ihre Banquee-Karten nebeneinander und sehen Sie, wie jede Karte zu Ihren täglichen Ausgaben passt."
+    },
+    "grid": {
+      "sectionTitle": "Ihre Banquee-Karten",
+      "premiumBadge": "Premium",
+      "active": "Aktiv",
+      "frozen": "Gesperrt",
+      "debitDescription": "Tägliche Ausgaben direkt von Ihrem Girokonto.",
+      "creditDescription": "Flexibler Kredit für größere Anschaffungen, monatlich zurückgezahlt.",
+      "dailyLimit": "Tageslimit",
+      "monthlyLimit": "Monatslimit"
     },
     "table": {
+      "sectionTitle": "Kartenvergleich",
+      "caption": "Funktionsvergleich Ihrer Banquee-Karten",
       "headers": {
-        "features": "Funktionen",
-        "basic": "Basic",
-        "popular": "Beliebt",
-        "premium": "Premium",
-        "gold": "Gold",
-        "plat": "Platin"
+        "features": "Funktionen"
       },
       "categories": {
-        "creditCard": "Kreditkarte",
-        "bankAccount": "Bankkonto",
-        "extraFeatures": "Zusatzleistungen"
+        "cardDetails": "Kartendetails",
+        "spendingLimits": "Ausgabenlimits",
+        "cardFeatures": "Kartenfunktionen",
+        "pricing": "Gebühren & Prämien"
       },
       "rows": {
-        "physicalCard": "Physische Karte",
-        "virtualCard": "Virtuelle Karte",
-        "contactlessPayments": "Kontaktloses Bezahlen",
-        "mobilePayments": "Mobiles Bezahlen (Apple/Google Pay)",
-        "freePaymentsWorldwide": "Kostenlose weltweite Zahlungen",
-        "freeAtmWithdrawals": "Kostenfreie Bargeldabhebungen",
-        "mobileBanking": "Mobiles Banking per App",
-        "savingAccounts": "Verzinsliche Sparkonten",
-        "advancedStatistics": "Erweiterte Finanzstatistiken",
-        "premiumPartnerOffers": "Exklusive Partnerangebote"
+        "network": "Kartennetzwerk",
+        "cardType": "Kartentyp",
+        "tier": "Kartenstufe",
+        "status": "Status",
+        "cardNumber": "Kartennummer",
+        "expiry": "Gültig bis",
+        "cardholder": "Karteninhaber",
+        "linkedAccount": "Verknüpftes Konto",
+        "dailyLimit": "Tageslimit",
+        "dailySpent": "Heute ausgegeben",
+        "monthlyLimit": "Monatslimit",
+        "monthlySpent": "Diesen Monat ausgegeben",
+        "monthlyRemaining": "Verbleibend diesen Monat",
+        "contactless": "Kontaktloses Bezahlen",
+        "freezeCard": "Karte sperren",
+        "adjustableLimits": "Anpassbare Ausgabenlimits",
+        "annualFee": "Jahresgebühr",
+        "rewards": "Bonusprogramm",
+        "foreignTransactionFee": "Auslandsgebühr"
       },
       "values": {
-        "optional": "Optional",
-        "upTo2": "Bis zu 2",
-        "unlimited": "Unbegrenzt",
-        "included": "Im Tarif enthalten"
+        "included": "Enthalten",
+        "notAvailable": "Nicht verfügbar",
+        "debit": "Debitkarte",
+        "credit": "Kreditkarte",
+        "standard": "Standard",
+        "gold": "Gold",
+        "premium": "Premium",
+        "active": "Aktiv",
+        "frozen": "Gesperrt"
       }
     },
     "securityCta": {
       "eyebrow": "Sicherheit an erster Stelle",
-      "heading": "Haben Sie Fragen zum Kartenwechsel oder Upgrade?",
-      "description": "Wechseln oder upgraden Sie Ihren Tarif jederzeit direkt in der banquee Mobile App. Keine versteckten Gebühren, flexibel monatlich kündbar.",
+      "heading": "Fragen zum Kartenwechsel?",
+      "description": "Verwalten, sperren oder passen Sie die Limits Ihrer Karten jederzeit direkt in der banquee-App an. Keine versteckten Gebühren, jederzeit kündbar.",
       "ctaFaq": "FAQs lesen",
       "ctaOpen": "Konto eröffnen"
     }

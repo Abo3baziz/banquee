@@ -420,69 +420,74 @@
     }
   },
   "compareCards": {
-    "eyebrow": "Comparar tarjetas",
-    "title": "Encuentra la tarjeta perfecta para ti.",
-    "subtitle": "Compara los planes de Banko y elige las características que mejor se adapten a tus necesidades bancarias cotidianas.",
-    "plans": {
-      "premium": {
-        "name": "Premium",
-        "price": "$10",
-        "billing": "/ mes",
-        "description": "Disfruta de la experiencia bancaria más completa con tarjetas virtuales ilimitadas y analítica avanzada.",
-        "cta": "Comenzar"
-      },
-      "gold": {
-        "name": "Oro (Gold)",
-        "price": "$7.99",
-        "billing": "/ mes",
-        "description": "Ideal para viajeros habituales, con cambio de divisa sin comisiones y límites de retirada ampliados.",
-        "cta": "Comenzar"
-      },
-      "plat": {
-        "name": "Platino (Plat)",
-        "price": "$14.99",
-        "billing": "/ mes",
-        "description": "El nivel ejecutivo con servicio de conserjería exclusivo, máximas coberturas y beneficios internacionales.",
-        "cta": "Comenzar"
-      }
+    "meta": {
+      "title": "Comparar tarjetas - Banquee",
+      "description": "Compara tus tarjetas Banquee lado a lado: tipos de tarjeta, niveles, límites de gasto y las funciones disponibles en cada una."
+    },
+    "hero": {
+      "badge": "Comparar tarjetas",
+      "title": "Encuentra la tarjeta adecuada para ti.",
+      "subtitle": "Compara tus tarjetas Banquee lado a lado y descubre cómo encaja cada una en tus gastos diarios."
+    },
+    "grid": {
+      "sectionTitle": "Tus tarjetas Banquee",
+      "premiumBadge": "Premium",
+      "active": "Activa",
+      "frozen": "Bloqueada",
+      "debitDescription": "Gastos diarios directamente desde tu cuenta corriente.",
+      "creditDescription": "Crédito flexible para compras mayores, con pago mensual.",
+      "dailyLimit": "Límite diario",
+      "monthlyLimit": "Límite mensual"
     },
     "table": {
+      "sectionTitle": "Comparación de tarjetas",
+      "caption": "Comparación de funciones de tus tarjetas Banquee",
       "headers": {
-        "features": "Características",
-        "basic": "Básica",
-        "popular": "Más popular",
-        "premium": "Premium",
-        "gold": "Oro",
-        "plat": "Platino"
+        "features": "Funciones"
       },
       "categories": {
-        "creditCard": "Tarjeta de crédito",
-        "bankAccount": "Cuenta bancaria",
-        "extraFeatures": "Ventajas adicionales"
+        "cardDetails": "Datos de la tarjeta",
+        "spendingLimits": "Límites de gasto",
+        "cardFeatures": "Funciones de la tarjeta",
+        "pricing": "Precios y recompensas"
       },
       "rows": {
-        "physicalCard": "Tarjeta física",
-        "virtualCard": "Tarjeta virtual",
-        "contactlessPayments": "Pagos contactless sin contacto",
-        "mobilePayments": "Pagos móviles",
-        "freePaymentsWorldwide": "Pagos gratuitos en todo el mundo",
-        "freeAtmWithdrawals": "Retiradas gratuitas en cajeros automáticos",
-        "mobileBanking": "Banca a través del móvil",
-        "savingAccounts": "Cuentas de ahorro",
-        "advancedStatistics": "Estadísticas avanzadas",
-        "premiumPartnerOffers": "Ofertas de socios exclusivos"
+        "network": "Red",
+        "cardType": "Tipo de tarjeta",
+        "tier": "Nivel",
+        "status": "Estado",
+        "cardNumber": "Número de tarjeta",
+        "expiry": "Caduca",
+        "cardholder": "Titular",
+        "linkedAccount": "Cuenta vinculada",
+        "dailyLimit": "Límite diario",
+        "dailySpent": "Gastado hoy",
+        "monthlyLimit": "Límite mensual",
+        "monthlySpent": "Gastado este mes",
+        "monthlyRemaining": "Restante este mes",
+        "contactless": "Pagos contactless",
+        "freezeCard": "Bloquear tarjeta",
+        "adjustableLimits": "Límites de gasto ajustables",
+        "annualFee": "Cuota anual",
+        "rewards": "Programa de recompensas",
+        "foreignTransactionFee": "Comisión por cambio de divisa"
       },
       "values": {
-        "optional": "Opcional",
-        "upTo2": "Hasta 2",
-        "unlimited": "Ilimitado",
-        "included": "Incluido en el plan"
+        "included": "Incluido",
+        "notAvailable": "No disponible",
+        "debit": "Tarjeta de débito",
+        "credit": "Tarjeta de crédito",
+        "standard": "Estándar",
+        "gold": "Oro",
+        "premium": "Premium",
+        "active": "Activa",
+        "frozen": "Bloqueada"
       }
     },
     "securityCta": {
       "eyebrow": "Seguridad ante todo",
-      "heading": "¿Tienes dudas sobre cómo cambiar o mejorar tu tarjeta?",
-      "description": "Mejora o cambia de plan en cualquier momento directamente desde la app móvil de banquee. Sin costes ocultos y con cancelación libre cuando desees.",
+      "heading": "¿Tienes dudas sobre cómo cambiar tu tarjeta?",
+      "description": "Gestiona, bloquea o ajusta los límites de cualquiera de tus tarjetas en cualquier momento desde la app de banquee. Sin penalizaciones ocultas, cancela cuando quieras.",
       "ctaFaq": "Leer preguntas frecuentes",
       "ctaOpen": "Abrir cuenta"
     }

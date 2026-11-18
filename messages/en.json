@@ -420,69 +420,74 @@
     }
   },
   "compareCards": {
-    "eyebrow": "Compare Cards",
-    "title": "Find the right card for you.",
-    "subtitle": "Compare Banko plans and find the features that best fit your everyday banking needs.",
-    "plans": {
-      "premium": {
-        "name": "Premium",
-        "price": "$10",
-        "billing": "/ month",
-        "description": "Get the ultimate banking experience with unlimited virtual cards and premium analytics.",
-        "cta": "Get started"
-      },
-      "gold": {
-        "name": "Gold",
-        "price": "$7.99",
-        "billing": "/ month",
-        "description": "Tailored for frequent travelers, zero markup exchanges, and elevated withdrawal limits.",
-        "cta": "Get started"
-      },
-      "plat": {
-        "name": "Plat",
-        "price": "$14.99",
-        "billing": "/ month",
-        "description": "The executive tier with bespoke concierge access, highest coverage, and global perks.",
-        "cta": "Get started"
-      }
+    "meta": {
+      "title": "Compare Cards - Banquee",
+      "description": "Compare your Banquee cards side by side: card types, tiers, spending limits, and the features available on each card."
+    },
+    "hero": {
+      "badge": "Compare Cards",
+      "title": "Find the right card for you.",
+      "subtitle": "Compare your Banquee cards side by side and see how each one fits your everyday spending."
+    },
+    "grid": {
+      "sectionTitle": "Your Banquee cards",
+      "premiumBadge": "Premium",
+      "active": "Active",
+      "frozen": "Frozen",
+      "debitDescription": "Everyday spending straight from your checking account.",
+      "creditDescription": "Flexible credit for larger purchases, paid back monthly.",
+      "dailyLimit": "Daily limit",
+      "monthlyLimit": "Monthly limit"
     },
     "table": {
+      "sectionTitle": "Card comparison",
+      "caption": "Feature comparison of your Banquee cards",
       "headers": {
-        "features": "Features",
-        "basic": "Basic",
-        "popular": "Popular",
-        "premium": "Premium",
-        "gold": "Gold",
-        "plat": "Plat"
+        "features": "Features"
       },
       "categories": {
-        "creditCard": "Credit Card",
-        "bankAccount": "Bank Account",
-        "extraFeatures": "Extra Features"
+        "cardDetails": "Card Details",
+        "spendingLimits": "Spending Limits",
+        "cardFeatures": "Card Features",
+        "pricing": "Pricing & Rewards"
       },
       "rows": {
-        "physicalCard": "Physical Card",
-        "virtualCard": "Virtual Card",
-        "contactlessPayments": "Contactless Payments",
-        "mobilePayments": "Mobile Payments",
-        "freePaymentsWorldwide": "Free Payments Worldwide",
-        "freeAtmWithdrawals": "Free ATM Withdrawals",
-        "mobileBanking": "Mobile Banking",
-        "savingAccounts": "Saving Accounts",
-        "advancedStatistics": "Advanced Statistics",
-        "premiumPartnerOffers": "Premium Partner Offers"
+        "network": "Network",
+        "cardType": "Card Type",
+        "tier": "Tier",
+        "status": "Status",
+        "cardNumber": "Card Number",
+        "expiry": "Expires",
+        "cardholder": "Cardholder",
+        "linkedAccount": "Linked Account",
+        "dailyLimit": "Daily Limit",
+        "dailySpent": "Daily Spent",
+        "monthlyLimit": "Monthly Limit",
+        "monthlySpent": "Monthly Spent",
+        "monthlyRemaining": "Monthly Remaining",
+        "contactless": "Contactless Payments",
+        "freezeCard": "Freeze Card",
+        "adjustableLimits": "Adjustable Spending Limits",
+        "annualFee": "Annual Fee",
+        "rewards": "Rewards Program",
+        "foreignTransactionFee": "Foreign Transaction Fee"
       },
       "values": {
-        "optional": "Optional",
-        "upTo2": "Up to 2",
-        "unlimited": "Unlimited",
-        "included": "Diam in arcu cursus euismod"
+        "included": "Included",
+        "notAvailable": "Not available",
+        "debit": "Debit Card",
+        "credit": "Credit Card",
+        "standard": "Standard",
+        "gold": "Gold",
+        "premium": "Premium",
+        "active": "Active",
+        "frozen": "Frozen"
       }
     },
     "securityCta": {
       "eyebrow": "Security First",
       "heading": "Questions about switching your card?",
-      "description": "Upgrade or downgrade anytime directly from the banquee mobile app. No hidden penalties, cancel whenever you want.",
+      "description": "Manage, freeze, or adjust limits for any of your cards anytime directly from the banquee app. No hidden penalties, cancel whenever you want.",
       "ctaFaq": "Read FAQs",
       "ctaOpen": "Open Account"
     }
