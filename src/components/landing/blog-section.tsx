@@ -3,24 +3,10 @@ import Image from 'next/image'
 import { ArrowLeft, ArrowRight } from 'lucide-react'
 import { getLocale, getTranslations } from 'next-intl/server'
 import { Link } from '../../../i18n/navigation'
+import { blogArticles } from '../blog/blog-articles'
 import { colors, fonts, radii, spacing } from '../../styles/tokens.stylex'
 import { Cta } from '../ui/cta'
 import { Reveal } from '../ui/reveal'
-
-const ARTICLES = [
-  {
-    key: 'startup',
-    image: '/images/blog-startup.jpg',
-  },
-  {
-    key: 'secrets',
-    image: '/images/blog-secrets.jpg',
-  },
-  {
-    key: 'savingHabits',
-    image: '/images/blog-savings.jpg',
-  },
-] as const
 
 const pulse = stylex.keyframes({
   '0%, 100%': { opacity: 1 },
@@ -276,7 +262,7 @@ export async function BlogSection() {
       </Reveal>
 
       <div {...stylex.props(styles.grid)}>
-        {ARTICLES.map((article, index) => {
+        {blogArticles.map((article, index) => {
           const articleTitle = tb(`articles.${article.key}.title`)
 
           return (
