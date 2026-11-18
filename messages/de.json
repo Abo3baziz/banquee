@@ -384,78 +384,121 @@
     }
   },
   "compareCards": {
-    "eyebrow": "Karten vergleichen",
-    "title": "Finden Sie die passende Karte für Ihre Bedürfnisse.",
-    "subtitle": "Vergleichen Sie die Tarife von Banko und wählen Sie die Leistungen, die perfekt zu Ihren täglichen Finanzen passen.",
-    "plans": {
-      "premium": {
-        "name": "Premium",
-        "price": "10 $",
-        "billing": "/ Monat",
-        "description": "Das umfassende Banking-Erlebnis mit unbegrenzten virtuellen Karten und exklusiven Premium-Analysen.",
-        "cta": "Jetzt starten"
-      },
-      "gold": {
-        "name": "Gold",
-        "price": "7,99 $",
-        "billing": "/ Monat",
-        "description": "Ideal für Vielreisende: Währungsumtausch ohne Aufschläge und spürbar höhere Bargeldabhebelimits.",
-        "cta": "Jetzt starten"
-      },
-      "plat": {
-        "name": "Platin (Plat)",
-        "price": "14,99 $",
-        "billing": "/ Monat",
-        "description": "Das Executive-Niveau mit persönlichem Concierge, maximaler Versicherungsabdeckung und weltweiten Privilegien.",
-        "cta": "Jetzt starten"
-      }
+    "meta": {
+      "title": "Karten vergleichen - Banquee",
+      "description": "Vergleichen Sie Ihre Banquee-Karten nebeneinander: Ausgabenlimits, Gebühren, Prämien und Zahlungsfunktionen."
+    },
+    "hero": {
+      "badge": "Karten vergleichen",
+      "title": "Finden Sie die passende Karte für sich.",
+      "subtitle": "Vergleichen Sie Ihre Banquee-Karten nebeneinander und sehen Sie, wie jede Karte zu Ihren täglichen Ausgaben passt."
+    },
+    "grid": {
+      "sectionTitle": "Ihre Banquee-Karten",
+      "premiumBadge": "Premium",
+      "active": "Aktiv",
+      "frozen": "Gesperrt",
+      "debitDescription": "Tägliche Ausgaben direkt von Ihrem Girokonto.",
+      "creditDescription": "Flexibler Kredit für größere Anschaffungen, monatlich zurückgezahlt.",
+      "dailyLimit": "Tageslimit",
+      "monthlyLimit": "Monatslimit"
     },
     "table": {
+      "sectionTitle": "Kartenvergleich",
+      "caption": "Funktionsvergleich Ihrer Banquee-Karten",
+      "footnote": "* Die Verfügbarkeit hängt von der Kartenaktivierung, der Unterstützung durch das Netzwerk und der Akzeptanz beim Händler ab.",
+      "disclaimer": "Alle Beträge, Limits, Gebühren und Prämien sind fiktive Demo-Werte zur Veranschaulichung — keine geprüften Angebote von Banken oder Zahlungsnetzwerken.",
       "headers": {
-        "features": "Funktionen",
-        "basic": "Basic",
-        "popular": "Beliebt",
-        "premium": "Premium",
-        "gold": "Gold",
-        "plat": "Platin"
+        "features": "Funktionen"
       },
       "categories": {
-        "creditCard": "Kreditkarte",
-        "bankAccount": "Bankkonto",
-        "extraFeatures": "Zusatzleistungen"
+        "cardOverview": "Kartenübersicht",
+        "spendingLimits": "Ausgaben & Limits",
+        "fees": "Gebühren & Kosten",
+        "rewards": "Prämien & Vorteile",
+        "paymentFeatures": "Zahlungsfunktionen",
+        "additionalTerms": "Weitere Bedingungen"
       },
       "rows": {
-        "physicalCard": "Physische Karte",
-        "virtualCard": "Virtuelle Karte",
+        "cardType": "Kartentyp",
+        "paymentNetwork": "Zahlungsnetzwerk",
+        "fundingSource": "Finanzierungsquelle",
+        "currency": "Währung",
+        "cardStatus": "Kartenstatus",
+        "monthlyLimit": "Monatliches Ausgabenlimit",
+        "dailyLimit": "Tägliches Ausgabenlimit",
+        "atmDailyLimit": "Geldautomaten-Limit / Tag",
+        "internationalMonthlyLimit": "Internationales Ausgabenlimit / Monat",
+        "creditLimit": "Kreditrahmen",
+        "minimumPayment": "Mindestzahlung",
+        "annualFee": "Jahresgebühr",
+        "foreignTransactionFee": "Auslandsgebühr",
+        "atmWithdrawalFee": "Geldautomatengebühr",
+        "cardReplacementFee": "Gebühr für Ersatzkarte",
+        "monthlyInterestRate": "Monatlicher Zinssatz",
+        "cashback": "Cashback",
+        "pointsPerHundred": "Prämienpunkte / 100 EGP",
+        "welcomeBonus": "Willkommensbonus",
+        "loungeAccess": "Zugang zur Flughafen-Lounge",
+        "purchaseProtection": "Kaufschutz",
+        "onlinePayments": "Online-Zahlungen",
+        "inStorePayments": "Zahlungen im Geschäft",
+        "internationalPayments": "Internationale Zahlungen",
+        "atmWithdrawals": "Geldabhebungen",
         "contactlessPayments": "Kontaktloses Bezahlen",
-        "mobilePayments": "Mobiles Bezahlen (Apple/Google Pay)",
-        "freePaymentsWorldwide": "Kostenlose weltweite Zahlungen",
-        "freeAtmWithdrawals": "Kostenfreie Bargeldabhebungen",
-        "mobileBanking": "Mobiles Banking per App",
-        "savingAccounts": "Verzinsliche Sparkonten",
-        "advancedStatistics": "Erweiterte Finanzstatistiken",
-        "premiumPartnerOffers": "Exklusive Partnerangebote"
+        "mobileWallet": "Mobile Wallet",
+        "emvChip": "EMV-Chip",
+        "gracePeriod": "Zahlungsziel",
+        "interestFreePurchases": "Zinsfreie Einkäufe",
+        "spendingSource": "Ausgabenquelle",
+        "bestFor": "Am besten für"
       },
       "values": {
-        "optional": "Optional",
-        "upTo2": "Bis zu 2",
-        "unlimited": "Unbegrenzt",
-        "included": "Im Tarif enthalten"
+        "debitCard": "Debit",
+        "creditCard": "Kredit",
+        "bankAccount": "Bankkonto",
+        "creditLine": "Kreditlinie",
+        "active": "Aktiv",
+        "basic": "Basis",
+        "extended": "Erweitert",
+        "standard": "Standard",
+        "availableBalance": "Verfügbares Guthaben",
+        "availableCredit": "Verfügbarer Kredit",
+        "everydaySpending": "Tägliche Ausgaben",
+        "flexibleCreditSpending": "Flexible Kreditausgaben",
+        "everydayCreditPurchases": "Tägliche Kreditkäufe",
+        "supported": "Unterstützt",
+        "notIncluded": "Nicht enthalten",
+        "equipped": "Ausgestattet",
+        "na": "N/A",
+        "points": "{count, plural, one {# Punkt} other {# Punkte}}",
+        "visits": "{count, plural, one {# Besuch/Jahr} other {# Besuche/Jahr}}",
+        "upToDays": "Bis zu {count, plural, one {# Tag} other {# Tage}}"
       }
     },
     "securityCta": {
       "eyebrow": "Sicherheit an erster Stelle",
-      "heading": "Haben Sie Fragen zum Kartenwechsel oder Upgrade?",
-      "description": "Wechseln oder upgraden Sie Ihren Tarif jederzeit direkt in der banquee Mobile App. Keine versteckten Gebühren, flexibel monatlich kündbar.",
+      "heading": "Fragen zum Kartenwechsel?",
+      "description": "Verwalten, sperren oder passen Sie die Limits Ihrer Karten jederzeit direkt in der banquee-App an. Keine versteckten Gebühren, jederzeit kündbar.",
       "ctaFaq": "FAQs lesen",
       "ctaOpen": "Konto eröffnen"
     }
   },
   "support": {
+    "meta": {
+      "title": "Support - Banquee",
+      "description": "Finden Sie Antworten auf häufige Fragen zu Ihrem Banko-Konto, Ihren Karten und Ihren persönlichen Daten – oder kontaktieren Sie das Banquee-Support-Team per Telefon, E-Mail oder Live-Chat."
+    },
     "hero": {
       "eyebrow": "Hilfe & Support",
       "title": "Wie können wir Ihnen heute helfen?",
       "description": "Finden Sie Antworten auf häufige Fragen rund um Ihr Banko-Konto, Ihre Zahlungskarten und Ihre persönlichen Angaben."
+    },
+    "search": {
+      "label": "Häufig gestellte Fragen durchsuchen",
+      "placeholder": "Fragen suchen…",
+      "clear": "Suche löschen",
+      "empty": "Keine passenden Fragen gefunden. Sie können unser Support-Team unten direkt kontaktieren."
     },
     "categories": {
       "cards": "Karten",
@@ -510,6 +553,8 @@
       "chatTitle": "Live-Chat starten",
       "chatDescription": "Direkter Chat mit unseren zertifizierten Bankberatern",
       "chatButton": "Gespräch beginnen",
+      "chatConnecting": "Verbindung wird hergestellt…",
+      "chatConnected": "Berater verbunden",
       "badges": {
         "encrypted": "Ende-zu-Ende verschlüsselt",
         "regulated": "Reguliertes europäisches Finanzinstitut",

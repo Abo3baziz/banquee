@@ -384,78 +384,121 @@
     }
   },
   "compareCards": {
-    "eyebrow": "Compare Cards",
-    "title": "Find the right card for you.",
-    "subtitle": "Compare Banko plans and find the features that best fit your everyday banking needs.",
-    "plans": {
-      "premium": {
-        "name": "Premium",
-        "price": "$10",
-        "billing": "/ month",
-        "description": "Get the ultimate banking experience with unlimited virtual cards and premium analytics.",
-        "cta": "Get started"
-      },
-      "gold": {
-        "name": "Gold",
-        "price": "$7.99",
-        "billing": "/ month",
-        "description": "Tailored for frequent travelers, zero markup exchanges, and elevated withdrawal limits.",
-        "cta": "Get started"
-      },
-      "plat": {
-        "name": "Plat",
-        "price": "$14.99",
-        "billing": "/ month",
-        "description": "The executive tier with bespoke concierge access, highest coverage, and global perks.",
-        "cta": "Get started"
-      }
+    "meta": {
+      "title": "Compare Cards - Banquee",
+      "description": "Compare your Banquee cards side by side: spending limits, fees, rewards, and payment features."
+    },
+    "hero": {
+      "badge": "Compare Cards",
+      "title": "Find the right card for you.",
+      "subtitle": "Compare your Banquee cards side by side and see how each one fits your everyday spending."
+    },
+    "grid": {
+      "sectionTitle": "Your Banquee cards",
+      "premiumBadge": "Premium",
+      "active": "Active",
+      "frozen": "Frozen",
+      "debitDescription": "Everyday spending straight from your checking account.",
+      "creditDescription": "Flexible credit for larger purchases, paid back monthly.",
+      "dailyLimit": "Daily limit",
+      "monthlyLimit": "Monthly limit"
     },
     "table": {
+      "sectionTitle": "Card comparison",
+      "caption": "Feature comparison of your Banquee cards",
+      "footnote": "* Availability depends on card activation, network support, and merchant acceptance.",
+      "disclaimer": "All amounts, limits, fees, and rewards are fictional demo values for illustration only — not verified bank or payment-network offers.",
       "headers": {
-        "features": "Features",
-        "basic": "Basic",
-        "popular": "Popular",
-        "premium": "Premium",
-        "gold": "Gold",
-        "plat": "Plat"
+        "features": "Features"
       },
       "categories": {
-        "creditCard": "Credit Card",
-        "bankAccount": "Bank Account",
-        "extraFeatures": "Extra Features"
+        "cardOverview": "Card Overview",
+        "spendingLimits": "Spending & Limits",
+        "fees": "Fees & Charges",
+        "rewards": "Rewards & Benefits",
+        "paymentFeatures": "Payment Features",
+        "additionalTerms": "Additional Terms"
       },
       "rows": {
-        "physicalCard": "Physical Card",
-        "virtualCard": "Virtual Card",
+        "cardType": "Card Type",
+        "paymentNetwork": "Payment Network",
+        "fundingSource": "Funding Source",
+        "currency": "Currency",
+        "cardStatus": "Card Status",
+        "monthlyLimit": "Monthly Spending Limit",
+        "dailyLimit": "Daily Spending Limit",
+        "atmDailyLimit": "ATM Withdrawal Limit / Day",
+        "internationalMonthlyLimit": "International Spending Limit / Month",
+        "creditLimit": "Credit Limit",
+        "minimumPayment": "Minimum Payment",
+        "annualFee": "Annual Fee",
+        "foreignTransactionFee": "Foreign Transaction Fee",
+        "atmWithdrawalFee": "ATM Withdrawal Fee",
+        "cardReplacementFee": "Card Replacement Fee",
+        "monthlyInterestRate": "Monthly Interest Rate",
+        "cashback": "Cashback",
+        "pointsPerHundred": "Rewards Points / EGP 100",
+        "welcomeBonus": "Welcome Bonus",
+        "loungeAccess": "Airport Lounge Access",
+        "purchaseProtection": "Purchase Protection",
+        "onlinePayments": "Online Payments",
+        "inStorePayments": "In-store Payments",
+        "internationalPayments": "International Payments",
+        "atmWithdrawals": "ATM Withdrawals",
         "contactlessPayments": "Contactless Payments",
-        "mobilePayments": "Mobile Payments",
-        "freePaymentsWorldwide": "Free Payments Worldwide",
-        "freeAtmWithdrawals": "Free ATM Withdrawals",
-        "mobileBanking": "Mobile Banking",
-        "savingAccounts": "Saving Accounts",
-        "advancedStatistics": "Advanced Statistics",
-        "premiumPartnerOffers": "Premium Partner Offers"
+        "mobileWallet": "Mobile Wallet",
+        "emvChip": "EMV Chip",
+        "gracePeriod": "Grace Period",
+        "interestFreePurchases": "Interest-Free Purchases",
+        "spendingSource": "Spending Source",
+        "bestFor": "Best For"
       },
       "values": {
-        "optional": "Optional",
-        "upTo2": "Up to 2",
-        "unlimited": "Unlimited",
-        "included": "Diam in arcu cursus euismod"
+        "debitCard": "Debit",
+        "creditCard": "Credit",
+        "bankAccount": "Bank Account",
+        "creditLine": "Credit Line",
+        "active": "Active",
+        "basic": "Basic",
+        "extended": "Extended",
+        "standard": "Standard",
+        "availableBalance": "Available balance",
+        "availableCredit": "Available credit",
+        "everydaySpending": "Everyday spending",
+        "flexibleCreditSpending": "Flexible credit spending",
+        "everydayCreditPurchases": "Everyday credit purchases",
+        "supported": "Supported",
+        "notIncluded": "Not included",
+        "equipped": "Equipped",
+        "na": "N/A",
+        "points": "{count, plural, one {# point} other {# points}}",
+        "visits": "{count, plural, one {# visit/year} other {# visits/year}}",
+        "upToDays": "Up to {count, plural, one {# day} other {# days}}"
       }
     },
     "securityCta": {
       "eyebrow": "Security First",
       "heading": "Questions about switching your card?",
-      "description": "Upgrade or downgrade anytime directly from the banquee mobile app. No hidden penalties, cancel whenever you want.",
+      "description": "Manage, freeze, or adjust limits for any of your cards anytime directly from the banquee app. No hidden penalties, cancel whenever you want.",
       "ctaFaq": "Read FAQs",
       "ctaOpen": "Open Account"
     }
   },
   "support": {
+    "meta": {
+      "title": "Support - Banquee",
+      "description": "Find answers to common questions about your Banko account, cards, and personal details, or reach the Banquee support team by phone, email, or live chat."
+    },
     "hero": {
       "eyebrow": "Support",
       "title": "How can we help you?",
       "description": "Find answers to common questions about your Banko account, cards, and personal details."
+    },
+    "search": {
+      "label": "Search frequently asked questions",
+      "placeholder": "Search questions…",
+      "clear": "Clear search",
+      "empty": "No matching questions found. You can reach our support team directly below."
     },
     "categories": {
       "cards": "Cards",
@@ -510,6 +553,8 @@
       "chatTitle": "Chat with us",
       "chatDescription": "Live chat with our banking advisors",
       "chatButton": "Start conversation",
+      "chatConnecting": "Connecting…",
+      "chatConnected": "Advisor connected",
       "badges": {
         "encrypted": "End-to-End Encrypted",
         "regulated": "Regulated European Institution",

@@ -384,78 +384,121 @@
     }
   },
   "compareCards": {
-    "eyebrow": "مقارنة البطاقات",
-    "title": "اعثر على البطاقة المناسبة لاحتياجاتك.",
-    "subtitle": "قارن بين خطط بانكو المختلفة واختر المميزات التي تلائم متطلباتك المصرفية اليومية على النحو الأمثل.",
-    "plans": {
-      "premium": {
-        "name": "المميزة (Premium)",
-        "price": "$10",
-        "billing": "/ شهرياً",
-        "description": "عش التجربة المصرفية الأرقى مع بطاقات افتراضية غير محدودة وتحليلات مالية متقدمة.",
-        "cta": "ابدأ الآن"
-      },
-      "gold": {
-        "name": "الذهبية (Gold)",
-        "price": "$7.99",
-        "billing": "/ شهرياً",
-        "description": "مصممة للمسافرين الدائمين، مع تحويل عملات بصفر هوامش ربح وحدود سحب نقدية مرتفعة.",
-        "cta": "ابدأ الآن"
-      },
-      "plat": {
-        "name": "البلاتينية (Plat)",
-        "price": "$14.99",
-        "billing": "/ شهرياً",
-        "description": "فئة النخبة التنفيذية مع خدمة كونسيرج مخصصة، أعلى معدلات تغطية تأمينية، وامتيازات عالمية حصرية.",
-        "cta": "ابدأ الآن"
-      }
+    "meta": {
+      "title": "مقارنة البطاقات - Banquee",
+      "description": "قارن بطاقات Banquee جنباً إلى جنب: حدود الإنفاق والرسوم والمكافآت ومميزات الدفع."
+    },
+    "hero": {
+      "badge": "مقارنة البطاقات",
+      "title": "اعثر على البطاقة المناسبة لك.",
+      "subtitle": "قارن بطاقات Banquee جنباً إلى جنب واطّلع على مدى ملاءمة كل بطاقة لإنفاقك اليومي."
+    },
+    "grid": {
+      "sectionTitle": "بطاقات Banquee الخاصة بك",
+      "premiumBadge": "مميزة",
+      "active": "نشطة",
+      "frozen": "مجمّدة",
+      "debitDescription": "إنفاق يومي مباشرة من حسابك الجاري.",
+      "creditDescription": "ائتمان مرن للمشتريات الأكبر، يُسدَّد شهرياً.",
+      "dailyLimit": "الحد اليومي",
+      "monthlyLimit": "الحد الشهري"
     },
     "table": {
+      "sectionTitle": "مقارنة البطاقات",
+      "caption": "مقارنة مميزات بطاقات Banquee",
+      "footnote": "* يعتمد التوفر على تفعيل البطاقة ودعم الشبكة وقبول التاجر.",
+      "disclaimer": "جميع المبالغ والحدود والرسوم والمكافآت هي قيم تجريبية افتراضية لأغراض التوضيح فقط — وليست عروضاً موثّقة من البنوك أو شبكات الدفع.",
       "headers": {
-        "features": "المميزات",
-        "basic": "الأساسية",
-        "popular": "الأكثر طلباً",
-        "premium": "المميزة",
-        "gold": "الذهبية",
-        "plat": "البلاتينية"
+        "features": "المميزات"
       },
       "categories": {
-        "creditCard": "البطاقة الائتمانية",
-        "bankAccount": "الحساب المصرفي",
-        "extraFeatures": "ميزات إضافية"
+        "cardOverview": "نظرة عامة على البطاقة",
+        "spendingLimits": "الإنفاق والحدود",
+        "fees": "الرسوم والتكاليف",
+        "rewards": "المكافآت والمزايا",
+        "paymentFeatures": "مميزات الدفع",
+        "additionalTerms": "شروط إضافية"
       },
       "rows": {
-        "physicalCard": "بطاقة فعلية",
-        "virtualCard": "بطاقة افتراضية",
-        "contactlessPayments": "مدفوعات بدون تلامس",
-        "mobilePayments": "مدفوعات الهاتف الذكي",
-        "freePaymentsWorldwide": "مدفوعات مجانية حول العالم",
-        "freeAtmWithdrawals": "سحوبات مجانية من الصراف الآلي",
-        "mobileBanking": "خدمات مصرفية عبر الهاتف",
-        "savingAccounts": "حسابات التوفير",
-        "advancedStatistics": "إحصائيات متقدمة",
-        "premiumPartnerOffers": "عروض الشركاء المميزين"
+        "cardType": "نوع البطاقة",
+        "paymentNetwork": "شبكة الدفع",
+        "fundingSource": "مصدر التمويل",
+        "currency": "العملة",
+        "cardStatus": "حالة البطاقة",
+        "monthlyLimit": "حد الإنفاق الشهري",
+        "dailyLimit": "حد الإنفاق اليومي",
+        "atmDailyLimit": "حد السحب من الصراف / يوم",
+        "internationalMonthlyLimit": "حد الإنفاق الدولي / شهر",
+        "creditLimit": "حد الائتمان",
+        "minimumPayment": "الحد الأدنى للسداد",
+        "annualFee": "الرسوم السنوية",
+        "foreignTransactionFee": "رسوم المعاملات الأجنبية",
+        "atmWithdrawalFee": "رسوم السحب من الصراف",
+        "cardReplacementFee": "رسوم إصدار بطاقة بديلة",
+        "monthlyInterestRate": "معدل الفائدة الشهري",
+        "cashback": "استرداد نقدي",
+        "pointsPerHundred": "نقاط المكافآت / 100 EGP",
+        "welcomeBonus": "مكافأة الترحيب",
+        "loungeAccess": "دخول صالات المطار",
+        "purchaseProtection": "حماية المشتريات",
+        "onlinePayments": "المدفوعات عبر الإنترنت",
+        "inStorePayments": "المدفوعات في المتجر",
+        "internationalPayments": "المدفوعات الدولية",
+        "atmWithdrawals": "السحب من الصراف",
+        "contactlessPayments": "المدفوعات بدون تلامس",
+        "mobileWallet": "المحفظة الإلكترونية",
+        "emvChip": "شريحة EMV",
+        "gracePeriod": "فترة السماح",
+        "interestFreePurchases": "مشتريات بدون فوائد",
+        "spendingSource": "مصدر الإنفاق",
+        "bestFor": "الأفضل لـ"
       },
       "values": {
-        "optional": "اختياري",
-        "upTo2": "حتى 2",
-        "unlimited": "غير محدود",
-        "included": "مشمول في الخطة"
+        "debitCard": "خصم",
+        "creditCard": "ائتمان",
+        "bankAccount": "حساب بنكي",
+        "creditLine": "خط ائتمان",
+        "active": "نشطة",
+        "basic": "أساسية",
+        "extended": "ممتدة",
+        "standard": "قياسية",
+        "availableBalance": "الرصيد المتاح",
+        "availableCredit": "الائتمان المتاح",
+        "everydaySpending": "الإنفاق اليومي",
+        "flexibleCreditSpending": "إنفاق ائتماني مرن",
+        "everydayCreditPurchases": "مشتريات يومية بالائتمان",
+        "supported": "مدعوم",
+        "notIncluded": "غير مشمول",
+        "equipped": "مزوّدة",
+        "na": "غير متاح",
+        "points": "{count, plural, one {# نقطة} other {# نقاط}}",
+        "visits": "{count, plural, one {# زيارة/سنة} other {# زيارات/سنة}}",
+        "upToDays": "حتى {count, plural, one {# يوم} other {# أيام}}"
       }
     },
     "securityCta": {
       "eyebrow": "الأمان أولاً",
-      "heading": "هل لديك أسئلة حول ترقية أو تغيير بطاقتك؟",
-      "description": "قم بالترقية أو الانتقال لخطة أخرى في أي وقت مباشرة من تطبيق banquee على هاتفك. لا توجد رسوم خفية، ويمكنك الإلغاء متى شئت.",
+      "heading": "هل لديك أسئلة حول تغيير بطاقتك؟",
+      "description": "أدر بطاقاتك أو جمّدها أو عدّل حدودها في أي وقت مباشرة من تطبيق banquee. لا رسوم خفية، ويمكنك الإلغاء متى شئت.",
       "ctaFaq": "قراءة الأسئلة الشائعة",
       "ctaOpen": "فتح حساب"
     }
   },
   "support": {
+    "meta": {
+      "title": "الدعم - بانكي",
+      "description": "اعثر على إجابات للأسئلة الشائعة حول حسابك في بانكو وبطاقاتك وبياناتك الشخصية، أو تواصل مع فريق دعم بانكي عبر الهاتف أو البريد الإلكتروني أو الدردشة المباشرة."
+    },
     "hero": {
       "eyebrow": "مركز الدعم",
       "title": "كيف يمكننا مساعدتك اليوم؟",
       "description": "اعثر على إجابات وافية للأسئلة الشائعة حول حسابك في بانكو، بطاقاتك، وبياناتك الشخصية."
+    },
+    "search": {
+      "label": "ابحث في الأسئلة الشائعة",
+      "placeholder": "ابحث في الأسئلة…",
+      "clear": "مسح البحث",
+      "empty": "لا توجد أسئلة مطابقة. يمكنك التواصل مع فريق الدعم مباشرة أدناه."
     },
     "categories": {
       "cards": "البطاقات",
@@ -510,6 +553,8 @@
       "chatTitle": "تحدث معنا عبر الدردشة الفورية",
       "chatDescription": "محادثة حية مع مستشارينا المصرفيين المعتمدين",
       "chatButton": "بدء المحادثة الآن",
+      "chatConnecting": "جارٍ الاتصال…",
+      "chatConnected": "تم الاتصال بالمستشار",
       "badges": {
         "encrypted": "مشفر بالكامل من طرف إلى طرف",
         "regulated": "مؤسسة مصرفية أوروبية مرخصة وخاضعة للرقابة",
