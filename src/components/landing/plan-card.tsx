@@ -3,11 +3,12 @@
 import { useState } from 'react'
 import * as stylex from '@stylexjs/stylex'
 import { CircleCheck, CircleMinus } from 'lucide-react'
-import { useLocale, useTranslations } from 'next-intl'
+import { useTranslations } from 'next-intl'
 import { BankCard } from '../banking-card'
 import type { BankCardTier } from '../banking-card'
 import { colors, fonts, radii, spacing } from '../../styles/tokens.stylex'
 import { Cta } from '../ui/cta'
+import { useCurrency } from '../../hooks/use-currency'
 
 type Tier = BankCardTier
 
@@ -21,6 +22,12 @@ const CARD_DATA = {
   gold: { number: '8820', cvv: '512' },
   premium: { number: '4289', cvv: '842' },
 } as const
+
+const PLAN_PRICES: Record<Tier, number> = {
+  standard: 0,
+  gold: 7.99,
+  premium: 14.99,
+}
 
 const styles = stylex.create({
   card: {
@@ -168,7 +175,7 @@ const styles = stylex.create({
 export function PlanCard({ tier, popular = false }: PlanCardProps) {
   const t = useTranslations('landing')
   const tm = useTranslations('mockups')
-  const locale = useLocale()
+  const { formatCurrency, locale } = useCurrency()
   const [flipped, setFlipped] = useState(false)
 
   const data = CARD_DATA[tier]
@@ -222,7 +229,9 @@ export function PlanCard({ tier, popular = false }: PlanCardProps) {
         <h3 {...stylex.props(styles.planName)}>{name}</h3>
         <div {...stylex.props(styles.priceRow)}>
           <span {...stylex.props(styles.price)}>
-            {t(`plans.tiers.${tier}.price`)}
+            {t(`plans.tiers.${tier}.price`, {
+              amount: formatCurrency(PLAN_PRICES[tier]),
+            })}
           </span>
           <span {...stylex.props(styles.billing)}>
             {t(`plans.tiers.${tier}.billing`)}

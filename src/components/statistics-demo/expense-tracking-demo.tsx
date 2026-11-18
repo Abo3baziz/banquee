@@ -3,8 +3,8 @@
 import * as stylex from '@stylexjs/stylex'
 import { ArrowRight, CalendarClock, Sparkles } from 'lucide-react'
 import { AnimatePresence, motion } from 'motion/react'
+import { useCurrency } from '../../hooks/use-currency'
 import { colors, fonts, radii } from '../../styles/tokens.stylex'
-import { formatUsd } from '../banking-demo/demo-data'
 import {
   DemoChip,
   DemoDetailRow,
@@ -97,6 +97,7 @@ function getFoodRows(foodLimit: number) {
 }
 
 function BudgetsOverview() {
+  const { formatCurrency } = useCurrency()
   const rows = getFoodRows(FOOD_BUDGET.limit)
   const totalLimit = getTotalBudgetLimit(CATEGORY_BUDGETS, {
     food: FOOD_BUDGET.limit,
@@ -114,7 +115,7 @@ function BudgetsOverview() {
             Total Monthly Expenses
           </span>
           <span {...stylex.props(statisticsStyles.totalAmount)}>
-            {formatUsd(MONTH_SPENDING)}
+            {formatCurrency(MONTH_SPENDING)}
           </span>
           <div {...stylex.props(statisticsStyles.totalMeta)}>
             <span
@@ -141,10 +142,10 @@ function BudgetsOverview() {
             <ProgressBar value={totalProgress} delay={0.15} height={7} />
             <div {...stylex.props(demoStyles.rowBetween)}>
               <span {...stylex.props(demoStyles.caption)}>
-                {formatUsd(MONTH_SPENDING)} spent
+                {formatCurrency(MONTH_SPENDING)} spent
               </span>
               <span {...stylex.props(demoStyles.caption)}>
-                {formatUsd(remaining)} left
+                {formatCurrency(remaining)} left
               </span>
             </div>
           </div>
@@ -156,7 +157,7 @@ function BudgetsOverview() {
               Category Budgets
             </span>
             <span {...stylex.props(demoStyles.caption)}>
-              {formatUsd(totalLimit)} total
+              {formatCurrency(totalLimit)} total
             </span>
           </div>
           <div {...stylex.props(statisticsStyles.budgetList)}>
@@ -188,10 +189,10 @@ function BudgetsOverview() {
                     </div>
                     <div {...stylex.props(statisticsStyles.budgetFigures)}>
                       <span {...stylex.props(statisticsStyles.categoryAmount)}>
-                        {formatUsd(row.spent)}
+                        {formatCurrency(row.spent)}
                       </span>
                       <span {...stylex.props(statisticsStyles.budgetLimit)}>
-                        / {formatUsd(row.limit)}
+                        / {formatCurrency(row.limit)}
                       </span>
                     </div>
                   </div>
@@ -214,6 +215,7 @@ function BudgetsOverview() {
 }
 
 function BudgetDetails() {
+  const { formatCurrency } = useCurrency()
   const foodLimit = FOOD_BUDGET.limit
   const progress = getBudgetProgress(FOOD_SPENT, foodLimit)
   const remaining = getRemainingBudget(foodLimit, FOOD_SPENT)
@@ -231,9 +233,9 @@ function BudgetDetails() {
             {foodRow ? <StatusChip status={foodRow.status} /> : null}
           </div>
           <span {...stylex.props(statisticsStyles.heroValue)}>
-            {formatUsd(FOOD_SPENT)}{' '}
+            {formatCurrency(FOOD_SPENT)}{' '}
             <span {...stylex.props(demoStyles.caption)}>
-              of {formatUsd(foodLimit)}
+              of {formatCurrency(foodLimit)}
             </span>
           </span>
           <ProgressBar
@@ -243,7 +245,8 @@ function BudgetDetails() {
             height={7}
           />
           <span {...stylex.props(demoStyles.caption)}>
-            {formatUsd(remaining)} remaining · {formatPercent(progress)} used
+            {formatCurrency(remaining)} remaining · {formatPercent(progress)}{' '}
+            used
           </span>
         </div>
 
@@ -253,7 +256,7 @@ function BudgetDetails() {
               Daily Average
             </span>
             <span {...stylex.props(statisticsStyles.statValue)}>
-              {formatUsd(FOOD_DAILY_AVERAGE)}
+              {formatCurrency(FOOD_DAILY_AVERAGE)}
             </span>
             <span {...stylex.props(statisticsStyles.statDelta)}>
               Over {BUDGET_CYCLE.daysElapsed} days
@@ -264,7 +267,7 @@ function BudgetDetails() {
               Projected Month-End
             </span>
             <span {...stylex.props(statisticsStyles.statValue)}>
-              {formatUsd(FOOD_PROJECTED)}
+              {formatCurrency(FOOD_PROJECTED)}
             </span>
             <span {...stylex.props(statisticsStyles.statDelta)}>
               {BUDGET_CYCLE.daysInCycle}-day cycle
@@ -304,6 +307,7 @@ function BudgetDetails() {
 }
 
 function EditBudget() {
+  const { formatCurrency, symbol } = useCurrency()
   const { text, complete } = useTypewriter(String(FOOD_BUDGET.updatedLimit), {
     startDelay: 1000,
     charDelay: 240,
@@ -342,9 +346,12 @@ function EditBudget() {
         <div {...stylex.props(demoStyles.card)}>
           <DemoDetailRow
             label="Current monthly limit"
-            value={formatUsd(FOOD_BUDGET.limit)}
+            value={formatCurrency(FOOD_BUDGET.limit)}
           />
-          <DemoDetailRow label="Spent so far" value={formatUsd(FOOD_SPENT)} />
+          <DemoDetailRow
+            label="Spent so far"
+            value={formatCurrency(FOOD_SPENT)}
+          />
         </div>
 
         <div {...stylex.props(statisticsStyles.field)}>
@@ -353,7 +360,9 @@ function EditBudget() {
           </span>
           <div {...stylex.props(styles.fieldAmountRow)}>
             <span {...stylex.props(statisticsStyles.fieldAmount)}>
-              <span {...stylex.props(statisticsStyles.fieldPrefix)}>$</span>
+              <span {...stylex.props(statisticsStyles.fieldPrefix)}>
+                {symbol}
+              </span>
               {text || '0'}
               {!complete ? (
                 <motion.span
@@ -380,7 +389,7 @@ function EditBudget() {
               Remaining after update
             </span>
             <span {...stylex.props(statisticsStyles.previewValueStrong)}>
-              {formatUsd(previewRemaining)}
+              {formatCurrency(previewRemaining)}
             </span>
           </div>
           <ProgressBar
@@ -414,9 +423,9 @@ function EditBudget() {
             style={{ color: colors.primary, flexShrink: 0 }}
           />
           <span {...stylex.props(statisticsStyles.insightText)}>
-            Projected spending of {formatUsd(FOOD_PROJECTED)} is{' '}
+            Projected spending of {formatCurrency(FOOD_PROJECTED)} is{' '}
             {FOOD_PROJECTED > previewLimit ? 'above' : 'within'} the new{' '}
-            {formatUsd(previewLimit)} budget.
+            {formatCurrency(previewLimit)} budget.
           </span>
         </div>
 
@@ -433,6 +442,7 @@ function EditBudget() {
 }
 
 function BudgetUpdated() {
+  const { formatCurrency } = useCurrency()
   const newLimit = FOOD_BUDGET.updatedLimit
   const remaining = getRemainingBudget(newLimit, FOOD_SPENT)
   const progress = getBudgetProgress(FOOD_SPENT, newLimit)
@@ -457,7 +467,7 @@ function BudgetUpdated() {
               ease: [0.1, 0.8, 0.2, 1],
             }}
           >
-            {formatUsd(newLimit)}
+            {formatCurrency(newLimit)}
           </motion.span>
           <span {...stylex.props(statisticsStyles.successText)}>
             Your new Food & Dining monthly budget is active immediately for
@@ -474,10 +484,13 @@ function BudgetUpdated() {
           </div>
           <div {...stylex.props(styles.receiptRows)}>
             {[
-              { label: 'New budget', value: formatUsd(newLimit) },
-              { label: 'Previous budget', value: formatUsd(FOOD_BUDGET.limit) },
-              { label: 'Spent so far', value: formatUsd(FOOD_SPENT) },
-              { label: 'Remaining', value: formatUsd(remaining) },
+              { label: 'New budget', value: formatCurrency(newLimit) },
+              {
+                label: 'Previous budget',
+                value: formatCurrency(FOOD_BUDGET.limit),
+              },
+              { label: 'Spent so far', value: formatCurrency(FOOD_SPENT) },
+              { label: 'Remaining', value: formatCurrency(remaining) },
               { label: 'Effective', value: 'Immediately' },
             ].map((row, index) => (
               <motion.div
@@ -522,8 +535,8 @@ function BudgetUpdated() {
             style={{ color: colors.primary, flexShrink: 0 }}
           />
           <span {...stylex.props(statisticsStyles.insightText)}>
-            {formatUsd(remaining)} remains for the rest of October. Projected
-            spending stays within the new limit.
+            {formatCurrency(remaining)} remains for the rest of October.
+            Projected spending stays within the new limit.
           </span>
         </div>
 

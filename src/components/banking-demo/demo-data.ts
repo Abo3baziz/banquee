@@ -66,39 +66,43 @@ export const DEMO_RECEIVE = {
   iban: 'US64 BQEE 0210 0000 2184 9201 92',
 }
 
-export const DEMO_ACTIVITY = [
+export type DemoActivity = {
+  id: 'apple' | 'sarah' | 'amazon'
+  name: string
+  meta: string
+  /** Signed amount: outgoing payments are negative, inflows positive. */
+  amount: number
+  status: string
+  tone: 'neutral' | 'primary' | 'tertiary'
+  icon: 'laptop' | 'received' | 'shopping'
+}
+
+export const DEMO_ACTIVITY: DemoActivity[] = [
   {
     id: 'apple',
     name: 'Apple Store',
     meta: 'Electronics',
-    amount: '-$799.00',
+    amount: -799,
     status: 'Completed',
-    tone: 'neutral' as const,
-    icon: 'laptop' as const,
+    tone: 'neutral',
+    icon: 'laptop',
   },
   {
     id: 'sarah',
     name: 'Sarah Johnson',
     meta: 'P2P Received',
-    amount: '+$250.00',
+    amount: 250,
     status: 'Settled',
-    tone: 'primary' as const,
-    icon: 'received' as const,
+    tone: 'primary',
+    icon: 'received',
   },
   {
     id: 'amazon',
     name: 'Amazon',
     meta: 'Shopping',
-    amount: '-$59.00',
+    amount: -59,
     status: 'Card • 4289',
-    tone: 'tertiary' as const,
-    icon: 'shopping' as const,
+    tone: 'tertiary',
+    icon: 'shopping',
   },
 ]
-
-export function formatUsd(value: number) {
-  return `$${value.toLocaleString('en-US', {
-    minimumFractionDigits: 2,
-    maximumFractionDigits: 2,
-  })}`
-}

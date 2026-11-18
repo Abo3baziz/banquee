@@ -1,6 +1,7 @@
 import * as stylex from '@stylexjs/stylex'
 import { ArrowLeftRight, Shield, Vault } from 'lucide-react'
-import { getTranslations } from 'next-intl/server'
+import { getLocale, getTranslations } from 'next-intl/server'
+import { formatCurrency } from '@/i18n/currency'
 import { colors, fonts, radii, spacing } from '../../styles/tokens.stylex'
 import { Reveal } from '../ui/reveal'
 import { PlanCard } from './plan-card'
@@ -10,6 +11,8 @@ type Vault = {
   titleKey: 'savings.goalJapan' | 'savings.goalMacBook'
   amountKey: 'savings.goalJapanAmount' | 'savings.goalMacBookAmount'
   targetKey: 'savings.goalJapanTarget' | 'savings.goalMacBookTarget'
+  amount: number
+  target: number
   progress: number
 }
 
@@ -18,12 +21,16 @@ const VAULTS: Vault[] = [
     titleKey: 'savings.goalJapan',
     amountKey: 'savings.goalJapanAmount',
     targetKey: 'savings.goalJapanTarget',
+    amount: 3600,
+    target: 4000,
     progress: 90,
   },
   {
     titleKey: 'savings.goalMacBook',
     amountKey: 'savings.goalMacBookAmount',
     targetKey: 'savings.goalMacBookTarget',
+    amount: 2100,
+    target: 2400,
     progress: 88,
   },
 ]
@@ -272,9 +279,10 @@ const styles = stylex.create({
 })
 
 export async function Plans() {
-  const [t, tm] = await Promise.all([
+  const [t, tm, locale] = await Promise.all([
     getTranslations('landing'),
     getTranslations('mockups'),
+    getLocale(),
   ])
 
   return (
@@ -339,8 +347,20 @@ export async function Plans() {
                       />
                     </div>
                     <div {...stylex.props(styles.vaultMeta)}>
-                      <span>{tm(vault.amountKey)}</span>
-                      <span>{tm(vault.targetKey)}</span>
+                      <span>
+                        {tm(vault.amountKey, {
+                          amount: formatCurrency(vault.amount, locale, {
+                            maximumFractionDigits: 0,
+                          }),
+                        })}
+                      </span>
+                      <span>
+                        {tm(vault.targetKey, {
+                          amount: formatCurrency(vault.target, locale, {
+                            maximumFractionDigits: 0,
+                          }),
+                        })}
+                      </span>
                     </div>
                   </div>
                 ))}

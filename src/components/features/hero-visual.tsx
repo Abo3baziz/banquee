@@ -1,6 +1,7 @@
 import * as stylex from '@stylexjs/stylex'
 import { Banknote, Laptop, ShoppingBag, TrendingUp } from 'lucide-react'
-import { getTranslations } from 'next-intl/server'
+import { getLocale, getTranslations } from 'next-intl/server'
+import { formatCurrency } from '@/i18n/currency'
 import { BankCard } from '../banking-card'
 import { colors, fonts, radii, spacing } from '../../styles/tokens.stylex'
 
@@ -416,9 +417,10 @@ const styles = stylex.create({
 })
 
 export async function FeaturesHeroVisual() {
-  const [t, tm] = await Promise.all([
+  const [t, tm, locale] = await Promise.all([
     getTranslations('featuresPage'),
     getTranslations('mockups'),
+    getLocale(),
   ])
 
   return (
@@ -452,7 +454,9 @@ export async function FeaturesHeroVisual() {
               <span {...stylex.props(styles.balanceDot)} />
             </div>
             <div {...stylex.props(styles.balanceValue)}>
-              {tm('dashboard.balanceValueAlt')}
+              {tm('dashboard.balanceValueAlt', {
+                amount: formatCurrency(4658.5, locale),
+              })}
             </div>
             <div {...stylex.props(styles.trendBadge)}>
               <TrendingUp aria-hidden="true" size={13} />
@@ -470,7 +474,11 @@ export async function FeaturesHeroVisual() {
                 {t('hero.visual.monthlyOutflow')}
               </span>
               <span {...stylex.props(styles.outflowValue)}>
-                {t('hero.visual.outflowValue')}
+                {t('hero.visual.outflowValue', {
+                  amount: formatCurrency(-3410, locale, {
+                    maximumFractionDigits: 0,
+                  }),
+                })}
               </span>
             </div>
             <div {...stylex.props(styles.chart)}>
@@ -514,7 +522,9 @@ export async function FeaturesHeroVisual() {
                     </div>
                   </div>
                 </div>
-                <span {...stylex.props(styles.recentAmount)}>-$799.00</span>
+                <span {...stylex.props(styles.recentAmount)}>
+                  {formatCurrency(-799, locale)}
+                </span>
               </div>
               <div {...stylex.props(styles.recentRow)}>
                 <div {...stylex.props(styles.recentItem)}>
@@ -530,7 +540,9 @@ export async function FeaturesHeroVisual() {
                     </div>
                   </div>
                 </div>
-                <span {...stylex.props(styles.recentAmount)}>-$49.00</span>
+                <span {...stylex.props(styles.recentAmount)}>
+                  {formatCurrency(-49, locale)}
+                </span>
               </div>
             </div>
           </div>
@@ -549,7 +561,11 @@ export async function FeaturesHeroVisual() {
                   {tm('transfer.recipientName')}
                 </div>
                 <div {...stylex.props(styles.transferDetail)}>
-                  {t('hero.visual.transferDetail')}
+                  {t('hero.visual.transferDetail', {
+                    amount: formatCurrency(250, locale, {
+                      signDisplay: 'always',
+                    }),
+                  })}
                 </div>
               </div>
               <span {...stylex.props(styles.transferTime)}>
@@ -575,8 +591,20 @@ export async function FeaturesHeroVisual() {
               <span {...stylex.props(styles.savingsFill)} />
             </span>
             <div {...stylex.props(styles.savingsFooter)}>
-              <span>{t('hero.visual.savingsSaved')}</span>
-              <span>{t('hero.visual.savingsTarget')}</span>
+              <span>
+                {t('hero.visual.savingsSaved', {
+                  amount: formatCurrency(1420, locale, {
+                    maximumFractionDigits: 0,
+                  }),
+                })}
+              </span>
+              <span>
+                {t('hero.visual.savingsTarget', {
+                  amount: formatCurrency(2000, locale, {
+                    maximumFractionDigits: 0,
+                  }),
+                })}
+              </span>
             </div>
           </div>
         </div>

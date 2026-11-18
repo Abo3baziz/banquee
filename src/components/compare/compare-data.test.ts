@@ -12,7 +12,6 @@ import type {
 } from './compare-data'
 import {
   COMPARE_CARDS,
-  formatEgp,
   formatRate,
   getCompareCardSummaries,
   getCompareSections,
@@ -168,9 +167,9 @@ describe('card overview rows', () => {
       { kind: 'enum', value: 'creditLine' },
     ])
     expect(getRow('cardOverview', 'currency').values).toEqual([
-      { kind: 'text', value: 'EGP' },
-      { kind: 'text', value: 'EGP' },
-      { kind: 'text', value: 'EGP' },
+      { kind: 'currencyCode' },
+      { kind: 'currencyCode' },
+      { kind: 'currencyCode' },
     ])
   })
 
@@ -370,12 +369,6 @@ describe('compare card summaries', () => {
 })
 
 describe('compare formatting', () => {
-  it('formats EGP amounts with thousands separators and no decimals', () => {
-    expect(formatEgp(50000)).toBe('EGP 50,000')
-    expect(formatEgp(0)).toBe('EGP 0')
-    expect(formatEgp(150000)).toBe('EGP 150,000')
-  })
-
   it('formats percentages without trailing zeros', () => {
     expect(formatRate(3)).toBe('3%')
     expect(formatRate(2.5)).toBe('2.5%')

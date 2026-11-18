@@ -1,7 +1,8 @@
 import * as stylex from '@stylexjs/stylex'
 import Image from 'next/image'
 import { BadgeCheck } from 'lucide-react'
-import { getTranslations } from 'next-intl/server'
+import { getLocale, getTranslations } from 'next-intl/server'
+import { formatCurrency } from '@/i18n/currency'
 import { colors, fonts, radii, spacing } from '../../styles/tokens.stylex'
 import { Cta } from '../ui/cta'
 import { Reveal } from '../ui/reveal'
@@ -153,7 +154,10 @@ const styles = stylex.create({
 })
 
 export async function Manifesto() {
-  const t = await getTranslations('landing')
+  const [t, locale] = await Promise.all([
+    getTranslations('landing'),
+    getLocale(),
+  ])
 
   return (
     <section {...stylex.props(styles.section)}>
@@ -181,7 +185,11 @@ export async function Manifesto() {
                 </h3>
               </div>
               <p {...stylex.props(styles.regulatedText)}>
-                {t('manifesto.badgeRegulatedSub')}
+                {t('manifesto.badgeRegulatedSub', {
+                  amount: formatCurrency(250000, locale, {
+                    maximumFractionDigits: 0,
+                  }),
+                })}
               </p>
             </div>
           </Reveal>

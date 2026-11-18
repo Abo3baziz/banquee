@@ -20,7 +20,8 @@ import {
   Wifi,
   BatteryFull,
 } from 'lucide-react'
-import { getTranslations } from 'next-intl/server'
+import { getLocale, getTranslations } from 'next-intl/server'
+import { formatCurrency } from '@/i18n/currency'
 import { colors, fonts, radii } from '../../styles/tokens.stylex'
 
 const pulse = stylex.keyframes({
@@ -406,9 +407,10 @@ const styles = stylex.create({
 })
 
 export async function AppCtaVisual() {
-  const [tm, tc] = await Promise.all([
+  const [tm, tc, locale] = await Promise.all([
     getTranslations('mockups'),
     getTranslations('common'),
+    getLocale(),
   ])
 
   return (
@@ -456,7 +458,9 @@ export async function AppCtaVisual() {
                 <Eye size={16} />
               </div>
               <div {...stylex.props(styles.balanceValue)}>
-                {tm('dashboard.balanceValue')}
+                {tm('dashboard.balanceValue', {
+                  amount: formatCurrency(24580, locale),
+                })}
               </div>
               <div {...stylex.props(styles.trendRow)}>
                 <TrendingUp size={13} />
@@ -524,8 +528,8 @@ export async function AppCtaVisual() {
                     </div>
                   </div>
                 </div>
-                <span dir="ltr" {...stylex.props(styles.transactionAmount)}>
-                  -$12.99
+                <span {...stylex.props(styles.transactionAmount)}>
+                  {formatCurrency(-12.99, locale)}
                 </span>
               </div>
 
@@ -548,8 +552,8 @@ export async function AppCtaVisual() {
                     </div>
                   </div>
                 </div>
-                <span dir="ltr" {...stylex.props(styles.transactionAmount)}>
-                  -$15.49
+                <span {...stylex.props(styles.transactionAmount)}>
+                  {formatCurrency(-15.49, locale)}
                 </span>
               </div>
 
@@ -569,8 +573,8 @@ export async function AppCtaVisual() {
                     </div>
                   </div>
                 </div>
-                <span dir="ltr" {...stylex.props(styles.transactionAmount)}>
-                  -$249.00
+                <span {...stylex.props(styles.transactionAmount)}>
+                  {formatCurrency(-249, locale)}
                 </span>
               </div>
 
@@ -591,13 +595,12 @@ export async function AppCtaVisual() {
                   </div>
                 </div>
                 <span
-                  dir="ltr"
                   {...stylex.props(
                     styles.transactionAmount,
                     styles.creditAmount,
                   )}
                 >
-                  +$3,500.00
+                  {formatCurrency(3500, locale, { signDisplay: 'always' })}
                 </span>
               </div>
             </div>

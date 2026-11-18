@@ -13,6 +13,7 @@ import {
   Verified,
 } from 'lucide-react'
 import { AnimatePresence, motion } from 'motion/react'
+import { useCurrency } from '../../hooks/use-currency'
 import { colors, fonts, radii } from '../../styles/tokens.stylex'
 import { DEMO_ACCOUNT, DEMO_RECEIVE } from './demo-data'
 import { DemoProcessing, DemoSuccess } from './demo-feedback'
@@ -63,17 +64,16 @@ export function ReceiveDemo({ paused, reducedMotion }: ReceiveDemoProps) {
           key="success"
           headerTitle="Receive Money"
           title="Money received successfully!"
-          amount="850.00"
-          prefix="+$"
+          amount={RECEIVED_AMOUNT}
           counterpartyLabel="Received from"
           counterpartyName={DEMO_RECEIVE.sender.name}
           counterpartyMeta={DEMO_RECEIVE.sender.bank}
           reference={DEMO_RECEIVE.reference}
           fromBalance={DEMO_ACCOUNT.balance}
           toBalance={balance}
-          deltaLabel="+$850.00"
+          delta={RECEIVED_AMOUNT}
           method="Banquee Main Checking (•••• 4289)"
-          fee="Free ($0.00)"
+          feeAmount={0}
           note={DEMO_RECEIVE.memo}
         />
       ) : null}
@@ -82,6 +82,8 @@ export function ReceiveDemo({ paused, reducedMotion }: ReceiveDemoProps) {
 }
 
 function ReceiveDetails() {
+  const { currency, formatCurrency } = useCurrency()
+
   return (
     <DemoScreen>
       <DemoHeader title="Receive Money" />
@@ -110,10 +112,7 @@ function ReceiveDetails() {
           <div {...stylex.props(demoStyles.rowBetween)}>
             <span {...stylex.props(demoStyles.caption)}>Available Balance</span>
             <span {...stylex.props(styles.availableBalance)}>
-              $
-              {DEMO_ACCOUNT.balance.toLocaleString('en-US', {
-                minimumFractionDigits: 2,
-              })}
+              {formatCurrency(DEMO_ACCOUNT.balance)}
             </span>
           </div>
         </div>
@@ -144,7 +143,9 @@ function ReceiveDetails() {
         <div {...stylex.props(demoStyles.card)}>
           <div {...stylex.props(demoStyles.rowBetween)}>
             <span {...stylex.props(demoStyles.sectionTitle)}>Bank Details</span>
-            <span {...stylex.props(demoStyles.caption)}>USD · Fedwire</span>
+            <span {...stylex.props(demoStyles.caption)}>
+              {currency} · Fedwire
+            </span>
           </div>
           <div {...stylex.props(styles.bankRows)}>
             {[
@@ -198,7 +199,9 @@ function ReceiveDetails() {
                 </div>
               </div>
             </div>
-            <span {...stylex.props(styles.activityAmount)}>+$250.00</span>
+            <span {...stylex.props(styles.activityAmount)}>
+              {formatCurrency(250, { signDisplay: 'always' })}
+            </span>
           </div>
         </div>
       </div>
@@ -207,6 +210,7 @@ function ReceiveDetails() {
 }
 
 function IncomingTransfer() {
+  const { formatCurrency } = useCurrency()
   const settled = useDelayedFlag(1900)
 
   return (
@@ -236,7 +240,7 @@ function IncomingTransfer() {
             animate={{ opacity: 1, scale: 1 }}
             transition={{ delay: 0.8, duration: 0.4 }}
           >
-            +$850.00
+            {formatCurrency(RECEIVED_AMOUNT, { signDisplay: 'always' })}
           </motion.span>
         </motion.div>
 
@@ -261,7 +265,9 @@ function IncomingTransfer() {
               {settled ? 'Settled' : 'In Transit'}
             </motion.span>
           </div>
-          <div {...stylex.props(styles.incomingAmount)}>+$850.00</div>
+          <div {...stylex.props(styles.incomingAmount)}>
+            {formatCurrency(RECEIVED_AMOUNT, { signDisplay: 'always' })}
+          </div>
           <span {...stylex.props(demoStyles.caption)}>
             Instant transfer from {DEMO_RECEIVE.sender.name}
           </span>
@@ -323,13 +329,15 @@ function IncomingTransfer() {
 }
 
 function ReceiveProcessing() {
+  const { formatCurrency } = useCurrency()
+
   return (
     <DemoProcessing
       headerTitle="Receive Money"
       title="Receiving your payment..."
-      description="Depositing $850.00 from Sarah Johnson directly into your Banquee Checking account."
-      amount="850.00"
-      prefix="+$"
+      description={`Depositing ${formatCurrency(RECEIVED_AMOUNT)} from Sarah Johnson directly into your Banquee Checking account.`}
+      amount={formatCurrency(RECEIVED_AMOUNT, { signDisplay: 'always' })}
+      prefix=""
       amountLabel="Incoming Amount"
       recipientLabel="From"
       recipientName={DEMO_RECEIVE.sender.name}

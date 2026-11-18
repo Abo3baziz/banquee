@@ -1,6 +1,7 @@
 import * as stylex from '@stylexjs/stylex'
 import { Check, TrendingDown, TrendingUp } from 'lucide-react'
 import { getLocale, getTranslations } from 'next-intl/server'
+import { formatCurrency } from '@/i18n/currency'
 import { colors, fonts, radii, spacing } from '../../styles/tokens.stylex'
 import { Reveal } from '../ui/reveal'
 
@@ -378,6 +379,13 @@ export async function Cashflow() {
     monthFormatter.format(new Date(Date.UTC(2025, index, 1))),
   )
 
+  const earningsLabel = t('cashflow.chartLegend.earnings', {
+    amount: formatCurrency(85222, locale),
+  })
+  const expensesLabel = t('cashflow.chartLegend.expenses', {
+    amount: formatCurrency(52150.5, locale),
+  })
+
   return (
     <section {...stylex.props(styles.section)}>
       <div {...stylex.props(styles.grid)}>
@@ -414,7 +422,9 @@ export async function Cashflow() {
                     {t('cashflow.totalInflowLabel')}
                   </span>
                   <div {...stylex.props(styles.metricValue)}>
-                    {t('cashflow.totalInflowValue')}
+                    {t('cashflow.totalInflowValue', {
+                      amount: formatCurrency(85222, locale),
+                    })}
                   </div>
                   <div
                     {...stylex.props(styles.metricBadge, styles.inflowBadge)}
@@ -434,7 +444,9 @@ export async function Cashflow() {
                     {t('cashflow.totalOutflowLabel')}
                   </span>
                   <div {...stylex.props(styles.metricValue)}>
-                    {t('cashflow.totalOutflowValue')}
+                    {t('cashflow.totalOutflowValue', {
+                      amount: formatCurrency(-52150.5, locale),
+                    })}
                   </div>
                   <div
                     {...stylex.props(styles.metricBadge, styles.outflowBadge)}
@@ -451,7 +463,7 @@ export async function Cashflow() {
 
               <div
                 role="img"
-                aria-label={`${t('cashflow.chartLegend.earnings')}. ${t('cashflow.chartLegend.expenses')}.`}
+                aria-label={`${earningsLabel}. ${expensesLabel}.`}
                 {...stylex.props(styles.chart)}
               >
                 {YEAR_CHART.map((entry, index) => {
@@ -499,7 +511,7 @@ export async function Cashflow() {
                     {...stylex.props(styles.legendDot, styles.earningsDot)}
                   />
                   <span {...stylex.props(styles.legendLabel)}>
-                    {t('cashflow.chartLegend.earnings')}
+                    {earningsLabel}
                   </span>
                 </div>
                 <div {...stylex.props(styles.legendItem)}>
@@ -508,7 +520,7 @@ export async function Cashflow() {
                     {...stylex.props(styles.legendDot, styles.expensesDot)}
                   />
                   <span {...stylex.props(styles.legendLabel)}>
-                    {t('cashflow.chartLegend.expenses')}
+                    {expensesLabel}
                   </span>
                 </div>
               </div>

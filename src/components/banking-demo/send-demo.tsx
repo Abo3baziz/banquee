@@ -16,6 +16,7 @@ import {
   Zap,
 } from 'lucide-react'
 import { AnimatePresence, motion } from 'motion/react'
+import { useCurrency } from '../../hooks/use-currency'
 import { colors, fonts, radii } from '../../styles/tokens.stylex'
 import {
   DEMO_ACCOUNT,
@@ -88,17 +89,16 @@ export function SendDemo({ paused, reducedMotion }: SendDemoProps) {
           key="success"
           headerTitle="Send Money"
           title="Transfer sent successfully!"
-          amount="450.00"
-          prefix="$"
+          amount={SENT_AMOUNT}
           counterpartyLabel="Sent to"
           counterpartyName={DEMO_SEND.recipient.name}
           counterpartyMeta={DEMO_SEND.recipient.bank}
           reference={DEMO_SEND.reference}
           fromBalance={DEMO_ACCOUNT.balance}
           toBalance={balance}
-          deltaLabel="-$450.00"
+          delta={-SENT_AMOUNT}
           method="Main Checking (•••• 4289)"
-          fee="Free ($0.00)"
+          feeAmount={0}
           note={DEMO_SEND.note}
         />
       ) : null}
@@ -107,6 +107,8 @@ export function SendDemo({ paused, reducedMotion }: SendDemoProps) {
 }
 
 function SendOverview() {
+  const { formatCurrency, symbol } = useCurrency()
+
   return (
     <DemoScreen>
       <DemoHeader title="Send Money" />
@@ -127,7 +129,9 @@ function SendOverview() {
               </div>
             </div>
             <div {...stylex.props(styles.accountAmount)}>
-              <span {...stylex.props(styles.accountBalance)}>$24,580.00</span>
+              <span {...stylex.props(styles.accountBalance)}>
+                {formatCurrency(DEMO_ACCOUNT.balance)}
+              </span>
               <span {...stylex.props(demoStyles.caption)}>Available</span>
             </div>
           </div>
@@ -139,7 +143,7 @@ function SendOverview() {
             No FX Fee
           </DemoChip>
           <div {...stylex.props(styles.amount)}>
-            <span {...stylex.props(styles.amountSymbol)}>$</span>
+            <span {...stylex.props(styles.amountSymbol)}>{symbol}</span>
             450.00
           </div>
           <span {...stylex.props(demoStyles.caption)}>
@@ -261,7 +265,9 @@ function SendOverview() {
                       activity.id === 'sarah' && demoStyles.detailValuePrimary,
                     )}
                   >
-                    {activity.amount}
+                    {formatCurrency(activity.amount, {
+                      signDisplay: 'always',
+                    })}
                   </span>
                   <span {...stylex.props(demoStyles.caption)}>
                     {activity.status}
@@ -410,6 +416,7 @@ function SelectRecipient() {
 }
 
 function AmountEntry() {
+  const { formatCurrency, symbol } = useCurrency()
   const { text, complete } = useTypewriter(DEMO_SEND.amount, {
     startDelay: 500,
     charDelay: 115,
@@ -445,7 +452,7 @@ function AmountEntry() {
 
         <div {...stylex.props(styles.entryBlock)}>
           <div {...stylex.props(styles.entryAmount)}>
-            <span {...stylex.props(styles.entrySymbol)}>$</span>
+            <span {...stylex.props(styles.entrySymbol)}>{symbol}</span>
             <span {...stylex.props(demoStyles.number)}>
               {text || '0'}
               {!complete ? (
@@ -458,7 +465,7 @@ function AmountEntry() {
             </span>
           </div>
           <span {...stylex.props(demoStyles.caption)}>
-            Available: $24,580.00
+            Available: {formatCurrency(DEMO_ACCOUNT.balance)}
           </span>
         </div>
 
@@ -471,7 +478,7 @@ function AmountEntry() {
           <div {...stylex.props(demoStyles.row)}>
             <Zap aria-hidden="true" size={10} {...stylex.props(styles.zap)} />
             <span {...stylex.props(demoStyles.caption)}>Transfer Fee:</span>
-            <span {...stylex.props(styles.feeValue)}>$0.00</span>
+            <span {...stylex.props(styles.feeValue)}>{formatCurrency(0)}</span>
             <span {...stylex.props(demoStyles.caption)}>(Free Instant)</span>
           </div>
           <div {...stylex.props(styles.totalRow)}>
@@ -483,7 +490,7 @@ function AmountEntry() {
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.25 }}
             >
-              {complete ? '$450.00' : '$0.00'}
+              {complete ? formatCurrency(SENT_AMOUNT) : formatCurrency(0)}
             </motion.span>
           </div>
         </motion.div>
@@ -510,6 +517,7 @@ function AmountEntry() {
 }
 
 function TransferReview() {
+  const { formatCurrency } = useCurrency()
   const rows = [
     {
       label: 'Recipient',
@@ -519,8 +527,8 @@ function TransferReview() {
       label: 'From Account',
       value: 'Banquee Main Checking · 4289',
     },
-    { label: 'Transfer Amount', value: '$450.00' },
-    { label: 'Transfer Fee', value: '$0.00', highlight: true },
+    { label: 'Transfer Amount', value: formatCurrency(SENT_AMOUNT) },
+    { label: 'Transfer Fee', value: formatCurrency(0), highlight: true },
     { label: 'Estimated Delivery', value: DEMO_SEND.delivery },
     { label: 'Transfer Note', value: DEMO_SEND.note },
   ]
@@ -549,8 +557,7 @@ function TransferReview() {
             </span>
           </div>
           <div {...stylex.props(styles.reviewTotal)}>
-            <span {...stylex.props(styles.reviewTotalPrefix)}>$</span>
-            450.00
+            {formatCurrency(SENT_AMOUNT)}
           </div>
         </motion.div>
 
@@ -586,7 +593,9 @@ function TransferReview() {
               <span {...stylex.props(demoStyles.strongText)}>
                 Total to Deduct
               </span>
-              <span {...stylex.props(styles.reviewDeduct)}>$450.00</span>
+              <span {...stylex.props(styles.reviewDeduct)}>
+                {formatCurrency(SENT_AMOUNT)}
+              </span>
             </div>
           </div>
         </div>
@@ -612,7 +621,7 @@ function TransferReview() {
           }}
         >
           <Fingerprint aria-hidden="true" size={15} />
-          <span>Confirm &amp; Send $450.00</span>
+          <span>Confirm &amp; Send {formatCurrency(SENT_AMOUNT)}</span>
           <DemoFingerGesture
             x={50}
             y={50}
@@ -632,13 +641,15 @@ function TransferReview() {
 }
 
 export function SendProcessing() {
+  const { formatCurrency } = useCurrency()
+
   return (
     <DemoProcessing
       headerTitle="Send Money"
       title="Sending your payment..."
       description="Securely communicating with the recipient bank network. Please do not close the app."
-      amount="450.00"
-      prefix="$"
+      amount={formatCurrency(SENT_AMOUNT)}
+      prefix=""
       amountLabel="Transfer Amount"
       recipientLabel="To"
       recipientName={DEMO_SEND.recipient.name}
@@ -960,11 +971,6 @@ const styles = stylex.create({
     fontWeight: 700,
     letterSpacing: '-0.03em',
     lineHeight: '2rem',
-  },
-  reviewTotalPrefix: {
-    color: colors.primary,
-    fontSize: '1rem',
-    marginInlineEnd: '0.0625rem',
   },
   reviewRows: {
     gap: '0.3125rem',

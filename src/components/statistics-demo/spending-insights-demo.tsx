@@ -8,8 +8,8 @@ import {
   TrendingUp,
 } from 'lucide-react'
 import { AnimatePresence, motion } from 'motion/react'
+import { useCurrency } from '../../hooks/use-currency'
 import { colors } from '../../styles/tokens.stylex'
-import { formatUsd } from '../banking-demo/demo-data'
 import { DemoHeader, DemoScreen } from '../banking-demo/demo-ui'
 import type { DemoSequenceStage } from '../banking-demo/demo-sequence'
 import { demoStyles } from '../banking-demo/demo-styles'
@@ -89,6 +89,7 @@ export function SpendingInsightsDemo({
 }
 
 function InsightsOverview() {
+  const { formatCurrency } = useCurrency()
   const hasSwitched = useDelayedFlag(PERIOD_SWITCH_DELAY)
   const activeIndex = hasSwitched ? 1 : 0
   const period = SPENDING_PERIODS[activeIndex]
@@ -109,7 +110,7 @@ function InsightsOverview() {
         <div {...stylex.props(statisticsStyles.totalBlock)}>
           <span {...stylex.props(demoStyles.label)}>Total Spending</span>
           <span {...stylex.props(statisticsStyles.totalAmount)}>
-            {formatUsd(total)}
+            {formatCurrency(total)}
           </span>
           <div {...stylex.props(statisticsStyles.totalMeta)}>
             <span
@@ -135,7 +136,7 @@ function InsightsOverview() {
               Category Breakdown
             </span>
             <span {...stylex.props(demoStyles.caption)}>
-              prev. {formatUsd(previousTotal)}
+              prev. {formatCurrency(previousTotal)}
             </span>
           </div>
           <div
@@ -178,8 +179,9 @@ function InsightsOverview() {
             </span>
           </div>
           <span {...stylex.props(statisticsStyles.spikeText)}>
-            Shopping reached {formatUsd(CURRENT_MONTH.spending.shopping)} this
-            month, up from {formatUsd(PREVIOUS_MONTH.spending.shopping)} in{' '}
+            Shopping reached {formatCurrency(CURRENT_MONTH.spending.shopping)}{' '}
+            this month, up from{' '}
+            {formatCurrency(PREVIOUS_MONTH.spending.shopping)} in{' '}
             {PREVIOUS_MONTH.compactLabel}.
           </span>
           <span {...stylex.props(statisticsStyles.spikeLink)}>
@@ -198,6 +200,7 @@ function InsightsOverview() {
 }
 
 function SpendingSpike() {
+  const { formatCurrency } = useCurrency()
   const topDrivers = getTopTransactions(OCTOBER_TRANSACTIONS, 'shopping', 4)
   const topDriversTotal = sumTransactions(topDrivers)
   const driverShare = getShare(topDriversTotal, CURRENT_MONTH.spending.shopping)
@@ -229,7 +232,7 @@ function SpendingSpike() {
           <div {...stylex.props(statisticsStyles.statCard)}>
             <span {...stylex.props(statisticsStyles.statLabel)}>Current</span>
             <span {...stylex.props(statisticsStyles.statValue)}>
-              {formatUsd(CURRENT_MONTH.spending.shopping)}
+              {formatCurrency(CURRENT_MONTH.spending.shopping)}
             </span>
             <span {...stylex.props(statisticsStyles.statDelta)}>
               {CURRENT_MONTH.compactLabel} · Elevated
@@ -238,7 +241,7 @@ function SpendingSpike() {
           <div {...stylex.props(statisticsStyles.statCard)}>
             <span {...stylex.props(statisticsStyles.statLabel)}>Previous</span>
             <span {...stylex.props(statisticsStyles.statValue)}>
-              {formatUsd(PREVIOUS_MONTH.spending.shopping)}
+              {formatCurrency(PREVIOUS_MONTH.spending.shopping)}
             </span>
             <span {...stylex.props(statisticsStyles.statDelta)}>
               {PREVIOUS_MONTH.compactLabel} · Regular volume
@@ -252,10 +255,10 @@ function SpendingSpike() {
               Month over Month
             </span>
             <span {...stylex.props(demoStyles.caption)}>
-              +
-              {formatUsd(
+              {formatCurrency(
                 CURRENT_MONTH.spending.shopping -
                   PREVIOUS_MONTH.spending.shopping,
+                { signDisplay: 'always' },
               )}{' '}
               more
             </span>
@@ -285,7 +288,7 @@ function SpendingSpike() {
             style={{ color: colors.tertiary, flexShrink: 0 }}
           />
           <span {...stylex.props(statisticsStyles.insightText)}>
-            The 4 largest purchases total {formatUsd(topDriversTotal)},{' '}
+            The 4 largest purchases total {formatCurrency(topDriversTotal)},{' '}
             {formatPercent(driverShare)} of shopping this month.
           </span>
         </div>
@@ -313,6 +316,7 @@ function SpendingSpike() {
 }
 
 function RecurringExpenses() {
+  const { formatCurrency } = useCurrency()
   const nextExpense = RECURRING_EXPENSES[0]
 
   return (
@@ -325,7 +329,7 @@ function RecurringExpenses() {
           </span>
           <div {...stylex.props(statisticsStyles.inlineRow)}>
             <span {...stylex.props(statisticsStyles.heroValue)}>
-              {formatUsd(RECURRING_TOTAL)}
+              {formatCurrency(RECURRING_TOTAL)}
             </span>
             <span {...stylex.props(demoStyles.caption)}>/ month</span>
           </div>
@@ -368,7 +372,7 @@ function RecurringExpenses() {
                 </div>
                 <div {...stylex.props(styles.recurringAmount)}>
                   <span {...stylex.props(statisticsStyles.transactionAmount)}>
-                    {formatUsd(expense.amount)}
+                    {formatCurrency(expense.amount)}
                   </span>
                   <span {...stylex.props(demoStyles.caption)}>per month</span>
                 </div>
@@ -384,7 +388,7 @@ function RecurringExpenses() {
             style={{ color: colors.primary, flexShrink: 0 }}
           />
           <span {...stylex.props(statisticsStyles.insightText)}>
-            Next charge: {formatUsd(nextExpense.amount)} for{' '}
+            Next charge: {formatCurrency(nextExpense.amount)} for{' '}
             {nextExpense.merchant} on {nextExpense.nextPayment}. Auto-pay is
             enabled for all recurring services.
           </span>

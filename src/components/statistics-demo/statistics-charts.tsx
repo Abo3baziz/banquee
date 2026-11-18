@@ -2,8 +2,8 @@
 
 import * as stylex from '@stylexjs/stylex'
 import { motion, useReducedMotion } from 'motion/react'
+import { useCurrency } from '../../hooks/use-currency'
 import { colors, fonts, radii } from '../../styles/tokens.stylex'
-import { formatUsd } from '../banking-demo/demo-data'
 
 type ProgressBarProps = {
   value: number
@@ -52,6 +52,7 @@ export function ComparisonBars({
   height = 104,
 }: ComparisonBarsProps) {
   const shouldReduceMotion = useReducedMotion()
+  const { formatCurrency } = useCurrency()
   const max = Math.max(bars[0].value, bars[1].value, 0)
 
   return (
@@ -62,7 +63,7 @@ export function ComparisonBars({
         return (
           <div key={bar.label} {...stylex.props(styles.column)}>
             <span {...stylex.props(styles.barValue)}>
-              {formatUsd(bar.value)}
+              {formatCurrency(bar.value)}
             </span>
             <div {...stylex.props(styles.barTrack)}>
               <motion.div

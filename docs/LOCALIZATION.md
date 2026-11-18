@@ -18,7 +18,7 @@ Translation dictionaries are stored in the `locales/` directory.
 English is the primary source dictionary. All other locale dictionaries must maintain the same key structure.
 
 ```text
-locales/
+messages/
 ├── en.json         # Base English dictionary (Source of Truth)
 ├── ar.json         # Arabic translations (RTL)
 ├── es.json         # Spanish translations (LTR)
@@ -64,42 +64,79 @@ locales/
 
 ## 3. Dynamic Variables & Interpolation Syntax
 
-Dynamic values use double-bracket Mustache-style placeholders: `{{variable}}`.
+Dynamic values passed to `t(key, values)` use ICU syntax: `{variable}`.
 
 Examples:
 
-**Copyright year**
+**Comparison table counts**
 ```json
 {
-  "copyright": "© {{year}} banquee. All rights reserved."
+  "points": "{count, plural, one {# point} other {# points}}"
 }
 ```
 
-**User greetings**
+```tsx
+t('compareCards.table.values.points', { count: 3 })
+```
+
+**Notification amounts**
 ```json
 {
-  "welcome": "Good morning, {{name}}"
+  "notificationDetail": "Sarah Johnson sent you {amount}"
 }
 ```
 
-**Transfer details**
-```json
-{
-  "transferDetail": "Sarah Johnson sent you {{amount}}"
-}
-```
+The footer copyright is the one exception: it reads the raw message with `t.raw()` and replaces a `{{year}}` placeholder manually, because the year is injected outside the rendering cycle.
 
 ### Interpolation Rules
 
 - Never translate or rename interpolation variables.
 - Preserve the exact placeholder names across every locale.
-- Use locale-aware formatting for dates, numbers, and currencies.
+- Pass locale-formatted values (see [Currency Localization](#4-currency-localization)) rather than raw numbers when a variable represents money.
 - Avoid manually concatenating translated sentences.
 - Prefer complete translated sentences with named variables.
 
 ---
 
-## 4. Localization Rules by Language
+## 4. Currency Localization
+
+Displayed currency follows the application language, never the visitor's location, browser locale, or OS settings.
+
+| Language | `Intl` locale | Currency | Code |
+|---|---|---|---|
+| `en` | `en-US` | US Dollar | `USD` |
+| `de` | `de-DE` | Euro | `EUR` |
+| `es` | `es-ES` | Euro | `EUR` |
+| `ar` | `ar-SA` | Saudi Riyal | `SAR` |
+
+### Where the mapping lives
+
+`i18n/currency.ts` is the single source of truth. It exports:
+
+- `CURRENCY_CONFIG` — the table above, typed so every routing locale must have an entry.
+- `getCurrencyConfig(locale)` / `getCurrencyCode(locale)` — lookup with an English fallback for unknown locales.
+- `formatCurrency(amount, locale, options?)` — `Intl.NumberFormat` formatting. Defaults to two decimals; `options.maximumFractionDigits: 0` renders whole amounts; `options.signDisplay: 'always'` prefixes inflows with a plus sign. Non-finite or missing amounts format as zero.
+
+Client components bind the formatter to the active language with the `useCurrency` hook from `src/hooks/use-currency.ts`, which reads the locale from the next-intl context:
+
+```tsx
+const { currency, symbol, formatCurrency } = useCurrency()
+formatCurrency(1250) // '$1,250.00' in English, '1.250,00 €' in German
+```
+
+Server components use `getLocale()` from `next-intl/server` and call `formatCurrency(amount, locale)`.
+
+### Rules
+
+- Never hardcode a currency symbol or code next to an amount in JSX or in a message value; always format through `formatCurrency`. The one exception is the styled indicator span next to raw typed input in the amount-entry mockups, which renders `symbol` from the currency config.
+- Amounts are demo values. Switching the language changes the displayed currency, not the underlying number — there is no exchange-rate conversion.
+- Message keys that embed amounts use an `{amount}` placeholder; the component passes `formatCurrency(...)` as the value.
+- Arabic output from `Intl.NumberFormat('ar-SA')` uses Arabic-Indic digits, the `ر.س.` riyal symbol, and embedded RLM marks, so formatted amounts render correctly in both RTL pages and the LTR phone mockups. Do not wrap locale-formatted currency in `dir="ltr"`; reserve that for card numbers, IBANs, and similar identifiers.
+- Percentages, reward points, account numbers, and card numbers are not money — leave them on their existing formatters.
+
+---
+
+## 5. Localization Rules by Language
 
 ### English (`en`)
 
@@ -137,14 +174,14 @@ Examples:
 
 ---
 
-## 5. Instructions for Adding or Updating a Language
+## 6. Instructions for Adding or Updating a Language
 
 ### Adding a New Locale
 
 1. Copy the English source dictionary:
 
 ```bash
-cp locales/en.json locales/es.json
+cp messages/en.json messages/es.json
 ```
 
 Replace `es` with the desired locale code.
@@ -180,7 +217,7 @@ Never introduce a key in only one language.
 
 ---
 
-## 6. RTL / LTR Implementation
+## 7. RTL / LTR Implementation
 
 The application must derive its writing direction from the active locale.
 
@@ -225,7 +262,7 @@ Additional requirements:
 
 ---
 
-## 7. Translation Validation
+## 8. Translation Validation
 
 Every locale must be validated against `en.json`.
 
@@ -252,7 +289,7 @@ Validation requirements:
 
 ---
 
-## 8. Quality Assurance
+## 9. Quality Assurance
 
 Before releasing localization changes, verify:
 
@@ -269,9 +306,9 @@ Before releasing localization changes, verify:
 
 ---
 
-## 9. Source of Truth
+## 10. Source of Truth
 
-`locales/en.json` is the canonical translation structure.
+`messages/en.json` is the canonical translation structure.
 
 Other locale dictionaries must always remain synchronized with its keys and interpolation variables.
 

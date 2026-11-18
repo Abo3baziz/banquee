@@ -25,9 +25,9 @@ describe('useCurrency', () => {
 
     expect(result.current.currency).toBe('USD')
     expect(result.current.formatCurrency(1250)).toBe('$1,250.00')
-    expect(
-      result.current.formatCurrency(450, { signDisplay: 'always' }),
-    ).toBe('+$450.00')
+    expect(result.current.formatCurrency(450, { signDisplay: 'always' })).toBe(
+      '+$450.00',
+    )
   })
 
   it('keeps a stable formatter unless the language changes', () => {
