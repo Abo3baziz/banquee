@@ -4,6 +4,7 @@ import { useEffect, useRef, useState } from 'react'
 import * as stylex from '@stylexjs/stylex'
 import { MotionConfig, useInView, useReducedMotion } from 'motion/react'
 import { PhoneFrame } from '../phone/phone-frame'
+import { useHasStarted } from '../banking-demo/use-has-started'
 import { ExpenseTrackingDemo } from './expense-tracking-demo'
 import { MonthlyReportDemo } from './monthly-report-demo'
 import { SpendingInsightsDemo } from './spending-insights-demo'
@@ -40,6 +41,12 @@ export function StatisticsDemo() {
   const [isDocumentHidden, setIsDocumentHidden] = useState(false)
   const [mode, setMode] = useState<StatisticsDemoMode>('insights')
   const [runId, setRunId] = useState(0)
+  /*
+   * Mount the demo content only once the section has been seen. Stage 0 starts
+   * running on mount, so mounting it below the fold would spend its typing,
+   * delayed flags, and simulated gestures offscreen.
+   */
+  const hasStarted = useHasStarted(rootRef)
 
   useEffect(() => {
     const handleVisibilityChange = () => {
@@ -71,21 +78,21 @@ export function StatisticsDemo() {
             aria-label={MODE_LABELS[mode]}
             {...stylex.props(styles.panel)}
           >
-            {mode === 'insights' ? (
+            {hasStarted && mode === 'insights' ? (
               <SpendingInsightsDemo
                 key={`insights-${runId}`}
                 paused={paused}
                 reducedMotion={reducedMotion}
               />
             ) : null}
-            {mode === 'report' ? (
+            {hasStarted && mode === 'report' ? (
               <MonthlyReportDemo
                 key={`report-${runId}`}
                 paused={paused}
                 reducedMotion={reducedMotion}
               />
             ) : null}
-            {mode === 'budgets' ? (
+            {hasStarted && mode === 'budgets' ? (
               <ExpenseTrackingDemo
                 key={`budgets-${runId}`}
                 paused={paused}

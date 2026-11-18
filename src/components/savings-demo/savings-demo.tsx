@@ -4,6 +4,7 @@ import { useEffect, useRef, useState } from 'react'
 import * as stylex from '@stylexjs/stylex'
 import { MotionConfig, useInView, useReducedMotion } from 'motion/react'
 import { PhoneFrame } from '../phone/phone-frame'
+import { useHasStarted } from '../banking-demo/use-has-started'
 import { ProgressDemo } from './progress-demo'
 import { SavingsGoalsDemo } from './savings-goals-demo'
 import {
@@ -40,6 +41,12 @@ export function SavingsDemo() {
   const [isDocumentHidden, setIsDocumentHidden] = useState(false)
   const [mode, setMode] = useState<SavingsDemoMode>('goals')
   const [runId, setRunId] = useState(0)
+  /*
+   * Mount the demo content only once the section has been seen. Stage 0 starts
+   * running on mount, so mounting it below the fold would spend its typing,
+   * delayed flags, and simulated gestures offscreen.
+   */
+  const hasStarted = useHasStarted(rootRef)
 
   useEffect(() => {
     const handleVisibilityChange = () => {
@@ -71,21 +78,21 @@ export function SavingsDemo() {
             aria-label={MODE_LABELS[mode]}
             {...stylex.props(styles.panel)}
           >
-            {mode === 'goals' ? (
+            {hasStarted && mode === 'goals' ? (
               <SavingsGoalsDemo
                 key={`goals-${runId}`}
                 paused={paused}
                 reducedMotion={reducedMotion}
               />
             ) : null}
-            {mode === 'progress' ? (
+            {hasStarted && mode === 'progress' ? (
               <ProgressDemo
                 key={`progress-${runId}`}
                 paused={paused}
                 reducedMotion={reducedMotion}
               />
             ) : null}
-            {mode === 'smart' ? (
+            {hasStarted && mode === 'smart' ? (
               <SmartSavingsDemo
                 key={`smart-${runId}`}
                 paused={paused}

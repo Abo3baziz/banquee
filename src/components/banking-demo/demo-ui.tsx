@@ -6,6 +6,7 @@ import { ArrowLeft } from 'lucide-react'
 import { motion } from 'motion/react'
 import { colors, fonts, radii } from '../../styles/tokens.stylex'
 import { demoStyles } from './demo-styles'
+import { DemoFingerGesture, demoButtonFinger } from './demo-tap-indicator'
 
 type DemoHeaderProps = {
   title: string
@@ -47,8 +48,19 @@ export function DemoScreen({ children }: DemoScreenProps) {
 type DemoPrimaryButtonProps = {
   label: string
   icon?: ReactNode
+  /**
+   * Seconds after the stage starts when the demo taps the button. Drives both
+   * the button's press animation and the fingertip gesture, so the two cannot
+   * drift apart.
+   */
   pressAt?: number
   disabled?: boolean
+  /**
+   * Render the simulated fingertip over the button. Set to `false` when a
+   * screen already shows its own gesture.
+   * @default true
+   */
+  showGesture?: boolean
 }
 
 export function DemoPrimaryButton({
@@ -56,11 +68,16 @@ export function DemoPrimaryButton({
   icon,
   pressAt,
   disabled = false,
+  showGesture = true,
 }: DemoPrimaryButtonProps) {
   return (
     <motion.div
       aria-disabled={disabled}
-      {...stylex.props(demoStyles.primaryButton, disabled && styles.disabled)}
+      {...stylex.props(
+        demoStyles.primaryButton,
+        styles.buttonHost,
+        disabled && styles.disabled,
+      )}
       animate={pressAt === undefined ? undefined : { scale: [1, 0.965, 1] }}
       transition={
         pressAt === undefined
@@ -70,6 +87,17 @@ export function DemoPrimaryButton({
     >
       <span>{label}</span>
       {icon}
+      {showGesture && pressAt !== undefined ? (
+        <DemoFingerGesture
+          x={50}
+          y={50}
+          contactAt={pressAt}
+          angle={demoButtonFinger.angle}
+          size={demoButtonFinger.size}
+          entryX={demoButtonFinger.entryX}
+          entryY={demoButtonFinger.entryY}
+        />
+      ) : null}
     </motion.div>
   )
 }
@@ -270,6 +298,9 @@ export function DemoQrCode() {
 const styles = stylex.create({
   disabled: {
     opacity: 0.6,
+  },
+  buttonHost: {
+    position: 'relative',
   },
   avatar: {
     borderRadius: radii.full,

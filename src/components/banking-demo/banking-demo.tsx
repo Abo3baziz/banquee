@@ -7,6 +7,7 @@ import { PhoneFrame } from '../phone/phone-frame'
 import { DemoModeSwitcher, type DemoMode } from './demo-mode-switcher'
 import { ReceiveDemo } from './receive-demo'
 import { SendDemo } from './send-demo'
+import { useHasStarted } from './use-has-started'
 
 const styles = stylex.create({
   root: {
@@ -30,6 +31,12 @@ export function BankingDemo() {
   const [isDocumentHidden, setIsDocumentHidden] = useState(false)
   const [mode, setMode] = useState<DemoMode>('send')
   const [runId, setRunId] = useState(0)
+  /*
+   * Mount the demo content only once the section has been seen. Stage 0 starts
+   * running on mount, so mounting it below the fold would spend its typing,
+   * delayed flags, and simulated gestures offscreen.
+   */
+  const hasStarted = useHasStarted(rootRef)
 
   useEffect(() => {
     const handleVisibilityChange = () => {
@@ -63,19 +70,21 @@ export function BankingDemo() {
             }
             {...stylex.props(styles.panel)}
           >
-            {mode === 'send' ? (
-              <SendDemo
-                key={`send-${runId}`}
-                paused={paused}
-                reducedMotion={reducedMotion}
-              />
-            ) : (
-              <ReceiveDemo
-                key={`receive-${runId}`}
-                paused={paused}
-                reducedMotion={reducedMotion}
-              />
-            )}
+            {hasStarted ? (
+              mode === 'send' ? (
+                <SendDemo
+                  key={`send-${runId}`}
+                  paused={paused}
+                  reducedMotion={reducedMotion}
+                />
+              ) : (
+                <ReceiveDemo
+                  key={`receive-${runId}`}
+                  paused={paused}
+                  reducedMotion={reducedMotion}
+                />
+              )
+            ) : null}
           </div>
         </PhoneFrame>
       </div>

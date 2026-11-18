@@ -81,7 +81,7 @@ export function ExpenseTrackingDemo({
    * limit is shown in the success screen and resets when the sequence restarts.
    */
   return (
-    <AnimatePresence mode="wait" initial={false}>
+    <AnimatePresence mode="wait">
       {stage === 'overview' ? <BudgetsOverview key="overview" /> : null}
       {stage === 'details' ? <BudgetDetails key="details" /> : null}
       {stage === 'edit' ? <EditBudget key="edit" /> : null}
@@ -206,7 +206,9 @@ function BudgetsOverview() {
           </div>
         </div>
       </div>
-      <DemoTapIndicator x={36} y={44} delay={4.9} />
+      {/* Contact lands on the Food & Dining row and the hand lifts as the
+          detail screen takes over at 6s. */}
+      <DemoTapIndicator x={36} y={44} contactDelay={5.4} />
     </DemoScreen>
   )
 }
@@ -297,7 +299,6 @@ function BudgetDetails() {
           pressAt={5}
         />
       </div>
-      <DemoTapIndicator x={50} y={95} delay={4.9} />
     </DemoScreen>
   )
 }
@@ -427,7 +428,6 @@ function EditBudget() {
           disabled={!complete}
         />
       </div>
-      <DemoTapIndicator x={50} y={95} delay={4.3} />
     </DemoScreen>
   )
 }

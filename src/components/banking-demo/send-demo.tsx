@@ -26,7 +26,11 @@ import {
 import { DemoProcessing, DemoSuccess } from './demo-feedback'
 import type { DemoSequenceStage } from './demo-sequence'
 import { demoStyles } from './demo-styles'
-import { DemoTapIndicator } from './demo-tap-indicator'
+import {
+  DemoFingerGesture,
+  DemoTapIndicator,
+  demoButtonFinger,
+} from './demo-tap-indicator'
 import {
   DemoAvatar,
   DemoChip,
@@ -52,6 +56,11 @@ const SEND_STAGES: readonly DemoSequenceStage<SendStage>[] = [
 
 const SENT_AMOUNT = Number(DEMO_SEND.amount)
 
+/** Milliseconds after the stage starts when the Sarah row becomes selected. */
+const RECIPIENT_SELECTED_AT_MS = 1150
+/** Seconds after the stage starts when the confirm button is pressed. */
+const CONFIRM_PRESS_AT = 2.2
+
 type SendDemoProps = {
   paused: boolean
   reducedMotion: boolean
@@ -68,7 +77,7 @@ export function SendDemo({ paused, reducedMotion }: SendDemoProps) {
       : DEMO_ACCOUNT.balance
 
   return (
-    <AnimatePresence mode="wait" initial={false}>
+    <AnimatePresence mode="wait">
       {stage === 'overview' ? <SendOverview key="overview" /> : null}
       {stage === 'recipients' ? <SelectRecipient key="recipients" /> : null}
       {stage === 'amount' ? <AmountEntry key="amount" /> : null}
@@ -268,7 +277,7 @@ function SendOverview() {
 }
 
 function SelectRecipient() {
-  const hasSelected = useDelayedFlag(1150)
+  const hasSelected = useDelayedFlag(RECIPIENT_SELECTED_AT_MS)
   const selected = hasSelected ? 'sarah' : null
 
   const selectedRecipient = DEMO_RECIPIENTS.find(
@@ -386,7 +395,16 @@ function SelectRecipient() {
           <ArrowRight aria-hidden="true" size={14} strokeWidth={2.5} />
         </div>
       </div>
-      <DemoTapIndicator x={40} y={36} delay={1.02} />
+      {/*
+       * A contact row is not a primary button, so the gesture is standalone.
+       * The fingertip lands in the middle of the Sarah row at the exact moment
+       * the row highlights.
+       */}
+      <DemoTapIndicator
+        x={40}
+        y={34}
+        contactDelay={RECIPIENT_SELECTED_AT_MS / 1000}
+      />
     </DemoScreen>
   )
 }
@@ -487,7 +505,6 @@ function AmountEntry() {
           pressAt={2.4}
         />
       </div>
-      <DemoTapIndicator x={22} y={93} delay={2.35} />
     </DemoScreen>
   )
 }
@@ -580,19 +597,36 @@ function TransferReview() {
         </div>
 
         <div {...stylex.props(demoStyles.grow)} />
+        {/*
+         * The button is a custom layout with the fingerprint icon leading the
+         * label, so it cannot be a DemoPrimaryButton. It renders the shared
+         * gesture itself with the button placement preset.
+         */}
         <motion.div
           {...stylex.props(demoStyles.primaryButton, styles.confirmButton)}
           animate={{ scale: [1, 0.965, 1] }}
-          transition={{ delay: 2.2, duration: 0.45, times: [0, 0.35, 1] }}
+          transition={{
+            delay: CONFIRM_PRESS_AT,
+            duration: 0.45,
+            times: [0, 0.35, 1],
+          }}
         >
           <Fingerprint aria-hidden="true" size={15} />
           <span>Confirm &amp; Send $450.00</span>
+          <DemoFingerGesture
+            x={50}
+            y={50}
+            contactAt={CONFIRM_PRESS_AT}
+            angle={demoButtonFinger.angle}
+            size={demoButtonFinger.size}
+            entryX={demoButtonFinger.entryX}
+            entryY={demoButtonFinger.entryY}
+          />
         </motion.div>
         <span {...stylex.props(styles.confirmHint)}>
           FaceID or biometric confirmation
         </span>
       </div>
-      <DemoTapIndicator x={20} y={93} delay={2.15} />
     </DemoScreen>
   )
 }
@@ -957,6 +991,7 @@ const styles = stylex.create({
   },
   confirmButton: {
     gap: '0.375rem',
+    position: 'relative',
   },
   confirmHint: {
     color: colors.onSurfaceVariant,

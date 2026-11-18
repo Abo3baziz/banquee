@@ -62,6 +62,8 @@ const SHOPPING_SPIKE_CHANGE = getPercentageChange(
 const RECURRING_TOTAL = getRecurringTotal(RECURRING_EXPENSES)
 const CURRENT_TOTAL = sumSpending(CURRENT_MONTH.spending)
 const RECURRING_SHARE = getShare(RECURRING_TOTAL, CURRENT_TOTAL)
+/** Milliseconds after the overview mounts when the period tab switches. */
+const PERIOD_SWITCH_DELAY = 3600
 
 type SpendingInsightsDemoProps = {
   paused: boolean
@@ -78,7 +80,7 @@ export function SpendingInsightsDemo({
   })
 
   return (
-    <AnimatePresence mode="wait" initial={false}>
+    <AnimatePresence mode="wait">
       {stage === 'overview' ? <InsightsOverview key="overview" /> : null}
       {stage === 'spike' ? <SpendingSpike key="spike" /> : null}
       {stage === 'recurring' ? <RecurringExpenses key="recurring" /> : null}
@@ -87,7 +89,7 @@ export function SpendingInsightsDemo({
 }
 
 function InsightsOverview() {
-  const hasSwitched = useDelayedFlag(3600)
+  const hasSwitched = useDelayedFlag(PERIOD_SWITCH_DELAY)
   const activeIndex = hasSwitched ? 1 : 0
   const period = SPENDING_PERIODS[activeIndex]
   const total = sumSpending(period.current)
@@ -186,7 +188,11 @@ function InsightsOverview() {
           </span>
         </motion.div>
       </div>
-      <DemoTapIndicator x={50} y={69} delay={5.9} />
+      <DemoTapIndicator
+        x={32}
+        y={10}
+        contactDelay={PERIOD_SWITCH_DELAY / 1000}
+      />
     </DemoScreen>
   )
 }

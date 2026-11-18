@@ -20,7 +20,6 @@ import { colors } from '../../styles/tokens.stylex'
 import { formatUsd } from '../banking-demo/demo-data'
 import type { DemoSequenceStage } from '../banking-demo/demo-sequence'
 import { demoStyles } from '../banking-demo/demo-styles'
-import { DemoTapIndicator } from '../banking-demo/demo-tap-indicator'
 import {
   DemoChip,
   DemoDetailRow,
@@ -82,7 +81,7 @@ export function SpendingLimitsDemo({
    * overview, then the next cycle starts again from the original $2,000 limit.
    */
   return (
-    <AnimatePresence mode="wait" initial={false}>
+    <AnimatePresence mode="wait">
       {stage === 'overview' ? <LimitsOverview key="overview" /> : null}
       {stage === 'edit' ? <EditLimits key="edit" /> : null}
       {stage === 'success' ? <LimitsUpdated key="success" /> : null}
@@ -187,7 +186,6 @@ function LimitsOverview({
             : 'Changes take effect instantly'}
         </span>
       </div>
-      {updated ? null : <DemoTapIndicator x={50} y={92} delay={3.25} />}
     </DemoScreen>
   )
 }
@@ -372,7 +370,6 @@ function EditLimits() {
           disabled={!complete}
         />
       </div>
-      <DemoTapIndicator x={50} y={92} delay={3.4} />
     </DemoScreen>
   )
 }

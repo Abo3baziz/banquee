@@ -59,6 +59,8 @@ const LARGEST_TRANSACTION = getLargestTransaction(OCTOBER_TRANSACTIONS)
 const FOOD_BUDGET_ROW = getBudgetRows(CURRENT_MONTH.spending).find(
   (row) => row.id === 'food',
 )
+/** Milliseconds after the breakdown mounts when Shopping is selected. */
+const CATEGORY_SELECTION_DELAY = 1700
 
 type MonthlyReportDemoProps = {
   paused: boolean
@@ -75,7 +77,7 @@ export function MonthlyReportDemo({
   })
 
   return (
-    <AnimatePresence mode="wait" initial={false}>
+    <AnimatePresence mode="wait">
       {stage === 'overview' ? <ReportOverview key="overview" /> : null}
       {stage === 'breakdown' ? <CategoryBreakdown key="breakdown" /> : null}
       {stage === 'summary' ? <ReportSummary key="summary" /> : null}
@@ -201,7 +203,7 @@ function ReportOverview() {
 }
 
 function CategoryBreakdown() {
-  const hasSelected = useDelayedFlag(1700)
+  const hasSelected = useDelayedFlag(CATEGORY_SELECTION_DELAY)
   const selectedId = hasSelected ? 'shopping' : null
   const shopping = getCategory('shopping')
   const shoppingTransactions = getCategoryTransactions(
@@ -331,7 +333,11 @@ function CategoryBreakdown() {
           </span>
         </div>
       </div>
-      <DemoTapIndicator x={32} y={13} delay={1.55} />
+      <DemoTapIndicator
+        x={32}
+        y={13}
+        contactDelay={CATEGORY_SELECTION_DELAY / 1000}
+      />
     </DemoScreen>
   )
 }

@@ -65,6 +65,9 @@ const PROGRESS_STAGES: readonly DemoSequenceStage<ProgressStage>[] = [
   { id: 'auto', duration: 6500 },
 ]
 
+/** When auto-contributions switches from monthly to weekly, in milliseconds. */
+const FREQUENCY_CHANGE_AT_MS = 2000
+
 type ProgressDemoProps = {
   paused: boolean
   reducedMotion: boolean
@@ -77,7 +80,7 @@ export function ProgressDemo({ paused, reducedMotion }: ProgressDemoProps) {
   })
 
   return (
-    <AnimatePresence mode="wait" initial={false}>
+    <AnimatePresence mode="wait">
       {stage === 'progress' ? <GoalProgress key="progress" /> : null}
       {stage === 'history' ? <ContributionHistory key="history" /> : null}
       {stage === 'auto' ? <AutoContributions key="auto" /> : null}
@@ -248,7 +251,7 @@ function GoalProgress() {
           />
         </div>
       </div>
-      <DemoTapIndicator x={50} y={67} delay={5.85} />
+      <DemoTapIndicator x={50} y={69} contactDelay={6.3} />
     </DemoScreen>
   )
 }
@@ -360,7 +363,7 @@ function ContributionHistory() {
           />
         </div>
       </div>
-      <DemoTapIndicator x={50} y={72} delay={5.55} />
+      <DemoTapIndicator x={50} y={72} contactDelay={5.8} />
     </DemoScreen>
   )
 }
@@ -369,7 +372,7 @@ function AutoContributions() {
   const goal = SUMMER_VACATION_GOAL
   const snapshot = getGoalSnapshot(goal)
   const enabled = useDelayedFlag(900)
-  const weekly = useDelayedFlag(2000)
+  const weekly = useDelayedFlag(FREQUENCY_CHANGE_AT_MS)
   const frequency: AutoContributionFrequency = weekly ? 'weekly' : 'monthly'
   const amount = SUMMER_AUTO_CONTRIBUTION.amount
   const annual = getAnnualContribution(amount, frequency)
@@ -568,7 +571,12 @@ function AutoContributions() {
           </span>
         </div>
       </div>
-      <DemoTapIndicator x={80} y={21} delay={0.75} />
+      <DemoTapIndicator x={88} y={21} contactDelay={0.9} />
+      <DemoTapIndicator
+        x={43.7}
+        y={39.1}
+        contactDelay={FREQUENCY_CHANGE_AT_MS / 1000}
+      />
     </DemoScreen>
   )
 }

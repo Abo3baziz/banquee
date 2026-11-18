@@ -84,7 +84,7 @@ export function SmartSavingsDemo({
   })
 
   return (
-    <AnimatePresence mode="wait" initial={false}>
+    <AnimatePresence mode="wait">
       {stage === 'overview' ? <SmartOverview key="overview" /> : null}
       {stage === 'roundUp' ? <RoundUpInAction key="round-up" /> : null}
       {stage === 'activity' ? <SpareChangeActivity key="activity" /> : null}
@@ -191,7 +191,7 @@ function SmartOverview() {
           </span>
         </div>
       </div>
-      <DemoTapIndicator x={50} y={44} delay={5.15} />
+      <DemoTapIndicator x={50} y={44} contactDelay={5.4} />
     </DemoScreen>
   )
 }
@@ -437,7 +437,7 @@ function RoundUpInAction() {
           </span>
         </div>
       </div>
-      <DemoTapIndicator x={50} y={16} delay={0.45} />
+      <DemoTapIndicator x={50} y={16} contactDelay={0.85} />
     </DemoScreen>
   )
 }
@@ -520,7 +520,7 @@ function SpareChangeActivity() {
           />
         </div>
       </div>
-      <DemoTapIndicator x={50} y={68} delay={5.45} />
+      <DemoTapIndicator x={50} y={68} contactDelay={5.8} />
     </DemoScreen>
   )
 }
