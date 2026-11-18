@@ -407,7 +407,10 @@ export function SiteHeader() {
 
   return (
     <Direction.Provider dir={direction}>
-      <header {...stylex.props(styles.header, hidden && styles.headerHidden)}>
+      <header
+        inert={hidden || undefined}
+        {...stylex.props(styles.header, hidden && styles.headerHidden)}
+      >
         <div {...stylex.props(styles.inner)}>
           <div {...stylex.props(styles.left)}>
             <Link
