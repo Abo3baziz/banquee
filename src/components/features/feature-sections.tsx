@@ -17,6 +17,9 @@ import {
 import type { LucideIcon } from 'lucide-react'
 import { getLocale, getTranslations } from 'next-intl/server'
 import { BankingDemo } from '../banking-demo/banking-demo'
+import { CardsDemo } from '../cards-demo/cards-demo'
+import { SavingsDemo } from '../savings-demo/savings-demo'
+import { StatisticsDemo } from '../statistics-demo/statistics-demo'
 import { colors, fonts, radii, spacing } from '../../styles/tokens.stylex'
 import { Reveal } from '../ui/reveal'
 
@@ -345,6 +348,7 @@ export async function FeaturesSections() {
       enterFrom: enterFrom(true),
       background: 'surface',
       reversed: true,
+      visual: <CardsDemo />,
       items: [
         {
           title: t('featureManageCards.items.virtualTitle'),
@@ -369,6 +373,7 @@ export async function FeaturesSections() {
       description: t('featureControlMoney.description'),
       enterFrom: enterFrom(false),
       background: 'white',
+      visual: <StatisticsDemo />,
       items: [
         {
           title: t('featureControlMoney.items.insightsTitle'),
@@ -394,6 +399,7 @@ export async function FeaturesSections() {
       enterFrom: enterFrom(true),
       background: 'surface',
       reversed: true,
+      visual: <SavingsDemo />,
       items: [
         {
           title: t('featureOrganizeSavings.items.goalsTitle'),
