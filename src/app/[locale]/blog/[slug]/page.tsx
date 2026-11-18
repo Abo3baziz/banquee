@@ -13,6 +13,10 @@ import {
 } from '../../../../components/blog/blog-data'
 import { RelatedArticles } from '../../../../components/blog/related-articles'
 import { colors, spacing } from '../../../../styles/tokens.stylex'
+import { routing } from '@/i18n/routing'
+
+/** Fallback matches the dev port configured in package.json. */
+const siteUrl = process.env.NEXT_PUBLIC_SITE_URL ?? 'http://localhost:3010'
 
 // The slug only resolves at request time, so this route is allowed to block.
 export const instant = false
@@ -60,7 +64,7 @@ export async function generateMetadata({
 }: {
   params: Promise<{ slug: string }>
 }): Promise<Metadata> {
-  const { slug } = await params
+  const [{ slug }, locale] = await Promise.all([params, getLocale()])
   const article = getBlogArticle(slug)
 
   if (!article) {
@@ -74,11 +78,27 @@ export async function generateMetadata({
   return {
     title,
     description,
+    metadataBase: new URL(siteUrl),
+    alternates: {
+      canonical: `/${locale}/blog/${article.slug}`,
+      languages: {
+        ...Object.fromEntries(
+          routing.locales.map((l) => [l, `/${l}/blog/${article.slug}`]),
+        ),
+        'x-default': `/en/blog/${article.slug}`,
+      },
+    },
     openGraph: {
       title,
       description,
-      images: [article.image],
+      images: [{ url: article.image, alt: title }],
       type: 'article',
+      locale,
+    },
+    twitter: {
+      title,
+      description,
+      images: [article.image],
     },
   }
 }
@@ -104,9 +124,12 @@ export default async function BlogArticlePage({
     '@type': 'BlogPosting',
     headline: title,
     description,
-    image: article.image,
+    image: `${siteUrl}${article.image}`,
     inLanguage: locale,
-    mainEntityOfPage: `/${locale}/blog/${slug}`,
+    mainEntityOfPage: {
+      '@type': 'WebPage',
+      '@id': `${siteUrl}/${locale}/blog/${slug}`,
+    },
   }
 
   return (
