@@ -3,8 +3,8 @@
 import * as stylex from '@stylexjs/stylex'
 import { ChevronLeft, ChevronRight, Sparkles, Wallet } from 'lucide-react'
 import { AnimatePresence, motion } from 'motion/react'
+import { useCurrency } from '../../hooks/use-currency'
 import { colors, fonts } from '../../styles/tokens.stylex'
-import { formatUsd } from '../banking-demo/demo-data'
 import {
   DemoChip,
   DemoDetailRow,
@@ -86,6 +86,7 @@ export function MonthlyReportDemo({
 }
 
 function ReportOverview() {
+  const { formatCurrency } = useCurrency()
   const hasAdvanced = useDelayedFlag(3600)
   const activeIndex = hasAdvanced
     ? LATEST_REPORT_INDEX
@@ -125,7 +126,7 @@ function ReportOverview() {
               Monthly Income
             </span>
             <span {...stylex.props(statisticsStyles.statValue)}>
-              {formatUsd(report.income)}
+              {formatCurrency(report.income)}
             </span>
             <span {...stylex.props(statisticsStyles.statDelta)}>
               {formatSignedPercent(incomeChange)} vs {previous.compactLabel}
@@ -136,7 +137,7 @@ function ReportOverview() {
               Monthly Expenses
             </span>
             <span {...stylex.props(statisticsStyles.statValue)}>
-              {formatUsd(expenses)}
+              {formatCurrency(expenses)}
             </span>
             <span {...stylex.props(statisticsStyles.statDelta)}>
               {formatSignedPercent(expenseChange)} vs {previous.compactLabel}
@@ -161,11 +162,12 @@ function ReportOverview() {
             </span>
           </div>
           <span {...stylex.props(statisticsStyles.heroValue)}>
-            {formatUsd(net)}
+            {formatCurrency(net)}
           </span>
           <span {...stylex.props(demoStyles.caption)}>
             {formatPercent(getSavingsRate(report.income, expenses))} savings
-            rate · {formatUsd(report.income - previous.income)} income growth
+            rate · {formatCurrency(report.income - previous.income)} income
+            growth
           </span>
         </div>
 
@@ -203,6 +205,7 @@ function ReportOverview() {
 }
 
 function CategoryBreakdown() {
+  const { formatCurrency } = useCurrency()
   const hasSelected = useDelayedFlag(CATEGORY_SELECTION_DELAY)
   const selectedId = hasSelected ? 'shopping' : null
   const shopping = getCategory('shopping')
@@ -228,7 +231,7 @@ function CategoryBreakdown() {
               color: getCategoryColor(share.id),
             }))}
             activeId={selectedId}
-            centerValue={formatUsd(sumSpending(CURRENT_MONTH.spending))}
+            centerValue={formatCurrency(sumSpending(CURRENT_MONTH.spending))}
             centerLabel="Spent"
             delay={0.15}
           />
@@ -249,7 +252,7 @@ function CategoryBreakdown() {
                     {category.label}
                   </span>
                   <span {...stylex.props(statisticsStyles.legendValue)}>
-                    {formatUsd(share.amount)}
+                    {formatCurrency(share.amount)}
                   </span>
                 </div>
               )
@@ -304,7 +307,7 @@ function CategoryBreakdown() {
               <DemoChip>{formatPercent(SHOPPING_SHARE?.share ?? 0)}</DemoChip>
             </div>
             <span {...stylex.props(statisticsStyles.selectionAmount)}>
-              {formatUsd(SHOPPING_SHARE?.amount ?? 0)}
+              {formatCurrency(SHOPPING_SHARE?.amount ?? 0)}
             </span>
           </div>
           <span {...stylex.props(statisticsStyles.selectionMeta)}>
@@ -343,15 +346,16 @@ function CategoryBreakdown() {
 }
 
 function ReportSummary() {
+  const { formatCurrency } = useCurrency()
   const largestCategory = LARGEST_CATEGORY
   const largestTransaction = LARGEST_TRANSACTION
   const expenses = sumSpending(CURRENT_MONTH.spending)
   const net = getNetCashFlow(CURRENT_MONTH.income, expenses)
 
   const rows: { label: string; value: string; highlight?: boolean }[] = [
-    { label: 'Total Income', value: formatUsd(CURRENT_MONTH.income) },
-    { label: 'Total Expenses', value: formatUsd(expenses) },
-    { label: 'Net Savings', value: formatUsd(net), highlight: true },
+    { label: 'Total Income', value: formatCurrency(CURRENT_MONTH.income) },
+    { label: 'Total Expenses', value: formatCurrency(expenses) },
+    { label: 'Net Savings', value: formatCurrency(net), highlight: true },
     {
       label: 'Biggest Category',
       value: largestCategory
@@ -361,7 +365,7 @@ function ReportSummary() {
     {
       label: 'Largest Transaction',
       value: largestTransaction
-        ? `${largestTransaction.merchant} · ${formatUsd(largestTransaction.amount)}`
+        ? `${largestTransaction.merchant} · ${formatCurrency(largestTransaction.amount)}`
         : 'None',
     },
     {
@@ -388,7 +392,8 @@ function ReportSummary() {
             Your month at a glance
           </span>
           <span {...stylex.props(demoStyles.caption)}>
-            {formatUsd(CURRENT_MONTH.income)} in · {formatUsd(expenses)} out
+            {formatCurrency(CURRENT_MONTH.income)} in ·{' '}
+            {formatCurrency(expenses)} out
           </span>
         </div>
 
@@ -431,7 +436,7 @@ function ReportSummary() {
               ? `${getCategory(largestCategory.id).label} is the largest category at ${formatPercent(largestCategory.share)} of spending.`
               : 'No spending recorded this month.'}{' '}
             {FOOD_BUDGET_ROW
-              ? `Food & Dining is at ${formatPercent(FOOD_BUDGET_ROW.progress)} of its ${formatUsd(FOOD_BUDGET_ROW.limit)} budget.`
+              ? `Food & Dining is at ${formatPercent(FOOD_BUDGET_ROW.progress)} of its ${formatCurrency(FOOD_BUDGET_ROW.limit)} budget.`
               : ''}
           </span>
         </motion.div>

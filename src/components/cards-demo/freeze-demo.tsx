@@ -19,8 +19,8 @@ import {
   Snowflake,
 } from 'lucide-react'
 import { AnimatePresence, motion } from 'motion/react'
+import { useCurrency } from '../../hooks/use-currency'
 import { colors } from '../../styles/tokens.stylex'
-import { formatUsd } from '../banking-demo/demo-data'
 import { DemoProcessing } from '../banking-demo/demo-feedback'
 import type { DemoSequenceStage } from '../banking-demo/demo-sequence'
 import { demoStyles } from '../banking-demo/demo-styles'
@@ -96,6 +96,8 @@ export function FreezeDemo({ paused, reducedMotion }: FreezeDemoProps) {
 }
 
 function MyCards() {
+  const { formatCurrency } = useCurrency()
+
   return (
     <DemoScreen>
       <DemoHeader title="My Cards" />
@@ -146,7 +148,7 @@ function MyCards() {
                     </div>
                   </div>
                   <span {...stylex.props(cardsStyles.activityAmount)}>
-                    -{formatUsd(activity.amount)}
+                    {formatCurrency(-activity.amount)}
                   </span>
                 </div>
               )

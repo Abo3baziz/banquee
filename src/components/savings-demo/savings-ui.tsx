@@ -11,7 +11,7 @@ import {
   TrendingUp,
   Wallet,
 } from 'lucide-react'
-import { formatUsd } from '../banking-demo/demo-data'
+import { useCurrency } from '../../hooks/use-currency'
 import type {
   SavingsContributionSource,
   SavingsGoalIcon,
@@ -85,6 +85,7 @@ export function SavingsContributionRow({
   source,
   showSource = false,
 }: SavingsContributionRowProps) {
+  const { formatCurrency } = useCurrency()
   const Icon = SOURCE_ICONS[source]
 
   return (
@@ -107,7 +108,7 @@ export function SavingsContributionRow({
         </span>
       </div>
       <span {...stylex.props(savingsStyles.contributionAmount)}>
-        +{formatUsd(amount)}
+        {formatCurrency(amount, { signDisplay: 'always' })}
       </span>
     </div>
   )

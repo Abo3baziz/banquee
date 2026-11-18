@@ -3,7 +3,8 @@ import { getLocale, getTranslations } from 'next-intl/server'
 import { BankCard, CardStatusBadge } from '../banking-card'
 import { colors, fonts, radii, spacing } from '../../styles/tokens.stylex'
 import { Reveal } from '../ui/reveal'
-import { formatEgp, getCompareCardSummaries } from './compare-data'
+import { getCompareCardSummaries } from './compare-data'
+import { formatCurrency } from '@/i18n/currency'
 
 const styles = stylex.create({
   section: {
@@ -233,7 +234,9 @@ export async function CompareCardsGrid() {
                           {t('grid.dailyLimit')}
                         </dt>
                         <dd {...stylex.props(styles.factValue)}>
-                          <span dir="ltr">{formatEgp(summary.dailyLimit)}</span>
+                          {formatCurrency(summary.dailyLimit, locale, {
+                            maximumFractionDigits: 0,
+                          })}
                         </dd>
                       </div>
                       <div {...stylex.props(styles.fact)}>
@@ -241,9 +244,9 @@ export async function CompareCardsGrid() {
                           {t('grid.monthlyLimit')}
                         </dt>
                         <dd {...stylex.props(styles.factValue)}>
-                          <span dir="ltr">
-                            {formatEgp(summary.monthlyLimit)}
-                          </span>
+                          {formatCurrency(summary.monthlyLimit, locale, {
+                            maximumFractionDigits: 0,
+                          })}
                         </dd>
                       </div>
                     </dl>

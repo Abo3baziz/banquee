@@ -11,7 +11,7 @@ import {
 } from 'lucide-react'
 import { motion } from 'motion/react'
 import type { LucideIcon } from 'lucide-react'
-import { formatUsd } from '../banking-demo/demo-data'
+import { useCurrency } from '../../hooks/use-currency'
 import {
   type StatisticsCategory,
   type StatisticsCategoryId,
@@ -98,6 +98,8 @@ export function CategoryBarRow({
   share,
   delay = 0,
 }: CategoryBarRowProps) {
+  const { formatCurrency } = useCurrency()
+
   return (
     <div {...stylex.props(statisticsStyles.categoryRow)}>
       <div {...stylex.props(statisticsStyles.categoryHead)}>
@@ -117,7 +119,7 @@ export function CategoryBarRow({
             {formatPercent(share)}
           </span>
           <span {...stylex.props(statisticsStyles.categoryAmount)}>
-            {formatUsd(amount)}
+            {formatCurrency(amount)}
           </span>
         </div>
       </div>
@@ -160,6 +162,7 @@ export function TransactionRow({
   delay = 0,
   showCategory = false,
 }: TransactionRowProps) {
+  const { formatCurrency } = useCurrency()
   const meta = showCategory
     ? `${getCategoryLabel(transaction.category)} · ${transaction.date}`
     : `${transaction.date} · ${transaction.meta}`
@@ -181,7 +184,7 @@ export function TransactionRow({
         <div {...stylex.props(statisticsStyles.transactionMeta)}>{meta}</div>
       </div>
       <span {...stylex.props(statisticsStyles.transactionAmount)}>
-        -{formatUsd(transaction.amount)}
+        {formatCurrency(-transaction.amount)}
       </span>
     </motion.div>
   )

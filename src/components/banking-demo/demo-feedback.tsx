@@ -16,9 +16,9 @@ import {
   useReducedMotion,
   useTransform,
 } from 'motion/react'
+import { useCurrency } from '../../hooks/use-currency'
 import { colors, fonts, radii } from '../../styles/tokens.stylex'
 import { demoStyles } from './demo-styles'
-import { formatUsd } from './demo-data'
 import {
   DemoChip,
   DemoDetailRow,
@@ -168,17 +168,17 @@ export function DemoProcessing({
 type DemoSuccessProps = {
   headerTitle: string
   title: string
-  amount: string
-  prefix: string
+  amount: number
   counterpartyLabel: string
   counterpartyName: string
   counterpartyMeta: string
   reference: string
   fromBalance: number
   toBalance: number
-  deltaLabel: string
+  /** Signed change applied to the balance: negative for sends, positive for receives. */
+  delta: number
   method: string
-  fee: string
+  feeAmount: number
   note?: string
 }
 
@@ -186,21 +186,21 @@ export function DemoSuccess({
   headerTitle,
   title,
   amount,
-  prefix,
   counterpartyLabel,
   counterpartyName,
   counterpartyMeta,
   reference,
   fromBalance,
   toBalance,
-  deltaLabel,
+  delta,
   method,
-  fee,
+  feeAmount,
   note,
 }: DemoSuccessProps) {
+  const { formatCurrency } = useCurrency()
   const shouldReduceMotion = useReducedMotion()
   const balance = useMotionValue(fromBalance)
-  const balanceText = useTransform(balance, (value) => formatUsd(value))
+  const balanceText = useTransform(balance, (value) => formatCurrency(value))
 
   useEffect(() => {
     if (shouldReduceMotion) {
@@ -228,7 +228,7 @@ export function DemoSuccess({
     { label: 'Status', value: 'Completed', highlight: true },
     { label: 'Date & Time', value: 'Today, 14:32' },
     { label: 'Payment Method', value: method },
-    { label: 'Transfer Fee', value: fee },
+    { label: 'Transfer Fee', value: `Free (${formatCurrency(feeAmount)})` },
   ]
 
   if (note) {
@@ -252,8 +252,7 @@ export function DemoSuccess({
               ease: [0.1, 0.8, 0.2, 1],
             }}
           >
-            <span {...stylex.props(styles.successPrefix)}>{prefix}</span>
-            {amount}
+            {formatCurrency(amount)}
           </motion.div>
           <div {...stylex.props(styles.successMeta)}>
             <span {...stylex.props(demoStyles.caption)}>
@@ -316,7 +315,7 @@ export function DemoSuccess({
           <span {...stylex.props(styles.balanceLabel)}>Updated Balance</span>
           {shouldReduceMotion ? (
             <span {...stylex.props(styles.balanceValue)}>
-              {formatUsd(toBalance)}
+              {formatCurrency(toBalance)}
             </span>
           ) : (
             <motion.span {...stylex.props(styles.balanceValue)}>
@@ -325,9 +324,13 @@ export function DemoSuccess({
           )}
           <div {...stylex.props(demoStyles.rowBetween)}>
             <span {...stylex.props(styles.balanceWas)}>
-              Was {formatUsd(fromBalance)}
+              Was {formatCurrency(fromBalance)}
             </span>
-            <span {...stylex.props(styles.balanceDelta)}>{deltaLabel}</span>
+            <span {...stylex.props(styles.balanceDelta)}>
+              {formatCurrency(delta, {
+                signDisplay: delta > 0 ? 'always' : 'auto',
+              })}
+            </span>
           </div>
         </motion.div>
 
@@ -497,9 +500,6 @@ const styles = stylex.create({
     fontWeight: 700,
     letterSpacing: '-0.03em',
     lineHeight: '2.375rem',
-  },
-  successPrefix: {
-    fontSize: '1.25rem',
   },
   successMeta: {
     gap: '0.0625rem',

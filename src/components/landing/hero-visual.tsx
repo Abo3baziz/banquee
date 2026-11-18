@@ -5,6 +5,7 @@ import * as stylex from '@stylexjs/stylex'
 import { ShoppingBag, Wallet } from 'lucide-react'
 import { useTranslations } from 'next-intl'
 import { BankCard } from '../banking-card'
+import { useCurrency } from '../../hooks/use-currency'
 import { colors, fonts, radii, spacing } from '../../styles/tokens.stylex'
 
 const fadeIn = stylex.keyframes({
@@ -346,6 +347,7 @@ const styles = stylex.create({
 export function HeroVisual() {
   const t = useTranslations('landing')
   const tm = useTranslations('mockups')
+  const { formatCurrency } = useCurrency()
   const [flipped, setFlipped] = useState(false)
 
   return (
@@ -363,7 +365,9 @@ export function HeroVisual() {
             </div>
             <div {...stylex.props(styles.balanceRow)}>
               <span {...stylex.props(styles.balanceValue)}>
-                {tm('dashboard.balanceValueAlt')}
+                {tm('dashboard.balanceValueAlt', {
+                  amount: formatCurrency(4658.5),
+                })}
               </span>
               <span {...stylex.props(styles.trendBadge)}>+12.4%</span>
             </div>
@@ -432,7 +436,7 @@ export function HeroVisual() {
               </span>
             </div>
             <span {...stylex.props(styles.notificationAmount)}>
-              {`-$49.00 • ${t('hero.purchase')}`}
+              {formatCurrency(-49)} • {t('hero.purchase')}
             </span>
           </div>
         </div>
@@ -449,11 +453,15 @@ export function HeroVisual() {
               <span {...stylex.props(styles.recentMerchant)}>
                 {tm('dashboard.transactions.appleStore')}
               </span>
-              <span {...stylex.props(styles.recentAmount)}>-$799</span>
+              <span {...stylex.props(styles.recentAmount)}>
+                {formatCurrency(-799, { maximumFractionDigits: 0 })}
+              </span>
             </div>
             <div {...stylex.props(styles.recentRow)}>
               <span {...stylex.props(styles.recentMerchant)}>Google Play</span>
-              <span {...stylex.props(styles.recentAmount)}>-$49</span>
+              <span {...stylex.props(styles.recentAmount)}>
+                {formatCurrency(-49, { maximumFractionDigits: 0 })}
+              </span>
             </div>
           </div>
         </div>

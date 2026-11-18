@@ -6,8 +6,9 @@ import { DEMO_CARDS, NEW_CARD } from '../../data/cards-demo-data'
  * existing demo card records; every other value is fictional sample data
  * supplied for illustration, not a verified bank or payment-network offer. The
  * table compares products and benefits only, so it never carries payment
- * credentials such as card numbers, expiry dates, or cardholder names. All
- * amounts are EGP.
+ * credentials such as card numbers, expiry dates, or cardholder names.
+ * Amounts are demo values displayed in the currency of the active
+ * application language.
  *
  * Row ids are stable keys: the UI maps `compareCards.table.rows.<id>` to its
  * own labels, so this module stays presentation-free. Money and percentage
@@ -38,6 +39,7 @@ export type CompareEnumValue =
 
 export type CompareValue =
   | { kind: 'text'; value: string }
+  | { kind: 'currencyCode' }
   | { kind: 'enum'; value: CompareEnumValue }
   | { kind: 'money'; value: number }
   | { kind: 'percent'; value: number }
@@ -102,8 +104,6 @@ type CardTerms = {
   bestFor:
     'everydaySpending' | 'flexibleCreditSpending' | 'everydayCreditPurchases'
 }
-
-const CURRENCY_CODE = 'EGP'
 
 /*
  * Single source of truth for the sample terms. The section rows and the
@@ -257,13 +257,6 @@ function getActiveStatus(status: DemoCard['status']): 'active' {
   return 'active'
 }
 
-/** 'EGP 50,000' — thousands-separated, no decimals. */
-export function formatEgp(value: number): string {
-  return `${CURRENCY_CODE} ${value.toLocaleString('en-US', {
-    maximumFractionDigits: 0,
-  })}`
-}
-
 /** '3%', '2.5%', '3.25%' — trailing zeros trimmed, at most two decimals. */
 export function formatRate(value: number): string {
   return `${Number(value.toFixed(2))}%`
@@ -285,7 +278,7 @@ function getCardOverviewRows(): readonly CompareRow[] {
     },
     {
       id: 'currency',
-      values: cardValues(() => textValue(CURRENCY_CODE)),
+      values: cardValues(() => ({ kind: 'currencyCode' })),
     },
     {
       id: 'cardStatus',

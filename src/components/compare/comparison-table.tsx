@@ -1,15 +1,15 @@
 import type { ReactNode } from 'react'
 import * as stylex from '@stylexjs/stylex'
 import { Check, X } from 'lucide-react'
-import { getTranslations } from 'next-intl/server'
+import { getLocale, getTranslations } from 'next-intl/server'
 import { colors, fonts, radii, spacing } from '../../styles/tokens.stylex'
 import {
   COMPARE_CARDS,
-  formatEgp,
   formatRate,
   getCompareSections,
   type CompareValue,
 } from './compare-data'
+import { formatCurrency, getCurrencyCode } from '@/i18n/currency'
 
 const styles = stylex.create({
   section: {
@@ -215,7 +215,10 @@ const styles = stylex.create({
 })
 
 export async function ComparisonTable() {
-  const t = await getTranslations('compareCards')
+  const [t, locale] = await Promise.all([
+    getTranslations('compareCards'),
+    getLocale(),
+  ])
   const sections = getCompareSections()
   const premiumIndex = COMPARE_CARDS.findIndex(
     (card) => card.tier === 'premium',
@@ -232,7 +235,9 @@ export async function ComparisonTable() {
       case 'enum':
         return t(`table.values.${value.value}`)
       case 'money':
-        return <span dir="ltr">{formatEgp(value.value)}</span>
+        return formatCurrency(value.value, locale, { maximumFractionDigits: 0 })
+      case 'currencyCode':
+        return getCurrencyCode(locale)
       case 'percent':
         return <span dir="ltr">{formatRate(value.value)}</span>
       case 'na':
@@ -363,7 +368,9 @@ export async function ComparisonTable() {
                             isLastRow && styles.cellLast,
                           )}
                         >
-                          {t(`table.rows.${row.id}`)}
+                          {t(`table.rows.${row.id}`, {
+                            currency: getCurrencyCode(locale),
+                          })}
                         </th>
                         {row.values.map((value, index) => (
                           <td

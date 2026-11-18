@@ -30,6 +30,7 @@ The shared pieces are in place:
 - ✅ Next.js App Router with React Server Components by default
 - ✅ StyleX design tokens and component styles
 - ✅ Four locales: English, German, Spanish, and Arabic (RTL)
+- ✅ Locale-aware currency display: every monetary value follows the selected language — USD for English, EUR for German and Spanish, SAR for Arabic
 - ✅ Responsive site header with a Radix language switcher, Lucide icons, and a slide-in mobile menu
 - ✅ Footer with localized columns, legal links, and copyright
 - ✅ Floating back-to-top button with reduced-motion support
@@ -94,14 +95,14 @@ Open [http://localhost:3000](http://localhost:3000).
 
 ## 🌍 Localization
 
-| Locale | Language | Direction |
-| ------ | -------- | --------- |
-| `en`   | English  | LTR       |
-| `de`   | German   | LTR       |
-| `es`   | Spanish  | LTR       |
-| `ar`   | Arabic   | RTL       |
+| Locale | Language | Direction | Currency |
+| ------ | -------- | --------- | -------- |
+| `en`   | English  | LTR       | USD      |
+| `de`   | German   | LTR       | EUR      |
+| `es`   | Spanish  | LTR       | EUR      |
+| `ar`   | Arabic   | RTL       | SAR      |
 
-Messages live in `messages/<locale>.json`; English is the source of truth. Routing and locale-aware links are in `i18n/`, and the localization rules are in [docs/LOCALIZATION.md](docs/LOCALIZATION.md).
+Messages live in `messages/<locale>.json`; English is the source of truth. Routing and locale-aware links are in `i18n/`, the currency mapping and formatter are in `i18n/currency.ts`, and the localization rules are in [docs/LOCALIZATION.md](docs/LOCALIZATION.md).
 
 The dictionaries use `{{variable}}` placeholders. The footer interpolates the copyright year without changing that convention.
 
@@ -128,8 +129,9 @@ src/
   components/layout/     # header, footer, language switcher
   components/landing/    # hero
   components/ui/         # shared UI pieces
+  hooks/                 # shared hooks (useCurrency)
   styles/tokens.stylex.ts
-i18n/                    # routing, request config, navigation helpers
+i18n/                    # routing, request config, navigation, currency
 messages/                # en, de, es, ar dictionaries
 docs/                    # tech stack, localization, ADRs
 assets/                  # brand and payment SVGs

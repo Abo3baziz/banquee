@@ -13,7 +13,8 @@ import {
 } from 'lucide-react'
 import { AnimatePresence, motion } from 'motion/react'
 import { colors } from '../../styles/tokens.stylex'
-import { DEMO_ACCOUNT, formatUsd } from '../banking-demo/demo-data'
+import { useCurrency } from '../../hooks/use-currency'
+import { DEMO_ACCOUNT } from '../banking-demo/demo-data'
 import { DemoProcessing } from '../banking-demo/demo-feedback'
 import type { DemoSequenceStage } from '../banking-demo/demo-sequence'
 import { demoStyles } from '../banking-demo/demo-styles'
@@ -94,6 +95,7 @@ export function SavingsGoalsDemo({
 }
 
 function SavingsOverview() {
+  const { formatCurrency } = useCurrency()
   const overall = getOverallProgress(DEMO_SAVINGS_GOALS)
   const activeGoals = DEMO_SAVINGS_GOALS.filter(
     (goal) => getRemainingAmount(goal.target, goal.saved) > 0,
@@ -117,7 +119,7 @@ function SavingsOverview() {
             </DemoChip>
           </div>
           <span {...stylex.props(savingsStyles.heroValue)}>
-            {formatUsd(overall.saved)}
+            {formatCurrency(overall.saved)}
           </span>
           <span {...stylex.props(savingsStyles.heroSub)}>
             Across {DEMO_SAVINGS_GOALS.length} dedicated goal vaults
@@ -131,7 +133,7 @@ function SavingsOverview() {
             </div>
             <div {...stylex.props(savingsStyles.heroStat)}>
               <span {...stylex.props(savingsStyles.heroStatValue)}>
-                {formatUsd(overall.target)}
+                {formatCurrency(overall.target)}
               </span>
               <span {...stylex.props(savingsStyles.heroStatLabel)}>Target</span>
             </div>
@@ -170,7 +172,7 @@ function SavingsOverview() {
           </span>
           <span {...stylex.props(savingsStyles.insightText)}>
             Spare-change round-ups are on. You saved{' '}
-            {formatUsd(monthlyRoundUps)} from recent purchases this month.
+            {formatCurrency(monthlyRoundUps)} from recent purchases this month.
           </span>
         </div>
       </div>
@@ -186,6 +188,7 @@ type GoalCardProps = {
 }
 
 function GoalCard({ goal, highlighted = false, delay = 0 }: GoalCardProps) {
+  const { formatCurrency } = useCurrency()
   const snapshot = getGoalSnapshot(goal)
 
   return (
@@ -216,16 +219,16 @@ function GoalCard({ goal, highlighted = false, delay = 0 }: GoalCardProps) {
       />
       <div {...stylex.props(savingsStyles.goalFigures)}>
         <span {...stylex.props(savingsStyles.goalSaved)}>
-          {formatUsd(goal.saved)}
+          {formatCurrency(goal.saved)}
         </span>
         <span {...stylex.props(savingsStyles.goalTarget)}>
-          of {formatUsd(goal.target)}
+          of {formatCurrency(goal.target)}
         </span>
         <span {...stylex.props(demoStyles.grow)} />
         <span {...stylex.props(savingsStyles.goalRemaining)}>
           {snapshot.completed
             ? 'Goal reached'
-            : `${formatUsd(snapshot.remaining)} left`}
+            : `${formatCurrency(snapshot.remaining)} left`}
         </span>
       </div>
     </div>
@@ -233,6 +236,7 @@ function GoalCard({ goal, highlighted = false, delay = 0 }: GoalCardProps) {
 }
 
 function EmergencyGoalDetails() {
+  const { formatCurrency } = useCurrency()
   const goal = EMERGENCY_FUND_GOAL
   const snapshot = getGoalSnapshot(goal)
   const contributions = getGoalContributions(
@@ -280,13 +284,13 @@ function EmergencyGoalDetails() {
               Current Saved
             </span>
             <span {...stylex.props(savingsStyles.detailAmount)}>
-              {formatUsd(goal.saved)}
+              {formatCurrency(goal.saved)}
             </span>
             <span {...stylex.props(savingsStyles.detailMuted)}>
-              of {formatUsd(goal.target)} target
+              of {formatCurrency(goal.target)} target
             </span>
             <span {...stylex.props(savingsStyles.detailMuted)}>
-              {formatUsd(snapshot.remaining)} remaining
+              {formatCurrency(snapshot.remaining)} remaining
             </span>
           </div>
           <div {...stylex.props(savingsStyles.detailSide)}>
@@ -298,8 +302,8 @@ function EmergencyGoalDetails() {
             </span>
             <span {...stylex.props(savingsStyles.detailMuted)}>
               {nextMilestone
-                ? formatUsd(nextMilestone.amount)
-                : formatUsd(goal.target)}
+                ? formatCurrency(nextMilestone.amount)
+                : formatCurrency(goal.target)}
             </span>
           </div>
         </div>
@@ -320,7 +324,7 @@ function EmergencyGoalDetails() {
           <div {...stylex.props(savingsStyles.metaBox)}>
             <span {...stylex.props(savingsStyles.metaLabel)}>Monthly Pace</span>
             <span {...stylex.props(savingsStyles.metaValue)}>
-              {formatUsd(goal.autoMonthly)} / mo
+              {formatCurrency(goal.autoMonthly)} / mo
             </span>
           </div>
           <div {...stylex.props(savingsStyles.metaBox)}>
@@ -366,6 +370,7 @@ function EmergencyGoalDetails() {
 }
 
 function AddMoney() {
+  const { formatCurrency, symbol } = useCurrency()
   const goal = EMERGENCY_FUND_GOAL
   const amount = DEMO_SAVINGS_DEPOSIT.amount
   const { text, complete } = useTypewriter(String(amount), {
@@ -395,7 +400,7 @@ function AddMoney() {
               {goal.name}
             </span>
             <span {...stylex.props(savingsStyles.destinationMeta)}>
-              {formatUsd(goal.saved)} of {formatUsd(goal.target)} ·{' '}
+              {formatCurrency(goal.saved)} of {formatCurrency(goal.target)} ·{' '}
               {formatSavingsPercent(preview.previousProgress)} saved
             </span>
           </div>
@@ -412,7 +417,7 @@ function AddMoney() {
             </span>
           </div>
           <div {...stylex.props(savingsStyles.amountDisplay)}>
-            <span {...stylex.props(savingsStyles.amountPrefix)}>$</span>
+            <span {...stylex.props(savingsStyles.amountPrefix)}>{symbol}</span>
             <span>{text || '0'}</span>
             {complete ? (
               <span {...stylex.props(savingsStyles.amountCents)}>.00</span>
@@ -431,7 +436,7 @@ function AddMoney() {
               style={{ color: colors.primary }}
             />
             <span {...stylex.props(demoStyles.caption)}>
-              Available {formatUsd(DEMO_ACCOUNT.balance)} · No fees
+              Available {formatCurrency(DEMO_ACCOUNT.balance)} · No fees
             </span>
           </div>
         </div>
@@ -445,7 +450,10 @@ function AddMoney() {
                 option === amount && savingsStyles.presetActive,
               )}
             >
-              +{formatUsd(option).replace('.00', '')}
+              {formatCurrency(option, {
+                maximumFractionDigits: 0,
+                signDisplay: 'always',
+              })}
             </span>
           ))}
           <span {...stylex.props(savingsStyles.preset)}>Custom</span>
@@ -478,7 +486,7 @@ function AddMoney() {
               Emergency Fund
             </span>
             <span {...stylex.props(savingsStyles.previewValueStrong)}>
-              {formatUsd(displayedSaved)}
+              {formatCurrency(displayedSaved)}
             </span>
           </div>
           <SavingsProgressBar
@@ -498,14 +506,14 @@ function AddMoney() {
               {formatSavingsPercent(preview.updatedProgress)}
             </span>
             <span {...stylex.props(savingsStyles.previewValue)}>
-              {formatUsd(preview.remaining)} to go
+              {formatCurrency(preview.remaining)} to go
             </span>
           </div>
         </motion.div>
 
         <div {...stylex.props(demoStyles.grow)} />
         <DemoPrimaryButton
-          label={`Confirm Deposit of ${formatUsd(amount)}`}
+          label={`Confirm Deposit of ${formatCurrency(amount)}`}
           icon={<ArrowRight aria-hidden="true" size={14} strokeWidth={2.5} />}
           pressAt={2.85}
         />
@@ -518,6 +526,7 @@ function AddMoney() {
 }
 
 function SavingsProcessing() {
+  const { formatCurrency } = useCurrency()
   const goal = EMERGENCY_FUND_GOAL
   const preview = getDepositPreview(goal, DEMO_SAVINGS_DEPOSIT.amount)
 
@@ -526,12 +535,12 @@ function SavingsProcessing() {
       headerTitle="Add Money"
       title="Adding money to your Emergency Fund..."
       description="Securely moving funds from checking into your goal vault. Please keep this screen open."
-      amount={formatUsd(DEMO_SAVINGS_DEPOSIT.amount).replace('$', '')}
-      prefix="$"
+      amount={formatCurrency(DEMO_SAVINGS_DEPOSIT.amount)}
+      prefix=""
       amountLabel="Deposit Amount"
       recipientLabel="To Goal"
       recipientName={goal.name}
-      recipientMeta={`Target ${formatUsd(goal.target)} · ${formatSavingsPercent(preview.updatedProgress)} after deposit`}
+      recipientMeta={`Target ${formatCurrency(goal.target)} · ${formatSavingsPercent(preview.updatedProgress)} after deposit`}
       accountLabel="From Checking"
       badge="Processing"
       steps={[
@@ -547,16 +556,17 @@ function SavingsProcessing() {
         },
         {
           label: 'Updating goal progress',
-          detail: `New saved balance ${formatUsd(preview.updatedSaved)}`,
+          detail: `New saved balance ${formatCurrency(preview.updatedSaved)}`,
           state: 'pending',
         },
       ]}
-      footer="FDIC insured up to $250,000"
+      footer={`FDIC insured up to ${formatCurrency(250_000, { maximumFractionDigits: 0 })}`}
     />
   )
 }
 
 function DepositSuccess() {
+  const { formatCurrency } = useCurrency()
   const goal = EMERGENCY_FUND_GOAL
   const preview = getDepositPreview(goal, DEMO_SAVINGS_DEPOSIT.amount)
   const showUpdated = useDelayedFlag(700)
@@ -584,7 +594,9 @@ function DepositSuccess() {
             animate={{ opacity: 1, y: 0, scale: 1 }}
             transition={{ delay: 0.35, duration: 0.5 }}
           >
-            +{formatUsd(DEMO_SAVINGS_DEPOSIT.amount)}
+            {formatCurrency(DEMO_SAVINGS_DEPOSIT.amount, {
+              signDisplay: 'always',
+            })}
           </motion.span>
         </div>
 
@@ -611,17 +623,17 @@ function DepositSuccess() {
           />
           <div {...stylex.props(savingsStyles.progressCompare)}>
             <span {...stylex.props(savingsStyles.progressWas)}>
-              Previous {formatUsd(preview.previousSaved)} ·{' '}
+              Previous {formatCurrency(preview.previousSaved)} ·{' '}
               {formatSavingsPercent(preview.previousProgress)}
             </span>
             <span {...stylex.props(savingsStyles.progressNew)}>
-              {formatUsd(preview.updatedSaved)} ·{' '}
+              {formatCurrency(preview.updatedSaved)} ·{' '}
               {formatSavingsPercent(preview.updatedProgress)}
             </span>
           </div>
           <span {...stylex.props(demoStyles.caption)}>
-            {formatUsd(preview.remaining)} remaining to reach{' '}
-            {formatUsd(goal.target)}
+            {formatCurrency(preview.remaining)} remaining to reach{' '}
+            {formatCurrency(goal.target)}
           </span>
         </div>
 
@@ -647,13 +659,13 @@ function DepositSuccess() {
               </span>
               <span {...stylex.props(savingsStyles.milestoneText)}>
                 Your Emergency Fund just crossed the halfway mark. You saved
-                your first {formatUsd(preview.updatedSaved)} of{' '}
-                {formatUsd(goal.target)}.
+                your first {formatCurrency(preview.updatedSaved)} of{' '}
+                {formatCurrency(goal.target)}.
               </span>
               <div {...stylex.props(savingsStyles.milestoneFigures)}>
                 <div {...stylex.props(savingsStyles.milestoneFigure)}>
                   <span {...stylex.props(savingsStyles.milestoneValue)}>
-                    {formatUsd(preview.updatedSaved)}
+                    {formatCurrency(preview.updatedSaved)}
                   </span>
                   <span {...stylex.props(savingsStyles.milestoneLabel)}>
                     Saved
@@ -661,7 +673,7 @@ function DepositSuccess() {
                 </div>
                 <div {...stylex.props(savingsStyles.milestoneFigure)}>
                   <span {...stylex.props(savingsStyles.milestoneValue)}>
-                    {formatUsd(preview.remaining)}
+                    {formatCurrency(preview.remaining)}
                   </span>
                   <span {...stylex.props(savingsStyles.milestoneLabel)}>
                     To go
@@ -702,9 +714,13 @@ function DepositSuccess() {
             />
             <DemoDetailRow
               label="Updated Checking"
-              value={formatUsd(checkingBalance)}
+              value={formatCurrency(checkingBalance)}
             />
-            <DemoDetailRow label="Fee" value="Free ($0.00)" highlight />
+            <DemoDetailRow
+              label="Fee"
+              value={`Free (${formatCurrency(0)})`}
+              highlight
+            />
           </div>
         </div>
 

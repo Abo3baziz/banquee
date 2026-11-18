@@ -15,6 +15,7 @@ import {
   Wifi,
 } from 'lucide-react'
 import { getLocale, getTranslations } from 'next-intl/server'
+import { formatCurrency } from '@/i18n/currency'
 import { colors, fonts, radii, spacing } from '../../styles/tokens.stylex'
 
 const floatUp = stylex.keyframes({
@@ -580,8 +581,10 @@ export async function SendReceiveVisual() {
                 <span {...stylex.props(styles.statusLabel)}>
                   {tm('transactionDetails.paymentStatus')}
                 </span>
-                <div dir="ltr" {...stylex.props(styles.amount)}>
-                  {tm('transactionDetails.amount')}
+                <div {...stylex.props(styles.amount)}>
+                  {tm('transactionDetails.amount', {
+                    amount: formatCurrency(-249, locale),
+                  })}
                 </div>
                 <span {...stylex.props(styles.completedBadge)}>
                   <span {...stylex.props(styles.completedDot)} />
@@ -683,7 +686,9 @@ export async function SendReceiveVisual() {
             </span>
           </div>
           <p {...stylex.props(styles.notifDetail)}>
-            {tm('transfer.notificationDetail')}
+            {tm('transfer.notificationDetail', {
+              amount: formatCurrency(250, locale),
+            })}
           </p>
         </div>
       </div>
@@ -708,7 +713,9 @@ export async function SendReceiveVisual() {
             </span>
           </div>
           <p {...stylex.props(styles.notifDetail)}>
-            {tm('transfer.notificationSuccessDetail')}
+            {tm('transfer.notificationSuccessDetail', {
+              amount: formatCurrency(120, locale),
+            })}
           </p>
         </div>
       </div>
@@ -733,7 +740,9 @@ export async function SendReceiveVisual() {
             </span>
           </div>
           <p {...stylex.props(styles.notifDetail)}>
-            {tm('transfer.paymentReminderDetail')}
+            {tm('transfer.paymentReminderDetail', {
+              amount: formatCurrency(11.99, locale),
+            })}
           </p>
         </div>
       </div>

@@ -16,8 +16,8 @@ import {
   TrendingUp,
 } from 'lucide-react'
 import { AnimatePresence, motion } from 'motion/react'
+import { useCurrency } from '../../hooks/use-currency'
 import { colors } from '../../styles/tokens.stylex'
-import { formatUsd } from '../banking-demo/demo-data'
 import type { DemoSequenceStage } from '../banking-demo/demo-sequence'
 import { demoStyles } from '../banking-demo/demo-styles'
 import {
@@ -105,6 +105,7 @@ function LimitsOverview({
   dailyLimit = LIMITS_CARD.dailyLimit.limit,
   updated = false,
 }: LimitsOverviewProps) {
+  const { formatCurrency } = useCurrency()
   const [daily, monthly] = getLimitRows(LIMITS_CARD, { daily: dailyLimit })
 
   return (
@@ -145,14 +146,14 @@ function LimitsOverview({
           row={daily}
           icon={CalendarDays}
           caption="Resets 00:00 EST"
-          footer={`${formatUsd(daily.remaining)} remaining today`}
+          footer={`${formatCurrency(daily.remaining)} remaining today`}
           delay={0.15}
         />
         <LimitCard
           row={monthly}
           icon={CalendarRange}
           caption="Cycle: 1st – 31st"
-          footer={`${formatUsd(monthly.remaining)} remaining this month`}
+          footer={`${formatCurrency(monthly.remaining)} remaining this month`}
           delay={0.3}
         />
 
@@ -205,6 +206,8 @@ function LimitCard({
   footer,
   delay,
 }: LimitCardProps) {
+  const { formatCurrency } = useCurrency()
+
   return (
     <div {...stylex.props(cardsStyles.limitCard)}>
       <div {...stylex.props(cardsStyles.limitHead)}>
@@ -222,10 +225,10 @@ function LimitCard({
 
       <div {...stylex.props(cardsStyles.limitFigures)}>
         <span {...stylex.props(cardsStyles.limitValue)}>
-          {formatUsd(row.limit)}
+          {formatCurrency(row.limit)}
         </span>
         <span {...stylex.props(cardsStyles.limitInline)}>
-          {formatUsd(row.spent)} spent ({row.percentLabel})
+          {formatCurrency(row.spent)} spent ({row.percentLabel})
         </span>
       </div>
 
@@ -240,6 +243,7 @@ function LimitCard({
 }
 
 function EditLimits() {
+  const { formatCurrency, symbol } = useCurrency()
   const hasCleared = useDelayedFlag(600)
   const { text, complete } = useTypewriter(String(UPDATED_DAILY_LIMIT), {
     startDelay: 900,
@@ -278,12 +282,12 @@ function EditLimits() {
               Daily Spending Limit
             </span>
             <span {...stylex.props(cardsStyles.fieldHint)}>
-              Tier 1 · Max {formatUsd(DAILY_LIMIT_TIER_MAX)}/day
+              Tier 1 · Max {formatCurrency(DAILY_LIMIT_TIER_MAX)}/day
             </span>
           </div>
           <div {...stylex.props(cardsStyles.fieldValueRow)}>
             <span {...stylex.props(cardsStyles.fieldAmount)}>
-              <span {...stylex.props(cardsStyles.fieldPrefix)}>$</span>
+              <span {...stylex.props(cardsStyles.fieldPrefix)}>{symbol}</span>
               {displayValue}
               {!complete ? (
                 <motion.span
@@ -295,7 +299,7 @@ function EditLimits() {
             </span>
           </div>
           <span {...stylex.props(cardsStyles.fieldHint)}>
-            Current limit: {formatUsd(currentLimit)}
+            Current limit: {formatCurrency(currentLimit)}
           </span>
         </div>
 
@@ -313,7 +317,7 @@ function EditLimits() {
                   isSelected && cardsStyles.presetActive,
                 )}
               >
-                ${value.toLocaleString('en-US')}
+                {formatCurrency(value, { maximumFractionDigits: 0 })}
               </span>
             )
           })}
@@ -333,10 +337,10 @@ function EditLimits() {
           </div>
           <div {...stylex.props(cardsStyles.limitFigures)}>
             <span {...stylex.props(cardsStyles.limitValue)}>
-              {formatUsd(preview.limit)}
+              {formatCurrency(preview.limit)}
             </span>
             <span {...stylex.props(cardsStyles.limitInline)}>
-              {formatUsd(preview.spent)} spent
+              {formatCurrency(preview.spent)} spent
             </span>
           </div>
           <CardProgress value={preview.progress} delay={0.15} />
@@ -345,7 +349,7 @@ function EditLimits() {
               Remaining after update
             </span>
             <span {...stylex.props(cardsStyles.limitValue)}>
-              {formatUsd(preview.remaining)}
+              {formatCurrency(preview.remaining)}
             </span>
           </div>
         </motion.div>
@@ -375,6 +379,7 @@ function EditLimits() {
 }
 
 function LimitsUpdated() {
+  const { formatCurrency } = useCurrency()
   const updated = getLimitRowById(LIMITS_CARD, 'daily', {
     daily: UPDATED_DAILY_LIMIT,
   })
@@ -399,7 +404,7 @@ function LimitsUpdated() {
               ease: [0.1, 0.8, 0.2, 1],
             }}
           >
-            {formatUsd(updated.limit)}
+            {formatCurrency(updated.limit)}
           </motion.div>
           <span {...stylex.props(cardsStyles.successAmountLabel)}>
             New daily limit
@@ -423,20 +428,20 @@ function LimitsUpdated() {
           <div {...stylex.props(cardsStyles.reviewRows)}>
             <DemoDetailRow
               label="Previous daily limit"
-              value={formatUsd(previous.limit)}
+              value={formatCurrency(previous.limit)}
             />
             <DemoDetailRow
               label="New daily limit"
-              value={formatUsd(updated.limit)}
+              value={formatCurrency(updated.limit)}
               highlight
             />
             <DemoDetailRow
               label="Spent today"
-              value={formatUsd(updated.spent)}
+              value={formatCurrency(updated.spent)}
             />
             <DemoDetailRow
               label="Remaining today"
-              value={formatUsd(updated.remaining)}
+              value={formatCurrency(updated.remaining)}
               highlight
             />
             <DemoDetailRow label="Monthly limit" value="Unchanged" />
@@ -455,10 +460,10 @@ function LimitsUpdated() {
           <CardProgress value={updated.progress} delay={0.35} height={6} />
           <div {...stylex.props(demoStyles.rowBetween)}>
             <span {...stylex.props(cardsStyles.limitCaption)}>
-              {formatUsd(updated.spent)} spent
+              {formatCurrency(updated.spent)} spent
             </span>
             <span {...stylex.props(cardsStyles.limitCaption)}>
-              {formatUsd(updated.remaining)} remaining
+              {formatCurrency(updated.remaining)} remaining
             </span>
           </div>
         </div>

@@ -19,7 +19,8 @@ import {
 } from 'lucide-react'
 import { AnimatePresence, motion } from 'motion/react'
 import { colors } from '../../styles/tokens.stylex'
-import { DEMO_ACCOUNT, formatUsd } from '../banking-demo/demo-data'
+import { useCurrency } from '../../hooks/use-currency'
+import { DEMO_ACCOUNT } from '../banking-demo/demo-data'
 import type { DemoSequenceStage } from '../banking-demo/demo-sequence'
 import { demoStyles } from '../banking-demo/demo-styles'
 import { DemoTapIndicator } from '../banking-demo/demo-tap-indicator'
@@ -94,6 +95,7 @@ export function SmartSavingsDemo({
 }
 
 function SmartOverview() {
+  const { formatCurrency } = useCurrency()
   const months = getSpareChangeMonths(SPARE_CHANGE_PURCHASES)
   const total = sumMonthlySpareChange(months)
   const currentMonth = months[months.length - 1]?.amount ?? 0
@@ -119,11 +121,11 @@ function SmartOverview() {
             </DemoChip>
           </div>
           <span {...stylex.props(savingsStyles.heroValue)}>
-            {formatUsd(total)}
+            {formatCurrency(total)}
           </span>
           <span {...stylex.props(savingsStyles.heroSub)}>
-            +{formatUsd(currentMonth)} this month from{' '}
-            {SPARE_CHANGE_PURCHASES.length} purchases
+            {formatCurrency(currentMonth, { signDisplay: 'always' })} this month
+            from {SPARE_CHANGE_PURCHASES.length} purchases
           </span>
         </div>
 
@@ -136,7 +138,7 @@ function SmartOverview() {
               Banquee Main Checking (•••• {DEMO_ACCOUNT.last4})
             </span>
             <span {...stylex.props(savingsStyles.accountMeta)}>
-              Linked source · Available {formatUsd(DEMO_ACCOUNT.balance)}
+              Linked source · Available {formatCurrency(DEMO_ACCOUNT.balance)}
             </span>
           </div>
           <span {...stylex.props(savingsStyles.accountTag)}>Source</span>
@@ -156,7 +158,8 @@ function SmartOverview() {
               {destination.name}
             </span>
             <span {...stylex.props(savingsStyles.destinationMeta)}>
-              {formatUsd(destination.saved)} of {formatUsd(destination.target)}
+              {formatCurrency(destination.saved)} of{' '}
+              {formatCurrency(destination.target)}
             </span>
           </div>
           <span {...stylex.props(savingsStyles.destinationValue)}>
@@ -201,6 +204,7 @@ type SpareChangeRowProps = {
 }
 
 function SpareChangeRow({ purchase }: SpareChangeRowProps) {
+  const { formatCurrency } = useCurrency()
   const Icon = PURCHASE_ICONS[purchase.icon]
   const entry = getRoundUpEntry(
     purchase.amount,
@@ -223,10 +227,10 @@ function SpareChangeRow({ purchase }: SpareChangeRowProps) {
       </div>
       <div {...stylex.props(savingsStyles.activityFigures)}>
         <span {...stylex.props(savingsStyles.activityOriginal)}>
-          {formatUsd(purchase.amount)}
+          {formatCurrency(purchase.amount)}
         </span>
         <span {...stylex.props(savingsStyles.activitySaved)}>
-          +{formatUsd(entry.saved)}
+          {formatCurrency(entry.saved, { signDisplay: 'always' })}
         </span>
       </div>
     </div>
@@ -234,6 +238,7 @@ function SpareChangeRow({ purchase }: SpareChangeRowProps) {
 }
 
 function RoundUpInAction() {
+  const { formatCurrency } = useCurrency()
   const purchase = SPARE_CHANGE_PURCHASES.find(
     (item) => item.id === DEMO_ROUND_UP_PURCHASE_ID,
   )
@@ -282,7 +287,7 @@ function RoundUpInAction() {
               </span>
             </div>
             <span {...stylex.props(savingsStyles.purchaseAmount)}>
-              -{formatUsd(purchase.amount)}
+              {formatCurrency(-purchase.amount)}
             </span>
           </div>
           <div {...stylex.props(savingsStyles.flowRow)}>
@@ -301,7 +306,7 @@ function RoundUpInAction() {
               transition={{ duration: 0.3 }}
             >
               {hasRounded
-                ? `Rounded to ${formatUsd(entry.rounded)}`
+                ? `Rounded to ${formatCurrency(entry.rounded)}`
                 : 'Authorizing purchase...'}
             </motion.span>
           </div>
@@ -314,7 +319,7 @@ function RoundUpInAction() {
             <div {...stylex.props(savingsStyles.mathStep)}>
               <span {...stylex.props(savingsStyles.mathLabel)}>Original</span>
               <span {...stylex.props(savingsStyles.mathValue)}>
-                {formatUsd(entry.amount)}
+                {formatCurrency(entry.amount)}
               </span>
             </div>
             <ArrowRight
@@ -325,7 +330,7 @@ function RoundUpInAction() {
             <div {...stylex.props(savingsStyles.mathStep)}>
               <span {...stylex.props(savingsStyles.mathLabel)}>Rounded</span>
               <span {...stylex.props(savingsStyles.mathValue)}>
-                {formatUsd(entry.rounded)}
+                {formatCurrency(entry.rounded)}
               </span>
             </div>
             <ArrowRight
@@ -341,7 +346,7 @@ function RoundUpInAction() {
                   savingsStyles.mathValueStrong,
                 )}
               >
-                +{formatUsd(entry.saved)}
+                {formatCurrency(entry.saved, { signDisplay: 'always' })}
               </span>
             </div>
           </motion.div>
@@ -359,7 +364,7 @@ function RoundUpInAction() {
             {...stylex.props(savingsStyles.flowText)}
           >
             {hasTransferred
-              ? `${formatUsd(entry.saved)} moved into savings`
+              ? `${formatCurrency(entry.saved)} moved into savings`
               : 'Rounding up for savings'}
           </motion.span>
         </div>
@@ -389,7 +394,8 @@ function RoundUpInAction() {
               {destination.name}
             </span>
             <span {...stylex.props(savingsStyles.destinationMeta)}>
-              {formatUsd(destination.saved)} of {formatUsd(destination.target)}
+              {formatCurrency(destination.saved)} of{' '}
+              {formatCurrency(destination.target)}
             </span>
           </div>
           <motion.span
@@ -400,8 +406,8 @@ function RoundUpInAction() {
             transition={{ duration: 0.3 }}
           >
             {hasTransferred
-              ? formatUsd(updatedSaved)
-              : formatUsd(destination.saved)}
+              ? formatCurrency(updatedSaved)
+              : formatCurrency(destination.saved)}
           </motion.span>
         </motion.div>
 
@@ -443,6 +449,7 @@ function RoundUpInAction() {
 }
 
 function SpareChangeActivity() {
+  const { formatCurrency } = useCurrency()
   const months = getSpareChangeMonths(SPARE_CHANGE_PURCHASES)
   const currentMonth = months[months.length - 1]
   const visible = SPARE_CHANGE_PURCHASES.slice(0, 5)
@@ -456,7 +463,9 @@ function SpareChangeActivity() {
             {SPARE_CHANGE_PURCHASES.length} round-ups this month
           </span>
           <span {...stylex.props(savingsStyles.totalValue)}>
-            +{formatUsd(currentMonth?.amount ?? 0)}
+            {formatCurrency(currentMonth?.amount ?? 0, {
+              signDisplay: 'always',
+            })}
           </span>
         </div>
 
@@ -481,7 +490,7 @@ function SpareChangeActivity() {
               * Current month to date
             </span>
             <span {...stylex.props(demoStyles.caption)}>
-              {formatUsd(sumMonthlySpareChange(months))} total
+              {formatCurrency(sumMonthlySpareChange(months))} total
             </span>
           </div>
         </div>
@@ -526,6 +535,7 @@ function SpareChangeActivity() {
 }
 
 function SmartSummary() {
+  const { formatCurrency } = useCurrency()
   const months = getSpareChangeMonths(SPARE_CHANGE_PURCHASES)
   const completedMonths = months.slice(0, -1)
   const total = sumMonthlySpareChange(months)
@@ -552,7 +562,7 @@ function SmartSummary() {
             </DemoChip>
           </div>
           <span {...stylex.props(savingsStyles.heroValue)}>
-            {formatUsd(total)}
+            {formatCurrency(total)}
           </span>
           <span {...stylex.props(savingsStyles.heroSub)}>
             Since{' '}
@@ -577,7 +587,8 @@ function SmartSummary() {
               {destination.name}
             </span>
             <span {...stylex.props(savingsStyles.destinationMeta)}>
-              {formatUsd(destination.saved)} of {formatUsd(destination.target)}
+              {formatCurrency(destination.saved)} of{' '}
+              {formatCurrency(destination.target)}
             </span>
           </div>
           <span {...stylex.props(savingsStyles.destinationValue)}>
@@ -615,7 +626,7 @@ function SmartSummary() {
             <div {...stylex.props(savingsStyles.paceItem)}>
               <span {...stylex.props(savingsStyles.paceLabel)}>Weekly cap</span>
               <span {...stylex.props(savingsStyles.paceValue)}>
-                {formatUsd(SPARE_CHANGE_SETTINGS.weeklyCap)}
+                {formatCurrency(SPARE_CHANGE_SETTINGS.weeklyCap)}
               </span>
             </div>
           </div>
@@ -647,7 +658,7 @@ function SmartSummary() {
                   savingsStyles.projectionValueEstimate,
                 )}
               >
-                {formatUsd(average)}
+                {formatCurrency(average)}
               </span>
             </div>
             <div {...stylex.props(savingsStyles.projectionCell)}>
@@ -660,7 +671,7 @@ function SmartSummary() {
                   savingsStyles.projectionValueEstimate,
                 )}
               >
-                {formatUsd(annual)}
+                {formatCurrency(annual)}
               </span>
             </div>
           </div>
@@ -686,7 +697,7 @@ function SmartSummary() {
             Actual saved to date
           </span>
           <span {...stylex.props(savingsStyles.totalValue)}>
-            {formatUsd(total)}
+            {formatCurrency(total)}
           </span>
         </div>
       </div>

@@ -14,7 +14,8 @@ import {
 } from 'lucide-react'
 import { AnimatePresence, motion } from 'motion/react'
 import { colors } from '../../styles/tokens.stylex'
-import { DEMO_ACCOUNT, formatUsd } from '../banking-demo/demo-data'
+import { useCurrency } from '../../hooks/use-currency'
+import { DEMO_ACCOUNT } from '../banking-demo/demo-data'
 import type { DemoSequenceStage } from '../banking-demo/demo-sequence'
 import { demoStyles } from '../banking-demo/demo-styles'
 import { DemoTapIndicator } from '../banking-demo/demo-tap-indicator'
@@ -89,6 +90,7 @@ export function ProgressDemo({ paused, reducedMotion }: ProgressDemoProps) {
 }
 
 function GoalProgress() {
+  const { formatCurrency } = useCurrency()
   const goal = SUMMER_VACATION_GOAL
   const snapshot = getGoalSnapshot(goal)
   const growth = getBalanceGrowth(SUMMER_VACATION_CONTRIBUTIONS)
@@ -134,13 +136,13 @@ function GoalProgress() {
           />
           <div {...stylex.props(savingsStyles.progressFigures)}>
             <span {...stylex.props(savingsStyles.progressTitle)}>
-              {formatUsd(goal.saved)} saved
+              {formatCurrency(goal.saved)} saved
             </span>
             <span {...stylex.props(savingsStyles.progressTarget)}>
-              of {formatUsd(goal.target)} target
+              of {formatCurrency(goal.target)} target
             </span>
             <span {...stylex.props(savingsStyles.progressAmount)}>
-              {formatUsd(snapshot.remaining)}
+              {formatCurrency(snapshot.remaining)}
             </span>
             <span {...stylex.props(savingsStyles.progressTarget)}>
               still to go
@@ -172,18 +174,18 @@ function GoalProgress() {
             { percent: 0, label: 'Start', reached: true },
             {
               percent: 25,
-              label: formatUsd(milestones[0]?.amount ?? 0),
+              label: formatCurrency(milestones[0]?.amount ?? 0),
               reached: milestones[0]?.reached ?? false,
             },
             { percent: 40, label: 'Today', reached: true },
             {
               percent: 50,
-              label: formatUsd(milestones[1]?.amount ?? 0),
+              label: formatCurrency(milestones[1]?.amount ?? 0),
               reached: milestones[1]?.reached ?? false,
             },
             {
               percent: 100,
-              label: formatUsd(goal.target),
+              label: formatCurrency(goal.target),
               reached: milestones[3]?.reached ?? false,
             },
           ]}
@@ -210,7 +212,7 @@ function GoalProgress() {
                 Actual pace
               </span>
               <span {...stylex.props(savingsStyles.paceValue)}>
-                {formatUsd(goal.autoMonthly)} / mo
+                {formatCurrency(goal.autoMonthly)} / mo
               </span>
             </div>
             <div {...stylex.props(savingsStyles.paceItem)}>
@@ -218,7 +220,7 @@ function GoalProgress() {
                 Required pace
               </span>
               <span {...stylex.props(savingsStyles.paceValue)}>
-                {formatUsd(requiredMonthly)} / mo
+                {formatCurrency(requiredMonthly)} / mo
               </span>
             </div>
             <DemoChip>
@@ -257,6 +259,7 @@ function GoalProgress() {
 }
 
 function ContributionHistory() {
+  const { formatCurrency } = useCurrency()
   const goal = SUMMER_VACATION_GOAL
   const contributions = getGoalContributions(
     SUMMER_VACATION_CONTRIBUTIONS,
@@ -275,7 +278,7 @@ function ContributionHistory() {
               {contributions.length} deposits
             </span>
             <span {...stylex.props(demoStyles.caption)}>
-              · {formatUsd(total)} total
+              · {formatCurrency(total)} total
             </span>
           </div>
           <DemoChip>
@@ -338,7 +341,9 @@ function ContributionHistory() {
               </div>
               <SavingsSourceBadge source={contribution.source} />
               <span {...stylex.props(savingsStyles.timelineAmount)}>
-                +{formatUsd(contribution.amount)}
+                {formatCurrency(contribution.amount, {
+                  signDisplay: 'always',
+                })}
               </span>
             </motion.div>
           ))}
@@ -369,6 +374,7 @@ function ContributionHistory() {
 }
 
 function AutoContributions() {
+  const { formatCurrency } = useCurrency()
   const goal = SUMMER_VACATION_GOAL
   const snapshot = getGoalSnapshot(goal)
   const enabled = useDelayedFlag(900)
@@ -400,8 +406,8 @@ function AutoContributions() {
               {goal.name}
             </span>
             <span {...stylex.props(savingsStyles.destinationMeta)}>
-              {formatUsd(goal.saved)} of {formatUsd(goal.target)} ·{' '}
-              {formatUsd(snapshot.remaining)} to go
+              {formatCurrency(goal.saved)} of {formatCurrency(goal.target)} ·{' '}
+              {formatCurrency(snapshot.remaining)} to go
             </span>
           </div>
           <span {...stylex.props(savingsStyles.destinationValue)}>
@@ -442,7 +448,7 @@ function AutoContributions() {
             Recurring Amount
           </span>
           <span {...stylex.props(demoStyles.caption)}>
-            {formatUsd(amount)} per transfer
+            {formatCurrency(amount)} per transfer
           </span>
         </div>
         <div {...stylex.props(savingsStyles.presetRow)}>
@@ -454,7 +460,7 @@ function AutoContributions() {
                 option === amount && savingsStyles.presetActive,
               )}
             >
-              {formatUsd(option).replace('.00', '')}
+              {formatCurrency(option, { maximumFractionDigits: 0 })}
             </span>
           ))}
         </div>
@@ -502,7 +508,7 @@ function AutoContributions() {
             </span>
             <span {...stylex.props(savingsStyles.accountMeta)}>
               Next run {formatSavingsDate(nextRun)} · Available{' '}
-              {formatUsd(DEMO_ACCOUNT.balance)}
+              {formatCurrency(DEMO_ACCOUNT.balance)}
             </span>
           </div>
           <span {...stylex.props(savingsStyles.accountTag)}>Primary</span>
@@ -530,7 +536,7 @@ function AutoContributions() {
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.3 }}
               >
-                {formatUsd(annual)}
+                {formatCurrency(annual)}
               </motion.span>
             </div>
             <div {...stylex.props(savingsStyles.projectionCell)}>
@@ -550,7 +556,7 @@ function AutoContributions() {
           </div>
           <div {...stylex.props(demoStyles.rowBetween)}>
             <span {...stylex.props(savingsStyles.projectionNote)}>
-              {formatUsd(amount)} × {periodsPerYear}{' '}
+              {formatCurrency(amount)} × {periodsPerYear}{' '}
               {frequency === 'weekly' ? 'weeks' : 'months'} · target{' '}
               {formatSavingsDate(goal.targetDate)}
             </span>

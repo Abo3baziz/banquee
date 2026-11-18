@@ -4,7 +4,7 @@ import { useId } from 'react'
 import * as stylex from '@stylexjs/stylex'
 import { motion, useReducedMotion } from 'motion/react'
 import { colors, fonts, radii } from '../../styles/tokens.stylex'
-import { formatUsd } from '../banking-demo/demo-data'
+import { useCurrency } from '../../hooks/use-currency'
 
 type ProgressRingProps = {
   value: number
@@ -233,6 +233,7 @@ export function MonthlyBars({
   height = 104,
 }: MonthlyBarsProps) {
   const shouldReduceMotion = useReducedMotion()
+  const { formatCurrency } = useCurrency()
   const max = Math.max(...bars.map((bar) => bar.amount), 1)
 
   return (
@@ -243,7 +244,7 @@ export function MonthlyBars({
         return (
           <div key={bar.label} {...stylex.props(styles.barColumn)}>
             <span {...stylex.props(styles.barValue)}>
-              {formatUsd(bar.amount)}
+              {formatCurrency(bar.amount)}
             </span>
             <div {...stylex.props(styles.barTrack)}>
               <motion.div
