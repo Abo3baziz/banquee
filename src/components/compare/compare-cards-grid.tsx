@@ -1,5 +1,5 @@
 import * as stylex from '@stylexjs/stylex'
-import { getTranslations } from 'next-intl/server'
+import { getLocale, getTranslations } from 'next-intl/server'
 import { BankCard, CardStatusBadge } from '../banking-card'
 import { colors, fonts, radii, spacing } from '../../styles/tokens.stylex'
 import { Reveal } from '../ui/reveal'
@@ -72,6 +72,9 @@ const styles = stylex.create({
     zIndex: 5,
     top: '-0.75rem',
     width: 'fit-content',
+  },
+  popularBadgeArabic: {
+    letterSpacing: 0,
   },
   visual: {
     marginInline: 'auto',
@@ -159,7 +162,10 @@ const styles = stylex.create({
 })
 
 export async function CompareCardsGrid() {
-  const t = await getTranslations('compareCards')
+  const [t, locale] = await Promise.all([
+    getTranslations('compareCards'),
+    getLocale(),
+  ])
   const summaries = getCompareCardSummaries()
 
   return (
@@ -183,7 +189,12 @@ export async function CompareCardsGrid() {
                   {...stylex.props(styles.card, premium && styles.cardPremium)}
                 >
                   {premium ? (
-                    <span {...stylex.props(styles.popularBadge)}>
+                    <span
+                      {...stylex.props(
+                        styles.popularBadge,
+                        locale === 'ar' && styles.popularBadgeArabic,
+                      )}
+                    >
                       {t('grid.premiumBadge')}
                     </span>
                   ) : null}
