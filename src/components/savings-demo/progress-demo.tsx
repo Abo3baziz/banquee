@@ -251,7 +251,7 @@ function GoalProgress() {
           />
         </div>
       </div>
-      <DemoTapIndicator x={50} y={69} contactDelay={6.3} />
+      <DemoTapIndicator x={50} y={69} contactDelay={5.7} />
     </DemoScreen>
   )
 }
@@ -363,7 +363,7 @@ function ContributionHistory() {
           />
         </div>
       </div>
-      <DemoTapIndicator x={50} y={72} contactDelay={5.8} />
+      <DemoTapIndicator x={50} y={72} contactDelay={5.2} />
     </DemoScreen>
   )
 }

@@ -32,7 +32,7 @@ const BUTTON_GESTURE_ANGLE = -64
 
 const INK = '#161a19'
 
-type GestureEase = 'linear' | readonly [number, number, number, number]
+export type GestureEase = 'linear' | readonly [number, number, number, number]
 
 /**
  * Stylized back-of-hand illustration used by the simulated gestures.
@@ -303,7 +303,9 @@ type DemoTapIndicatorProps = {
   /**
    * Seconds after the stage starts when the fingertip touches `x` / `y`.
    * Defaults to `delay + 0.45` (the entry duration). When provided, the
-   * gesture is scheduled so contact lands exactly on this value.
+   * gesture is scheduled so contact lands on this value, or on `0.15` if the
+   * value is earlier: the approach is shortened to a `0.15` minimum instead of
+   * delaying the contact.
    */
   contactDelay?: number
   /**

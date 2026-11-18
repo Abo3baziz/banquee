@@ -208,7 +208,7 @@ function BudgetsOverview() {
       </div>
       {/* Contact lands on the Food & Dining row and the hand lifts as the
           detail screen takes over at 6s. */}
-      <DemoTapIndicator x={36} y={44} contactDelay={5.4} />
+      <DemoTapIndicator x={36} y={44} contactDelay={5.2} />
     </DemoScreen>
   )
 }

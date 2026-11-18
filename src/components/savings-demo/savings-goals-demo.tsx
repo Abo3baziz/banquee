@@ -174,7 +174,7 @@ function SavingsOverview() {
           </span>
         </div>
       </div>
-      <DemoTapIndicator x={50} y={47} contactDelay={2.95} />
+      <DemoTapIndicator x={50} y={47} contactDelay={2.4} />
     </DemoScreen>
   )
 }
@@ -307,7 +307,7 @@ function EmergencyGoalDetails() {
         <DemoPrimaryButton
           label="Add Money to Emergency Fund"
           icon={<Plus aria-hidden="true" size={14} strokeWidth={2.5} />}
-          pressAt={2.85}
+          pressAt={2.6}
         />
 
         <div {...stylex.props(savingsStyles.metaGrid)}>

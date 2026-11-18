@@ -6,6 +6,9 @@ export const cardsStyles = stylex.create({
     overflow: 'hidden',
     width: '100%',
   },
+  carouselHost: {
+    position: 'relative',
+  },
   carouselTrack: {
     display: 'flex',
     width: '100%',

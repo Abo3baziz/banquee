@@ -87,7 +87,7 @@ export function DemoPrimaryButton({
     >
       <span>{label}</span>
       {icon}
-      {showGesture && pressAt !== undefined ? (
+      {showGesture && !disabled && pressAt !== undefined ? (
         <DemoFingerGesture
           x={50}
           y={50}

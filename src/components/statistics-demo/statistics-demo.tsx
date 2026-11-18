@@ -4,7 +4,10 @@ import { useEffect, useRef, useState } from 'react'
 import * as stylex from '@stylexjs/stylex'
 import { MotionConfig, useInView, useReducedMotion } from 'motion/react'
 import { PhoneFrame } from '../phone/phone-frame'
-import { useHasStarted } from '../banking-demo/use-has-started'
+import {
+  DEMO_VIEWPORT_AMOUNT,
+  useHasStarted,
+} from '../banking-demo/use-has-started'
 import { ExpenseTrackingDemo } from './expense-tracking-demo'
 import { MonthlyReportDemo } from './monthly-report-demo'
 import { SpendingInsightsDemo } from './spending-insights-demo'
@@ -36,16 +39,12 @@ const styles = stylex.create({
 
 export function StatisticsDemo() {
   const rootRef = useRef<HTMLDivElement>(null)
-  const isInView = useInView(rootRef, { amount: 0.2 })
+  const isInView = useInView(rootRef, { amount: DEMO_VIEWPORT_AMOUNT })
   const shouldReduceMotion = useReducedMotion()
   const [isDocumentHidden, setIsDocumentHidden] = useState(false)
   const [mode, setMode] = useState<StatisticsDemoMode>('insights')
   const [runId, setRunId] = useState(0)
-  /*
-   * Mount the demo content only once the section has been seen. Stage 0 starts
-   * running on mount, so mounting it below the fold would spend its typing,
-   * delayed flags, and simulated gestures offscreen.
-   */
+  /* Mount below-the-fold demos only once seen; stage 0 would otherwise burn offscreen. */
   const hasStarted = useHasStarted(rootRef)
 
   useEffect(() => {

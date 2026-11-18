@@ -108,4 +108,12 @@ describe('DemoPrimaryButton', () => {
 
     expect(screen.queryByTestId('demo-finger-gesture')).toBeNull()
   })
+
+  it('renders no gesture under reduced motion', () => {
+    vi.mocked(useReducedMotion).mockReturnValue(true)
+
+    render(<DemoPrimaryButton label="Continue" pressAt={2.4} />)
+
+    expect(screen.queryByTestId('demo-finger-gesture')).toBeNull()
+  })
 })

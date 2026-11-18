@@ -333,7 +333,7 @@ function ReviewCard() {
         <DemoPrimaryButton
           label="Confirm and Add Card"
           icon={<ArrowRight aria-hidden="true" size={14} strokeWidth={2.5} />}
-          pressAt={2.7}
+          pressAt={2.6}
         />
         <span {...stylex.props(cardsStyles.doneHint)}>
           No issuance fee · Cancel anytime

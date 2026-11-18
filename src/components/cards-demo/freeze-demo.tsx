@@ -179,7 +179,7 @@ function CardsCarousel({ activeIndex }: { activeIndex: number }) {
        * Positioned so the swipe gestures are measured against the card: their
        * x/y coordinates and travel use one card width as 100%.
        */}
-      <div style={{ position: 'relative' }}>
+      <div {...stylex.props(cardsStyles.carouselHost)}>
         <div {...stylex.props(cardsStyles.carousel)}>
           <motion.div
             {...stylex.props(cardsStyles.carouselTrack)}
@@ -330,7 +330,7 @@ function FreezeConfirmation() {
         <DemoPrimaryButton
           label="Freeze Card"
           icon={<Snowflake aria-hidden="true" size={14} />}
-          pressAt={2.3}
+          pressAt={2.2}
         />
         <span {...stylex.props(cardsStyles.doneHint)}>
           Unfreeze at any time in seconds

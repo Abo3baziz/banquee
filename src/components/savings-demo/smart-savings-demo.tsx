@@ -191,7 +191,7 @@ function SmartOverview() {
           </span>
         </div>
       </div>
-      <DemoTapIndicator x={50} y={44} contactDelay={5.4} />
+      <DemoTapIndicator x={50} y={44} contactDelay={4.8} />
     </DemoScreen>
   )
 }
@@ -520,7 +520,7 @@ function SpareChangeActivity() {
           />
         </div>
       </div>
-      <DemoTapIndicator x={50} y={68} contactDelay={5.8} />
+      <DemoTapIndicator x={50} y={68} contactDelay={5.2} />
     </DemoScreen>
   )
 }

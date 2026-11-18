@@ -4,7 +4,10 @@ import { useEffect, useRef, useState } from 'react'
 import * as stylex from '@stylexjs/stylex'
 import { MotionConfig, useInView, useReducedMotion } from 'motion/react'
 import { PhoneFrame } from '../phone/phone-frame'
-import { useHasStarted } from '../banking-demo/use-has-started'
+import {
+  DEMO_VIEWPORT_AMOUNT,
+  useHasStarted,
+} from '../banking-demo/use-has-started'
 import { AddCardDemo } from './add-card-demo'
 import { CardsModeSwitcher, type CardsDemoMode } from './cards-mode-switcher'
 import { FreezeDemo } from './freeze-demo'
@@ -33,7 +36,7 @@ const styles = stylex.create({
 
 export function CardsDemo() {
   const rootRef = useRef<HTMLDivElement>(null)
-  const isInView = useInView(rootRef, { amount: 0.2 })
+  const isInView = useInView(rootRef, { amount: DEMO_VIEWPORT_AMOUNT })
   const shouldReduceMotion = useReducedMotion()
   const [isDocumentHidden, setIsDocumentHidden] = useState(false)
   const [mode, setMode] = useState<CardsDemoMode>('freeze')

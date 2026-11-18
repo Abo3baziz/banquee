@@ -1,11 +1,11 @@
 import { useEffect, useRef, useState, type RefObject } from 'react'
 
-/** Share of the element that must be visible before the demo counts as seen. */
-const VISIBLE_AMOUNT = 0.2
+/** Share of a demo section that must be visible before it counts as seen. */
+export const DEMO_VIEWPORT_AMOUNT = 0.2
 
 /**
- * Returns `true` from the first frame the element is at least 20% in view and
- * stays `true` afterwards.
+ * Returns `true` from the first frame the element is at least
+ * `DEMO_VIEWPORT_AMOUNT` (20%) in view and stays `true` afterwards.
  *
  * The demo containers use it to defer mounting the phone content until the
  * demo is actually visible. Stage 0 starts running as soon as its screen
@@ -43,7 +43,7 @@ export function useHasStarted<T extends Element>(ref: RefObject<T | null>) {
         setHasStarted(true)
         observer.disconnect()
       },
-      { threshold: VISIBLE_AMOUNT },
+      { threshold: DEMO_VIEWPORT_AMOUNT },
     )
 
     observer.observe(element)
