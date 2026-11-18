@@ -30,7 +30,7 @@ There is no database, no authentication, and no payment processing. Content is l
 I owned this project end to end, from the first artboard to the last test:
 
 - **UI/UX design** — The visual language is mine: a mint-and-ink palette built on tonal surface layering instead of drop shadows, a type scale pairing Sora/Inter with Cairo/Tajawal for Arabic, 8px spacing rhythm, and component specs for buttons, chips, inputs, cards, and transaction lists. I designed full screens for every website page plus five phone app screens (home, cards, savings, stats, support), which the site's animated demos are modeled on. The design sources live in a local `ui designs/` folder that isn't tracked in this repo.
-- **Code implementation** — Everything in this repository is hand-coded by me: the StyleX design tokens, every page and component, the next-intl routing with RTL support, the locale-aware currency utilities, the automated phone demos with gesture-driven interactions, and the test suite.
+- **Code implementation** — The code was not written by hand: I directed an AI coding agent that implemented everything in this repository from my designs and specs — the StyleX design tokens, every page and component, the next-intl routing with RTL support, the locale-aware currency utilities, the automated phone demos with gesture-driven interactions, and the test suite. I reviewed, tested, and merged every change it produced.
 
 ## 🧭 What's built
 
