@@ -5,7 +5,7 @@
 <h1 align="center">Banquee</h1>
 
 <p align="center">
-  A frontend-only banking site built as a portfolio project.<br />
+  A banking website I designed and built from scratch as a portfolio project.<br />
   No backend. No real accounts. Just a lot of care for the UI.
 </p>
 
@@ -14,54 +14,59 @@
   <img alt="React 19" src="https://img.shields.io/badge/React-19-149ECA?logo=react&logoColor=white" />
   <img alt="TypeScript 5" src="https://img.shields.io/badge/TypeScript-5-3178C6?logo=typescript&logoColor=white" />
   <img alt="StyleX" src="https://img.shields.io/badge/StyleX-0.19-006B5C" />
-  <img alt="Status: in progress" src="https://img.shields.io/badge/status-in%20progress-F5A623" />
+  <img alt="Locales" src="https://img.shields.io/badge/locales-en%20%C2%B7%20de%20%C2%B7%20es%20%C2%B7%20ar%20(RTL)-5BB5A2" />
+  <img alt="Tests" src="https://img.shields.io/badge/tests-Vitest-6E9F18?logo=vitest&logoColor=white" />
+  <img alt="License: MIT" src="https://img.shields.io/badge/license-MIT-3E4946" />
 </p>
 
 ## 👋 What this is
 
-Banquee is a banking website mockup with a mint-and-ink design system, four locales, and a shared shell that the rest of the pages will plug into.
+Banquee is a frontend-only banking website: five pages, four locales, and a design system that started in Figma before a single line of code was written.
 
-The project is intentionally frontend-only: no database, no authentication, no payment processing. Content is local and static, so the focus stays on layout, accessibility, motion, and the small details that make a page feel finished.
+There is no database, no authentication, and no payment processing. Content is local and static, so the focus stays on layout, accessibility, motion, and the small details that make a page feel finished.
 
-## 🧭 Where it stands
+## 🙋 My role
 
-The shared pieces are in place:
+I owned this project end to end, from the first artboard to the last test:
 
-- ✅ Next.js App Router with React Server Components by default
-- ✅ StyleX design tokens and component styles
-- ✅ Four locales: English, German, Spanish, and Arabic (RTL)
-- ✅ Locale-aware currency display: every monetary value follows the selected language — USD for English, EUR for German and Spanish, SAR for Arabic
-- ✅ Responsive site header with a Radix language switcher, Lucide icons, and a slide-in mobile menu
-- ✅ Footer with localized columns, legal links, and copyright
-- ✅ Floating back-to-top button with reduced-motion support
-- ✅ Landing hero with layered card mockups and a flip interaction
-- ✅ Feature highlights strip and cashflow analytics section
-- ✅ Card plans with flippable 3D mockups and capability previews
-- ✅ Send & receive section with a phone transaction preview
-- ✅ Tools and integrations section using the project logo assets
-- ✅ Manifesto section with editorial imagery and regulated-bank callout
-- ✅ Customer testimonials grid with localized quotes
-- ✅ App download CTA with a banking dashboard mockup
-- ✅ Landing blog preview with localized article cards
-- ✅ Compare cards page with the app's three real cards, a feature table, and RTL support
-- ✅ Blog listing with a featured article, category filters, and article detail pages with a sticky table of contents, share links, and related articles
-- ✅ Support page with searchable categorized FAQs and contact channels
-- ✅ Styled 404 for unknown locale routes
-- ✅ App icon and favicon
+- **UI/UX design** — The visual language is mine: a mint-and-ink palette built on tonal surface layering instead of drop shadows, a type scale pairing Sora/Inter with Cairo/Tajawal for Arabic, 8px spacing rhythm, and component specs for buttons, chips, inputs, cards, and transaction lists. I designed full screens for every website page plus five phone app screens (home, cards, savings, stats, support), which the site's animated demos are modeled on. The design sources live in a local `ui designs/` folder that isn't tracked in this repo.
+- **Code implementation** — Everything in this repository is hand-coded by me: the StyleX design tokens, every page and component, the next-intl routing with RTL support, the locale-aware currency utilities, the automated phone demos with gesture-driven interactions, and the test suite.
 
-The landing hero, highlights, analytics, and card plans are in place. The remaining landing sections are next.
+## 🧭 What's built
+
+### Pages
+
+- **Landing** — hero with layered card mockups and a flip interaction, feature highlights, cashflow analytics, card plans with flippable 3D mockups, send & receive with a phone transaction preview, tools & integrations, manifesto with editorial imagery, customer testimonials, app download CTA with a dashboard mockup, blog preview, and a need-help section
+- **Features** — product features with automated statistics, cards, and savings phone demos, hooked into the plans, app CTA, and support sections
+- **Compare cards** — the app's three real cards compared around product terms (fees, rates, limits) with full RTL support
+- **Blog** — listing with a featured article and category filters, plus article pages with a sticky table of contents, share links, related articles, and complete SEO metadata
+- **Support** — searchable categorized FAQs and contact channels
+- **404** — styled for unknown routes in every locale
+
+### Shell & interactions
+
+- Responsive header that hides on scroll down and reveals on scroll up, kept out of the tab order while hidden
+- Radix-based language switcher and slide-in mobile menu
+- Floating back-to-top button with reduced-motion support
+- Footer with localized columns and legal links
+- Automated demos driven by realistic finger gestures that stay inside their stages
+
+### Localization
+
+- Four locales: English, German, Spanish, and Arabic (RTL)
+- Locale-aware currency display: every monetary value follows the selected language — USD for English, EUR for German and Spanish, SAR for Arabic
 
 ## 🛠️ Stack
 
 | Layer           | Choice                                        |
 | --------------- | --------------------------------------------- |
 | ⚡ Framework    | Next.js 16, App Router, Turbopack             |
-| ⚛️ UI           | React 19                                      |
+| ⚛️ UI           | React 19, Server Components by default        |
 | 🔷 Language     | TypeScript                                    |
 | 🎨 Styling      | StyleX with the Babel + PostCSS pipeline      |
 | 🧩 Primitives   | Radix UI                                      |
 | ✨ Icons        | Lucide React                                  |
-| 🎞️ Motion       | Motion (installed for upcoming interactions)  |
+| 🎞️ Motion       | Motion for scroll and gesture interactions    |
 | 📝 Forms        | React Hook Form + Zod (for upcoming flows)    |
 | 🌍 Localization | next-intl                                     |
 | 🧪 Testing      | Vitest, Testing Library, Playwright, axe-core |
@@ -76,7 +81,7 @@ pnpm install
 pnpm dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000).
+Open [http://localhost:3010](http://localhost:3010) — the dev server runs on port 3010.
 
 ### Scripts
 
@@ -108,7 +113,7 @@ The dictionaries use `{{variable}}` placeholders. The footer interpolates the co
 
 ## 🎨 Design
 
-The visual language is light, calm, and a little editorial:
+The visual language is light, calm, and a little editorial. Depth comes from tonal surface layering rather than shadows.
 
 | Token       | Value     | Used for                         |
 | ----------- | --------- | -------------------------------- |
@@ -125,10 +130,22 @@ Latin-script pages use **Sora** for headings and **Inter** for UI text. Arabic p
 
 ```text
 src/
-  app/[locale]/          # locale layout, home, 404, catch-all
-  components/layout/     # header, footer, language switcher
-  components/landing/    # hero
-  components/ui/         # shared UI pieces
+  app/[locale]/          # locale layout, home, blog, compare, features, support, 404
+  components/
+    landing/             # hero, plans, testimonials, and the other home sections
+    banking-card/        # flippable 3D card mockup
+    banking-demo/        # gesture-driven phone demo
+    statistics-demo/     # analytics phone demo
+    savings-demo/        # savings goal phone demo
+    cards-demo/          # card capability previews
+    compare/             # comparison table and data
+    blog/                # article cards, TOC, share links
+    support/             # searchable FAQs and contact channels
+    features/            # features page sections
+    layout/              # header, footer, language switcher
+    phone/               # phone frame used by the demos
+    ui/                  # back-to-top, CTA, shared pieces
+  data/                  # shared demo and content data
   hooks/                 # shared hooks (useCurrency)
   styles/tokens.stylex.ts
 i18n/                    # routing, request config, navigation, currency
@@ -139,7 +156,9 @@ assets/                  # brand and payment SVGs
 
 ## 🧪 Testing
 
-Vitest, Testing Library, Playwright, and axe-core are installed and configured. There are no test files yet — the first tests will land with the landing page and the interactive flows.
+Unit and component tests run on Vitest with Testing Library: the flippable bank card, demo sequencing and gesture indicators, blog data and article TOC/share, compare and savings data, support utilities, the scroll-direction hook, and the currency hook.
+
+Playwright and axe-core are configured for end-to-end accessibility specs; those haven't been written yet.
 
 ## 📚 Docs
 
@@ -152,8 +171,12 @@ Vitest, Testing Library, Playwright, and axe-core are installed and configured. 
 
 Banquee is a mockup. It is not a bank, it does not hold money, and its account flows are simulated.
 
+## 📄 License
+
+Released under the [MIT License](LICENSE).
+
 ---
 
 <p align="center">
-  Built by <a href="https://github.com/Abo3baziz">Abo3baziz</a>.
+  Designed and built by <a href="https://github.com/Abo3baziz">Abo3baziz</a>.
 </p>
