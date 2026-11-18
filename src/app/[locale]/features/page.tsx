@@ -2,6 +2,7 @@ import type { Metadata } from 'next'
 import * as stylex from '@stylexjs/stylex'
 import { getTranslations } from 'next-intl/server'
 import { FeaturesHero } from '../../../components/features/hero'
+import { NeedHelpSection } from '../../../components/support/need-help'
 import { colors } from '../../../styles/tokens.stylex'
 
 const styles = stylex.create({
@@ -24,6 +25,7 @@ export default function FeaturesPage() {
   return (
     <main {...stylex.props(styles.main)}>
       <FeaturesHero />
+      <NeedHelpSection />
     </main>
   )
 }

@@ -1,5 +1,6 @@
 import * as stylex from '@stylexjs/stylex'
 import { Headset } from 'lucide-react'
+import type { LucideIcon } from 'lucide-react'
 import { colors, fonts, radii, spacing } from '../../../styles/tokens.stylex'
 import { SupportContactLink, type SupportContact } from './support-contact-link'
 
@@ -106,6 +107,7 @@ type ContactSupportCardProps = {
   contacts: readonly SupportContact[]
   responseTime: string
   availability: string
+  icon?: LucideIcon
 }
 
 export function ContactSupportCard({
@@ -114,11 +116,12 @@ export function ContactSupportCard({
   contacts,
   responseTime,
   availability,
+  icon: Icon = Headset,
 }: ContactSupportCardProps) {
   return (
     <div {...stylex.props(styles.card)}>
       <span aria-hidden="true" {...stylex.props(styles.icon)}>
-        <Headset size={26} />
+        <Icon size={26} />
       </span>
       <h3 {...stylex.props(styles.title)}>{title}</h3>
       <p {...stylex.props(styles.description)}>{description}</p>
