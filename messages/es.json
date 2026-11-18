@@ -422,7 +422,7 @@
   "compareCards": {
     "meta": {
       "title": "Comparar tarjetas - Banquee",
-      "description": "Compara tus tarjetas Banquee lado a lado: tipos de tarjeta, niveles, límites de gasto y las funciones disponibles en cada una."
+      "description": "Compara tus tarjetas Banquee lado a lado: límites de gasto, comisiones, recompensas y funciones de pago."
     },
     "hero": {
       "badge": "Comparar tarjetas",
@@ -442,46 +442,74 @@
     "table": {
       "sectionTitle": "Comparación de tarjetas",
       "caption": "Comparación de funciones de tus tarjetas Banquee",
+      "footnote": "* La disponibilidad depende de la activación de la tarjeta, la compatibilidad con la red y la aceptación del comercio.",
+      "disclaimer": "Todos los importes, límites, comisiones y recompensas son valores ficticios de demostración con fines ilustrativos; no son ofertas verificadas de bancos ni de redes de pago.",
       "headers": {
         "features": "Funciones"
       },
       "categories": {
-        "cardDetails": "Datos de la tarjeta",
-        "spendingLimits": "Límites de gasto",
-        "cardFeatures": "Funciones de la tarjeta",
-        "pricing": "Precios y recompensas"
+        "cardOverview": "Resumen de la tarjeta",
+        "spendingLimits": "Gastos y límites",
+        "fees": "Comisiones y cargos",
+        "rewards": "Recompensas y beneficios",
+        "paymentFeatures": "Funciones de pago",
+        "additionalTerms": "Condiciones adicionales"
       },
       "rows": {
-        "network": "Red",
         "cardType": "Tipo de tarjeta",
-        "tier": "Nivel",
-        "status": "Estado",
-        "cardNumber": "Número de tarjeta",
-        "expiry": "Caduca",
-        "cardholder": "Titular",
-        "linkedAccount": "Cuenta vinculada",
-        "dailyLimit": "Límite diario",
-        "dailySpent": "Gastado hoy",
-        "monthlyLimit": "Límite mensual",
-        "monthlySpent": "Gastado este mes",
-        "monthlyRemaining": "Restante este mes",
-        "contactless": "Pagos contactless",
-        "freezeCard": "Bloquear tarjeta",
-        "adjustableLimits": "Límites de gasto ajustables",
+        "paymentNetwork": "Red de pago",
+        "fundingSource": "Fuente de fondos",
+        "currency": "Moneda",
+        "cardStatus": "Estado de la tarjeta",
+        "monthlyLimit": "Límite de gasto mensual",
+        "dailyLimit": "Límite de gasto diario",
+        "atmDailyLimit": "Límite de retirada en cajero / día",
+        "internationalMonthlyLimit": "Límite de gasto internacional / mes",
+        "creditLimit": "Límite de crédito",
+        "minimumPayment": "Pago mínimo",
         "annualFee": "Cuota anual",
-        "rewards": "Programa de recompensas",
-        "foreignTransactionFee": "Comisión por cambio de divisa"
+        "foreignTransactionFee": "Comisión por operaciones en el extranjero",
+        "atmWithdrawalFee": "Comisión por retirada en cajero",
+        "cardReplacementFee": "Comisión por sustitución de tarjeta",
+        "monthlyInterestRate": "Tasa de interés mensual",
+        "cashback": "Reembolso",
+        "pointsPerHundred": "Puntos de recompensa / 100 EGP",
+        "welcomeBonus": "Bono de bienvenida",
+        "loungeAccess": "Acceso a salas VIP de aeropuerto",
+        "purchaseProtection": "Protección de compras",
+        "onlinePayments": "Pagos en línea",
+        "inStorePayments": "Pagos en tienda",
+        "internationalPayments": "Pagos internacionales",
+        "atmWithdrawals": "Retiradas en cajero",
+        "contactlessPayments": "Pagos sin contacto",
+        "mobileWallet": "Cartera móvil",
+        "emvChip": "Chip EMV",
+        "gracePeriod": "Período de gracia",
+        "interestFreePurchases": "Compras sin intereses",
+        "spendingSource": "Origen del gasto",
+        "bestFor": "Ideal para"
       },
       "values": {
-        "included": "Incluido",
-        "notAvailable": "No disponible",
-        "debit": "Tarjeta de débito",
-        "credit": "Tarjeta de crédito",
-        "standard": "Estándar",
-        "gold": "Oro",
-        "premium": "Premium",
+        "debitCard": "Débito",
+        "creditCard": "Crédito",
+        "bankAccount": "Cuenta bancaria",
+        "creditLine": "Línea de crédito",
         "active": "Activa",
-        "frozen": "Bloqueada"
+        "basic": "Básica",
+        "extended": "Ampliada",
+        "standard": "Estándar",
+        "availableBalance": "Saldo disponible",
+        "availableCredit": "Crédito disponible",
+        "everydaySpending": "Gastos diarios",
+        "flexibleCreditSpending": "Gastos flexibles con crédito",
+        "everydayCreditPurchases": "Compras diarias a crédito",
+        "supported": "Admitido",
+        "notIncluded": "No incluido",
+        "equipped": "Equipado",
+        "na": "N/A",
+        "points": "{count, plural, one {# punto} other {# puntos}}",
+        "visits": "{count, plural, one {# visita/año} other {# visitas/año}}",
+        "upToDays": "Hasta {count, plural, one {# día} other {# días}}"
       }
     },
     "securityCta": {
@@ -493,10 +521,20 @@
     }
   },
   "support": {
+    "meta": {
+      "title": "Soporte - Banquee",
+      "description": "Encuentra respuestas a preguntas frecuentes sobre tu cuenta Banko, tus tarjetas y tus datos personales, o contacta con el equipo de soporte de Banquee por teléfono, correo electrónico o chat en vivo."
+    },
     "hero": {
       "eyebrow": "Centro de soporte",
       "title": "¿En qué podemos ayudarte hoy?",
       "description": "Encuentra respuestas a las preguntas más frecuentes sobre tu cuenta de Banko, tus tarjetas y tus datos personales."
+    },
+    "search": {
+      "label": "Buscar preguntas frecuentes",
+      "placeholder": "Buscar preguntas…",
+      "clear": "Borrar búsqueda",
+      "empty": "No se encontraron preguntas coincidentes. Puedes contactar directamente con nuestro equipo de soporte a continuación."
     },
     "categories": {
       "cards": "Tarjetas",
@@ -551,6 +589,8 @@
       "chatTitle": "Habla con nosotros por chat",
       "chatDescription": "Chat en directo con nuestros asesores bancarios certificados",
       "chatButton": "Iniciar conversación",
+      "chatConnecting": "Conectando…",
+      "chatConnected": "Asesor conectado",
       "badges": {
         "encrypted": "Cifrado de extremo a extremo",
         "regulated": "Entidad bancaria europea regulada",

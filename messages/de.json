@@ -422,7 +422,7 @@
   "compareCards": {
     "meta": {
       "title": "Karten vergleichen - Banquee",
-      "description": "Vergleichen Sie Ihre Banquee-Karten nebeneinander: Kartentypen, Kartenstufen, Ausgabenlimits und die Funktionen, die jede Karte bietet."
+      "description": "Vergleichen Sie Ihre Banquee-Karten nebeneinander: Ausgabenlimits, Gebühren, Prämien und Zahlungsfunktionen."
     },
     "hero": {
       "badge": "Karten vergleichen",
@@ -442,46 +442,74 @@
     "table": {
       "sectionTitle": "Kartenvergleich",
       "caption": "Funktionsvergleich Ihrer Banquee-Karten",
+      "footnote": "* Die Verfügbarkeit hängt von der Kartenaktivierung, der Unterstützung durch das Netzwerk und der Akzeptanz beim Händler ab.",
+      "disclaimer": "Alle Beträge, Limits, Gebühren und Prämien sind fiktive Demo-Werte zur Veranschaulichung — keine geprüften Angebote von Banken oder Zahlungsnetzwerken.",
       "headers": {
         "features": "Funktionen"
       },
       "categories": {
-        "cardDetails": "Kartendetails",
-        "spendingLimits": "Ausgabenlimits",
-        "cardFeatures": "Kartenfunktionen",
-        "pricing": "Gebühren & Prämien"
+        "cardOverview": "Kartenübersicht",
+        "spendingLimits": "Ausgaben & Limits",
+        "fees": "Gebühren & Kosten",
+        "rewards": "Prämien & Vorteile",
+        "paymentFeatures": "Zahlungsfunktionen",
+        "additionalTerms": "Weitere Bedingungen"
       },
       "rows": {
-        "network": "Kartennetzwerk",
         "cardType": "Kartentyp",
-        "tier": "Kartenstufe",
-        "status": "Status",
-        "cardNumber": "Kartennummer",
-        "expiry": "Gültig bis",
-        "cardholder": "Karteninhaber",
-        "linkedAccount": "Verknüpftes Konto",
-        "dailyLimit": "Tageslimit",
-        "dailySpent": "Heute ausgegeben",
-        "monthlyLimit": "Monatslimit",
-        "monthlySpent": "Diesen Monat ausgegeben",
-        "monthlyRemaining": "Verbleibend diesen Monat",
-        "contactless": "Kontaktloses Bezahlen",
-        "freezeCard": "Karte sperren",
-        "adjustableLimits": "Anpassbare Ausgabenlimits",
+        "paymentNetwork": "Zahlungsnetzwerk",
+        "fundingSource": "Finanzierungsquelle",
+        "currency": "Währung",
+        "cardStatus": "Kartenstatus",
+        "monthlyLimit": "Monatliches Ausgabenlimit",
+        "dailyLimit": "Tägliches Ausgabenlimit",
+        "atmDailyLimit": "Geldautomaten-Limit / Tag",
+        "internationalMonthlyLimit": "Internationales Ausgabenlimit / Monat",
+        "creditLimit": "Kreditrahmen",
+        "minimumPayment": "Mindestzahlung",
         "annualFee": "Jahresgebühr",
-        "rewards": "Bonusprogramm",
-        "foreignTransactionFee": "Auslandsgebühr"
+        "foreignTransactionFee": "Auslandsgebühr",
+        "atmWithdrawalFee": "Geldautomatengebühr",
+        "cardReplacementFee": "Gebühr für Ersatzkarte",
+        "monthlyInterestRate": "Monatlicher Zinssatz",
+        "cashback": "Cashback",
+        "pointsPerHundred": "Prämienpunkte / 100 EGP",
+        "welcomeBonus": "Willkommensbonus",
+        "loungeAccess": "Zugang zur Flughafen-Lounge",
+        "purchaseProtection": "Kaufschutz",
+        "onlinePayments": "Online-Zahlungen",
+        "inStorePayments": "Zahlungen im Geschäft",
+        "internationalPayments": "Internationale Zahlungen",
+        "atmWithdrawals": "Geldabhebungen",
+        "contactlessPayments": "Kontaktloses Bezahlen",
+        "mobileWallet": "Mobile Wallet",
+        "emvChip": "EMV-Chip",
+        "gracePeriod": "Zahlungsziel",
+        "interestFreePurchases": "Zinsfreie Einkäufe",
+        "spendingSource": "Ausgabenquelle",
+        "bestFor": "Am besten für"
       },
       "values": {
-        "included": "Enthalten",
-        "notAvailable": "Nicht verfügbar",
-        "debit": "Debitkarte",
-        "credit": "Kreditkarte",
-        "standard": "Standard",
-        "gold": "Gold",
-        "premium": "Premium",
+        "debitCard": "Debit",
+        "creditCard": "Kredit",
+        "bankAccount": "Bankkonto",
+        "creditLine": "Kreditlinie",
         "active": "Aktiv",
-        "frozen": "Gesperrt"
+        "basic": "Basis",
+        "extended": "Erweitert",
+        "standard": "Standard",
+        "availableBalance": "Verfügbares Guthaben",
+        "availableCredit": "Verfügbarer Kredit",
+        "everydaySpending": "Tägliche Ausgaben",
+        "flexibleCreditSpending": "Flexible Kreditausgaben",
+        "everydayCreditPurchases": "Tägliche Kreditkäufe",
+        "supported": "Unterstützt",
+        "notIncluded": "Nicht enthalten",
+        "equipped": "Ausgestattet",
+        "na": "N/A",
+        "points": "{count, plural, one {# Punkt} other {# Punkte}}",
+        "visits": "{count, plural, one {# Besuch/Jahr} other {# Besuche/Jahr}}",
+        "upToDays": "Bis zu {count, plural, one {# Tag} other {# Tage}}"
       }
     },
     "securityCta": {
@@ -493,10 +521,20 @@
     }
   },
   "support": {
+    "meta": {
+      "title": "Support - Banquee",
+      "description": "Finden Sie Antworten auf häufige Fragen zu Ihrem Banko-Konto, Ihren Karten und Ihren persönlichen Daten – oder kontaktieren Sie das Banquee-Support-Team per Telefon, E-Mail oder Live-Chat."
+    },
     "hero": {
       "eyebrow": "Hilfe & Support",
       "title": "Wie können wir Ihnen heute helfen?",
       "description": "Finden Sie Antworten auf häufige Fragen rund um Ihr Banko-Konto, Ihre Zahlungskarten und Ihre persönlichen Angaben."
+    },
+    "search": {
+      "label": "Häufig gestellte Fragen durchsuchen",
+      "placeholder": "Fragen suchen…",
+      "clear": "Suche löschen",
+      "empty": "Keine passenden Fragen gefunden. Sie können unser Support-Team unten direkt kontaktieren."
     },
     "categories": {
       "cards": "Karten",
@@ -551,6 +589,8 @@
       "chatTitle": "Live-Chat starten",
       "chatDescription": "Direkter Chat mit unseren zertifizierten Bankberatern",
       "chatButton": "Gespräch beginnen",
+      "chatConnecting": "Verbindung wird hergestellt…",
+      "chatConnected": "Berater verbunden",
       "badges": {
         "encrypted": "Ende-zu-Ende verschlüsselt",
         "regulated": "Reguliertes europäisches Finanzinstitut",
