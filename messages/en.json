@@ -299,42 +299,6 @@
       "eyebrow": "Blog",
       "title": "Blog.",
       "ctaAll": "All Articles"
-    },
-    "needHelp": {
-      "eyebrow": "Help & Support",
-      "title": "Need help?",
-      "items": {
-        "account": {
-          "question": "How do I open a Banko account?",
-          "answer": "Opening an account is quick and easy. Download the Banko app, sign up using your personal details, verify your identity, and follow the steps to activate your account."
-        },
-        "card": {
-          "question": "How do I order a new card?",
-          "answer": "You can order a new card directly from the Banko app. Go to the Cards section, choose your preferred card type, and follow the instructions to complete your order."
-        },
-        "limits": {
-          "question": "How to change my account limits?",
-          "answer": "You can manage your account limits from the app settings. Simply open the Limits section, choose the limit you want to update, and adjust it according to your needs."
-        },
-        "premium": {
-          "question": "How does Banko Premium work?",
-          "answer": "Banko Premium gives you access to additional banking features and exclusive benefits. Choose a subscription plan, complete the payment, and enjoy an enhanced banking experience."
-        },
-        "multiple": {
-          "question": "Can I have two Banko accounts?",
-          "answer": "Each user can have one personal Banko account. However, you may be able to create multiple savings accounts within your profile to organize your money and manage different financial goals."
-        }
-      },
-      "support": {
-        "title": "Contact Support",
-        "description": "Our support team is available around the clock for questions about your account, cards, and payments. Reach us by phone or email and we'll get back to you within minutes.",
-        "hotlineLabel": "Support Hotline",
-        "hotlineValue": "+49 176 123 456",
-        "emailLabel": "Support Email",
-        "emailValue": "help@banquee.com",
-        "responseTime": "Average response time: < 5 mins",
-        "availability": "24/7 Available"
-      }
     }
   },
   "featuresPage": {
@@ -551,6 +515,42 @@
         "regulated": "Regulated European Institution",
         "nominalStatus": "Real-Time Support Status: Nominal"
       }
+    }
+  },
+  "needHelp": {
+    "eyebrow": "Help & Support",
+    "title": "Need help?",
+    "items": {
+      "account": {
+        "question": "How do I open a Banko account?",
+        "answer": "Opening an account is quick and easy. Download the Banko app, sign up using your personal details, verify your identity, and follow the steps to activate your account."
+      },
+      "card": {
+        "question": "How do I order a new card?",
+        "answer": "You can order a new card directly from the Banko app. Go to the Cards section, choose your preferred card type, and follow the instructions to complete your order."
+      },
+      "limits": {
+        "question": "How to change my account limits?",
+        "answer": "You can manage your account limits from the app settings. Simply open the Limits section, choose the limit you want to update, and adjust it according to your needs."
+      },
+      "premium": {
+        "question": "How does Banko Premium work?",
+        "answer": "Banko Premium gives you access to additional banking features and exclusive benefits. Choose a subscription plan, complete the payment, and enjoy an enhanced banking experience."
+      },
+      "multiple": {
+        "question": "Can I have two Banko accounts?",
+        "answer": "Each user can have one personal Banko account. However, you may be able to create multiple savings accounts within your profile to organize your money and manage different financial goals."
+      }
+    },
+    "support": {
+      "title": "Contact Support",
+      "description": "Our support team is available around the clock for questions about your account, cards, and payments. Reach us by phone or email and we'll get back to you within minutes.",
+      "hotlineLabel": "Support Hotline",
+      "hotlineValue": "+49 176 123 456",
+      "emailLabel": "Support Email",
+      "emailValue": "help@banquee.com",
+      "responseTime": "Average response time: < 5 mins",
+      "availability": "24/7 Available"
     }
   },
   "blog": {

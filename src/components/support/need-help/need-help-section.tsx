@@ -77,46 +77,80 @@ const styles = stylex.create({
   },
 })
 
-export async function NeedHelpSection({
-  id = 'faq-support',
-  titleId = 'need-help-title',
+type ResolvedNeedHelpContent = {
+  eyebrow: string
+  title: string
+  faqs: readonly NeedHelpFaq[]
+  support: NeedHelpSupport
+}
+
+async function getDefaultContent(): Promise<ResolvedNeedHelpContent> {
+  const t = await getTranslations('needHelp')
+
+  return {
+    eyebrow: t('eyebrow'),
+    title: t('title'),
+    faqs: FAQ_KEYS.map((key) => ({
+      question: t(`items.${key}.question`),
+      answer: t(`items.${key}.answer`),
+    })),
+    support: {
+      title: t('support.title'),
+      description: t('support.description'),
+      contacts: [
+        {
+          key: 'hotline',
+          label: t('support.hotlineLabel'),
+          value: t('support.hotlineValue'),
+          href: 'tel:+49176123456',
+          icon: Phone,
+        },
+        {
+          key: 'email',
+          label: t('support.emailLabel'),
+          value: t('support.emailValue'),
+          href: 'mailto:help@banquee.com',
+          icon: Mail,
+        },
+      ] satisfies readonly SupportContact[],
+      responseTime: t('support.responseTime'),
+      availability: t('support.availability'),
+    },
+  }
+}
+
+async function resolveContent({
   eyebrow,
   title,
   faqs,
   support,
-  children,
-}: NeedHelpSectionProps = {}) {
-  const t = await getTranslations('landing')
-
-  const resolvedFaqs =
-    faqs ??
-    FAQ_KEYS.map((key) => ({
-      question: t(`needHelp.items.${key}.question`),
-      answer: t(`needHelp.items.${key}.answer`),
-    }))
-
-  const resolvedSupport = support ?? {
-    title: t('needHelp.support.title'),
-    description: t('needHelp.support.description'),
-    contacts: [
-      {
-        key: 'hotline',
-        label: t('needHelp.support.hotlineLabel'),
-        value: t('needHelp.support.hotlineValue'),
-        href: 'tel:+49176123456',
-        icon: Phone,
-      },
-      {
-        key: 'email',
-        label: t('needHelp.support.emailLabel'),
-        value: t('needHelp.support.emailValue'),
-        href: 'mailto:help@banquee.com',
-        icon: Mail,
-      },
-    ] satisfies readonly SupportContact[],
-    responseTime: t('needHelp.support.responseTime'),
-    availability: t('needHelp.support.availability'),
+}: NeedHelpSectionProps): Promise<ResolvedNeedHelpContent> {
+  if (
+    eyebrow !== undefined &&
+    title !== undefined &&
+    faqs !== undefined &&
+    support !== undefined
+  ) {
+    return { eyebrow, title, faqs, support }
   }
+
+  const defaults = await getDefaultContent()
+
+  return {
+    eyebrow: eyebrow ?? defaults.eyebrow,
+    title: title ?? defaults.title,
+    faqs: faqs ?? defaults.faqs,
+    support: support ?? defaults.support,
+  }
+}
+
+export async function NeedHelpSection({
+  id = 'faq-support',
+  titleId = 'need-help-title',
+  children,
+  ...contentProps
+}: NeedHelpSectionProps = {}) {
+  const content = await resolveContent(contentProps)
 
   return (
     <section
@@ -127,14 +161,14 @@ export async function NeedHelpSection({
       <Reveal>
         <NeedHelpHeader
           titleId={titleId}
-          eyebrow={eyebrow ?? t('needHelp.eyebrow')}
-          title={title ?? t('needHelp.title')}
+          eyebrow={content.eyebrow}
+          title={content.title}
         />
       </Reveal>
 
       <div {...stylex.props(styles.grid)}>
         <div {...stylex.props(styles.faqColumn)}>
-          {resolvedFaqs.map((faq, index) => (
+          {content.faqs.map((faq, index) => (
             <Reveal key={`${faq.question}-${index}`} delay={index * 0.06}>
               <FaqItem
                 question={faq.question}
@@ -148,12 +182,12 @@ export async function NeedHelpSection({
         <div {...stylex.props(styles.supportColumn)}>
           <Reveal delay={0.1}>
             <ContactSupportCard
-              title={resolvedSupport.title}
-              description={resolvedSupport.description}
-              contacts={resolvedSupport.contacts}
-              responseTime={resolvedSupport.responseTime}
-              availability={resolvedSupport.availability}
-              icon={resolvedSupport.icon}
+              title={content.support.title}
+              description={content.support.description}
+              contacts={content.support.contacts}
+              responseTime={content.support.responseTime}
+              availability={content.support.availability}
+              icon={content.support.icon}
             />
           </Reveal>
         </div>
