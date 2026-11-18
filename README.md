@@ -154,6 +154,157 @@ docs/                    # tech stack, localization, ADRs
 assets/                  # brand and payment SVGs
 ```
 
+## 🧩 Component architecture
+
+Complex sections are never one big component. Each is a parent that owns layout and orchestration, plus children that each own a single visual or behavioral concern. Components fall into three tiers:
+
+- **Shared primitives** (`src/components/ui/`) — `Cta`, `Reveal`, `BackToTop`, `BackButton`. They know nothing about banking and are used across every feature.
+- **Reusable domain components** (`banking-card/`, `phone/`) — the flippable card and the phone frame. Several features import them by name through a barrel `index.ts`.
+- **Feature sections** (`landing/`, `blog/`, `compare/`, `support/`, `features/`) — one folder per page area, where a server component assembles copy and child components.
+
+Two supporting rules keep the tiers clean: behavior with timing or event listeners becomes a hook (`use-scroll-direction`, `use-has-started`, `use-demo-sequence`) so it is testable without rendering, and content that changes independently of components lives in a `.ts` data file (`compare-data.ts`, `savings-demo-data.ts`). Feature folders can nest: `support/need-help/` is a sub-feature behind its own `index.ts` barrel.
+
+### Site header
+
+```text
+src/components/
+└── layout/
+    ├── site-header.tsx          # parent: chrome, nav, scroll behavior, menu state
+    ├── language-switcher.tsx    # LanguageSwitcher + LanguageOptions
+    ├── use-scroll-direction.ts   # pure behavior hook
+    └── site-footer.tsx
+```
+
+**SiteHeader** owns the fixed header chrome: brand, desktop navigation, the mobile menu dialog, and the state that ties them together (`menuOpen`). It hides itself on scroll down and returns on scroll up, and while hidden it is `inert` — removed from the tab order. It wraps everything in a Radix `Direction.Provider` so the header mirrors in RTL.
+
+**LanguageSwitcher** owns the desktop dropdown behavior — Radix navigation, keyboard support, locale switching. **LanguageOptions** is exported from the same file as a plain list for the mobile menu: two presentations of one locale list, no duplication.
+
+**use-scroll-direction** reports scroll direction and nothing else. As a hook, it has its own unit tests; the header never re-renders differently because of it — it just reads `{ hidden }`.
+
+The split is deliberate: the switcher encapsulates interaction logic the header shouldn't know about, and the scroll hook encapsulates behavior that predates any header markup. Nav links, by contrast, stay inline in the parent — they are one mapped expression over `NAV_ITEMS`, not repeated logic, so a `NavLink` component would be over-componentization.
+
+### Bank card
+
+```text
+src/components/
+└── banking-card/
+    ├── bank-card.tsx            # parent: flip mechanics, faces, status overlays
+    ├── card-chip.tsx            # the EMV chip graphic
+    ├── card-number.tsx          # masked number, compact mode
+    ├── card-network-logo.tsx    # visa / mastercard / none marks
+    ├── card-status-badge.tsx    # frozen / blocked / expired presentation
+    ├── card-tokens.stylex.ts    # standard / gold / premium tier themes
+    ├── card-types.ts            # shared prop types + status helpers
+    └── index.ts                 # public exports
+```
+
+**BankCard** owns the card as a whole: the flip (a `<button>` when `onFlip` is provided, a static `role="img"` otherwise), both faces, selection state, and the frozen/blocked/expired overlays. It renders at three sizes using container queries, with `em`-based typography so every detail scales with the card.
+
+Each child owns one detail and its scaling: **CardChip** the chip graphic, **CardNumber** the masked number (with a compact mode for `size="mini"`), **CardNetworkLogo** the network mark. **CardStatusBadge** is the status presentation — reused wherever a status must be shown, independent of the card that hosts it.
+
+Why this split: the card appears in the hero visual, the cards demo, and the compare page, so details that own their own scaling rules must not be tangled with flip mechanics. Tier themes live in `card-tokens.stylex.ts`, so a new tier is a token file, not a component rewrite. The status helpers in `card-types.ts` (`getInactiveStatus`) keep status resolution out of markup entirely.
+
+### Phone demos
+
+```text
+src/components/
+├── phone/
+│   ├── phone-frame.tsx           # shared device shell
+│   ├── phone-status-bar.tsx
+│   ├── phone-dynamic-island.tsx
+│   └── phone-home-indicator.tsx
+└── banking-demo/
+    ├── banking-demo.tsx          # orchestrator
+    ├── demo-mode-switcher.tsx    # send / receive toggle
+    ├── send-demo.tsx             # one choreography
+    ├── receive-demo.tsx          # the other
+    ├── use-has-started.ts        # mount gating + viewport amount
+    └── …                         # sequence layer:
+        use-demo-sequence.ts, demo-tap-indicator.tsx, demo-data.ts
+```
+
+**PhoneFrame** is a shared shell: status bar, dynamic island, home indicator, and a screen that takes any content as `children`. Every demo — banking, statistics, savings — renders inside it, so all phone screens share one device look.
+
+**BankingDemo** owns orchestration only: it pauses when out of view or when the tab is hidden, mounts the sequence only after the demo has been seen, and switches modes. **SendDemo** and **ReceiveDemo** each own one choreography; a `runId` in the parent's state becomes their `key`, so switching modes remounts the sequence cleanly instead of resetting it from inside.
+
+### Landing sections
+
+```text
+src/components/
+└── landing/
+    ├── hero.tsx                 # server component: copy, badge, CTAs
+    ├── hero-visual.tsx          # client island: layered BankCards
+    ├── plans.tsx                 # server: composes PlanCard + SecurityToggles
+    ├── plan-card.tsx             # one plan's pricing and perks
+    ├── security-toggles.tsx      # freeze / limits illustration
+    └── …                        # one file per landing section
+```
+
+Landing sections split copy from visuals so the client boundary lands exactly where interactivity starts. **Hero** is a server component: localized copy, the badge, and `Cta` links, zero client JavaScript. **HeroVisual** is the only part that needs state — the flip interaction and `useCurrency` — so it is the island. **Plans** follows the same shape as a server parent composing `PlanCard` instances and `SecurityToggles`, wrapped in the shared `Reveal`.
+
+### How it composes: BankingDemo
+
+The parent's job is to decide _when_ something plays; the children decide _what_ plays:
+
+```tsx
+export function BankingDemo() {
+  const rootRef = useRef<HTMLDivElement>(null)
+  const isInView = useInView(rootRef, { amount: DEMO_VIEWPORT_AMOUNT })
+  const [mode, setMode] = useState<DemoMode>('send')
+  const [runId, setRunId] = useState(0)
+  const hasStarted = useHasStarted(rootRef)
+  const paused = !isInView || isDocumentHidden
+
+  const handleModeChange = (nextMode: DemoMode) => {
+    setMode(nextMode)
+    setRunId((current) => current + 1)
+  }
+
+  return (
+    <MotionConfig reducedMotion="user">
+      <div ref={rootRef} dir="ltr" {...stylex.props(styles.root)}>
+        <DemoModeSwitcher mode={mode} onChange={handleModeChange} />
+        <PhoneFrame size="md">
+          <div
+            role="tabpanel"
+            aria-label={
+              mode === 'send' ? 'Send Money demo' : 'Receive Money demo'
+            }
+            {...stylex.props(styles.panel)}
+          >
+            {hasStarted ? (
+              mode === 'send' ? (
+                <SendDemo
+                  key={`send-${runId}`}
+                  paused={paused}
+                  reducedMotion={reducedMotion}
+                />
+              ) : (
+                <ReceiveDemo
+                  key={`receive-${runId}`}
+                  paused={paused}
+                  reducedMotion={reducedMotion}
+                />
+              )
+            ) : null}
+          </div>
+        </PhoneFrame>
+      </div>
+    </MotionConfig>
+  )
+}
+```
+
+Data flows one way: the parent holds `mode`, `runId`, and `paused`, and passes primitives down. The children receive booleans and callbacks — never the parent's state machinery — so each can be reasoned about (and tested) alone.
+
+### Why these boundaries
+
+- **Parents orchestrate, children present.** No child reaches up for layout decisions; no parent renders detail-level markup it doesn't own.
+- **Reuse drives extraction.** `PhoneFrame`, `BankCard`, `CardStatusBadge`, and `Cta` exist as components because a second consumer exists or was planned. A single-use element stays where it lives — the header's mobile panel is inline because only the header uses it and it shares `menuOpen`.
+- **Behavior is extracted when it has a lifecycle.** Scroll direction, viewport gating, and demo sequencing all own timers or listeners, so they are hooks with their own tests instead of effects buried in markup.
+- **Content is data.** Comparisons, demo steps, and plan details live in typed `.ts` files, so editing content never touches component structure.
+- **Over-componentization is avoided on purpose.** A component is created when it carries its own concern (status presentation, device chrome, one choreography) — not merely to shorten a file.
+
 ## 🧪 Testing
 
 Unit and component tests run on Vitest with Testing Library: the flippable bank card, demo sequencing and gesture indicators, blog data and article TOC/share, compare and savings data, support utilities, the scroll-direction hook, and the currency hook.
