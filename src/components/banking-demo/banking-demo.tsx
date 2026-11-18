@@ -7,6 +7,7 @@ import { PhoneFrame } from '../phone/phone-frame'
 import { DemoModeSwitcher, type DemoMode } from './demo-mode-switcher'
 import { ReceiveDemo } from './receive-demo'
 import { SendDemo } from './send-demo'
+import { DEMO_VIEWPORT_AMOUNT, useHasStarted } from './use-has-started'
 
 const styles = stylex.create({
   root: {
@@ -25,11 +26,13 @@ const styles = stylex.create({
 
 export function BankingDemo() {
   const rootRef = useRef<HTMLDivElement>(null)
-  const isInView = useInView(rootRef, { amount: 0.2 })
+  const isInView = useInView(rootRef, { amount: DEMO_VIEWPORT_AMOUNT })
   const shouldReduceMotion = useReducedMotion()
   const [isDocumentHidden, setIsDocumentHidden] = useState(false)
   const [mode, setMode] = useState<DemoMode>('send')
   const [runId, setRunId] = useState(0)
+  /* Mount below-the-fold demos only once seen; stage 0 would otherwise burn offscreen. */
+  const hasStarted = useHasStarted(rootRef)
 
   useEffect(() => {
     const handleVisibilityChange = () => {
@@ -63,19 +66,21 @@ export function BankingDemo() {
             }
             {...stylex.props(styles.panel)}
           >
-            {mode === 'send' ? (
-              <SendDemo
-                key={`send-${runId}`}
-                paused={paused}
-                reducedMotion={reducedMotion}
-              />
-            ) : (
-              <ReceiveDemo
-                key={`receive-${runId}`}
-                paused={paused}
-                reducedMotion={reducedMotion}
-              />
-            )}
+            {hasStarted ? (
+              mode === 'send' ? (
+                <SendDemo
+                  key={`send-${runId}`}
+                  paused={paused}
+                  reducedMotion={reducedMotion}
+                />
+              ) : (
+                <ReceiveDemo
+                  key={`receive-${runId}`}
+                  paused={paused}
+                  reducedMotion={reducedMotion}
+                />
+              )
+            ) : null}
           </div>
         </PhoneFrame>
       </div>

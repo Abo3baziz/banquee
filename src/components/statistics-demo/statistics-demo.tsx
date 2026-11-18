@@ -4,6 +4,10 @@ import { useEffect, useRef, useState } from 'react'
 import * as stylex from '@stylexjs/stylex'
 import { MotionConfig, useInView, useReducedMotion } from 'motion/react'
 import { PhoneFrame } from '../phone/phone-frame'
+import {
+  DEMO_VIEWPORT_AMOUNT,
+  useHasStarted,
+} from '../banking-demo/use-has-started'
 import { ExpenseTrackingDemo } from './expense-tracking-demo'
 import { MonthlyReportDemo } from './monthly-report-demo'
 import { SpendingInsightsDemo } from './spending-insights-demo'
@@ -35,11 +39,13 @@ const styles = stylex.create({
 
 export function StatisticsDemo() {
   const rootRef = useRef<HTMLDivElement>(null)
-  const isInView = useInView(rootRef, { amount: 0.2 })
+  const isInView = useInView(rootRef, { amount: DEMO_VIEWPORT_AMOUNT })
   const shouldReduceMotion = useReducedMotion()
   const [isDocumentHidden, setIsDocumentHidden] = useState(false)
   const [mode, setMode] = useState<StatisticsDemoMode>('insights')
   const [runId, setRunId] = useState(0)
+  /* Mount below-the-fold demos only once seen; stage 0 would otherwise burn offscreen. */
+  const hasStarted = useHasStarted(rootRef)
 
   useEffect(() => {
     const handleVisibilityChange = () => {
@@ -71,21 +77,21 @@ export function StatisticsDemo() {
             aria-label={MODE_LABELS[mode]}
             {...stylex.props(styles.panel)}
           >
-            {mode === 'insights' ? (
+            {hasStarted && mode === 'insights' ? (
               <SpendingInsightsDemo
                 key={`insights-${runId}`}
                 paused={paused}
                 reducedMotion={reducedMotion}
               />
             ) : null}
-            {mode === 'report' ? (
+            {hasStarted && mode === 'report' ? (
               <MonthlyReportDemo
                 key={`report-${runId}`}
                 paused={paused}
                 reducedMotion={reducedMotion}
               />
             ) : null}
-            {mode === 'budgets' ? (
+            {hasStarted && mode === 'budgets' ? (
               <ExpenseTrackingDemo
                 key={`budgets-${runId}`}
                 paused={paused}

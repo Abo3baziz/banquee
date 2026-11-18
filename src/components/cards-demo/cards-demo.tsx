@@ -4,6 +4,10 @@ import { useEffect, useRef, useState } from 'react'
 import * as stylex from '@stylexjs/stylex'
 import { MotionConfig, useInView, useReducedMotion } from 'motion/react'
 import { PhoneFrame } from '../phone/phone-frame'
+import {
+  DEMO_VIEWPORT_AMOUNT,
+  useHasStarted,
+} from '../banking-demo/use-has-started'
 import { AddCardDemo } from './add-card-demo'
 import { CardsModeSwitcher, type CardsDemoMode } from './cards-mode-switcher'
 import { FreezeDemo } from './freeze-demo'
@@ -32,12 +36,18 @@ const styles = stylex.create({
 
 export function CardsDemo() {
   const rootRef = useRef<HTMLDivElement>(null)
-  const isInView = useInView(rootRef, { amount: 0.2 })
+  const isInView = useInView(rootRef, { amount: DEMO_VIEWPORT_AMOUNT })
   const shouldReduceMotion = useReducedMotion()
   const [isDocumentHidden, setIsDocumentHidden] = useState(false)
   const [mode, setMode] = useState<CardsDemoMode>('freeze')
   const [runId, setRunId] = useState(0)
-  const [hasStarted, setHasStarted] = useState(false)
+  /*
+   * Defer the first mount until the demo is actually visible, so in-stage
+   * animations such as the card swipe, typing, and simulated taps are not
+   * spent while the section is still below the fold. After the first view the
+   * demo stays mounted and resumes from where it paused.
+   */
+  const hasStarted = useHasStarted(rootRef)
 
   useEffect(() => {
     const handleVisibilityChange = () => {
@@ -49,17 +59,6 @@ export function CardsDemo() {
       document.removeEventListener('visibilitychange', handleVisibilityChange)
     }
   }, [])
-
-  /*
-   * Defer the first mount until the demo is actually visible, so in-stage
-   * animations such as the card swipe, typing, and simulated taps are not
-   * spent while the section is still below the fold. After the first view the
-   * demo stays mounted and resumes from where it paused.
-   */
-  if (isInView && !hasStarted) {
-    setHasStarted(true)
-  }
-  const started = hasStarted || isInView
 
   const paused = !isInView || isDocumentHidden
   const reducedMotion = Boolean(shouldReduceMotion)
@@ -80,21 +79,21 @@ export function CardsDemo() {
             aria-label={MODE_LABELS[mode]}
             {...stylex.props(styles.panel)}
           >
-            {started && mode === 'freeze' ? (
+            {hasStarted && mode === 'freeze' ? (
               <FreezeDemo
                 key={`freeze-${runId}`}
                 paused={paused}
                 reducedMotion={reducedMotion}
               />
             ) : null}
-            {started && mode === 'limits' ? (
+            {hasStarted && mode === 'limits' ? (
               <SpendingLimitsDemo
                 key={`limits-${runId}`}
                 paused={paused}
                 reducedMotion={reducedMotion}
               />
             ) : null}
-            {started && mode === 'add' ? (
+            {hasStarted && mode === 'add' ? (
               <AddCardDemo
                 key={`add-${runId}`}
                 paused={paused}

@@ -4,6 +4,10 @@ import { useEffect, useRef, useState } from 'react'
 import * as stylex from '@stylexjs/stylex'
 import { MotionConfig, useInView, useReducedMotion } from 'motion/react'
 import { PhoneFrame } from '../phone/phone-frame'
+import {
+  DEMO_VIEWPORT_AMOUNT,
+  useHasStarted,
+} from '../banking-demo/use-has-started'
 import { ProgressDemo } from './progress-demo'
 import { SavingsGoalsDemo } from './savings-goals-demo'
 import {
@@ -35,11 +39,13 @@ const styles = stylex.create({
 
 export function SavingsDemo() {
   const rootRef = useRef<HTMLDivElement>(null)
-  const isInView = useInView(rootRef, { amount: 0.2 })
+  const isInView = useInView(rootRef, { amount: DEMO_VIEWPORT_AMOUNT })
   const shouldReduceMotion = useReducedMotion()
   const [isDocumentHidden, setIsDocumentHidden] = useState(false)
   const [mode, setMode] = useState<SavingsDemoMode>('goals')
   const [runId, setRunId] = useState(0)
+  /* Mount below-the-fold demos only once seen; stage 0 would otherwise burn offscreen. */
+  const hasStarted = useHasStarted(rootRef)
 
   useEffect(() => {
     const handleVisibilityChange = () => {
@@ -71,21 +77,21 @@ export function SavingsDemo() {
             aria-label={MODE_LABELS[mode]}
             {...stylex.props(styles.panel)}
           >
-            {mode === 'goals' ? (
+            {hasStarted && mode === 'goals' ? (
               <SavingsGoalsDemo
                 key={`goals-${runId}`}
                 paused={paused}
                 reducedMotion={reducedMotion}
               />
             ) : null}
-            {mode === 'progress' ? (
+            {hasStarted && mode === 'progress' ? (
               <ProgressDemo
                 key={`progress-${runId}`}
                 paused={paused}
                 reducedMotion={reducedMotion}
               />
             ) : null}
-            {mode === 'smart' ? (
+            {hasStarted && mode === 'smart' ? (
               <SmartSavingsDemo
                 key={`smart-${runId}`}
                 paused={paused}

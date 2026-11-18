@@ -18,11 +18,11 @@ import { DEMO_ACCOUNT, DEMO_RECEIVE } from './demo-data'
 import { DemoProcessing, DemoSuccess } from './demo-feedback'
 import type { DemoSequenceStage } from './demo-sequence'
 import { demoStyles } from './demo-styles'
-import { DemoTapIndicator } from './demo-tap-indicator'
 import {
   DemoAvatar,
   DemoChip,
   DemoHeader,
+  DemoPrimaryButton,
   DemoQrCode,
   DemoScreen,
 } from './demo-ui'
@@ -54,7 +54,7 @@ export function ReceiveDemo({ paused, reducedMotion }: ReceiveDemoProps) {
   const balance = stage === 'success' ? RECEIVE_BALANCE : DEMO_ACCOUNT.balance
 
   return (
-    <AnimatePresence mode="wait" initial={false}>
+    <AnimatePresence mode="wait">
       {stage === 'details' ? <ReceiveDetails key="details" /> : null}
       {stage === 'incoming' ? <IncomingTransfer key="incoming" /> : null}
       {stage === 'processing' ? <ReceiveProcessing key="processing" /> : null}
@@ -312,16 +312,12 @@ function IncomingTransfer() {
         </div>
 
         <div {...stylex.props(demoStyles.grow)} />
-        <motion.div
-          {...stylex.props(demoStyles.primaryButton)}
-          animate={{ scale: [1, 0.965, 1] }}
-          transition={{ delay: 2.5, duration: 0.45, times: [0, 0.35, 1] }}
-        >
-          <span>Acknowledge &amp; View Details</span>
-          <Check aria-hidden="true" size={14} strokeWidth={2.6} />
-        </motion.div>
+        <DemoPrimaryButton
+          label="Acknowledge & View Details"
+          icon={<Check aria-hidden="true" size={14} strokeWidth={2.6} />}
+          pressAt={2.5}
+        />
       </div>
-      <DemoTapIndicator x={22} y={92} delay={2.45} />
     </DemoScreen>
   )
 }

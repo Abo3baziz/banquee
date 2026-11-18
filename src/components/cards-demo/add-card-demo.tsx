@@ -18,7 +18,6 @@ import { colors } from '../../styles/tokens.stylex'
 import { DemoProcessing } from '../banking-demo/demo-feedback'
 import type { DemoSequenceStage } from '../banking-demo/demo-sequence'
 import { demoStyles } from '../banking-demo/demo-styles'
-import { DemoTapIndicator } from '../banking-demo/demo-tap-indicator'
 import {
   DemoChip,
   DemoDetailRow,
@@ -67,7 +66,7 @@ export function AddCardDemo({ paused, reducedMotion }: AddCardDemoProps) {
   })
 
   return (
-    <AnimatePresence mode="wait" initial={false}>
+    <AnimatePresence mode="wait">
       {stage === 'form' ? <AddCardForm key="form" /> : null}
       {stage === 'review' ? <ReviewCard key="review" /> : null}
       {stage === 'processing' ? <CardProcessing key="processing" /> : null}
@@ -210,7 +209,6 @@ function AddCardForm() {
           <span>Instant micro-deposit authorization · No fee</span>
         </span>
       </div>
-      <DemoTapIndicator x={50} y={93} delay={4.45} />
     </DemoScreen>
   )
 }
@@ -335,13 +333,12 @@ function ReviewCard() {
         <DemoPrimaryButton
           label="Confirm and Add Card"
           icon={<ArrowRight aria-hidden="true" size={14} strokeWidth={2.5} />}
-          pressAt={2.7}
+          pressAt={2.6}
         />
         <span {...stylex.props(cardsStyles.doneHint)}>
           No issuance fee · Cancel anytime
         </span>
       </div>
-      <DemoTapIndicator x={50} y={93} delay={2.6} />
     </DemoScreen>
   )
 }

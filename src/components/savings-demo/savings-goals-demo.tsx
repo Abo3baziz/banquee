@@ -83,7 +83,7 @@ export function SavingsGoalsDemo({
   })
 
   return (
-    <AnimatePresence mode="wait" initial={false}>
+    <AnimatePresence mode="wait">
       {stage === 'overview' ? <SavingsOverview key="overview" /> : null}
       {stage === 'details' ? <EmergencyGoalDetails key="details" /> : null}
       {stage === 'addMoney' ? <AddMoney key="add-money" /> : null}
@@ -174,7 +174,7 @@ function SavingsOverview() {
           </span>
         </div>
       </div>
-      <DemoTapIndicator x={50} y={47} delay={2.5} />
+      <DemoTapIndicator x={50} y={47} contactDelay={2.4} />
     </DemoScreen>
   )
 }
@@ -307,7 +307,7 @@ function EmergencyGoalDetails() {
         <DemoPrimaryButton
           label="Add Money to Emergency Fund"
           icon={<Plus aria-hidden="true" size={14} strokeWidth={2.5} />}
-          pressAt={2.85}
+          pressAt={2.6}
         />
 
         <div {...stylex.props(savingsStyles.metaGrid)}>
@@ -361,7 +361,6 @@ function EmergencyGoalDetails() {
           ))}
         </div>
       </div>
-      <DemoTapIndicator x={50} y={34} delay={2.75} />
     </DemoScreen>
   )
 }
@@ -514,7 +513,6 @@ function AddMoney() {
           Instant settlement · Secured by 256-bit encryption
         </span>
       </div>
-      <DemoTapIndicator x={50} y={92} delay={2.8} />
     </DemoScreen>
   )
 }

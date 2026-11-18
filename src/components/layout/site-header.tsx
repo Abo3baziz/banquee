@@ -9,6 +9,7 @@ import { Link, usePathname } from '../../../i18n/navigation'
 import { colors, fonts, radii, spacing } from '../../styles/tokens.stylex'
 import { Cta } from '../ui/cta'
 import { LanguageOptions, LanguageSwitcher } from './language-switcher'
+import { useScrollDirection } from './use-scroll-direction'
 
 const NAV_ITEMS = [
   { key: 'features', href: '/features' },
@@ -72,9 +73,19 @@ const styles = stylex.create({
     backgroundColor: 'rgba(249, 249, 249, 0.8)',
     boxShadow: '0 1px 8px rgba(0, 0, 0, 0.04)',
     position: 'fixed',
+    transitionDuration: {
+      default: '250ms',
+      '@media (prefers-reduced-motion: reduce)': '0ms',
+    },
+    transitionProperty: 'transform',
+    transitionTimingFunction: 'cubic-bezier(0.22, 1, 0.36, 1)',
     zIndex: 50,
     top: 0,
     width: '100%',
+  },
+  headerHidden: {
+    pointerEvents: 'none',
+    transform: 'translateY(-100%)',
   },
   inner: {
     gap: spacing.gutter,
@@ -371,6 +382,9 @@ export function SiteHeader() {
   const locale = useLocale()
   const direction = locale === 'ar' ? 'rtl' : 'ltr'
   const [menuOpen, setMenuOpen] = useState(false)
+  const { hidden } = useScrollDirection({
+    onHide: () => setMenuOpen(false),
+  })
 
   const brand = tCommon('brandName')
   const hasSuffix = brand.endsWith('.')
@@ -393,7 +407,10 @@ export function SiteHeader() {
 
   return (
     <Direction.Provider dir={direction}>
-      <header {...stylex.props(styles.header)}>
+      <header
+        inert={hidden || undefined}
+        {...stylex.props(styles.header, hidden && styles.headerHidden)}
+      >
         <div {...stylex.props(styles.inner)}>
           <div {...stylex.props(styles.left)}>
             <Link

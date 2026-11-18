@@ -3,7 +3,7 @@
 import { useState } from 'react'
 import * as stylex from '@stylexjs/stylex'
 import { CircleCheck, CircleMinus } from 'lucide-react'
-import { useTranslations } from 'next-intl'
+import { useLocale, useTranslations } from 'next-intl'
 import { BankCard } from '../banking-card'
 import type { BankCardTier } from '../banking-card'
 import { colors, fonts, radii, spacing } from '../../styles/tokens.stylex'
@@ -25,7 +25,10 @@ const CARD_DATA = {
 const styles = stylex.create({
   card: {
     padding: spacing.lg,
+    borderColor: 'transparent',
     borderRadius: radii.lg,
+    borderStyle: 'solid',
+    borderWidth: 1,
     backgroundColor: colors.surfaceLight,
     boxShadow: {
       default: '0 1px 2px rgba(0, 0, 0, 0.04)',
@@ -42,24 +45,43 @@ const styles = stylex.create({
     transitionProperty: 'transform, box-shadow',
     height: '100%',
   },
+  cardPopular: {
+    borderColor: colors.primaryContainer,
+    boxShadow: {
+      default: '0 12px 32px rgba(26, 28, 28, 0.12)',
+      ':hover': '0 22px 48px rgba(26, 28, 28, 0.16)',
+    },
+    transform: {
+      default: 'translateY(0)',
+      ':hover': 'translateY(-4px)',
+      '@media (min-width: 64rem)': {
+        default: 'translateY(-4px)',
+        ':hover': 'translateY(-8px)',
+      },
+    },
+  },
   popularBadge: {
     borderRadius: radii.full,
+    insetInline: 0,
+    marginInline: 'auto',
     paddingBlock: '0.125rem',
     paddingInline: spacing.md,
-    backgroundColor: colors.primaryContainer,
-    color: colors.onPrimaryContainer,
+    backgroundColor: colors.primary,
+    color: colors.onPrimary,
     fontFamily: fonts.body,
     fontSize: '0.625rem',
     fontWeight: 700,
-    insetInlineStart: '50%',
     letterSpacing: '0.08em',
     lineHeight: '0.875rem',
     position: 'absolute',
     textTransform: 'uppercase',
-    transform: 'translateX(-50%)',
     whiteSpace: 'nowrap',
     zIndex: 5,
     top: '-0.75rem',
+    width: 'fit-content',
+  },
+  popularBadgeArabic: {
+    letterSpacing: 0,
   },
   visual: {
     marginInline: 'auto',
@@ -146,6 +168,7 @@ const styles = stylex.create({
 export function PlanCard({ tier, popular = false }: PlanCardProps) {
   const t = useTranslations('landing')
   const tm = useTranslations('mockups')
+  const locale = useLocale()
   const [flipped, setFlipped] = useState(false)
 
   const data = CARD_DATA[tier]
@@ -160,9 +183,14 @@ export function PlanCard({ tier, popular = false }: PlanCardProps) {
   ]
 
   return (
-    <article {...stylex.props(styles.card)}>
+    <article {...stylex.props(styles.card, popular && styles.cardPopular)}>
       {popular ? (
-        <span {...stylex.props(styles.popularBadge)}>
+        <span
+          {...stylex.props(
+            styles.popularBadge,
+            locale === 'ar' && styles.popularBadgeArabic,
+          )}
+        >
           {t('plans.popularBadge')}
         </span>
       ) : null}

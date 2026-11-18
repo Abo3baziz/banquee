@@ -24,7 +24,7 @@ import { formatUsd } from '../banking-demo/demo-data'
 import { DemoProcessing } from '../banking-demo/demo-feedback'
 import type { DemoSequenceStage } from '../banking-demo/demo-sequence'
 import { demoStyles } from '../banking-demo/demo-styles'
-import { DemoTapIndicator } from '../banking-demo/demo-tap-indicator'
+import { DemoFingerGesture } from '../banking-demo/demo-tap-indicator'
 import {
   DemoChip,
   DemoDetailRow,
@@ -55,6 +55,17 @@ const FREEZE_STAGES: readonly DemoSequenceStage<FreezeStage>[] = [
   { id: 'unfreeze', duration: 3700 },
 ]
 
+/** When the carousel starts sliding to the second card, in milliseconds. */
+const CAROUSEL_NEXT_AT_MS = 1000
+/** When the carousel starts sliding back to the first card, in milliseconds. */
+const CAROUSEL_PREV_AT_MS = 2100
+/** Card slide duration in seconds. The swipe gestures use the same value. */
+const CAROUSEL_SLIDE_DURATION = 0.55
+/** Easing shared by the carousel track and the swipes that drive it. */
+const CAROUSEL_SLIDE_EASE = [0.1, 0.8, 0.2, 1] as const
+/** Fingertip drag in percent of one card width. */
+const CAROUSEL_SWIPE_DISTANCE = 64
+
 const ACTIVITY_ICONS: Record<(typeof CARD_ACTIVITY)[number]['id'], LucideIcon> =
   {
     netflix: Play,
@@ -74,7 +85,7 @@ export function FreezeDemo({ paused, reducedMotion }: FreezeDemoProps) {
   })
 
   return (
-    <AnimatePresence mode="wait" initial={false}>
+    <AnimatePresence mode="wait">
       {stage === 'myCards' ? <MyCards key="my-cards" /> : null}
       {stage === 'confirm' ? <FreezeConfirmation key="confirm" /> : null}
       {stage === 'processing' ? <FreezeProcessing key="processing" /> : null}
@@ -147,14 +158,13 @@ function MyCards() {
           View all card transactions
         </span>
       </div>
-      <DemoTapIndicator x={16} y={53} delay={2.2} />
     </DemoScreen>
   )
 }
 
 function AutoSwipeCarousel() {
-  const hasSwiped = useDelayedFlag(1000)
-  const hasReturned = useDelayedFlag(2100)
+  const hasSwiped = useDelayedFlag(CAROUSEL_NEXT_AT_MS)
+  const hasReturned = useDelayedFlag(CAROUSEL_PREV_AT_MS)
   const activeIndex = hasSwiped && !hasReturned ? 1 : 0
 
   return <CardsCarousel activeIndex={activeIndex} />
@@ -165,18 +175,46 @@ function CardsCarousel({ activeIndex }: { activeIndex: number }) {
 
   return (
     <>
-      <div {...stylex.props(cardsStyles.carousel)}>
-        <motion.div
-          {...stylex.props(cardsStyles.carouselTrack)}
-          animate={{ x: `${activeIndex * -100}%` }}
-          transition={{ duration: 0.55, ease: [0.1, 0.8, 0.2, 1] }}
-        >
-          {[FREEZE_CARD, SECONDARY_CARD].map((card) => (
-            <div key={card.id} {...stylex.props(cardsStyles.carouselSlide)}>
-              <DemoCardView card={card} status={card.status} />
-            </div>
-          ))}
-        </motion.div>
+      {/*
+       * Positioned so the swipe gestures are measured against the card: their
+       * x/y coordinates and travel use one card width as 100%.
+       */}
+      <div {...stylex.props(cardsStyles.carouselHost)}>
+        <div {...stylex.props(cardsStyles.carousel)}>
+          <motion.div
+            {...stylex.props(cardsStyles.carouselTrack)}
+            animate={{ x: `${activeIndex * -100}%` }}
+            transition={{
+              duration: CAROUSEL_SLIDE_DURATION,
+              ease: CAROUSEL_SLIDE_EASE,
+            }}
+          >
+            {[FREEZE_CARD, SECONDARY_CARD].map((card) => (
+              <div key={card.id} {...stylex.props(cardsStyles.carouselSlide)}>
+                <DemoCardView card={card} status={card.status} />
+              </div>
+            ))}
+          </motion.div>
+        </div>
+
+        <DemoFingerGesture
+          x={82}
+          y={56}
+          contactAt={CAROUSEL_NEXT_AT_MS / 1000}
+          variant="swipe"
+          distance={-CAROUSEL_SWIPE_DISTANCE}
+          swipeDuration={CAROUSEL_SLIDE_DURATION}
+          swipeEase={CAROUSEL_SLIDE_EASE}
+        />
+        <DemoFingerGesture
+          x={18}
+          y={56}
+          contactAt={CAROUSEL_PREV_AT_MS / 1000}
+          variant="swipe"
+          distance={CAROUSEL_SWIPE_DISTANCE}
+          swipeDuration={CAROUSEL_SLIDE_DURATION}
+          swipeEase={CAROUSEL_SLIDE_EASE}
+        />
       </div>
 
       <div {...stylex.props(cardsStyles.dots)}>
@@ -292,13 +330,12 @@ function FreezeConfirmation() {
         <DemoPrimaryButton
           label="Freeze Card"
           icon={<Snowflake aria-hidden="true" size={14} />}
-          pressAt={2.3}
+          pressAt={2.2}
         />
         <span {...stylex.props(cardsStyles.doneHint)}>
           Unfreeze at any time in seconds
         </span>
       </div>
-      <DemoTapIndicator x={50} y={92} delay={2.2} />
     </DemoScreen>
   )
 }
@@ -525,7 +562,6 @@ function UnfreezeCard() {
           <span>256-bit bank-grade security encrypted</span>
         </span>
       </div>
-      <DemoTapIndicator x={50} y={56} delay={1.1} />
     </DemoScreen>
   )
 }
