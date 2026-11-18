@@ -299,42 +299,6 @@
       "eyebrow": "Blog",
       "title": "Blog.",
       "ctaAll": "Alle Artikel"
-    },
-    "needHelp": {
-      "eyebrow": "Hilfe & Support",
-      "title": "Brauchen Sie Hilfe?",
-      "items": {
-        "account": {
-          "question": "Wie eröffne ich ein Banko-Konto?",
-          "answer": "Die Kontoeröffnung ist schnell und einfach. Laden Sie die Banko App herunter, registrieren Sie sich mit Ihren persönlichen Daten, verifizieren Sie Ihre Identität und folgen Sie den Schritten zur Aktivierung Ihres Kontos."
-        },
-        "card": {
-          "question": "Wie bestelle ich eine neue Karte?",
-          "answer": "Sie können eine neue Karte direkt in der Banko App bestellen. Öffnen Sie den Bereich Karten, wählen Sie den gewünschten Kartentyp und folgen Sie den Anweisungen, um die Bestellung abzuschließen."
-        },
-        "limits": {
-          "question": "Wie ändere ich meine Kontolimits?",
-          "answer": "Sie können Ihre Kontolimits in den App-Einstellungen verwalten. Öffnen Sie den Bereich Limits, wählen Sie das Limit aus, das Sie ändern möchten, und passen Sie es an Ihre Bedürfnisse an."
-        },
-        "premium": {
-          "question": "Wie funktioniert Banko Premium?",
-          "answer": "Banko Premium bietet Ihnen Zugang zu zusätzlichen Bankfunktionen und exklusiven Vorteilen. Wählen Sie ein Abonnement, schließen Sie die Zahlung ab und profitieren Sie von einem erweiterten Bankerlebnis."
-        },
-        "multiple": {
-          "question": "Kann ich zwei Banko-Konten haben?",
-          "answer": "Jede Person kann ein persönliches Banko-Konto führen. Sie können jedoch mehrere Sparkonten innerhalb Ihres Profils anlegen, um Ihr Geld zu organisieren und verschiedene finanzielle Ziele zu verwalten."
-        }
-      },
-      "support": {
-        "title": "Kontakt zum Support",
-        "description": "Unser Support-Team ist rund um die Uhr für Sie da – bei Fragen zu Ihrem Konto, Ihren Karten und Ihren Zahlungen. Erreichen Sie uns per Telefon oder E-Mail, antworten wir Ihnen in wenigen Minuten.",
-        "hotlineLabel": "Telefonische Hotline",
-        "hotlineValue": "+49 176 123 456",
-        "emailLabel": "E-Mail-Kundenservice",
-        "emailValue": "help@banquee.com",
-        "responseTime": "Durchschnittliche Antwortzeit: < 5 Min.",
-        "availability": "24/7 erreichbar"
-      }
     }
   },
   "featuresPage": {
@@ -551,6 +515,42 @@
         "regulated": "Reguliertes europäisches Finanzinstitut",
         "nominalStatus": "Echtzeit-Supportstatus: Voll betriebsbereit"
       }
+    }
+  },
+  "needHelp": {
+    "eyebrow": "Hilfe & Support",
+    "title": "Brauchen Sie Hilfe?",
+    "items": {
+      "account": {
+        "question": "Wie eröffne ich ein Banko-Konto?",
+        "answer": "Die Kontoeröffnung ist schnell und einfach. Laden Sie die Banko App herunter, registrieren Sie sich mit Ihren persönlichen Daten, verifizieren Sie Ihre Identität und folgen Sie den Schritten zur Aktivierung Ihres Kontos."
+      },
+      "card": {
+        "question": "Wie bestelle ich eine neue Karte?",
+        "answer": "Sie können eine neue Karte direkt in der Banko App bestellen. Öffnen Sie den Bereich Karten, wählen Sie den gewünschten Kartentyp und folgen Sie den Anweisungen, um die Bestellung abzuschließen."
+      },
+      "limits": {
+        "question": "Wie ändere ich meine Kontolimits?",
+        "answer": "Sie können Ihre Kontolimits in den App-Einstellungen verwalten. Öffnen Sie den Bereich Limits, wählen Sie das Limit aus, das Sie ändern möchten, und passen Sie es an Ihre Bedürfnisse an."
+      },
+      "premium": {
+        "question": "Wie funktioniert Banko Premium?",
+        "answer": "Banko Premium bietet Ihnen Zugang zu zusätzlichen Bankfunktionen und exklusiven Vorteilen. Wählen Sie ein Abonnement, schließen Sie die Zahlung ab und profitieren Sie von einem erweiterten Bankerlebnis."
+      },
+      "multiple": {
+        "question": "Kann ich zwei Banko-Konten haben?",
+        "answer": "Jede Person kann ein persönliches Banko-Konto führen. Sie können jedoch mehrere Sparkonten innerhalb Ihres Profils anlegen, um Ihr Geld zu organisieren und verschiedene finanzielle Ziele zu verwalten."
+      }
+    },
+    "support": {
+      "title": "Kontakt zum Support",
+      "description": "Unser Support-Team ist rund um die Uhr für Sie da – bei Fragen zu Ihrem Konto, Ihren Karten und Ihren Zahlungen. Erreichen Sie uns per Telefon oder E-Mail, antworten wir Ihnen in wenigen Minuten.",
+      "hotlineLabel": "Telefonische Hotline",
+      "hotlineValue": "+49 176 123 456",
+      "emailLabel": "E-Mail-Kundenservice",
+      "emailValue": "help@banquee.com",
+      "responseTime": "Durchschnittliche Antwortzeit: < 5 Min.",
+      "availability": "24/7 erreichbar"
     }
   },
   "blog": {
