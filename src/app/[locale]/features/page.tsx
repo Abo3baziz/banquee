@@ -4,7 +4,7 @@ import { getTranslations } from 'next-intl/server'
 import { FeaturesHero } from '../../../components/features/hero'
 import { FeaturesSections } from '../../../components/features/feature-sections'
 import { AppCta } from '../../../components/landing/app-cta'
-import { NeedHelpSection } from '../../../components/landing/need-help'
+import { NeedHelpSection } from '../../../components/support/need-help'
 import { Plans } from '../../../components/landing/plans'
 import { colors } from '../../../styles/tokens.stylex'
 
