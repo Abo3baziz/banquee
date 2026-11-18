@@ -1,5 +1,5 @@
-import type { DemoCard } from '../cards-demo/cards-demo-data'
-import { DEMO_CARDS, NEW_CARD } from '../cards-demo/cards-demo-data'
+import type { DemoCard } from '../../data/cards-demo-data'
+import { DEMO_CARDS, NEW_CARD } from '../../data/cards-demo-data'
 
 /*
  * Comparison content for the /compare page. Card identity comes from the

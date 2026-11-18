@@ -3,7 +3,7 @@ import {
   DEMO_CARDS,
   DEMO_CARDHOLDER,
   NEW_CARD,
-} from '../cards-demo/cards-demo-data'
+} from '../../data/cards-demo-data'
 import type {
   CompareRow,
   CompareSection,
