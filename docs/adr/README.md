@@ -1,6 +1,6 @@
 # Architecture Decision Records
 
-This directory contains the architectural decisions made during the development of Banko.
+This directory contains the architectural decisions made during the development of Banquee.
 
 ## ADR Statuses
 
@@ -20,6 +20,11 @@ This directory contains the architectural decisions made during the development 
 | [0005](0005-use-radix-ui.md) | Use Radix UI primitives | Accepted |
 | [0006](0006-use-motion.md) | Use Motion for animations | Accepted |
 | [0007](0007-minimize-client-state.md) | Minimize client-side state | Accepted |
+| [0008](0008-use-vitest-and-testing-library.md) | Use Vitest and Testing Library for tests | Accepted |
+| [0009](0009-use-react-hook-form-and-zod.md) | Validate forms with React Hook Form and Zod | Accepted |
+| [0010](0010-locale-aware-currency-display.md) | Locale-aware currency display | Accepted |
+| [0011](0011-gesture-driven-in-app-demos.md) | Gesture-driven in-app demos instead of video | Accepted |
+| [0012](0012-use-lucide-react-icons.md) | Use Lucide React for icons | Accepted |
 
 ## Creating New ADRs
 
