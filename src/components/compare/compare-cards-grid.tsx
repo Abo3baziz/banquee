@@ -1,10 +1,9 @@
 import * as stylex from '@stylexjs/stylex'
 import { getTranslations } from 'next-intl/server'
 import { BankCard, CardStatusBadge } from '../banking-card'
-import { formatUsd } from '../banking-demo/demo-data'
 import { colors, fonts, radii, spacing } from '../../styles/tokens.stylex'
 import { Reveal } from '../ui/reveal'
-import { COMPARE_CARDS } from './compare-data'
+import { formatEgp, getCompareCardSummaries } from './compare-data'
 
 const styles = stylex.create({
   section: {
@@ -160,10 +159,8 @@ const styles = stylex.create({
 })
 
 export async function CompareCardsGrid() {
-  const [t, tm] = await Promise.all([
-    getTranslations('compareCards'),
-    getTranslations('mockups'),
-  ])
+  const t = await getTranslations('compareCards')
+  const summaries = getCompareCardSummaries()
 
   return (
     <section {...stylex.props(styles.section)}>
@@ -172,7 +169,8 @@ export async function CompareCardsGrid() {
           {t('grid.sectionTitle')}
         </h2>
         <div {...stylex.props(styles.grid)}>
-          {COMPARE_CARDS.map((card, index) => {
+          {summaries.map((summary, index) => {
+            const { card } = summary
             const premium = card.tier === 'premium'
             const description =
               card.kind === 'credit'
@@ -196,10 +194,6 @@ export async function CompareCardsGrid() {
                       type="physical"
                       network={card.brand}
                       lastFour={card.lastFour}
-                      cardholderName={card.cardholder}
-                      cardholderLabel={tm('cardsManagement.cardHolderLabel')}
-                      expiryDate={card.expiry}
-                      expiryLabel={tm('cardsManagement.expiresLabel')}
                       label={card.networkLabel}
                       accessibleLabel={`${card.networkLabel} ${card.lastFour}`}
                     />
@@ -228,9 +222,7 @@ export async function CompareCardsGrid() {
                           {t('grid.dailyLimit')}
                         </dt>
                         <dd {...stylex.props(styles.factValue)}>
-                          <span dir="ltr">
-                            {formatUsd(card.dailyLimit.limit)}
-                          </span>
+                          <span dir="ltr">{formatEgp(summary.dailyLimit)}</span>
                         </dd>
                       </div>
                       <div {...stylex.props(styles.fact)}>
@@ -239,7 +231,7 @@ export async function CompareCardsGrid() {
                         </dt>
                         <dd {...stylex.props(styles.factValue)}>
                           <span dir="ltr">
-                            {formatUsd(card.monthlyLimit.limit)}
+                            {formatEgp(summary.monthlyLimit)}
                           </span>
                         </dd>
                       </div>

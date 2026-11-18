@@ -299,42 +299,6 @@
       "eyebrow": "Blog",
       "title": "Blog.",
       "ctaAll": "All Articles"
-    },
-    "needHelp": {
-      "eyebrow": "Help & Support",
-      "title": "Need help?",
-      "items": {
-        "account": {
-          "question": "How do I open a Banko account?",
-          "answer": "Opening an account is quick and easy. Download the Banko app, sign up using your personal details, verify your identity, and follow the steps to activate your account."
-        },
-        "card": {
-          "question": "How do I order a new card?",
-          "answer": "You can order a new card directly from the Banko app. Go to the Cards section, choose your preferred card type, and follow the instructions to complete your order."
-        },
-        "limits": {
-          "question": "How to change my account limits?",
-          "answer": "You can manage your account limits from the app settings. Simply open the Limits section, choose the limit you want to update, and adjust it according to your needs."
-        },
-        "premium": {
-          "question": "How does Banko Premium work?",
-          "answer": "Banko Premium gives you access to additional banking features and exclusive benefits. Choose a subscription plan, complete the payment, and enjoy an enhanced banking experience."
-        },
-        "multiple": {
-          "question": "Can I have two Banko accounts?",
-          "answer": "Each user can have one personal Banko account. However, you may be able to create multiple savings accounts within your profile to organize your money and manage different financial goals."
-        }
-      },
-      "support": {
-        "title": "Contact Support",
-        "description": "Our support team is available around the clock for questions about your account, cards, and payments. Reach us by phone or email and we'll get back to you within minutes.",
-        "hotlineLabel": "Support Hotline",
-        "hotlineValue": "+49 176 123 456",
-        "emailLabel": "Support Email",
-        "emailValue": "help@banquee.com",
-        "responseTime": "Average response time: < 5 mins",
-        "availability": "24/7 Available"
-      }
     }
   },
   "featuresPage": {
@@ -422,7 +386,7 @@
   "compareCards": {
     "meta": {
       "title": "Compare Cards - Banquee",
-      "description": "Compare your Banquee cards side by side: card types, tiers, spending limits, and the features available on each card."
+      "description": "Compare your Banquee cards side by side: spending limits, fees, rewards, and payment features."
     },
     "hero": {
       "badge": "Compare Cards",
@@ -442,46 +406,74 @@
     "table": {
       "sectionTitle": "Card comparison",
       "caption": "Feature comparison of your Banquee cards",
+      "footnote": "* Availability depends on card activation, network support, and merchant acceptance.",
+      "disclaimer": "All amounts, limits, fees, and rewards are fictional demo values for illustration only — not verified bank or payment-network offers.",
       "headers": {
         "features": "Features"
       },
       "categories": {
-        "cardDetails": "Card Details",
-        "spendingLimits": "Spending Limits",
-        "cardFeatures": "Card Features",
-        "pricing": "Pricing & Rewards"
+        "cardOverview": "Card Overview",
+        "spendingLimits": "Spending & Limits",
+        "fees": "Fees & Charges",
+        "rewards": "Rewards & Benefits",
+        "paymentFeatures": "Payment Features",
+        "additionalTerms": "Additional Terms"
       },
       "rows": {
-        "network": "Network",
         "cardType": "Card Type",
-        "tier": "Tier",
-        "status": "Status",
-        "cardNumber": "Card Number",
-        "expiry": "Expires",
-        "cardholder": "Cardholder",
-        "linkedAccount": "Linked Account",
-        "dailyLimit": "Daily Limit",
-        "dailySpent": "Daily Spent",
-        "monthlyLimit": "Monthly Limit",
-        "monthlySpent": "Monthly Spent",
-        "monthlyRemaining": "Monthly Remaining",
-        "contactless": "Contactless Payments",
-        "freezeCard": "Freeze Card",
-        "adjustableLimits": "Adjustable Spending Limits",
+        "paymentNetwork": "Payment Network",
+        "fundingSource": "Funding Source",
+        "currency": "Currency",
+        "cardStatus": "Card Status",
+        "monthlyLimit": "Monthly Spending Limit",
+        "dailyLimit": "Daily Spending Limit",
+        "atmDailyLimit": "ATM Withdrawal Limit / Day",
+        "internationalMonthlyLimit": "International Spending Limit / Month",
+        "creditLimit": "Credit Limit",
+        "minimumPayment": "Minimum Payment",
         "annualFee": "Annual Fee",
-        "rewards": "Rewards Program",
-        "foreignTransactionFee": "Foreign Transaction Fee"
+        "foreignTransactionFee": "Foreign Transaction Fee",
+        "atmWithdrawalFee": "ATM Withdrawal Fee",
+        "cardReplacementFee": "Card Replacement Fee",
+        "monthlyInterestRate": "Monthly Interest Rate",
+        "cashback": "Cashback",
+        "pointsPerHundred": "Rewards Points / EGP 100",
+        "welcomeBonus": "Welcome Bonus",
+        "loungeAccess": "Airport Lounge Access",
+        "purchaseProtection": "Purchase Protection",
+        "onlinePayments": "Online Payments",
+        "inStorePayments": "In-store Payments",
+        "internationalPayments": "International Payments",
+        "atmWithdrawals": "ATM Withdrawals",
+        "contactlessPayments": "Contactless Payments",
+        "mobileWallet": "Mobile Wallet",
+        "emvChip": "EMV Chip",
+        "gracePeriod": "Grace Period",
+        "interestFreePurchases": "Interest-Free Purchases",
+        "spendingSource": "Spending Source",
+        "bestFor": "Best For"
       },
       "values": {
-        "included": "Included",
-        "notAvailable": "Not available",
-        "debit": "Debit Card",
-        "credit": "Credit Card",
-        "standard": "Standard",
-        "gold": "Gold",
-        "premium": "Premium",
+        "debitCard": "Debit",
+        "creditCard": "Credit",
+        "bankAccount": "Bank Account",
+        "creditLine": "Credit Line",
         "active": "Active",
-        "frozen": "Frozen"
+        "basic": "Basic",
+        "extended": "Extended",
+        "standard": "Standard",
+        "availableBalance": "Available balance",
+        "availableCredit": "Available credit",
+        "everydaySpending": "Everyday spending",
+        "flexibleCreditSpending": "Flexible credit spending",
+        "everydayCreditPurchases": "Everyday credit purchases",
+        "supported": "Supported",
+        "notIncluded": "Not included",
+        "equipped": "Equipped",
+        "na": "N/A",
+        "points": "{count, plural, one {# point} other {# points}}",
+        "visits": "{count, plural, one {# visit/year} other {# visits/year}}",
+        "upToDays": "Up to {count, plural, one {# day} other {# days}}"
       }
     },
     "securityCta": {
@@ -493,10 +485,20 @@
     }
   },
   "support": {
+    "meta": {
+      "title": "Support - Banquee",
+      "description": "Find answers to common questions about your Banko account, cards, and personal details, or reach the Banquee support team by phone, email, or live chat."
+    },
     "hero": {
       "eyebrow": "Support",
       "title": "How can we help you?",
       "description": "Find answers to common questions about your Banko account, cards, and personal details."
+    },
+    "search": {
+      "label": "Search frequently asked questions",
+      "placeholder": "Search questions…",
+      "clear": "Clear search",
+      "empty": "No matching questions found. You can reach our support team directly below."
     },
     "categories": {
       "cards": "Cards",
@@ -551,11 +553,49 @@
       "chatTitle": "Chat with us",
       "chatDescription": "Live chat with our banking advisors",
       "chatButton": "Start conversation",
+      "chatConnecting": "Connecting…",
+      "chatConnected": "Advisor connected",
       "badges": {
         "encrypted": "End-to-End Encrypted",
         "regulated": "Regulated European Institution",
         "nominalStatus": "Real-Time Support Status: Nominal"
       }
+    }
+  },
+  "needHelp": {
+    "eyebrow": "Help & Support",
+    "title": "Need help?",
+    "items": {
+      "account": {
+        "question": "How do I open a Banko account?",
+        "answer": "Opening an account is quick and easy. Download the Banko app, sign up using your personal details, verify your identity, and follow the steps to activate your account."
+      },
+      "card": {
+        "question": "How do I order a new card?",
+        "answer": "You can order a new card directly from the Banko app. Go to the Cards section, choose your preferred card type, and follow the instructions to complete your order."
+      },
+      "limits": {
+        "question": "How to change my account limits?",
+        "answer": "You can manage your account limits from the app settings. Simply open the Limits section, choose the limit you want to update, and adjust it according to your needs."
+      },
+      "premium": {
+        "question": "How does Banko Premium work?",
+        "answer": "Banko Premium gives you access to additional banking features and exclusive benefits. Choose a subscription plan, complete the payment, and enjoy an enhanced banking experience."
+      },
+      "multiple": {
+        "question": "Can I have two Banko accounts?",
+        "answer": "Each user can have one personal Banko account. However, you may be able to create multiple savings accounts within your profile to organize your money and manage different financial goals."
+      }
+    },
+    "support": {
+      "title": "Contact Support",
+      "description": "Our support team is available around the clock for questions about your account, cards, and payments. Reach us by phone or email and we'll get back to you within minutes.",
+      "hotlineLabel": "Support Hotline",
+      "hotlineValue": "+49 176 123 456",
+      "emailLabel": "Support Email",
+      "emailValue": "help@banquee.com",
+      "responseTime": "Average response time: < 5 mins",
+      "availability": "24/7 Available"
     }
   },
   "blog": {

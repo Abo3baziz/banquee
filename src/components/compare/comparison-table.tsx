@@ -1,11 +1,12 @@
 import type { ReactNode } from 'react'
 import * as stylex from '@stylexjs/stylex'
-import { Check } from 'lucide-react'
+import { Check, X } from 'lucide-react'
 import { getTranslations } from 'next-intl/server'
 import { colors, fonts, radii, spacing } from '../../styles/tokens.stylex'
-import { formatUsd } from '../banking-demo/demo-data'
 import {
   COMPARE_CARDS,
+  formatEgp,
+  formatRate,
   getCompareSections,
   type CompareValue,
 } from './compare-data'
@@ -30,6 +31,28 @@ const styles = stylex.create({
     boxShadow:
       '0 1px 3px rgba(0, 0, 0, 0.08), 0 1px 2px -1px rgba(0, 0, 0, 0.08)',
     overflowX: 'auto',
+  },
+  /*
+   * The scroll container is a focusable region so keyboard users can pan the
+   * table horizontally on small screens (WCAG 2.1.1).
+   */
+  scrollFocus: {
+    outlineColor: {
+      default: null,
+      ':focus-visible': colors.primary,
+    },
+    outlineOffset: {
+      default: null,
+      ':focus-visible': 2,
+    },
+    outlineStyle: {
+      default: 'none',
+      ':focus-visible': 'solid',
+    },
+    outlineWidth: {
+      default: null,
+      ':focus-visible': 2,
+    },
   },
   table: {
     borderCollapse: 'collapse',
@@ -158,8 +181,25 @@ const styles = stylex.create({
     color: colors.primary,
     flexShrink: 0,
   },
-  unavailable: {
+  dimmed: {
     color: 'rgba(62, 73, 70, 0.6)',
+  },
+  footnote: {
+    color: colors.onSurfaceVariant,
+    fontFamily: fonts.body,
+    fontSize: '0.75rem',
+    lineHeight: '1.125rem',
+    marginBlockStart: spacing.sm,
+    marginBottom: 0,
+  },
+  disclaimer: {
+    color: colors.onSurfaceVariant,
+    fontFamily: fonts.body,
+    fontSize: '0.6875rem',
+    lineHeight: '1rem',
+    marginBlockStart: spacing.xs,
+    opacity: 0.75,
+    marginBottom: 0,
   },
   visuallyHidden: {
     margin: -1,
@@ -184,18 +224,22 @@ export async function ComparisonTable() {
   const renderValue = (value: CompareValue): ReactNode => {
     switch (value.kind) {
       case 'text':
-        return /[0-9.]/.test(value.value) ? (
+        return /[0-9•]/.test(value.value) ? (
           <span dir="ltr">{value.value}</span>
         ) : (
           value.value
         )
-      case 'cardType':
-      case 'tier':
-      case 'status':
+      case 'enum':
         return t(`table.values.${value.value}`)
       case 'money':
-        return <span dir="ltr">{formatUsd(value.value)}</span>
-      case 'included':
+        return <span dir="ltr">{formatEgp(value.value)}</span>
+      case 'percent':
+        return <span dir="ltr">{formatRate(value.value)}</span>
+      case 'na':
+        return (
+          <span {...stylex.props(styles.dimmed)}>{t('table.values.na')}</span>
+        )
+      case 'supported':
         return (
           <span {...stylex.props(styles.included)}>
             <Check
@@ -203,15 +247,52 @@ export async function ComparisonTable() {
               size={16}
               {...stylex.props(styles.includedIcon)}
             />
-            {t('table.values.included')}
+            {t('table.values.supported')}
           </span>
         )
-      case 'unavailable':
+      case 'supportedStar':
         return (
-          <span {...stylex.props(styles.unavailable)}>
-            {t('table.values.notAvailable')}
+          <span {...stylex.props(styles.included)}>
+            <Check
+              aria-hidden="true"
+              size={16}
+              {...stylex.props(styles.includedIcon)}
+            />
+            {`${t('table.values.supported')}*`}
           </span>
         )
+      case 'notIncluded':
+        return (
+          <span {...stylex.props(styles.included, styles.dimmed)}>
+            <X
+              aria-hidden="true"
+              size={16}
+              {...stylex.props(styles.includedIcon, styles.dimmed)}
+            />
+            {t('table.values.notIncluded')}
+          </span>
+        )
+      case 'equipped':
+        return (
+          <span {...stylex.props(styles.included)}>
+            <Check
+              aria-hidden="true"
+              size={16}
+              {...stylex.props(styles.includedIcon)}
+            />
+            {t('table.values.equipped')}
+          </span>
+        )
+      case 'points':
+        return t('table.values.points', { count: value.value })
+      case 'visits':
+        return t('table.values.visits', { count: value.value })
+      case 'upToDays':
+        return t('table.values.upToDays', { count: value.value })
+      default: {
+        const exhaustive: never = value
+        return exhaustive
+      }
     }
   }
 
@@ -221,7 +302,12 @@ export async function ComparisonTable() {
         <h2 {...stylex.props(styles.visuallyHidden)}>
           {t('table.sectionTitle')}
         </h2>
-        <div {...stylex.props(styles.scroll)}>
+        <div
+          role="region"
+          aria-label={t('table.caption')}
+          tabIndex={0}
+          {...stylex.props(styles.scroll, styles.scrollFocus)}
+        >
           <table {...stylex.props(styles.table)}>
             <caption {...stylex.props(styles.caption)}>
               {t('table.caption')}
@@ -299,6 +385,8 @@ export async function ComparisonTable() {
             })}
           </table>
         </div>
+        <p {...stylex.props(styles.footnote)}>{t('table.footnote')}</p>
+        <p {...stylex.props(styles.disclaimer)}>{t('table.disclaimer')}</p>
       </div>
     </section>
   )
