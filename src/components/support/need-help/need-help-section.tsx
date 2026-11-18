@@ -1,4 +1,3 @@
-import type { ReactNode } from 'react'
 import * as stylex from '@stylexjs/stylex'
 import { Mail, Phone } from 'lucide-react'
 import type { LucideIcon } from 'lucide-react'
@@ -35,8 +34,6 @@ export type NeedHelpSectionProps = {
   title?: string
   faqs?: readonly NeedHelpFaq[]
   support?: NeedHelpSupport
-  /** Additional content rendered below the FAQ and support card. */
-  children?: ReactNode
 }
 
 const styles = stylex.create({
@@ -147,7 +144,6 @@ async function resolveContent({
 export async function NeedHelpSection({
   id = 'faq-support',
   titleId = 'need-help-title',
-  children,
   ...contentProps
 }: NeedHelpSectionProps = {}) {
   const content = await resolveContent(contentProps)
@@ -192,8 +188,6 @@ export async function NeedHelpSection({
           </Reveal>
         </div>
       </div>
-
-      {children}
     </section>
   )
 }
