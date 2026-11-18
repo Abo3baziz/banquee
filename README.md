@@ -42,6 +42,7 @@ The shared pieces are in place:
 - ✅ Customer testimonials grid with localized quotes
 - ✅ App download CTA with a banking dashboard mockup
 - ✅ Landing blog preview with localized article cards
+- ✅ Compare cards page with the app's three real cards, a feature table, and RTL support
 - ✅ Styled 404 for unknown locale routes
 - ✅ App icon and favicon
 
