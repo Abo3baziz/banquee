@@ -1,6 +1,7 @@
 import type { Metadata } from 'next'
 import * as stylex from '@stylexjs/stylex'
 import { getTranslations } from 'next-intl/server'
+import { pageMetadata } from '@/src/lib/site'
 import { BlogArticles } from '../../../components/blog/blog-articles'
 import { BlogHero } from '../../../components/blog/blog-hero'
 import { FeaturedArticle } from '../../../components/blog/featured-article'
@@ -22,13 +23,20 @@ const styles = stylex.create({
   },
 })
 
-export async function generateMetadata(): Promise<Metadata> {
-  const t = await getTranslations('blog')
+export async function generateMetadata({
+  params,
+}: {
+  params: Promise<{ locale: string }>
+}): Promise<Metadata> {
+  const { locale } = await params
+  const t = await getTranslations({ locale, namespace: 'blog' })
 
-  return {
+  return pageMetadata({
+    locale,
     title: t('meta.title'),
     description: t('meta.description'),
-  }
+    path: '/blog',
+  })
 }
 
 export default function BlogPage() {

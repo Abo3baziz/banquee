@@ -1,6 +1,7 @@
 import type { Metadata } from 'next'
 import * as stylex from '@stylexjs/stylex'
 import { getTranslations } from 'next-intl/server'
+import { pageMetadata } from '@/src/lib/site'
 import {
   SupportContact,
   SupportFaqExplorer,
@@ -15,13 +16,20 @@ const styles = stylex.create({
   },
 })
 
-export async function generateMetadata(): Promise<Metadata> {
-  const t = await getTranslations('support')
+export async function generateMetadata({
+  params,
+}: {
+  params: Promise<{ locale: string }>
+}): Promise<Metadata> {
+  const { locale } = await params
+  const t = await getTranslations({ locale, namespace: 'support' })
 
-  return {
+  return pageMetadata({
+    locale,
     title: t('meta.title'),
     description: t('meta.description'),
-  }
+    path: '/support',
+  })
 }
 
 export default function SupportPage() {
