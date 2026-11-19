@@ -42,7 +42,7 @@ messages/
 | `nav` | Global header navigation links (`Features`, `Compare`, `Support`, `Blog`). |
 | `footer` | Footer brand taglines, column headers, navigation links, copyright notices, and legal items. |
 | `notFound` | 404 page: title, description, home action, and back action. |
-| `landing` | Landing page content including Hero, Velocity Cashflow charts, Card tiers, feature cards, Send & Receive, Tools & Integrations, Manifesto, Testimonials, App download CTA, and blog snippet. |
+| `landing` | Landing page content including Hero, Velocity Cashflow charts, Card tiers, feature cards, Send & Receive, Tools & Integrations, Manifesto, Testimonials, App download CTA, and blog snippet, plus the page metadata strings (`landing.meta`). |
 | `featuresPage` | Dedicated Features page content: Hero stats, Send & Receive breakdown, Card Management, Cash Control & analytics, and Savings accounts. |
 | `compareCards` | Card comparison page: Plan cards (Premium, Gold, Plat), detailed comparison tables (Credit Card, Bank Account, Extra Features), and security CTA banner. |
 | `support` | Customer support and Help Center: Hero, categorized FAQ questions and answers (`cards`, `account`, `personalDetails`), and contact channels (`Hotline`, `Email`, `Chat with us`). |
