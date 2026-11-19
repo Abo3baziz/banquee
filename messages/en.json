@@ -82,6 +82,10 @@
     "back": "Go Back"
   },
   "landing": {
+    "meta": {
+      "title": "Modern banking for digital living",
+      "description": "Digital banking with instant transfers, card controls, savings goals, and spending insights, all managed from one secure mobile app."
+    },
     "hero": {
       "badge": "Next-Gen Neobanking",
       "headline": "Banking starts here.",
@@ -303,7 +307,7 @@
   },
   "featuresPage": {
     "meta": {
-      "title": "Features - Banquee",
+      "title": "Features",
       "description": "Discover the tools that make Banquee banking simpler: instant transfers, card controls, spending insights and savings goals."
     },
     "hero": {
@@ -385,7 +389,7 @@
   },
   "compareCards": {
     "meta": {
-      "title": "Compare Cards - Banquee",
+      "title": "Compare Cards",
       "description": "Compare your Banquee cards side by side: spending limits, fees, rewards, and payment features."
     },
     "hero": {
@@ -486,7 +490,7 @@
   },
   "support": {
     "meta": {
-      "title": "Support - Banquee",
+      "title": "Support",
       "description": "Find answers to common questions about your Banko account, cards, and personal details, or reach the Banquee support team by phone, email, or live chat."
     },
     "hero": {
@@ -600,7 +604,7 @@
   },
   "blog": {
     "meta": {
-      "title": "Blog - Banquee",
+      "title": "Blog",
       "description": "Practical tips, product updates, and insights to help you make better financial decisions with your Banko account."
     },
     "hero": {
