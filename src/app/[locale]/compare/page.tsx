@@ -1,6 +1,7 @@
 import type { Metadata } from 'next'
 import * as stylex from '@stylexjs/stylex'
 import { getTranslations } from 'next-intl/server'
+import { pageMetadata } from '@/src/lib/site'
 import { CompareCardsGrid } from '../../../components/compare/compare-cards-grid'
 import { CompareCta } from '../../../components/compare/compare-cta'
 import { CompareHero } from '../../../components/compare/compare-hero'
@@ -14,13 +15,20 @@ const styles = stylex.create({
   },
 })
 
-export async function generateMetadata(): Promise<Metadata> {
-  const t = await getTranslations('compareCards')
+export async function generateMetadata({
+  params,
+}: {
+  params: Promise<{ locale: string }>
+}): Promise<Metadata> {
+  const { locale } = await params
+  const t = await getTranslations({ locale, namespace: 'compareCards' })
 
-  return {
+  return pageMetadata({
+    locale,
     title: t('meta.title'),
     description: t('meta.description'),
-  }
+    path: '/compare',
+  })
 }
 
 export default function ComparePage() {

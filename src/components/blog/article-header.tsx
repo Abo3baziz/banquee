@@ -94,7 +94,7 @@ export function ArticleHeader({
           src={article.image}
           alt={title}
           fill
-          loading="eager"
+          priority
           sizes="(min-width: 80rem) 80rem, 100vw"
           {...stylex.props(styles.coverImage)}
         />

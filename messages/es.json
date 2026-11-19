@@ -82,6 +82,10 @@
     "back": "Volver"
   },
   "landing": {
+    "meta": {
+      "title": "Banca moderna para la vida digital",
+      "description": "Banca digital con transferencias instantáneas, control de tarjetas, metas de ahorro y análisis de gastos, todo desde una app segura."
+    },
     "hero": {
       "badge": "Neobanca de nueva generación",
       "headline": "La banca comienza aquí.",
@@ -303,7 +307,7 @@
   },
   "featuresPage": {
     "meta": {
-      "title": "Funciones - Banquee",
+      "title": "Funciones",
       "description": "Descubre las herramientas que hacen que la banca de Banquee sea más sencilla: transferencias instantáneas, control de tarjetas, análisis de gastos y metas de ahorro."
     },
     "hero": {
@@ -385,7 +389,7 @@
   },
   "compareCards": {
     "meta": {
-      "title": "Comparar tarjetas - Banquee",
+      "title": "Comparar tarjetas",
       "description": "Compara tus tarjetas Banquee lado a lado: límites de gasto, comisiones, recompensas y funciones de pago."
     },
     "hero": {
@@ -486,7 +490,7 @@
   },
   "support": {
     "meta": {
-      "title": "Soporte - Banquee",
+      "title": "Soporte",
       "description": "Encuentra respuestas a preguntas frecuentes sobre tu cuenta Banko, tus tarjetas y tus datos personales, o contacta con el equipo de soporte de Banquee por teléfono, correo electrónico o chat en vivo."
     },
     "hero": {
@@ -600,7 +604,7 @@
   },
   "blog": {
     "meta": {
-      "title": "Blog - Banquee",
+      "title": "Blog",
       "description": "Consejos prácticos, novedades del producto y análisis para ayudarte a tomar mejores decisiones financieras con tu cuenta de Banko."
     },
     "hero": {

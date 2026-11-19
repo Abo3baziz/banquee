@@ -315,6 +315,7 @@ Playwright and axe-core are configured for end-to-end accessibility specs; those
 
 - [docs/TECH_STACK.md](docs/TECH_STACK.md) — the agreed stack and quality targets
 - [docs/LOCALIZATION.md](docs/LOCALIZATION.md) — locale structure, naming, and RTL rules
+- [docs/SEO.md](docs/SEO.md) — SEO architecture, metadata conventions, sitemap and robots configuration
 - [docs/adr/](docs/adr/) — architecture decision records
 - [AGENTS.md](AGENTS.md) — contribution and agent rules
 

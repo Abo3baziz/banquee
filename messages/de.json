@@ -82,6 +82,10 @@
     "back": "Zurück"
   },
   "landing": {
+    "meta": {
+      "title": "Modernes Banking für das digitale Leben",
+      "description": "Digitales Banking mit Sofortüberweisungen, Kartensteuerung, Sparzielen und Ausgabenübersichten – alles in einer sicheren App verwaltet."
+    },
     "hero": {
       "badge": "Neobanking der nächsten Generation",
       "headline": "Modernes Banking beginnt hier.",
@@ -303,7 +307,7 @@
   },
   "featuresPage": {
     "meta": {
-      "title": "Funktionen - Banquee",
+      "title": "Funktionen",
       "description": "Entdecken Sie die Funktionen, die Banking mit Banquee einfacher machen: Sofortüberweisungen, Kartenkontrolle, Ausgabenanalysen und Sparziele."
     },
     "hero": {
@@ -385,7 +389,7 @@
   },
   "compareCards": {
     "meta": {
-      "title": "Karten vergleichen - Banquee",
+      "title": "Karten vergleichen",
       "description": "Vergleichen Sie Ihre Banquee-Karten nebeneinander: Ausgabenlimits, Gebühren, Prämien und Zahlungsfunktionen."
     },
     "hero": {
@@ -486,7 +490,7 @@
   },
   "support": {
     "meta": {
-      "title": "Support - Banquee",
+      "title": "Support",
       "description": "Finden Sie Antworten auf häufige Fragen zu Ihrem Banko-Konto, Ihren Karten und Ihren persönlichen Daten – oder kontaktieren Sie das Banquee-Support-Team per Telefon, E-Mail oder Live-Chat."
     },
     "hero": {
@@ -600,7 +604,7 @@
   },
   "blog": {
     "meta": {
-      "title": "Blog - Banquee",
+      "title": "Blog",
       "description": "Praktische Tipps, Produktupdates und Einblicke, die Ihnen helfen, bessere finanzielle Entscheidungen für Ihr Banko-Konto zu treffen."
     },
     "hero": {

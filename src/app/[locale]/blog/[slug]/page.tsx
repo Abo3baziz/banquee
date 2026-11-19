@@ -13,13 +13,10 @@ import {
 } from '../../../../components/blog/blog-data'
 import { RelatedArticles } from '../../../../components/blog/related-articles'
 import { colors, spacing } from '../../../../styles/tokens.stylex'
-import { routing } from '@/i18n/routing'
+import { openGraphLocales, pageMetadata, siteUrl } from '@/src/lib/site'
 
-/** Fallback matches the dev port configured in package.json. */
-const siteUrl = process.env.NEXT_PUBLIC_SITE_URL ?? 'http://localhost:3010'
-
-// The slug only resolves at request time, so this route is allowed to block.
-export const instant = false
+// Unknown slugs intentionally block so notFound() returns a real 404 instead of a streamed 200 shell.
+export const unstable_paramMatching = { slug: 'blocking' }
 
 const styles = stylex.create({
   main: {
@@ -74,31 +71,20 @@ export async function generateMetadata({
   const t = await getTranslations('blog')
   const title = t(`articles.${article.translationKey}.title`)
   const description = t(`articles.${article.translationKey}.description`)
-
-  return {
+  const base = pageMetadata({
+    locale,
     title,
     description,
-    metadataBase: new URL(siteUrl),
-    alternates: {
-      canonical: `/${locale}/blog/${article.slug}`,
-      languages: {
-        ...Object.fromEntries(
-          routing.locales.map((l) => [l, `/${l}/blog/${article.slug}`]),
-        ),
-        'x-default': `/en/blog/${article.slug}`,
-      },
-    },
+    path: `/blog/${article.slug}`,
+  })
+
+  return {
+    ...base,
     openGraph: {
-      title,
-      description,
-      images: [{ url: article.image, alt: title }],
+      ...base.openGraph,
       type: 'article',
-      locale,
-    },
-    twitter: {
-      title,
-      description,
-      images: [article.image],
+      images: [{ url: article.image, alt: title }],
+      locale: openGraphLocales[locale] ?? locale,
     },
   }
 }
@@ -132,12 +118,41 @@ export default async function BlogArticlePage({
     },
   }
 
+  const breadcrumbJsonLd = {
+    '@context': 'https://schema.org',
+    '@type': 'BreadcrumbList',
+    itemListElement: [
+      {
+        '@type': 'ListItem',
+        position: 1,
+        name: t('articleDetail.breadcrumbHome'),
+        item: `${siteUrl}/${locale}`,
+      },
+      {
+        '@type': 'ListItem',
+        position: 2,
+        name: t('articleDetail.breadcrumbBlog'),
+        item: `${siteUrl}/${locale}/blog`,
+      },
+      {
+        '@type': 'ListItem',
+        position: 3,
+        name: title,
+        item: `${siteUrl}/${locale}/blog/${article.slug}`,
+      },
+    ],
+  }
+
   return (
     <main {...stylex.props(styles.main)}>
       <article {...stylex.props(styles.container)}>
         <script
           type="application/ld+json"
           dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
+        />
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbJsonLd) }}
         />
         <ArticleBreadcrumbs title={title} />
         <ArticleHeader
