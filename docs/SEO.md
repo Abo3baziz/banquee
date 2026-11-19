@@ -4,7 +4,7 @@ How metadata, crawling, canonical URLs, structured data, and social images are b
 
 ## 1. Overview
 
-Every localized route builds its metadata from the same helpers: `src/lib/site.ts` holds the site URL, brand name, Open Graph locale map, and the `pageMetadata()` builder, while `src/app/[locale]/layout.tsx` sets the shared defaults (metadata base, title template, Twitter card, Organization/WebSite JSON-LD). Page-level metadata lives in each route's `generateMetadata`, the sitemap and robots files sit at `src/app/sitemap.ts` and `src/app/robots.ts`, and social images come from `src/app/[locale]/_og/brand-image.tsx`.
+Every localized route builds its metadata from the same helpers: `src/lib/site.ts` holds the site URL, brand name, Open Graph locale map, and the `pageMetadata()` builder, while `src/app/[locale]/layout.tsx` sets the shared defaults (metadata base, title template, Twitter card, Organization/WebSite JSON-LD). Page-level metadata lives in each route's `generateMetadata`, the sitemap and robots files sit at `src/app/sitemap.ts` and `src/app/robots.ts`, and social images come from a static `opengraph-image.png` in each route segment.
 
 ## 2. Site URL configuration
 
@@ -113,15 +113,17 @@ Arabic renders with `dir="rtl"` on `<html lang="ar">`. Direction is a presentati
 
 ## 8. Open Graph images
 
-The brand card is defined once in `src/app/[locale]/_og/brand-image.tsx` using `ImageResponse` at 1200×630. `_og` is a private folder (the underscore prefix keeps it out of routing), and each route segment that needs the image re-exports the file as `opengraph-image.tsx`:
+The brand card is a designed static asset: `assets/banquee-og-light.png`, a 1200×630 PNG. Each route segment copies it as `opengraph-image.png`:
 
-```ts
-export { alt, contentType, default, size } from '../_og/brand-image'
-```
+- `src/app/[locale]/opengraph-image.png`
+- `src/app/[locale]/blog/opengraph-image.png`
+- `src/app/[locale]/compare/opengraph-image.png`
+- `src/app/[locale]/features/opengraph-image.png`
+- `src/app/[locale]/support/opengraph-image.png`
 
-There is one in `[locale]/` and one in each child segment (`blog/`, `compare/`, `features/`, `support/`). The file convention only attaches a generated image to the segment that declares it — it is not inherited the way metadata objects are — so each child route needs its own re-export.
+The file convention only attaches an image to the segment that declares it — it is not inherited the way metadata objects are — so each child route needs its own copy. The copies are byte-identical, so git stores one blob for all of them. Because `[locale]` is a dynamic segment, Next collapses it to `-` in the image URL: the routes are `/-/opengraph-image.png` and `/-/<segment>/opengraph-image.png`. Every locale shares them, which is fine for a card that is not localized. The `og:*` tags carry the 1200×630 dimensions and the `image/png` type read from the file. Each segment also has an `opengraph-image.alt.txt` beside its PNG; Next copies that file's contents verbatim into `og:image:alt`, so it is written as a single line with no trailing newline.
 
-Article pages override the generated card with the cover image in `generateMetadata`: `openGraph.images: [{ url: article.image, alt: title }]`. Explicit `openGraph.images` wins over an inherited `opengraph-image` convention file, and `metadataBase` turns the relative `/images/...` path into an absolute URL.
+Article pages override the card with the cover image in `generateMetadata`: `openGraph.images: [{ url: article.image, alt: title }]`. Explicit `openGraph.images` wins over an inherited `opengraph-image` convention file, and `metadataBase` turns the relative `/images/...` path into an absolute URL.
 
 ## 9. Performance notes
 
