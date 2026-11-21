@@ -65,7 +65,7 @@
       "communityHub": "ملتقى المجتمع"
     },
     "copyright": "© {{year}} جميع الحقوق محفوظة لـ banquee. صُمم من أجل وضوح مالي عصري.",
-    "pawelCredit": "© صُنع بواسطة Pawel Gola - مشغل بواسطة Webflow",
+    "designCredit": "تصميم الواجهة مُعدَّل من قالب Banquee بواسطة <figmaLink>Pawel Gola</figmaLink>، ويُستخدم بموجب <licenseLink>CC BY 4.0</licenseLink> مع بعض التعديلات.",
     "legal": {
       "impressum": "بيانات النشر (Impressum)",
       "datenschutz": "حماية البيانات (Datenschutz)",
