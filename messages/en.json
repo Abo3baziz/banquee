@@ -65,7 +65,7 @@
       "communityHub": "Community Hub"
     },
     "copyright": "© {{year}} banquee. All rights reserved. Built for modern financial clarity.",
-    "pawelCredit": "© Made by Pawel Gola - Powered by Webflow",
+    "designCredit": "UI design adapted from the Banquee template by <figmaLink>Pawel Gola</figmaLink>, used under <licenseLink>CC BY 4.0</licenseLink> with modifications.",
     "legal": {
       "impressum": "Impressum",
       "datenschutz": "Datenschutz",

@@ -9,6 +9,12 @@ type FooterLink = {
   external?: boolean
 }
 
+// CC BY 4.0 requires crediting the creator, linking the license, and
+// indicating modifications — the credit line in the footer covers all three.
+const FIGMA_TEMPLATE_URL =
+  'https://www.figma.com/community/file/1151590403301615327'
+const CC_BY_LICENSE_URL = 'https://creativecommons.org/licenses/by/4.0/'
+
 async function getCurrentYear() {
   'use cache'
   return new Date().getFullYear()
@@ -126,16 +132,29 @@ const styles = stylex.create({
     justifyContent: 'space-between',
     paddingTop: spacing.lg,
   },
+  creditBlock: {
+    gap: spacing.xs,
+    display: 'flex',
+    flexDirection: 'column',
+    textAlign: {
+      default: 'center',
+      '@media (min-width: 48rem)': 'start',
+    },
+  },
   copyright: {
     color: colors.onSurfaceVariant,
     fontFamily: fonts.body,
     fontSize: '0.75rem',
     fontWeight: 500,
     lineHeight: '1rem',
-    textAlign: {
-      default: 'center',
-      '@media (min-width: 48rem)': 'start',
-    },
+  },
+  credit: {
+    margin: 0,
+    color: colors.onSurfaceVariant,
+    fontFamily: fonts.body,
+    fontSize: '0.75rem',
+    fontWeight: 500,
+    lineHeight: '1.25rem',
   },
   legal: {
     alignItems: 'center',
@@ -174,6 +193,29 @@ export async function SiteFooter() {
 
   // The dictionaries use {{variable}} placeholders, so interpolate the raw string.
   const copyright = String(t.raw('copyright')).replace('{{year}}', String(year))
+
+  const credit = t.rich('designCredit', {
+    figmaLink: (chunks) => (
+      <a
+        href={FIGMA_TEMPLATE_URL}
+        target="_blank"
+        rel="noreferrer"
+        {...stylex.props(styles.legalLink, styles.focusRing)}
+      >
+        {chunks}
+      </a>
+    ),
+    licenseLink: (chunks) => (
+      <a
+        href={CC_BY_LICENSE_URL}
+        target="_blank"
+        rel="noreferrer"
+        {...stylex.props(styles.legalLink, styles.focusRing)}
+      >
+        {chunks}
+      </a>
+    ),
+  })
 
   const columns: Array<{ title: string; links: FooterLink[] }> = [
     {
@@ -281,7 +323,10 @@ export async function SiteFooter() {
           ))}
         </div>
         <div {...stylex.props(styles.bottom)}>
-          <span {...stylex.props(styles.copyright)}>{copyright}</span>
+          <div {...stylex.props(styles.creditBlock)}>
+            <span {...stylex.props(styles.copyright)}>{copyright}</span>
+            <p {...stylex.props(styles.credit)}>{credit}</p>
+          </div>
           <div {...stylex.props(styles.legal)}>
             <Link
               href="/privacy-policy"
