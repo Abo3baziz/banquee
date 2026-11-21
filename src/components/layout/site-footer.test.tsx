@@ -3,11 +3,23 @@ import { createElement, type ReactNode } from 'react'
 import { beforeEach, describe, expect, it, vi } from 'vitest'
 import { SiteFooter } from './site-footer'
 
-const { getTranslations } = vi.hoisted(() => ({
+const { getLocale, getTranslations } = vi.hoisted(() => ({
+  getLocale: vi.fn(),
   getTranslations: vi.fn(),
 }))
 
-vi.mock('next-intl/server', () => ({ getTranslations }))
+vi.mock('next-intl/server', () => ({ getLocale, getTranslations }))
+
+vi.mock('lucide-react', async () => {
+  const { createElement } = await import('react')
+
+  return {
+    ArrowUpLeft: (props: Record<string, unknown>) =>
+      createElement('svg', { ...props, 'data-testid': 'arrow-up-left' }),
+    ArrowUpRight: (props: Record<string, unknown>) =>
+      createElement('svg', { ...props, 'data-testid': 'arrow-up-right' }),
+  }
+})
 
 vi.mock('@stylexjs/stylex', () => ({
   create: (styles: unknown) => styles,
@@ -122,6 +134,8 @@ beforeEach(() => {
 
     return createTranslator(namespace)
   })
+  getLocale.mockReset()
+  getLocale.mockResolvedValue('en')
 })
 
 describe('SiteFooter', () => {
@@ -143,6 +157,7 @@ describe('SiteFooter', () => {
     expect(figmaLink).toHaveAttribute('href', FIGMA_URL)
     expect(figmaLink).toHaveAttribute('target', '_blank')
     expect(figmaLink).toHaveAttribute('rel', 'noreferrer')
+    expect(screen.getAllByTestId('arrow-up-right')).toHaveLength(2)
   })
 
   it('links the CC BY 4.0 license and indicates modifications', async () => {
@@ -158,5 +173,15 @@ describe('SiteFooter', () => {
       'UI design adapted from the Banquee template by',
     )
     expect(licenseLink.closest('p')).toHaveTextContent('with modifications')
+  })
+
+  it('mirrors the credit arrows in RTL', async () => {
+    getLocale.mockResolvedValue('ar')
+
+    const ui = await SiteFooter()
+    render(ui)
+
+    expect(screen.getAllByTestId('arrow-up-left')).toHaveLength(2)
+    expect(screen.queryByTestId('arrow-up-right')).not.toBeInTheDocument()
   })
 })

@@ -1,5 +1,6 @@
 import * as stylex from '@stylexjs/stylex'
-import { getTranslations } from 'next-intl/server'
+import { ArrowUpLeft, ArrowUpRight } from 'lucide-react'
+import { getLocale, getTranslations } from 'next-intl/server'
 import { Link } from '../../../i18n/navigation'
 import { colors, fonts, spacing } from '../../styles/tokens.stylex'
 
@@ -156,6 +157,30 @@ const styles = stylex.create({
     fontWeight: 500,
     lineHeight: '1.25rem',
   },
+  creditLink: {
+    color: {
+      default: colors.onSurfaceVariant,
+      ':hover': colors.onSurface,
+    },
+    fontFamily: fonts.body,
+    fontSize: '0.75rem',
+    fontWeight: 500,
+    lineHeight: '1.25rem',
+    textDecorationColor: {
+      default: colors.primaryContainer,
+      ':hover': colors.primary,
+    },
+    textDecorationLine: 'underline',
+    textUnderlineOffset: 3,
+    transitionDuration: '150ms',
+    transitionProperty: 'color, text-decoration-color',
+  },
+  creditLinkIcon: {
+    display: 'inline-block',
+    marginInlineStart: '0.125rem',
+    transform: 'translateY(-1px)',
+    verticalAlign: 'baseline',
+  },
   legal: {
     alignItems: 'center',
     columnGap: spacing.lg,
@@ -194,15 +219,25 @@ export async function SiteFooter() {
   // The dictionaries use {{variable}} placeholders, so interpolate the raw string.
   const copyright = String(t.raw('copyright')).replace('{{year}}', String(year))
 
+  // Mirror the arrow in RTL so it still points away from the link text.
+  const locale = await getLocale()
+  const CreditArrow = locale === 'ar' ? ArrowUpLeft : ArrowUpRight
+
   const credit = t.rich('designCredit', {
     figmaLink: (chunks) => (
       <a
         href={FIGMA_TEMPLATE_URL}
         target="_blank"
         rel="noreferrer"
-        {...stylex.props(styles.legalLink, styles.focusRing)}
+        {...stylex.props(styles.creditLink, styles.focusRing)}
       >
         {chunks}
+        <CreditArrow
+          aria-hidden="true"
+          size={10}
+          strokeWidth={2.5}
+          {...stylex.props(styles.creditLinkIcon)}
+        />
       </a>
     ),
     licenseLink: (chunks) => (
@@ -210,9 +245,15 @@ export async function SiteFooter() {
         href={CC_BY_LICENSE_URL}
         target="_blank"
         rel="noreferrer"
-        {...stylex.props(styles.legalLink, styles.focusRing)}
+        {...stylex.props(styles.creditLink, styles.focusRing)}
       >
         {chunks}
+        <CreditArrow
+          aria-hidden="true"
+          size={10}
+          strokeWidth={2.5}
+          {...stylex.props(styles.creditLinkIcon)}
+        />
       </a>
     ),
   })
