@@ -158,7 +158,7 @@ const styles = stylex.create({
     lineHeight: '1.125rem',
   },
   featureDisabled: {
-    color: 'rgba(62, 73, 70, 0.6)',
+    color: 'rgba(62, 73, 70, 0.8)',
   },
   featureIcon: {
     color: colors.primary,
@@ -166,7 +166,7 @@ const styles = stylex.create({
     marginTop: 1,
   },
   featureIconDisabled: {
-    color: 'rgba(62, 73, 70, 0.6)',
+    color: 'rgba(62, 73, 70, 0.8)',
     flexShrink: 0,
     marginTop: 1,
   },
