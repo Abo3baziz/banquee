@@ -254,7 +254,7 @@ export function LanguageSwitcher({ label }: LanguageSwitcherProps) {
       <DropdownMenu.Trigger asChild>
         <button
           type="button"
-          aria-label={label}
+          aria-label={`${locale.toUpperCase()} — ${label}`}
           {...stylex.props(
             styles.trigger,
             open && styles.triggerOpen,
