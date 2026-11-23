@@ -29,7 +29,7 @@ There is no database, no authentication, and no payment processing. Content is l
 
 I owned this project end to end, from the first artboard to the last test:
 
-- **UI/UX design** — The visual language is mine: a mint-and-ink palette built on tonal surface layering instead of drop shadows, a type scale pairing Sora/Inter with Cairo/Tajawal for Arabic, 8px spacing rhythm, and component specs for buttons, chips, inputs, cards, and transaction lists. I designed full screens for every website page plus five phone app screens (home, cards, savings, stats, support), which the site's animated demos are modeled on. The design sources live in a local `ui designs/` folder that isn't tracked in this repo.
+- **UI/UX design** — The page designs are based on [Banquee – SaaS & Bank Website](https://www.figma.com/community/file/1151590403301615327), a Figma Community template by Pawel Gola used under [CC BY 4.0](https://creativecommons.org/licenses/by/4.0/). My adaptation gives it a mint-and-ink palette built on tonal surface layering instead of drop shadows, a type scale pairing Sora/Inter with Cairo/Tajawal for Arabic, 8px spacing rhythm, and component specs for buttons, chips, inputs, cards, and transaction lists. I designed full screens for every website page plus five phone app screens (home, cards, savings, stats, support), which the site's animated demos are modeled on. The design sources live in a local `ui designs/` folder that isn't tracked in this repo.
 - **Code implementation** — The code was not written by hand: I directed an AI coding agent that implemented everything in this repository from my designs and specs — the StyleX design tokens, every page and component, the next-intl routing with RTL support, the locale-aware currency utilities, the automated phone demos with gesture-driven interactions, and the test suite. I reviewed, tested, and merged every change it produced.
 
 ## 🧭 What's built
@@ -325,9 +325,15 @@ Banquee is a mockup. It is not a bank, it does not hold money, and its account f
 
 ## 📄 License
 
-Released under the [MIT License](LICENSE).
+Code released under the [MIT License](LICENSE).
+
+The UI design is derived from [Banquee – SaaS & Bank Website](https://www.figma.com/community/file/1151590403301615327) by Pawel Gola (Figma Community), used under [CC BY 4.0](https://creativecommons.org/licenses/by/4.0/) with modifications. The MIT license covers the code in this repository; the original template design remains under its Creative Commons license, and the footer carries the required attribution.
 
 ---
+
+<p align="center">
+  UI design based on the <a href="https://www.figma.com/community/file/1151590403301615327">Banquee template</a> by Pawel Gola · <a href="https://creativecommons.org/licenses/by/4.0/">CC BY 4.0</a>
+</p>
 
 <p align="center">
   Designed and built by <a href="https://github.com/Abo3baziz">Abo3baziz</a>.

@@ -65,7 +65,7 @@
       "communityHub": "Comunidad"
     },
     "copyright": "© {{year}} banquee. Todos los derechos reservados. Diseñado para una claridad financiera moderna.",
-    "pawelCredit": "© Creado por Pawel Gola - Desarrollado en Webflow",
+    "designCredit": "Diseño de UI adaptado de la plantilla Banquee de <figmaLink>Pawel Gola</figmaLink>, usado bajo <licenseLink>CC BY 4.0</licenseLink> con modificaciones.",
     "legal": {
       "impressum": "Aviso legal (Impressum)",
       "datenschutz": "Protección de datos (Datenschutz)",
