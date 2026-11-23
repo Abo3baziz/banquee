@@ -46,7 +46,7 @@ const styles = stylex.create({
     overflow: 'hidden',
     backgroundColor: colors.primaryContainer,
     boxShadow: '0 18px 40px rgba(0, 0, 0, 0.12)',
-    color: colors.onPrimary,
+    color: colors.onPrimaryContainer,
     position: 'relative',
     width: '100%',
   },
@@ -82,7 +82,7 @@ const styles = stylex.create({
   },
   headline: {
     margin: 0,
-    color: colors.onPrimary,
+    color: colors.onPrimaryContainer,
     fontFamily: fonts.heading,
     fontSize: {
       default: '2.25rem',
@@ -97,7 +97,7 @@ const styles = stylex.create({
   },
   description: {
     margin: 0,
-    color: 'rgba(255, 255, 255, 0.9)',
+    color: colors.onPrimaryContainer,
     fontFamily: fonts.body,
     fontSize: '1rem',
     fontWeight: 500,
@@ -118,7 +118,7 @@ const styles = stylex.create({
   checkItem: {
     gap: spacing.sm,
     alignItems: 'center',
-    color: colors.onPrimary,
+    color: colors.onPrimaryContainer,
     display: 'flex',
     fontFamily: fonts.body,
     fontSize: '0.875rem',

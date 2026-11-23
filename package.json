@@ -6,11 +6,13 @@
     "dev": "next dev -p 3010",
     "build": "next build",
     "start": "next start",
+    "start:e2e": "next start -p 3010",
     "lint": "eslint",
     "typecheck": "tsc --noEmit",
     "test": "vitest run",
     "test:watch": "vitest",
     "test:e2e": "playwright test",
+    "test:a11y": "playwright test e2e/accessibility.spec.ts",
     "format": "prettier --write .",
     "format:check": "prettier --check ."
   },
