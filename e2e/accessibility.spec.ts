@@ -16,6 +16,9 @@ const PAGES = [
   { path: '/features', name: 'features' },
   { path: '/compare', name: 'compare' },
   { path: '/blog', name: 'blog' },
+  { path: '/blog/startup-finances', name: 'blog article' },
+  { path: '/blog/banko-secrets', name: 'blog article' },
+  { path: '/blog/improve-saving-habits', name: 'blog article' },
   { path: '/support', name: 'support' },
 ] as const
 
