@@ -198,7 +198,7 @@ const styles = stylex.create({
     fontSize: '0.6875rem',
     lineHeight: '1rem',
     marginBlockStart: spacing.xs,
-    opacity: 0.75,
+    opacity: 0.8,
     marginBottom: 0,
   },
   visuallyHidden: {

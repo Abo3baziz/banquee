@@ -709,7 +709,7 @@ const styles = stylex.create({
     lineHeight: '2.75rem',
   },
   amountSymbol: {
-    color: colors.primaryContainer,
+    color: colors.primary,
     fontSize: '1.5rem',
     marginInlineEnd: '0.125rem',
   },
@@ -885,7 +885,7 @@ const styles = stylex.create({
     lineHeight: '2.625rem',
   },
   entrySymbol: {
-    color: colors.primaryContainer,
+    color: colors.primary,
     fontSize: '1.25rem',
     marginInlineEnd: '0.125rem',
   },
