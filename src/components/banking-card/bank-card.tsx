@@ -79,6 +79,17 @@ const styles = stylex.create({
       ':focus-visible': 2,
     },
   },
+  flipOverlay: {
+    inset: 0,
+    margin: 0,
+    padding: 0,
+    borderRadius: 'clamp(12px, 4cqw, 20px)',
+    borderWidth: 0,
+    backgroundColor: 'transparent',
+    cursor: 'pointer',
+    position: 'absolute',
+    zIndex: 1,
+  },
   inner: {
     display: 'block',
     position: 'relative',
@@ -681,15 +692,16 @@ export function BankCard(props: BankCardProps) {
   return (
     <div {...stylex.props(styles.root)}>
       {onFlip ? (
-        <button
-          type="button"
-          aria-label={flipLabel}
-          aria-pressed={flipped}
-          onClick={onFlip}
-          {...stylex.props(styles.frame, styles.interactive, styles.focusRing)}
-        >
+        <div {...stylex.props(styles.frame, styles.interactive)}>
           {renderFaces(props, flipped)}
-        </button>
+          <button
+            type="button"
+            aria-label={flipLabel}
+            aria-pressed={flipped}
+            onClick={onFlip}
+            {...stylex.props(styles.flipOverlay, styles.focusRing)}
+          />
+        </div>
       ) : (
         <div
           role={computedLabel ? 'img' : undefined}
