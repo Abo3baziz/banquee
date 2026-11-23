@@ -7,7 +7,7 @@ export default defineConfig({
   retries: process.env.CI ? 2 : 0,
   reporter: 'html',
   use: {
-    baseURL: 'http://localhost:3000',
+    baseURL: 'http://localhost:3010',
     trace: 'on-first-retry',
   },
   projects: [
@@ -17,8 +17,9 @@ export default defineConfig({
     },
   ],
   webServer: {
-    command: 'pnpm dev',
-    url: 'http://localhost:3000',
+    command: 'pnpm build && pnpm start:e2e',
+    url: 'http://localhost:3010',
     reuseExistingServer: !process.env.CI,
+    timeout: 300_000,
   },
 })
