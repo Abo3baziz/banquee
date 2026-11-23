@@ -182,7 +182,7 @@ const styles = stylex.create({
     flexShrink: 0,
   },
   dimmed: {
-    color: 'rgba(62, 73, 70, 0.6)',
+    color: 'rgba(62, 73, 70, 0.8)',
   },
   footnote: {
     color: colors.onSurfaceVariant,
