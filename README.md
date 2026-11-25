@@ -309,7 +309,7 @@ Data flows one way: the parent holds `mode`, `runId`, and `paused`, and passes p
 
 Unit and component tests run on Vitest with Testing Library: the flippable bank card, demo sequencing and gesture indicators, blog data and article TOC/share, compare and savings data, support utilities, the scroll-direction hook, and the currency hook.
 
-Playwright and axe-core are configured for end-to-end accessibility specs; those haven't been written yet.
+Playwright and axe-core run a WCAG 2.1 A/AA audit (`pnpm test:a11y`) across every page in all four locales, Arabic RTL included. The suite fails on any new violation and prints the offending rule, element, and failure details for triage.
 
 ## 📚 Docs
 

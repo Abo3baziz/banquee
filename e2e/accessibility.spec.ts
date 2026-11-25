@@ -24,6 +24,13 @@ const PAGES = [
 
 const TAGS = ['wcag2a', 'wcag2aa', 'wcag21a', 'wcag21aa']
 
+/*
+ * Audit with reduced motion so scroll-reveal wrappers render their content
+ * immediately. With animations enabled, a section sampled mid-fade can be
+ * skipped by axe, which would hide violations instead of failing on them.
+ */
+test.use({ reducedMotion: 'reduce' })
+
 /**
  * Sections below the fold start at opacity 0 until they are scrolled into view,
  * so a plain axe run would skip most of the page. Walk the document first and
@@ -62,18 +69,27 @@ for (const locale of LOCALES) {
           200,
         )
         await page.locator('h1').first().waitFor({ state: 'visible' })
+        // Arabic webfonts load with `preload: false`, so wait for them before
+        // scrolling: late font swaps change layout and section heights.
+        await page.evaluate(async () => {
+          await document.fonts.ready
+        })
         await revealWholePage(page)
 
-        const results = await new AxeBuilder({ page })
-          .withTags(TAGS)
-          .analyze()
+        const results = await new AxeBuilder({ page }).withTags(TAGS).analyze()
 
         const report = results.violations
           .map((violation) => {
-            const targets = violation.nodes
-              .map((node) => `    ${node.target.join(' ')}`)
+            const nodes = violation.nodes
+              .map((node) => {
+                const summary = (node.failureSummary ?? '').replace(
+                  /\n/g,
+                  '\n      ',
+                )
+                return `    ${node.target.join(' ')}\n      ${summary}`
+              })
               .join('\n')
-            return `${violation.id} (${violation.impact}): ${violation.help}\n${targets}`
+            return `${violation.id} (${violation.impact}): ${violation.help}\n${nodes}`
           })
           .join('\n\n')
 
